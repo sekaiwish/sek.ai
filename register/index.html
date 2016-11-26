@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<link rel="icon" href="/webassets/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/webassets/font.css" type="text/css">
+<title>Register for WishDrive</title>
+<style>
+    form {
+        border: 0px solid: #f1f1f1;
+    }
+
+    input[type=email],
+    input[type=text],
+    input[type=password] {
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid: #ccc;
+        box-sizing: border-box;
+    }
+</style>
+
+<head>
+    <p class="neonoire" style="text-align:center;font-size:300%;color:white;">WishDrive</p>
+</head>
+
+<body bgcolor="#1D1F21">
+    <h2>Register for WishDrive</h2>
+
+    <form style="text-align:center;color:gray;" action="/access/register.php" method="post" accept-charset="UTF-8">
+        <div class="container">
+            <label><b>Email</b></label>
+            <br>
+            <input type="email" placeholder="Enter email address" name="email" id="email" size="30" maxlength="48" required><br>
+            <label><b>Username</b></label>
+            <br>
+            <input type="text" placeholder="Enter username" name="username" id="username" maxlength="16" required><br>
+            <label><b>Password</b></label>
+            <br>
+            <input type="password" placeholder="Enter password" name="password" id="password" maxlength="16" required><br>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</body>
+
+</html>

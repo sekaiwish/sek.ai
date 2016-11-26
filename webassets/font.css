@@ -1,0 +1,100 @@
+@font-face {
+	font-family:"NeoNoire";
+	src: url(/webassets/font.ttf) format("truetype");
+}
+.neonoire {
+	font-family:"NeoNoire",Verdana,Tahoma;
+}
+.neonoireTitle {
+	font-family:"NeoNoire",Verdana,Tahoma;
+	text-align:center;
+	font-size:300%;
+	color:white;
+}
+.link {
+	font-family:Arial,Verdana,Tahoma;
+}
+.beta {
+	font-size:120%;
+	color:white;
+	font-weight:bold;
+	text-align:center;
+}
+p {
+	font-family:Arial,Verdana,Tahoma;
+	color:grey;
+}
+h2 {
+	font-family:Arial,Verdana,Tahoma;
+	text-align:center;
+	color:gray
+}
+label {
+	font-family:Arial,Verdana,Tahoma;
+}
+video {
+	position:absolute;
+	right:10px;
+}
+embed {
+	position:fixed;
+	right:10px;
+	top:80px;
+}
+a {
+	outline:0;
+}
+
+/*
+4CHAN STYLE
+*/
+a:link {
+	font-family:Arial,Verdana,Tahoma;
+	color:blue;
+    text-decoration:none;
+}
+
+a:visited {
+	font-family:Arial,Verdana,Tahoma;
+	color:blue;
+    text-decoration:none;
+}
+
+a:hover {
+	font-family:Arial,Verdana,Tahoma;
+	color:red;
+    text-decoration:none;
+}
+
+a:active {
+	font-family:Arial,Verdana,Tahoma;
+	color:red;
+    text-decoration:none;
+}
+
+/*
+YOUTUBE STYLE
+a:link {
+	font-family:Arial,Verdana,Tahoma;
+	color:white;
+    text-decoration:none;
+}
+
+a:visited {
+	font-family:Arial,Verdana,Tahoma;
+	color:white;
+    text-decoration:none;
+}
+
+a:hover {
+	font-family:Arial,Verdana,Tahoma;
+	color:blue;
+    text-decoration:none;
+}
+
+a:active {
+	font-family:Arial,Verdana,Tahoma;
+	color:blue;
+    text-decoration:none;
+}
+*/
