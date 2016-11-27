@@ -2,13 +2,19 @@
 $usernames = array("WiSh","minty","niggerlove");
 
 $username = strtolower($_POST["username"]);
-if (in_array($username,$usernames)) {
+$usernamecount = count($usernames);
+for ($x = 0; $x < $usernamecount; $x++) {
+	$usernamesLower[$x] = strtolower($usernames[$x]);
+}
+if (in_array($username,$usernamesLower)) {
 	header("Location: /registererror");
 	exit();
 }
+
+$displayUsername = $_POST["username"];
 $password = $_POST["password"];
 $email = strtolower($_POST["email"]);
-$append = array($username,$password,$email);
+$append = array($displayUsername,$username,$password,$email);
 
 //openssl_encrypt($append, aes-256-ofb, fUcKiNgNiGgEr);
 
