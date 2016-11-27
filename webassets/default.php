@@ -18,7 +18,6 @@ echo
 <link rel="stylesheet" href="/webassets/font.css" type="text/css">
 </head>
 <body bgcolor="#1D1F21">
-<div style="position:fixed;left:18px;bottom:10px;background-color:#777777;width:100px;height:30px;">
 <p class="beta">DEV 0.4.3</p>
 </div>
 <p style="position:fixed;right:10px;top:0px">Logged in as '.$_SESSION["username"].'.</p>
