@@ -11,10 +11,10 @@ if (in_array($username,$usernamesLower)) {
 	exit();
 }
 
-$displayUsername = $_POST["username"];
+$username = $_POST["username"];
 $password = $_POST["password"];
 $email = strtolower($_POST["email"]);
-$append = array($displayUsername,$username,$password,$email);
+$append = array($username,$password,$email);
 
 //openssl_encrypt($append, aes-256-ofb, fUcKiNgNiGgEr);
 

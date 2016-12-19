@@ -1,5 +1,5 @@
-<php
-  echo(<!DOCTYPE html>
+<?php
+  echo('<!DOCTYPE html>
   <html>
     <head>
 

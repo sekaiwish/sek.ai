@@ -1,5 +1,5 @@
-<php
-  echo(<!DOCTYPE html>
+<?php
+  echo('<!DOCTYPE html>
   <html>
     <head>
 
@@ -18,6 +18,7 @@
           align-items: center;
           transition: filter 1s, background-color 1s;
         }
+        /*
         .tile2 {
           float: left;
           width: 49%;
@@ -27,6 +28,12 @@
           align-items: center;
           transition: filter 1s, background-color 1s;
         }
+        */
+        .hSeparator {
+          float: left;
+          width: 2%;
+          height: 40%;
+        }
         .tileText {
           font-family: "NeoNoire";
           color: white;
@@ -35,6 +42,7 @@
           opacity: 0;
           transition: 1s linear;
         }
+        /*
         .tile2Text {
           font-family: "NeoNoire";
           color: white;
@@ -44,20 +52,25 @@
           opacity: 0;
           transition: 1s linear;
         }
+        */
         .tile:hover {
           background-color: #777777;
         }
+        /*
         .tile2:hover {
           background-color: #777777;
         }
+        */
         .tile:hover > .tileText {
           filter: blur(0px);
           opacity: 1;
         }
+        /*
         .tile2:hover > .tile2Text {
           filter: blur(0px);
           opacity: 1;
         }
+        */
       </style>
 
     </head>
@@ -75,14 +88,14 @@
       </p>
       <p style="text-align: center;">
         <div style="height: 100%; width: 70%; margin: auto;">
-          <a href="/FLAC">
+          <a href="/flac">
             <div class="tile" style="background-image: url(/webassets/flac.gif); background-size: 100% 100%;">
               <p class="tileText">
                 FLAC
               </p>
             </div>
           </a>
-          <div style="float: left; width: 2%; height: 30%;">
+          <div class="hSeparator">
             <br>
           </div>
           <a href="/anime">
@@ -92,40 +105,49 @@
               </p>
             </div>
           </a>
-          <div style="float: left; width: 2%; height: 30%;">
+          <div class="hSeparator">
             <br>
           </div>
           <a href="/board">
-            <div class="tile">
+            <div class="tile" style="background-image: url(/webassets/board.gif); background-size: 100% 100%;">
               <p class="tileText">
                 BOARD
               </p>
             </div>
           </a>
           <br>
-          <div style="float: left; height: 3%; width: 100%;">
+          <div style="float: left; height: 3%; width: 80%;">
             <br>
           </div>
           <br>
           <a href="/DLF ARCHIVE">
-            <div class="tile2">
-              <p class="tile2Text">
+            <div class="tile">
+              <p class="tileText">
                 DLF
               </p>
             </div>
           </a>
-          <div style="float: left; width: 2%; height: 30%;">
+          <div class="hSeparator">
             <br>
           </div>
           <a href="/hentai">
-            <div class="tile2">
-              <p class="tile2Text">
+            <div class="tile">
+              <p class="tileText">
                 HENTAI
               </p>
             </div>
           </a>
+          <div class="hSeparator">
+            <br>
+          </div>
+          <a href="/iso">
+            <div class="tile">
+              <p class="tileText">
+                ISO
+              </p>
+            </div>
+          </a>
         </div>
-      </p>
 
     </body>
   </html>');
