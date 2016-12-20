@@ -2,10 +2,10 @@
 session_start();
 
 $link = mysqli_connect("127.0.0.1","root","nig");
-$sql = 'SELECT username, password, linkstyle, tilestyle, userid FROM login';
+$sql = 'SELECT userid, username, password, approved, linkstyle, tilestyle FROM login';
 mysqli_select_db($link, 'login');
 $get = mysqli_query($link, $sql);
-$x = 0;
+$x = -1;
 while($row = mysqli_fetch_array($get, MYSQLI_ASSOC)) {
   $x += 1;
   $logins[$x] = $row;
@@ -18,14 +18,16 @@ $logincount = count($logins);
 for($y = 1; $y < $logincount; $y++) {
   $usernameLower[$y] = strtolower($logins[$y]["username"]);
   if($usernameLower[$y] == $username) {
-    if($password == $logins[$y]["password"]) {
-      header("Location: /");
-      $_SESSION["logged_in"] = TRUE;
-      $_SESSION["username"] = $logins[$y]["username"];
-      $_SESSION["userid"] = $logins[$y]["userid"];
-      $_SESSION["linkstyle"] = $logins[$y]["linkstyle"];
-      $_SESSION["tilestyle"] = $logins[$y]["tilestyle"];
-      exit();
+    if($logins[$y]["approved"] == 1) {
+      if($password == $logins[$y]["password"]) {
+        $_SESSION["logged_in"] = TRUE;
+        $_SESSION["username"] = $logins[$y]["username"];
+        $_SESSION["userid"] = $logins[$y]["userid"];
+        $_SESSION["linkstyle"] = $logins[$y]["linkstyle"];
+        $_SESSION["tilestyle"] = $logins[$y]["tilestyle"];
+        header("Location: /");
+        exit();
+      }
     } else {
       header("Location: /loginerror");
       exit();
