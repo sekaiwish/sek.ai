@@ -60,7 +60,7 @@
     </head>
     <body bgcolor="#1D1F21">
 
-      <p class="beta">BETA 0.4</p>
+      <p class="beta">DEV 0.5</p>
       <p style="position: fixed; right: 10px; top: 0px;">
         Logged in as '.$_SESSION["username"].'.
       </p>

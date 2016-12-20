@@ -24,7 +24,7 @@
     <body bgcolor="#1D1F21">
 
       <p class="beta">
-        BETA 0.4
+        DEV 0.5
       </p>
       <p class="neonoireTitle">
         WishDrive
