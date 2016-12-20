@@ -12,8 +12,9 @@ REL 0.4
 - Revamp homepage tiles (done)
 
 REL 0.5
+- Finish implementing menu tiles
 - Remake board section into an image sharing section
-  - Use MySQL to create database of images
-  - Display images with username and date
+  - Use MySQL to create file database
+  - Display file previews with username and date
   - Nice board design with page system
   - Create ShareX details to share
