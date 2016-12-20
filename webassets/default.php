@@ -29,7 +29,7 @@ echo('<!DOCTYPE html>
 			BETA 0.4
 		</p>
 		<p style="position:fixed;right:10px;top:0px">
-			Logged in as ' . $_SESSION["username"] . '.
+			Logged in as '.$_SESSION["username"].'.
 		</p>
 		<form method="POST" style="position: fixed; right: 10px; top: 40px;">
 			<input type="submit" name="preferences" value="Preferences">

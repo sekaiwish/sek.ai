@@ -10,10 +10,9 @@ if(isset($_POST['preferences'])) {
   header("Location: /access/preferences.php");
   exit();
 }
-if($_SESSION["logged_in"] != TRUE) {
-  include('webassets/logged_out.php');
-}
-elseif($_SESSION["logged_in"] = TRUE) {
+if($_SESSION["logged_in"] = TRUE) {
   include('webassets/logged_in.php');
+} else {
+  include('webassets/logged_out.php');
 }
 ?>

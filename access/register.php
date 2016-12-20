@@ -16,7 +16,6 @@ $usercount = count($users);
 for($y = 1; $y < $usercount; $y++) {
 	$usersLower[$y] = strtolower($users[$y]["username"]);
 }
-
 if (in_array($username, $usersLower)) {
 	header("Location: /registererror");
 } else {
