@@ -7,7 +7,7 @@
 Future versions:
 
 REL 0.4
-- Build full login database and system (done)
+- Build full login database and protected registration system (done)
   - Create user preferences for optimised experience (done)
 - Revamp homepage tiles (done)
 
