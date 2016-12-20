@@ -6,7 +6,7 @@ $sql = 'SELECT username, password, linkstyle, tilestyle, userid FROM login';
 mysqli_select_db($link, 'login');
 $get = mysqli_query($link, $sql);
 $x = 0;
-while ($row = mysqli_fetch_array($get, MYSQLI_ASSOC)) {
+while($row = mysqli_fetch_array($get, MYSQLI_ASSOC)) {
   $x += 1;
   $logins[$x] = $row;
 }
@@ -15,10 +15,10 @@ mysqli_close($link);
 $username = strtolower($_POST["username"]);
 $password = $_POST["password"];
 $logincount = count($logins);
-for ($y = 1; $y < $logincount; $y++) {
+for($y = 1; $y < $logincount; $y++) {
   $usernameLower[$y] = strtolower($logins[$y]["username"]);
-  if ($usernameLower[$y] == $username) {
-    if ($password == $logins[$y]["password"]) {
+  if($usernameLower[$y] == $username) {
+    if($password == $logins[$y]["password"]) {
       header("Location: /");
       $_SESSION["logged_in"] = TRUE;
       $_SESSION["username"] = $logins[$y]["username"];

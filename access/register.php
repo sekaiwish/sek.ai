@@ -3,10 +3,10 @@ $usernames = array("WiSh","minty","niggerlove");
 
 $username = strtolower($_POST["username"]);
 $usernamecount = count($usernames);
-for ($x = 0; $x < $usernamecount; $x++) {
+for($x = 0; $x < $usernamecount; $x++) {
 	$usernamesLower[$x] = strtolower($usernames[$x]);
 }
-if (in_array($username,$usernamesLower)) {
+if(in_array($username,$usernamesLower)) {
 	header("Location: /registererror");
 	exit();
 }
