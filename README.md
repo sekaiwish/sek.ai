@@ -8,7 +8,8 @@ Future versions:
 
 REL 0.4
 - Build full login database and system (done)
-- Revamp homepage tiles
+  - Create user preferences for optimised experience (done)
+- Revamp homepage tiles (done)
 
 REL 0.5
 - Remake board section into an image sharing section
