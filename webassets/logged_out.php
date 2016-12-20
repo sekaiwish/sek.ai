@@ -21,7 +21,7 @@ box-sizing:border-box;
 </head>
 <body bgcolor="#1D1F21">
 
-<p class="beta">DEV 0.4.3</p>
+<p class="beta">BETA 0.3</p>
 <p class="neonoireTitle">WishDrive</p>
 <h2>Log in to WishDrive</h2>
 <form style="text-align:center;color:gray;" action="/access/login.php" method="post" accept-charset="UTF-8">
