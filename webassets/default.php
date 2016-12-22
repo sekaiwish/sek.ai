@@ -13,6 +13,24 @@ if(isset($_POST['preferences'])) {
 	header("Location: /access/preferences.php");
 	exit();
 }
+$link = mysqli_connect("127.0.0.1","root","nig");
+$sql = 'SELECT username, linkstyle, tilestyle FROM login';
+mysqli_select_db($link, 'login');
+$get = mysqli_query($link, $sql);
+$x = -1;
+while($row = mysqli_fetch_array($get, MYSQLI_ASSOC)) {
+  $x += 1;
+  $data[$x] = $row;
+}
+mysqli_close($link);
+$counter = count($data);
+
+for($y = 1; $y < $counter; $y++) {
+	if($_SESSION["username"] == $data[$y]["username"]) {
+		$_SESSION["linkstyle"] = $data[$y]["linkstyle"];
+		$_SESSION["tilestyle"] = $data[$y]["tilestyle"];
+	}
+}
 echo('<!DOCTYPE html>
 <html>
 	<head>
