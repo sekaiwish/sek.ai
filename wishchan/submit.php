@@ -1,42 +1,52 @@
 <?php
-if (isset ($_FILES['fileToUpload'])) {
-  $disallowed = array('bat','bin','cmd','cpl','gadget','inf','ins','inx','isu','job','jse','lnk','msc','msi','msp','mst','paf','pif','ps1','reg','sct','sh','shb','u3p','vb','vbe','vbs','vbscript','ws','wsf');
+if(isset($_FILES["fileUpload"])) {
+  session_start();
+  $disallowed = array("bat","bin","cmd","cpl","gadget","inf","ins","inx","isu",
+  "job","jse","lnk","msc","msi","msp","mst","paf","pif","ps1","reg","sct","sh",
+  "shb","u3p","vb","vbe","vbs","vbscript","ws","wsf");
+  $err = $_FILES["fileUpload"]["error"];
+  $temp = $_FILES["fileUpload"]["tmp_name"];
 
-  $file_name = $_FILES['fileToUpload']['name'];
-  $file_tmp = $_FILES['fileToUpload']['tmp_name'];
-  $file_err = $_FILES['fileToUpload']['error'];
-  $file_size = $_FILES['fileToUpload']['size'];
-  $file_type = $_FILES['fileToUpload']['type']; //Unused
+  $upload_ip = $_SERVER["REMOTE_ADDR"];
+  $upload_name = $_FILES["fileUpload"]["name"];
+  $upload_user = $_SESSION['username'];
+  $upload_body = $_POST["textUpload"];
+  $upload_size = $_FILES["fileUpload"]["size"];
+  $upload_type = explode(".",$upload_name);
+  $upload_type = end($upload_type);
 
-  $file_ext = explode('.',$_FILES['fileToUpload']['name']);
-  $file_ext = end($file_ext);
-
-  if ($file_size > 1000000000) {
+  if($upload_size > 1000000000) {
     echo "ERROR: File cannot be larger than one gibibyte.";
     exit();
   }
-  if (in_array($file_ext,$disallowed)) {
+  if(in_array($upload_type,$disallowed)) {
     echo ("ERROR: Specific executable filetypes and scripts are not allowed, for obvious reasons.");
     exit();
   }
 
   # Debug
   /*
-  echo('[DUMP START]'
-    .'<br>File Name: '.$file_name
-    .'<br>File Size: '.$file_size
-    .'<br>Temporary Disk Name: '.$file_tmp
-    .'<br>File MIME: '.$file_type
-    .'<br>File Extension: '.$file_ext
-    .'<br>Error Code: '.$file_err
-    .'<br>[DUMP END]<br><br>');
+  echo("[DUMP START]"
+    ."<br>File Name: ".$_FILES["fileUpload"]["name"]
+    ."<br>File Size: ".$_FILES["fileUpload"]["size"]
+    ."<br>Temporary Disk Name: ".$_FILES["fileUpload"]["tmp_name"]
+    ."<br>File MIME: ".$_FILES["fileUpload"]["type"]
+    ."<br>File Extension: ".$upload_type
+    ."<br>Error Code: ".$_FILES["fileUpload"]["error"]);
   */
 
-  if (move_uploaded_file($file_tmp,"files/".$file_name)) {
-    echo ("Upload successful.");
-    header("Location: /board/files");
+  if (move_uploaded_file($temp,"files/".$upload_name)) {
+    $link = mysqli_connect("127.0.0.1","root","nig","wishchan");
+    $submit = "INSERT INTO posts (ip, name, body, filename, filetype, filesize)
+    VALUES ('$upload_ip', '$upload_user', '$upload_body', '$upload_name', '$upload_type', '$upload_size')";
+    if(mysqli_query($link,$submit)) {
+      header("Location: /wishchan");
+    } else {
+      echo("ERROR: ".mysqli_error($link));
+      exit();
+    }
   } else {
-    echo ("ERROR: Your upload was interrupted.<br>ERROR CODE: ".$file_err); # Write this to an error log
+    echo ("ERROR: Your upload was interrupted.<br>ERROR CODE: ".$err); # Write this to an error log
   }
 }
 ?>

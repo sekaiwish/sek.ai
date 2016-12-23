@@ -4,7 +4,9 @@
 <p>[<a href="/">Return</a>]</p>
 
 <form action="submit.php" method="post" enctype="multipart/form-data" style="color:grey;position:fixed;right:50px">
-  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="text" name="textUpload" id="textUpload">
+  <br>
+  <input type="file" name="fileUpload" id="fileUpload">
   <br>
   <input type="submit" value="Upload File" name="submit">
 </form>
@@ -15,7 +17,9 @@
     $sql = 'SELECT id, name, time, body, files, sticky FROM posts';
     mysqli_select_db($link, 'wishchan');
     $get = mysqli_query($link, $sql);
-    $x = 0;
+
+    # Figure out how to get the last 20 posts from their post IDs
+
     #$y = 1; $y < $logincount; $y++
     #while($row = mysqli_fetch_array(mysqli_result, MYSQLI_ASSOC)) {
     #  $x += 1;
