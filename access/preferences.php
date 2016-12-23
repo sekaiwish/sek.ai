@@ -17,5 +17,9 @@
   <input type="radio" name="tilestyle" value="2" required <?php if($_SESSION["tilestyle"]==2){echo("checked");}?>>PNG Menu Tiles
   <br>
   <br>
+  <input type="text" name="postsshown" value="<?php echo($_SESSION['postsshown']);?>" required>
+  <!-- Doesn't return value... yet... -->
+  <br>
+  <br>
   <input type="submit" name="confirm" value="Update Preferences">
 </form>

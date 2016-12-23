@@ -29,6 +29,7 @@ for($y = 1; $y < $counter; $y++) {
 	if($_SESSION["username"] == $data[$y]["username"]) {
 		$_SESSION["linkstyle"] = $data[$y]["linkstyle"];
 		$_SESSION["tilestyle"] = $data[$y]["tilestyle"];
+		$_SESSION["postsshown"] = $data[$y]["postsshown"];
 	}
 }
 echo('<!DOCTYPE html>

@@ -6,7 +6,6 @@ if(isset($_FILES["fileUpload"])) {
   "shb","u3p","vb","vbe","vbs","vbscript","ws","wsf");
   $err = $_FILES["fileUpload"]["error"];
   $temp = $_FILES["fileUpload"]["tmp_name"];
-
   $upload_ip = $_SERVER["REMOTE_ADDR"];
   $upload_name = $_FILES["fileUpload"]["name"];
   $upload_user = $_SESSION['username'];
@@ -14,27 +13,14 @@ if(isset($_FILES["fileUpload"])) {
   $upload_size = $_FILES["fileUpload"]["size"];
   $upload_type = explode(".",$upload_name);
   $upload_type = end($upload_type);
-
   if($upload_size > 1000000000) {
     echo "ERROR: File cannot be larger than one gibibyte.";
     exit();
   }
   if(in_array($upload_type,$disallowed)) {
-    echo ("ERROR: Specific executable filetypes and scripts are not allowed, for obvious reasons.");
+    echo ("ERROR: Specific executable filetypes and scripts are not allowed.");
     exit();
   }
-
-  # Debug
-  /*
-  echo("[DUMP START]"
-    ."<br>File Name: ".$_FILES["fileUpload"]["name"]
-    ."<br>File Size: ".$_FILES["fileUpload"]["size"]
-    ."<br>Temporary Disk Name: ".$_FILES["fileUpload"]["tmp_name"]
-    ."<br>File MIME: ".$_FILES["fileUpload"]["type"]
-    ."<br>File Extension: ".$upload_type
-    ."<br>Error Code: ".$_FILES["fileUpload"]["error"]);
-  */
-
   if (move_uploaded_file($temp,"files/".$upload_name)) {
     $link = mysqli_connect("127.0.0.1","root","nig","wishchan");
     $submit = "INSERT INTO posts (ip, name, body, filename, filetype, filesize)
