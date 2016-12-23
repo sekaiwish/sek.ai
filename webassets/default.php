@@ -14,7 +14,7 @@ if(isset($_POST['preferences'])) {
 	exit();
 }
 $link = mysqli_connect("127.0.0.1","root","nig");
-$sql = 'SELECT username, linkstyle, tilestyle FROM login';
+$sql = 'SELECT username, linkstyle, tilestyle, postsshown FROM login';
 mysqli_select_db($link, 'login');
 $get = mysqli_query($link, $sql);
 $x = -1;
@@ -24,7 +24,6 @@ while($row = mysqli_fetch_array($get, MYSQLI_ASSOC)) {
 }
 mysqli_close($link);
 $counter = count($data);
-
 for($y = 1; $y < $counter; $y++) {
 	if($_SESSION["username"] == $data[$y]["username"]) {
 		$_SESSION["linkstyle"] = $data[$y]["linkstyle"];

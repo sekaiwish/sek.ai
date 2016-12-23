@@ -97,7 +97,7 @@
         <div class="hSeparator">
           <br>
         </div>
-        <a href="/board">
+        <a href="/wishchan">
           <div class="tile">
             <div class="imgTile">
               <img src="<?php if($_SESSION["tilestyle"]==0){echo("/webassets/tiles/board.gif");}elseif($_SESSION["tilestyle"]==1){echo("/webassets/tiles/Gboard.gif");}else{echo("/webassets/tiles/board.png");}?>">

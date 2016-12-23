@@ -15,19 +15,19 @@
 <p>
   <?php
     $link = mysqli_connect("127.0.0.1","root","nig");
+    mysqli_select_db($link,'wishchan');
     $x = $_SESSION["postsshown"];
-    $sql = 'SELECT id, name, time, body, files, sticky FROM posts';
-    mysqli_select_db($link, 'wishchan');
-    $get = mysqli_query($link, $sql);
-
-    # Figure out how to get the last 20 posts from their post IDs
-
-    #$y = 1; $y < $logincount; $y++
-    #while($row = mysqli_fetch_array(mysqli_result, MYSQLI_ASSOC)) {
-    #  $x += 1;
-    #  $logins[$x] = $row;
-    #}
+    $postcount = mysql_query("SELECT * FROM table1", $link);
+    $postcount = mysql_num_rows($postcount);
+    $postdata = 'SELECT id, name, time, body, filename, filetype, filesize, sticky FROM posts';
+    $posts = mysqli_query($link, $postdata);
+    $y = 0;
+    while($row = mysqli_fetch_array($posts,MYSQLI_ASSOC)) {
+      $y += 1;
+      $post[$y] = $row;
+    }
     mysqli_close($link);
+    # Echo post data received.
   ?>
 </p>
 

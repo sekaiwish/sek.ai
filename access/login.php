@@ -2,7 +2,7 @@
 session_start();
 
 $link = mysqli_connect("127.0.0.1","root","nig");
-$sql = 'SELECT userid, username, password, approved, linkstyle, tilestyle FROM login';
+$sql = 'SELECT userid, username, password, approved, linkstyle, tilestyle, postsshown FROM login';
 mysqli_select_db($link, 'login');
 $get = mysqli_query($link, $sql);
 $x = -1;
@@ -25,6 +25,7 @@ for($y = 1; $y < $logincount; $y++) {
         $_SESSION["userid"] = $logins[$y]["userid"];
         $_SESSION["linkstyle"] = $logins[$y]["linkstyle"];
         $_SESSION["tilestyle"] = $logins[$y]["tilestyle"];
+        $_SESSION["postsshown"] = $logins[$y]["postsshown"];
         header("Location: /");
         exit();
       }
