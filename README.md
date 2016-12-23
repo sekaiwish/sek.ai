@@ -6,12 +6,12 @@
 
 Future versions:
 
-REL 0.4
+BETA 0.4
 - Build full login database and protected registration system (done)
   - Create user preferences for optimised experience (done)
 - Revamp homepage tiles (done)
 
-REL 0.5
+BETA 0.5
 - Finish implementing menu tiles
 - Remake board section into an image sharing section
   - Use MySQL to create file database
