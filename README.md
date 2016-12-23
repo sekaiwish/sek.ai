@@ -4,12 +4,7 @@
 #             http://wishdrive.ddns.net/            #
 #####################################################
 
-Future versions:
-
-BETA 0.4
-- Build full login database and protected registration system (done)
-  - Create user preferences for optimised experience (done)
-- Revamp homepage tiles (done)
+Version information:
 
 BETA 0.5
 - Finish implementing menu tiles
@@ -18,3 +13,8 @@ BETA 0.5
   - Display file previews with username and date
   - Nice board design with page system
   - Create ShareX details to share
+
+BETA 0.4 (Released)
+- Build full login database and protected registration system (done)
+  - Create user preferences for optimised experience (done)
+- Revamp homepage tiles (done)
