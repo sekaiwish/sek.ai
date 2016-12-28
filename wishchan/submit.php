@@ -1,6 +1,7 @@
 <?php
 if(isset($_FILES["fileUpload"])) {
   session_start();
+  $link = mysqli_connect("127.0.0.1","root","nig","wishchan");
   $disallowed = array("bat","bin","cmd","cpl","gadget","inf","ins","inx","isu",
   "job","jse","lnk","msc","msi","msp","mst","paf","pif","ps1","reg","sct","sh",
   "shb","u3p","vb","vbe","vbs","vbscript","ws","wsf");
@@ -21,18 +22,22 @@ if(isset($_FILES["fileUpload"])) {
     echo ("ERROR: Specific executable filetypes and scripts are not allowed.");
     exit();
   }
-  if (move_uploaded_file($temp,"files/".$upload_name)) {
-    $link = mysqli_connect("127.0.0.1","root","nig","wishchan");
-    $submit = "INSERT INTO posts (ip, name, body, filename, filetype, filesize)
-    VALUES ('$upload_ip', '$upload_user', '$upload_body', '$upload_name', '$upload_type', '$upload_size')";
-    if(mysqli_query($link,$submit)) {
+  $lastpostnumber = "SELECT id FROM posts ORDER BY id DESC LIMIT 1";
+  $lastpostnumber = mysqli_query($link,$lastpostnumber);
+  $lastpostnumber = mysqli_fetch_array($lastpostnumber,MYSQLI_ASSOC);
+  $newpostnumber = $lastpostnumber["id"] + 1;
+  $submit = "INSERT INTO posts (ip, name, body, filename, filetype, filesize)
+  VALUES ('$upload_ip', '$upload_user', '$upload_body', '$upload_name', '$upload_type', '$upload_size')";
+  if(mysqli_query($link,$submit)) {
+    mysqli_close($link);
+    if(move_uploaded_file($temp,"files/".$newpostnumber."."."$upload_type")) {
       header("Location: /wishchan");
     } else {
-      echo("ERROR: ".mysqli_error($link));
-      exit();
+      echo("ERROR: Your upload was interrupted.<br>ERROR CODE: ".$err);
     }
   } else {
-    echo ("ERROR: Your upload was interrupted.<br>ERROR CODE: ".$err); # Write this to an error log
+    echo("ERROR: ".mysqli_error($link));
+    exit();
   }
 }
 ?>

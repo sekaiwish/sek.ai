@@ -17,9 +17,9 @@
     $link = mysqli_connect("127.0.0.1","root","nig");
     mysqli_select_db($link,'wishchan');
     $x = $_SESSION["postsshown"];
-    $postcount = mysql_query("SELECT * FROM table1", $link);
-    $postcount = mysql_num_rows($postcount);
-    $postdata = 'SELECT id, name, time, body, filename, filetype, filesize, sticky FROM posts';
+    #$postcount = mysqli_query($link,"SELECT * FROM table1");
+    #$postcount = mysqli_num_rows($postcount);
+    $postdata = 'SELECT id, thread, name, time, body, filename, filetype, filesize, sticky FROM posts';
     $posts = mysqli_query($link, $postdata);
     $y = 0;
     while($row = mysqli_fetch_array($posts,MYSQLI_ASSOC)) {
@@ -27,7 +27,9 @@
       $post[$y] = $row;
     }
     mysqli_close($link);
-    # Echo post data received.
+    for($y=0;$y<$x;$y++) {
+      echo("<div style='background:#2a2c2f;'></div>");
+    }
   ?>
 </p>
 
