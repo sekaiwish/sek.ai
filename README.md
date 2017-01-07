@@ -9,7 +9,7 @@ Version information:
 BETA 0.5
 - Finish implementing menu tiles
 - Remake board section into an image sharing section
-  - Use MySQL to create file database
+  - Use MySQL to create file database (done)
   - Display file previews with username and date
   - Nice board design with page system
   - Create ShareX details to share
