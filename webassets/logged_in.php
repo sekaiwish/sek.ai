@@ -44,124 +44,123 @@
     <p class="neonoireTitle">
       WishDrive
     </p>
-    <p style="text-align:center;">
-      <div style="height:100%;width:70%;margin:auto;">
-        <a href="/flac">
-          <div class="tile">
-            <div class="imgTile">
-              <img src="<?php if($_SESSION["tilestyle"]==2) {
-                echo("/webassets/tiles/flac.png");
-              } else {
-                echo("/webassets/tiles/flac.gif");
-              }
-              ?>">
-            </div>
-            <p class="tileText">
-              FLAC
-            </p>
+    <div style="height:100%;width:70%;margin:auto;">
+      <a href="/flac">
+        <div class="tile">
+          <div class="imgTile">
+            <img src="<?php if($_SESSION["tilestyle"]==2) {
+              echo("/webassets/tiles/flac.png");
+            } else {
+              echo("/webassets/tiles/flac.gif");
+            }
+            ?>">
           </div>
-        </a>
-        <div class="hSeparator">
-          <br>
+          <p class="tileText">
+            FLAC
+          </p>
         </div>
-        <a href="/anime">
-          <div class="tile">
-            <div class="imgTile">
-              <img src="<?php if($_SESSION["tilestyle"]==0) {
-                echo("/webassets/tiles/anime.gif");
-              } elseif($_SESSION["tilestyle"]==1) {
-                echo("/webassets/tiles/Ganime.gif");
-              } else {
-                echo("/webassets/tiles/anime.png");
-              }
-              ?>">
-            </div>
-            <p class="tileText">
-              ANIME
-            </p>
-          </div>
-        </a>
-        <div class="hSeparator">
-          <br>
-        </div>
-        <a href="/wishchan">
-          <div class="tile">
-            <div class="imgTile">
-              <img src="<?php if($_SESSION["tilestyle"]==0) {
-                echo("/webassets/tiles/board.gif");
-              } elseif($_SESSION["tilestyle"]==1) {
-                echo("/webassets/tiles/Gboard.gif");
-              } else {
-                echo("/webassets/tiles/board.png");
-              }
-              ?>">
-            </div>
-            <p class="tileText">
-              BOARD
-            </p>
-          </div>
-        </a>
+      </a>
+      <div class="hSeparator">
         <br>
-        <div class="vSeparator">
-        </div>
-        <br>
-        <a href="/DLF ARCHIVE">
-          <div class="tile">
-            <div class="imgTile">
-              <img src="<?php if($_SESSION["tilestyle"]==0) {
-                echo("/webassets/tiles/dlf.gif");
-              } elseif($_SESSION["tilestyle"]==1) {
-                echo("/webassets/tiles/Gdlf.gif");
-              } else {
-                echo("/webassets/tiles/dlf.png");
-              }
-              ?>">
-            </div>
-            <p class="tileText">
-              DLF
-            </p>
-          </div>
-        </a>
-        <div class="hSeparator">
-          <br>
-        </div>
-        <a href="/hentai">
-          <div class="tile">
-            <div class="imgTile">
-              <img src="<?php if($_SESSION["tilestyle"]==0) {
-                echo("/webassets/tiles/hentai.gif");
-              } elseif($_SESSION["tilestyle"]==1) {
-                echo("/webassets/tiles/Ghentai.gif");
-              } else {
-                echo("/webassets/tiles/hentai.png");
-              }
-              ?>">
-            </div>
-            <p class="tileText">
-              HENTAI
-            </p>
-          </div>
-        </a>
-        <div class="hSeparator">
-          <br>
-        </div>
-        <a href="/iso">
-          <div class="tile">
-            <div class="imgTile">
-              <img src="<?php if($_SESSION["tilestyle"]==0) {
-                echo("/webassets/tiles/iso.gif");
-              } elseif($_SESSION["tilestyle"]==1) {
-                echo("/webassets/tiles/Giso.gif");
-              } else {
-                echo("/webassets/tiles/iso.png");
-              }
-              ?>">
-            </div>
-            <p class="tileText">
-              ISO
-            </p>
-          </div>
-        </a>
       </div>
+      <a href="/anime">
+        <div class="tile">
+          <div class="imgTile">
+            <img src="<?php if($_SESSION["tilestyle"]==0) {
+              echo("/webassets/tiles/anime.gif");
+            } elseif($_SESSION["tilestyle"]==1) {
+              echo("/webassets/tiles/Ganime.gif");
+            } else {
+              echo("/webassets/tiles/anime.png");
+            }
+            ?>">
+          </div>
+          <p class="tileText">
+            ANIME
+          </p>
+        </div>
+      </a>
+      <div class="hSeparator">
+        <br>
+      </div>
+      <a href="/wishchan">
+        <div class="tile">
+          <div class="imgTile">
+            <img src="<?php if($_SESSION["tilestyle"]==0) {
+              echo("/webassets/tiles/board.gif");
+            } elseif($_SESSION["tilestyle"]==1) {
+              echo("/webassets/tiles/Gboard.gif");
+            } else {
+              echo("/webassets/tiles/board.png");
+            }
+            ?>">
+          </div>
+          <p class="tileText">
+            BOARD
+          </p>
+        </div>
+      </a>
+      <br>
+      <div class="vSeparator">
+      </div>
+      <br>
+      <a href="/DLF ARCHIVE">
+        <div class="tile">
+          <div class="imgTile">
+            <img src="<?php if($_SESSION["tilestyle"]==0) {
+              echo("/webassets/tiles/dlf.gif");
+            } elseif($_SESSION["tilestyle"]==1) {
+              echo("/webassets/tiles/Gdlf.gif");
+            } else {
+              echo("/webassets/tiles/dlf.png");
+            }
+            ?>">
+          </div>
+          <p class="tileText">
+            DLF
+          </p>
+        </div>
+      </a>
+      <div class="hSeparator">
+        <br>
+      </div>
+      <a href="/hentai">
+        <div class="tile">
+          <div class="imgTile">
+            <img src="<?php if($_SESSION["tilestyle"]==0) {
+              echo("/webassets/tiles/hentai.gif");
+            } elseif($_SESSION["tilestyle"]==1) {
+              echo("/webassets/tiles/Ghentai.gif");
+            } else {
+              echo("/webassets/tiles/hentai.png");
+            }
+            ?>">
+          </div>
+          <p class="tileText">
+            HENTAI
+          </p>
+        </div>
+      </a>
+      <div class="hSeparator">
+        <br>
+      </div>
+      <a href="/iso">
+        <div class="tile">
+          <div class="imgTile">
+            <img src="<?php if($_SESSION["tilestyle"]==0) {
+              echo("/webassets/tiles/iso.gif");
+            } elseif($_SESSION["tilestyle"]==1) {
+              echo("/webassets/tiles/Giso.gif");
+            } else {
+              echo("/webassets/tiles/iso.png");
+            }
+            ?>">
+          </div>
+          <p class="tileText">
+            ISO
+          </p>
+        </div>
+      </a>
+    </div>
   </body>
 </html>
