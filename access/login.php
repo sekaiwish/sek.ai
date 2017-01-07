@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 $link = mysqli_connect("127.0.0.1","root","nig");
 $sql = 'SELECT userid, username, password, approved, linkstyle, tilestyle, postsshown FROM login';
 mysqli_select_db($link, 'login');
@@ -11,15 +10,13 @@ while($row = mysqli_fetch_array($get, MYSQLI_ASSOC)) {
   $logins[$x] = $row;
 }
 mysqli_close($link);
-
 $username = strtolower($_POST["username"]);
-$password = $_POST["password"];
 $logincount = count($logins);
-for($y = 1; $y < $logincount; $y++) {
+for($y=1;$y<$logincount;$y++) {
   $usernameLower[$y] = strtolower($logins[$y]["username"]);
   if($usernameLower[$y] == $username) {
     if($logins[$y]["approved"] == 1) {
-      if($password == $logins[$y]["password"]) {
+      if($_POST["password"] == $logins[$y]["password"]) {
         $_SESSION["logged_in"] = TRUE;
         $_SESSION["username"] = $logins[$y]["username"];
         $_SESSION["userid"] = $logins[$y]["userid"];
@@ -28,43 +25,19 @@ for($y = 1; $y < $logincount; $y++) {
         $_SESSION["postsshown"] = $logins[$y]["postsshown"];
         header("Location: /");
         exit();
+      } else {
+        $_SESSION["loginerror"] = 3;
+        header("Location: /");
+        exit();
       }
     } else {
-      header("Location: /loginerror");
+      $_SESSION["loginerror"] = 2;
+      header("Location: /");
       exit();
     }
   } else {
-    header("Location: /loginerror");
+    $_SESSION["loginerror"] = 1;
+    header("Location: /");
   }
 }
-header("Location: /loginerror");
-
-# DEBUG
-/*
-$username = strtolower($_POST["username"]);
-echo("Set VARusername ($username)<br>");
-$password = $_POST["password"];
-echo("Set VARpassword ($password)<br>");
-$logincount = count($logins);
-echo("Counted logins ($logincount)<br>");
-for ($y = 1; $y < $logincount; $y++) {
-  $usernameLower[$y] = strtolower($logins[$y]["username"]);
-  echo("Set VARusernameLower (".$usernameLower[$y].")<br>");
-  if ($usernameLower[$y] == $username) {
-    if ($password == $logins[$y]["password"]) {
-      echo("Set SVARlogged_in (TRUE)<br>");
-      echo("Set SVARusername (".$logins[$y]["username"].")<br>");
-      echo("Set SVARlinkstyle (".$logins[$y]["linkstyle"].")<br>");
-      echo("Set SVARtilestyle (".$logins[$y]["tilestyle"].")<br>");
-      echo("<br>Login success (".$logins[$y]["username"].")<br>");
-      exit();
-    } else {
-      echo("Password did not match<br>");
-    }
-  } else {
-    echo("Username did not match<br>");
-  }
-}
-echo("Login failed")
-*/
 ?>

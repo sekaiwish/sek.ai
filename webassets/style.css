@@ -1,0 +1,93 @@
+@font-face {
+	font-family: "NeoNoire";
+	src: url(/webassets/font.ttf) format("truetype");
+}
+p {
+	font-family: Arial,Verdana,Tahoma;
+	color: grey;
+}
+h2 {
+	font-family: Arial,Verdana,Tahoma;
+	text-align: center;
+	color: gray
+}
+label {
+	font-family: Arial,Verdana,Tahoma;
+}
+video {
+	position: absolute;
+	right: 10px;
+}
+embed {
+	position: fixed;
+	right: 10px;
+	top: 80px;
+}
+a {
+	outline: 0;
+}
+div > img {
+	max-height: 100%;
+	max-width: 100%;
+	position: static;
+}
+input[type=email],
+input[type=text],
+input[type=password] {
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+}
+.neonoire {
+	font-family: "NeoNoire",Verdana,Tahoma;
+}
+.neonoireTitle {
+	font-family: "NeoNoire",Verdana,Tahoma;
+	text-align: center;
+	font-size: 300%;
+	color: white;
+}
+.link {
+	font-family: Arial,Verdana,Tahoma;
+}
+.beta {
+	font-size: 120%;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	position: fixed;
+	left: 25px;
+	bottom: 0px;
+}
+.centerDiv {
+	text-align: center;
+}
+.errorDiv {
+	display: inline-block;
+	background: #ff4c4c;
+	border-style: solid;
+  border-width: 3px;
+	border-color: #d40000;
+}
+.errorText {
+	font-family: Arial,Verdana,Tahoma;
+	text-align: center;
+	color: white;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.tile {
+	float: left;
+	width: 32%;
+}
+.hSeparator {
+	float: left;
+	width: 2%;
+	height: 1%;
+}
+.vSeparator {
+	float: left;
+	height: 1.5em;
+	width: 100%;
+}

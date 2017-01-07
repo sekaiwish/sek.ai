@@ -35,7 +35,7 @@ echo('<!DOCTYPE html>
 <html>
 	<head>
 		<link rel="icon" href="/webassets/favicon.ico" type="image/x-icon">
-		<link rel="stylesheet" href="/webassets/font.css" type="text/css">');
+		<link rel="stylesheet" href="/webassets/style.css" type="text/css">');
 		if ($_SESSION["linkstyle"] == 0) {
 			echo("\n".'		<link rel="stylesheet" href="/webassets/chan.css" type="text/css">');
 		} elseif ($_SESSION["linkstyle"] == 1) {
