@@ -39,6 +39,15 @@ input[type=password] {
 		border: 1px solid #ccc;
 		box-sizing: border-box;
 }
+textarea {
+	min-height: 6em;
+	max-height: 24em;
+	min-width: 20em;
+	max-width: 20em;
+	margin-top: 10px;
+	margin-left: 11px;
+	margin-right: 11px;
+}
 .neonoire {
 	font-family: "NeoNoire",Verdana,Tahoma;
 }
@@ -90,4 +99,17 @@ input[type=password] {
 	float: left;
 	height: 1.5em;
 	width: 100%;
+}
+.commentBox {
+	color: grey;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.post {
+	background:#2a2c2f;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }

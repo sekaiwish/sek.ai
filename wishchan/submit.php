@@ -26,8 +26,8 @@ if(isset($_FILES["fileUpload"])) {
   $lastpostnumber = mysqli_query($link,$lastpostnumber);
   $lastpostnumber = mysqli_fetch_array($lastpostnumber,MYSQLI_ASSOC);
   $newpostnumber = $lastpostnumber["id"] + 1;
-  $submit = "INSERT INTO posts (ip, name, body, filename, filetype, filesize)
-  VALUES ('$upload_ip', '$upload_user', '$upload_body', '$upload_name', '$upload_type', '$upload_size')";
+  $submit = "INSERT INTO posts (op, ip, name, body, filename, filetype, filesize)
+  VALUES ('1', '$upload_ip', '$upload_user', '$upload_body', '$upload_name', '$upload_type', '$upload_size')";
   if(mysqli_query($link,$submit)) {
     mysqli_close($link);
     if(move_uploaded_file($temp,"files/".$newpostnumber."."."$upload_type")) {
