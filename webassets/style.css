@@ -113,3 +113,8 @@ textarea {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+.viewcount {
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+}

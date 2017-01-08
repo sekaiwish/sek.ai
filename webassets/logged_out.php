@@ -1,4 +1,3 @@
-<?php session_start();?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,20 +17,47 @@
     <h2>
       Log in to WishDrive
     </h2>
-    <?php
-      if(isset($_SESSION["loginerror"])) {
-        echo('<div class="centerDiv" style="padding-bottom:1em;">
+<?php
+    session_start();
+    $link = mysqli_connect("127.0.0.1","root","nig");
+    mysqli_select_db($link,'views');
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $getView = 'SELECT count FROM views ORDER BY count DESC LIMIT 1';
+    $getView = mysqli_query($link,$getView);
+    $getView = mysqli_fetch_array($getView,MYSQLI_ASSOC);
+    $newView = $getView["count"] + 1;
+    $postView = "INSERT INTO views (count, ip) VALUES ('$newView', '$ip')";
+    if(mysqli_query($link, $postView)) {
+      mysqli_close($link);
+      echo('    <div style="position:fixed;right:0px;bottom:0px;">
+');
+      $showView = str_split($newView);
+      $places = count($showView);
+      $x = 0;
+      while($x < $places) {
+        echo('      <img src="/webassets/views/'.$showView[$x].'.gif">
+');
+        $x += 1;
+      }
+      echo('    </div>
+');
+    } else {
+      echo("ERROR: ".mysqli_error($link));
+      mysqli_close($link);
+    }
+    if(isset($_SESSION["loginerror"])) {
+      echo('<div class="centerDiv" style="padding-bottom:1em;">
       <div class="errorDiv">
         <p class="errorText">
           ');
-        if($_SESSION["loginerror"]==1) {
-          echo("User not found.");
-        } elseif($_SESSION["loginerror"]==2) {
-          echo("Your account has not been approved yet.");
-        } elseif($_SESSION["loginerror"]==3) {
-          echo("Incorrect password.");
-        }
-        echo("
+      if($_SESSION["loginerror"]==1) {
+        echo("User not found.");
+      } elseif($_SESSION["loginerror"]==2) {
+        echo("Your account has not been approved yet.");
+      } elseif($_SESSION["loginerror"]==3) {
+        echo("Incorrect password.");
+      }
+      echo("
         </p>
       </div>
     </div>
