@@ -26,10 +26,10 @@
     $getView = mysqli_query($link,$getView);
     $getView = mysqli_fetch_array($getView,MYSQLI_ASSOC);
     $newView = $getView["count"] + 1;
-    $postView = "INSERT INTO views (count, ip) VALUES ('$newView', '$ip')";
+    $postView = "INSERT INTO views (ip) VALUES ('$ip')";
     if(mysqli_query($link, $postView)) {
       mysqli_close($link);
-      echo('    <div style="position:fixed;right:0px;bottom:0px;">
+      echo('    <div class="viewcount">
 ');
       $showView = str_split($newView);
       $places = count($showView);
