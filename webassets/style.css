@@ -107,11 +107,12 @@ textarea {
 	margin-right: 10px;
 }
 .post {
-	background:#2a2c2f;
+	display: inline-block;
+	background: #2a2c2f;
 	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 .viewcount {
 	position: fixed;

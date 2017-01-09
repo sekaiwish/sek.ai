@@ -26,8 +26,8 @@
     $getView = mysqli_query($link,$getView);
     $getView = mysqli_fetch_array($getView,MYSQLI_ASSOC);
     $newView = $getView["count"] + 1;
-    $postView = "INSERT INTO views (ip) VALUES ('$ip')";
-    if(mysqli_query($link, $postView)) {
+    $postIp = "INSERT INTO views (ip) VALUES ('$ip')";
+    if(mysqli_query($link,$postIp)) {
       mysqli_close($link);
       echo('    <div class="viewcount">
 ');

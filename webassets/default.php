@@ -49,10 +49,10 @@ echo('<!DOCTYPE html>
 		<p style="position:fixed;right:10px;top:0px">
 			Logged in as '.$_SESSION["username"].'.
 		</p>
-		<form method="POST" style="position: fixed; right: 10px; top: 40px;">
+		<form method="POST" style="position:fixed;right:10px;top:40px;">
 			<input type="submit" name="preferences" value="Preferences">
 		</form>
-		<form method="POST" style="position: fixed; right: 10px; top: 68px;">
+		<form method="POST" style="position:fixed;right:10px;top:68px;">
 			<input type="submit" name="logout" value="Log Out">
 		</form>
 ')

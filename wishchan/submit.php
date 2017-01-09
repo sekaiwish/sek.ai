@@ -32,6 +32,7 @@ if(isset($_FILES["fileUpload"])) {
     mysqli_close($link);
     if(move_uploaded_file($temp,"files/".$newpostnumber."."."$upload_type")) {
       header("Location: /wishchan");
+      # Remove redirect and generate thumb here.
     } else {
       echo("ERROR: Your upload was interrupted.<br>ERROR CODE: ".$err);
     }
