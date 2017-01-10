@@ -1,15 +1,19 @@
 @font-face {
 	font-family: "NeoNoire";
-	src: url(/webassets/font.ttf) format("truetype");
+	src: url(/webassets/neonoire.ttf) format("truetype");
+}
+@font-face {
+	font-family: "MoonFlower";
+	src: url(/webassets/moon-flower.ttf) format("truetype");
 }
 p {
 	font-family: Arial,Verdana,Tahoma;
-	color: grey;
+	color: white;
 }
 h2 {
 	font-family: Arial,Verdana,Tahoma;
 	text-align: center;
-	color: gray
+	color: white;
 }
 label {
 	font-family: Arial,Verdana,Tahoma;
@@ -26,18 +30,15 @@ embed {
 a {
 	outline: 0;
 }
-div > img {
-	max-height: 100%;
-	max-width: 100%;
-	position: static;
-}
 input[type=email],
 input[type=text],
 input[type=password] {
-		margin: 8px 0;
-		display: inline-block;
-		border: 1px solid #ccc;
-		box-sizing: border-box;
+	margin: 8px 0;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+input[type=file] {
+	color: white;
 }
 textarea {
 	min-height: 6em;
@@ -48,13 +49,19 @@ textarea {
 	margin-left: 11px;
 	margin-right: 11px;
 }
-.neonoire {
-	font-family: "NeoNoire",Verdana,Tahoma;
+body {
+	background: linear-gradient(to left, #EECDA3 , #EF629F);
 }
-.neonoireTitle {
-	font-family: "NeoNoire",Verdana,Tahoma;
+.subTitle {
+	font-family: "MoonFlower",Verdana,Tahoma;
+}
+.pageTitle {
+	font-family: "MoonFlower",Verdana,Tahoma;
 	text-align: center;
-	font-size: 300%;
+	font-size: 850%;
+	color: lightgray;
+	margin-top: 0px;
+	margin-bottom: 0px;
 	color: white;
 }
 .link {
@@ -70,7 +77,10 @@ textarea {
 	bottom: 0px;
 }
 .centerDiv {
-	text-align: center;
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%,-50%);
 }
 .errorDiv {
 	display: inline-block;
@@ -87,7 +97,9 @@ textarea {
 	padding-right: 1em;
 }
 .tile {
+	display: inline-block;
 	float: left;
+	height: 181px;
 	width: 32%;
 }
 .hSeparator {
@@ -108,11 +120,13 @@ textarea {
 }
 .post {
 	display: inline-block;
-	background: #2a2c2f;
-	margin-left: 10px;
+	background: #3787cc;
 	margin-bottom: 20px;
+	margin-left: 10px;
+	padding-top: 15px;
 	padding-left: 15px;
 	padding-right: 15px;
+	width: 50%;
 }
 .viewcount {
 	position: fixed;

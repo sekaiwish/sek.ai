@@ -1,7 +1,7 @@
 <?php include('C:/xampp/htdocs/webassets/default.php');?>
-<title>WishDrive > Preferences</title>
-<p class="neonoire" style="color:white;font-size:150%">
-  WishDrive > Preferences
+<title>Sekai > Preferences</title>
+<p class="subTitle" style="color:white;font-size:150%">
+  Sekai > Preferences
 </p>
 <p>[<a href="/">Return</a>]<br>
 <form method="post" action="/access/updateprefs.php" style="font-family: Arial,Verdana,Tahoma; color: grey;">
@@ -17,7 +17,7 @@
   <input type="radio" name="tilestyle" value="2" required<?php if($_SESSION["tilestyle"]==2){echo(" checked");}?>>PNG Menu Tiles
   <br>
   <br>
-  <input type="number" name="postsshown" value="<?php echo($_SESSION["postsshown"]);?>" required min="5" max="50" style="max-width:3em;">Posts shown per WishChan page
+  <input type="number" name="postsshown" value="<?php echo($_SESSION["postsshown"]);?>" required min="5" max="50" style="max-width:3em;">Posts shown per imageboard page
   <br>
   <br>
   <input type="submit" name="confirm" value="Update Preferences">

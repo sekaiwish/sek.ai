@@ -1,6 +1,6 @@
 <?php include('C:/xampp/htdocs/webassets/default.php');?>
-<title>WishDrive > Board</title>
-<p class="neonoire" style="color:white;font-size:150%">WishDrive > Board</p>
+<title>Sekai > Board</title>
+<p class="subTitle" style="color:white;font-size:150%">Sekai > Board</p>
 <p>[<a href="/">Return</a>]
 <form action="submit.php" method="post" enctype="multipart/form-data" style="color:grey">
     <input type="file" name="fileToUpload" id="fileToUpload">

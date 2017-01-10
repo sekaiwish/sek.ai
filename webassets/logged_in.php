@@ -4,24 +4,28 @@
     <link rel="icon" href="/webassets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/webassets/style.css" type="text/css">
     <title>
-      WishDrive
+      Sekai
     </title>
     <style>
-      .imgTile {
+      img {
         position: absolute;
         transition: 1s linear;
-        /* Images on mobile still display at full size. */
       }
       .tileText {
-        font-family: "NeoNoire";
+        font-family: "MoonFlower";
         color: white;
-        font-size: 350%;
+        font-size: 500%;
         text-align: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
         filter: blur(2px);
         opacity: 0;
         transition: 1s linear;
       }
-      .tile:hover > .imgTile {
+      .tile:hover > img {
         filter: blur(10px);
       }
       .tile:hover > .tileText {
@@ -30,7 +34,7 @@
       }
     </style>
   </head>
-  <body bgcolor="#1D1F21">
+  <body style="background:linear-gradient(to left,#EECDA3,#EF629F);">
     <p class="beta">DEV 0.5</p>
     <p style="position:fixed;right:10px;top:0px;">
       Logged in as <?php echo($_SESSION["username"]);?>.
@@ -41,20 +45,18 @@
     <form method="POST" style="position:fixed;right:10px;top:68px;">
       <input type="submit" name="logout" value="Log Out">
     </form>
-    <p class="neonoireTitle">
-      WishDrive
+    <p class="pageTitle">
+      <b>Sekai</b>
     </p>
-    <div style="height:100%;width:70%;margin:auto;">
+    <div style="width:70%;margin:auto;">
       <a href="/flac">
         <div class="tile">
-          <div class="imgTile">
-            <img src="<?php if($_SESSION["tilestyle"]==2) {
-              echo("/webassets/tiles/flac.png");
-            } else {
-              echo("/webassets/tiles/flac.gif");
-            }
-            ?>">
-          </div>
+          <img src="<?php if($_SESSION["tilestyle"]==2) {
+            echo("/webassets/tiles/flac.png");
+          } else {
+            echo("/webassets/tiles/flac.gif");
+          }
+          ?>">
           <p class="tileText">
             FLAC
           </p>
@@ -65,16 +67,14 @@
       </div>
       <a href="/anime">
         <div class="tile">
-          <div class="imgTile">
-            <img src="<?php if($_SESSION["tilestyle"]==0) {
-              echo("/webassets/tiles/anime.gif");
-            } elseif($_SESSION["tilestyle"]==1) {
-              echo("/webassets/tiles/Ganime.gif");
-            } else {
-              echo("/webassets/tiles/anime.png");
-            }
-            ?>">
-          </div>
+          <img src="<?php if($_SESSION["tilestyle"]==0) {
+            echo("/webassets/tiles/anime.gif");
+          } elseif($_SESSION["tilestyle"]==1) {
+            echo("/webassets/tiles/Ganime.gif");
+          } else {
+            echo("/webassets/tiles/anime.png");
+          }
+          ?>">
           <p class="tileText">
             ANIME
           </p>
@@ -85,16 +85,14 @@
       </div>
       <a href="/wishchan">
         <div class="tile">
-          <div class="imgTile">
-            <img src="<?php if($_SESSION["tilestyle"]==0) {
-              echo("/webassets/tiles/board.gif");
-            } elseif($_SESSION["tilestyle"]==1) {
-              echo("/webassets/tiles/Gboard.gif");
-            } else {
-              echo("/webassets/tiles/board.png");
-            }
-            ?>">
-          </div>
+          <img src="<?php if($_SESSION["tilestyle"]==0) {
+            echo("/webassets/tiles/board.gif");
+          } elseif($_SESSION["tilestyle"]==1) {
+            echo("/webassets/tiles/Gboard.gif");
+          } else {
+            echo("/webassets/tiles/board.png");
+          }
+          ?>">
           <p class="tileText">
             BOARD
           </p>
@@ -106,16 +104,14 @@
       <br>
       <a href="/DLF ARCHIVE">
         <div class="tile">
-          <div class="imgTile">
-            <img src="<?php if($_SESSION["tilestyle"]==0) {
-              echo("/webassets/tiles/dlf.gif");
-            } elseif($_SESSION["tilestyle"]==1) {
-              echo("/webassets/tiles/Gdlf.gif");
-            } else {
-              echo("/webassets/tiles/dlf.png");
-            }
-            ?>">
-          </div>
+          <img src="<?php if($_SESSION["tilestyle"]==0) {
+            echo("/webassets/tiles/dlf.gif");
+          } elseif($_SESSION["tilestyle"]==1) {
+            echo("/webassets/tiles/Gdlf.gif");
+          } else {
+            echo("/webassets/tiles/dlf.png");
+          }
+          ?>">
           <p class="tileText">
             DLF
           </p>
@@ -126,16 +122,14 @@
       </div>
       <a href="/hentai">
         <div class="tile">
-          <div class="imgTile">
-            <img src="<?php if($_SESSION["tilestyle"]==0) {
-              echo("/webassets/tiles/hentai.gif");
-            } elseif($_SESSION["tilestyle"]==1) {
-              echo("/webassets/tiles/Ghentai.gif");
-            } else {
-              echo("/webassets/tiles/hentai.png");
-            }
-            ?>">
-          </div>
+          <img src="<?php if($_SESSION["tilestyle"]==0) {
+            echo("/webassets/tiles/hentai.gif");
+          } elseif($_SESSION["tilestyle"]==1) {
+            echo("/webassets/tiles/Ghentai.gif");
+          } else {
+            echo("/webassets/tiles/hentai.png");
+          }
+          ?>">
           <p class="tileText">
             HENTAI
           </p>
@@ -146,16 +140,14 @@
       </div>
       <a href="/iso">
         <div class="tile">
-          <div class="imgTile">
-            <img src="<?php if($_SESSION["tilestyle"]==0) {
-              echo("/webassets/tiles/iso.gif");
-            } elseif($_SESSION["tilestyle"]==1) {
-              echo("/webassets/tiles/Giso.gif");
-            } else {
-              echo("/webassets/tiles/iso.png");
-            }
-            ?>">
-          </div>
+          <img src="<?php if($_SESSION["tilestyle"]==0) {
+            echo("/webassets/tiles/iso.gif");
+          } elseif($_SESSION["tilestyle"]==1) {
+            echo("/webassets/tiles/Giso.gif");
+          } else {
+            echo("/webassets/tiles/iso.png");
+          }
+          ?>">
           <p class="tileText">
             ISO
           </p>

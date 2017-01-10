@@ -1,15 +1,14 @@
 <?php include('C:/xampp/htdocs/webassets/default.php');
 error_reporting(0);?>
         <title>
-            WishDrive > WishChan
+            Sekai > 世界chan
         </title>
-        <p class="neonoire" style="color:white;font-size:150%;">
-            WishDrive > WishChan
+        <p class="subTitle" style="color:white;font-size:150%;">
+            Sekai > 世界chan
         </p>
         <p>[<a href="/">Return</a>]</p>
-        <div style="position:fixed;right:11px;background:#2a2c2f;">
-            <textarea placeholder="Comment" form="upload" name="textUpload" id="textUpload">
-            </textarea>
+        <div style="position:fixed;right:11px;background:#3787cc;">
+            <textarea placeholder="Comment" form="upload" name="textUpload" id="textUpload"></textarea>
             <form class="commentBox" action="submit.php" method="post" enctype="multipart/form-data" id="upload">
                 <input type="file" name="fileUpload" id="fileUpload">
                 <br>
@@ -17,8 +16,7 @@ error_reporting(0);?>
             </form>
         </div>
 <?php
-  $link = mysqli_connect("127.0.0.1","root","nig");
-  mysqli_select_db($link,'wishchan');
+  include("C:/xampp/htdocs/access/sql.php");
   $x = $_SESSION["postsshown"];
   $threads = "SELECT thread FROM posts WHERE op = 1 ORDER BY thread DESC LIMIT $x";
   $threads = mysqli_query($link,$threads);
@@ -32,16 +30,26 @@ error_reporting(0);?>
     $postData[$x] = "SELECT id, name, time, body, filename, filetype, filesize FROM posts WHERE op = 1 AND thread = ".$displayThreads[$x]['thread'];
     $postData[$x] = mysqli_query($link,$postData[$x]);
     $postData[$x] = mysqli_fetch_array($postData[$x],MYSQLI_ASSOC);
+    if($postData[$x]['filesize'] > 1048576) {
+      $size = round($postData[$x]['filesize']/1048576,2);
+      $unit = "M";
+    } else {
+      $size = round($postData[$x]['filesize']/1024);
+      $unit = "K";
+    }
     echo('        <br>
         <div class="post">
-            <p>
 ');
-    # Display image thumb.
-    echo("                ".
+    if(isset($postData[$x]['filename'])) {
+      echo('            <a href="/wishchan/files/'.$postData[$x]['id'].'.'.$postData[$x]['filetype'].'" target="_blank"><img style="float:left;padding-right:15px;padding-bottom:15px;" src="/wishchan/thumbs/'.$postData[$x]['id'].'.jpg"></a>
+');
+    }
+    echo("            <p>".
     $postData[$x]['filename'].
     " ".
-    $postData[$x]['filesize'].
-    " bytes".
+    $size.
+    $unit.
+    "B".
     "<br><b>".
     $postData[$x]['name'].
     "</b> ".
@@ -50,8 +58,7 @@ error_reporting(0);?>
     $postData[$x]['id'].
     "<br><br>".
     $postData[$x]['body']);
-    echo('
-            </p>
+    echo('</p>
         </div>
 ');
   }

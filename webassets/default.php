@@ -13,7 +13,7 @@ if(isset($_POST['preferences'])) {
 	header("Location: /access/preferences.php");
 	exit();
 }
-$link = mysqli_connect("127.0.0.1","root","nig");
+include("C:/xampp/htdocs/access/sql.php");
 $sql = 'SELECT username, linkstyle, tilestyle, postsshown FROM login';
 mysqli_select_db($link, 'login');
 $get = mysqli_query($link, $sql);
@@ -42,7 +42,7 @@ echo('<!DOCTYPE html>
 			echo("\n".'		<link rel="stylesheet" href="/webassets/tube.css" type="text/css">');
 		}
 		echo("\n	".'</head>
-	<body bgcolor="#1D1F21">
+	<body>
 		<p class="beta">
 			DEV 0.5
 		</p>

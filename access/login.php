@@ -1,8 +1,7 @@
 <?php
 session_start();
-$link = mysqli_connect("127.0.0.1","root","nig");
+include("C:/xampp/htdocs/access/sql.php");
 $sql = 'SELECT userid, username, password, approved, linkstyle, tilestyle, postsshown FROM login';
-mysqli_select_db($link, 'login');
 $get = mysqli_query($link, $sql);
 $x = -1;
 while($row = mysqli_fetch_array($get, MYSQLI_ASSOC)) {

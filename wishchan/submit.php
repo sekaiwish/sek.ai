@@ -1,40 +1,71 @@
 <?php
 if(isset($_FILES["fileUpload"])) {
   session_start();
-  $link = mysqli_connect("127.0.0.1","root","nig","wishchan");
-  $disallowed = array("bat","bin","cmd","cpl","gadget","inf","ins","inx","isu",
-  "job","jse","lnk","msc","msi","msp","mst","paf","pif","ps1","reg","sct","sh",
-  "shb","u3p","vb","vbe","vbs","vbscript","ws","wsf");
+  function make_thumb($src,$dest,$desired_width,$mime) {
+    $mime = strtolower($mime);
+    if($mime == "jpg") {
+      $source_image = imagecreatefromjpeg($src);
+    }
+    if($mime == "jpeg") {
+      $source_image = imagecreatefromjpeg($src);
+    }
+    if($mime == "png") {
+      $source_image = imagecreatefrompng($src);
+    }
+    if($mime == "gif") {
+      $source_image = imagecreatefromgif($src);
+    }
+    $width = imagesx($source_image);
+    $height = imagesy($source_image);
+    #if($width < $height) {
+    #  $desired_width = floor($width*($resolution/$height));
+    #} else {
+    #  $desired_height = floor($height*($resolution/$width));
+    #}
+    $desired_height = floor($height*($desired_width/$width));
+    $virtual_image = imagecreatetruecolor($desired_width,$desired_height);
+    imagecopyresampled($virtual_image,$source_image,0,0,0,0,$desired_width,$desired_height,$width,$height);
+    imagejpeg($virtual_image,$dest);
+  }
+  include("C:/xampp/htdocs/access/sql.php");
+  $allowed = array("jpg","jpeg","png","gif","JPG","JPEG","PNG","GIF");
   $err = $_FILES["fileUpload"]["error"];
   $temp = $_FILES["fileUpload"]["tmp_name"];
-  $upload_ip = $_SERVER["REMOTE_ADDR"];
-  $upload_name = $_FILES["fileUpload"]["name"];
-  $upload_user = $_SESSION['username'];
-  $upload_body = $_POST["textUpload"];
-  $upload_size = $_FILES["fileUpload"]["size"];
-  $upload_type = explode(".",$upload_name);
-  $upload_type = end($upload_type);
-  if($upload_size > 1000000000) {
-    echo "ERROR: File cannot be larger than one gibibyte.";
+  $ip = $_SERVER["REMOTE_ADDR"];
+  $name = $_FILES["fileUpload"]["name"];
+  $user = $_SESSION["username"];
+  $body = $_POST["textUpload"];
+  $size = $_FILES["fileUpload"]["size"];
+  $type = explode(".",$name);
+  $type = end($type);
+  if($size > 1000000000) {
+    echo("ERROR: File cannot be larger than one gibibyte.");
     exit();
   }
-  if(in_array($upload_type,$disallowed)) {
-    echo ("ERROR: Specific executable filetypes and scripts are not allowed.");
+  if(!in_array($type,$allowed)) {
+    echo("ERROR: File submitted was not an image.");
     exit();
   }
   $lastpostnumber = "SELECT id FROM posts ORDER BY id DESC LIMIT 1";
   $lastpostnumber = mysqli_query($link,$lastpostnumber);
   $lastpostnumber = mysqli_fetch_array($lastpostnumber,MYSQLI_ASSOC);
   $newpostnumber = $lastpostnumber["id"] + 1;
-  $submit = "INSERT INTO posts (op, ip, name, body, filename, filetype, filesize)
-  VALUES ('1', '$upload_ip', '$upload_user', '$upload_body', '$upload_name', '$upload_type', '$upload_size')";
+  $submit = "INSERT INTO posts (thread, op, ip, name, body, filename, filetype, filesize)
+  VALUES ('$newpostnumber', '1', '$ip', '$user', '$body', '$name', '$type', '$size')";
   if(mysqli_query($link,$submit)) {
     mysqli_close($link);
-    if(move_uploaded_file($temp,"files/".$newpostnumber."."."$upload_type")) {
-      header("Location: /wishchan");
-      # Remove redirect and generate thumb here.
+    if(move_uploaded_file($temp,"files/".$newpostnumber."."."$type")) {
+      $res = imagesx()
+      if(make_thumb("files/".$newpostnumber."."."$type","thumbs/$newpostnumber.jpg","125","$type")) {
+        header("Location: /wishchan");
+        exit();
+      } else {
+        header("Location: /wishchan");
+        exit();
+      }
     } else {
       echo("ERROR: Your upload was interrupted.<br>ERROR CODE: ".$err);
+      exit();
     }
   } else {
     echo("ERROR: ".mysqli_error($link));

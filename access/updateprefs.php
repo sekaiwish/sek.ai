@@ -1,11 +1,9 @@
 <?php
 session_start();
-
-$link = mysqli_connect("127.0.0.1","root","nig","login");
+include("C:/xampp/htdocs/access/sql.php");
 $linkset = "UPDATE login SET linkstyle='".$_POST["linkstyle"]."' WHERE userid='".$_SESSION["userid"]."'";
 $tileset = "UPDATE login SET tilestyle='".$_POST["tilestyle"]."' WHERE userid='".$_SESSION["userid"]."'";
 $postset = "UPDATE login SET postsshown='".$_POST["postsshown"]."' WHERE userid='".$_SESSION["userid"]."'";
-
 if(mysqli_query($link, $linkset)) {
   if(mysqli_query($link, $tileset)) {
     if(mysqli_query($link,$postset)) {
