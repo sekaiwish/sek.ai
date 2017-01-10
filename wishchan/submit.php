@@ -35,6 +35,8 @@ if(isset($_FILES["fileUpload"])) {
   $name = $_FILES["fileUpload"]["name"];
   $user = $_SESSION["username"];
   $body = $_POST["textUpload"];
+  $body = str_replace("
+","<br>",$body);
   $size = $_FILES["fileUpload"]["size"];
   $type = explode(".",$name);
   $type = end($type);
@@ -53,10 +55,9 @@ if(isset($_FILES["fileUpload"])) {
   $submit = "INSERT INTO posts (thread, op, ip, name, body, filename, filetype, filesize)
   VALUES ('$newpostnumber', '1', '$ip', '$user', '$body', '$name', '$type', '$size')";
   if(mysqli_query($link,$submit)) {
-    mysqli_close($link);
-    if(move_uploaded_file($temp,"files/".$newpostnumber."."."$type")) {
-      $res = imagesx()
-      if(make_thumb("files/".$newpostnumber."."."$type","thumbs/$newpostnumber.jpg","125","$type")) {
+    if(move_uploaded_file($temp,"files/$newpostnumber.$type")) {
+      mysqli_close($link);
+      if(make_thumb("files/$newpostnumber.$type","thumbs/$newpostnumber.jpg","125",$type)) {
         header("Location: /wishchan");
         exit();
       } else {
@@ -64,7 +65,7 @@ if(isset($_FILES["fileUpload"])) {
         exit();
       }
     } else {
-      echo("ERROR: Your upload was interrupted.<br>ERROR CODE: ".$err);
+      echo("ERROR: Your upload was interrupted.<br>ERROR CODE: $err");
       exit();
     }
   } else {
