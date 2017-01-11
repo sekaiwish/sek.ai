@@ -1,4 +1,4 @@
-#Sek.ai
+#Sekai
 #Preview at http://sekaiweb.ddns.net/
 
 Version information:
