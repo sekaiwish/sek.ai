@@ -10,9 +10,9 @@
   </head>
   <body style="background:linear-gradient(to left,#EECDA3,#EF629F);">
     <div class="centerDiv">
-      <h2 style="text-align:center;margin-top:0px;">
-        Login to Sekai
-      </h2>
+      <p class="subHeading">
+        <b>Login to Sekai</b>
+      </p>
       <form style="text-align:center;color:white;" action="/access/login.php" method="post" accept-charset="UTF-8">
         <label>
           <b>
@@ -44,7 +44,7 @@
       DEV 0.5
     </p>
     <p class="pageTitle">
-      <b>Sekai</b>
+      Sekai
     </p>
 <?php
     session_start();

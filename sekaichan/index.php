@@ -7,7 +7,7 @@ error_reporting(0);?>
             Sekai > 世界chan
         </p>
         <p>[<a href="/">Return</a>]</p>
-        <div style="position:fixed;right:11px;background:rgba(0,0,0,0.5);">
+        <div style="position:fixed;right:11px;background:#3787cc;">
             <textarea placeholder="Comment" form="upload" name="textUpload" id="textUpload"></textarea>
             <form class="commentBox" action="submit.php" method="post" enctype="multipart/form-data" id="upload">
                 <input type="file" name="fileUpload" id="fileUpload">

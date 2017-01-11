@@ -1,6 +1,10 @@
 <?php include('C:/xampp/htdocs/webassets/default.php');?>
-<title>WishDrive > DLF</title>
-<p class="neonoire" style="color:white;font-size:150%">WishDrive > DLF</p>
+<title>
+	Sekai > DLF
+</title>
+<p class="subTitle">
+	Sekai > DLF
+</p>
 <p>[<a href="/">Return</a>]<br>
 <form style="text-align:center;color:gray;" action="/DLF ARCHIVE/index.php" method="post" accept-charset="UTF-8">
 <input type="text" placeholder="VIDEO" name="vidselect" id="vidselect" required>

@@ -23,7 +23,7 @@
         transform: translateY(-50%);
         filter: blur(2px);
         opacity: 0;
-        transition: 1s linear;
+        transition: 0.7s linear;
       }
       .tile:hover > img {
         filter: blur(10px);
@@ -46,17 +46,17 @@
       <input type="submit" name="logout" value="Log Out">
     </form>
     <p class="pageTitle">
-      <b>Sekai</b>
+      Sekai
     </p>
     <div style="width:70%;margin:auto;">
       <a href="/flac">
-        <div class="tile">
-          <img src="<?php if($_SESSION["tilestyle"]==2) {
-            echo("/webassets/tiles/flac.png");
+        <div class="tile" style='background:url("/webassets/tiles/<?php
+          if($_SESSION["tilestyle"]==2) {
+            echo("flac.png");
           } else {
-            echo("/webassets/tiles/flac.gif");
+            echo("flac.gif");
           }
-          ?>">
+        ?>");background-size:100%;'>
           <p class="tileText">
             FLAC
           </p>
@@ -66,15 +66,15 @@
         <br>
       </div>
       <a href="/anime">
-        <div class="tile">
-          <img src="<?php if($_SESSION["tilestyle"]==0) {
-            echo("/webassets/tiles/anime.gif");
+        <div class="tile" style='background:url("/webassets/tiles/<?php
+          if($_SESSION["tilestyle"]==0) {
+            echo("anime.gif");
           } elseif($_SESSION["tilestyle"]==1) {
-            echo("/webassets/tiles/Ganime.gif");
+            echo("Ganime.gif");
           } else {
-            echo("/webassets/tiles/anime.png");
+            echo("anime.gif");
           }
-          ?>">
+        ?>");background-size:100%;'>
           <p class="tileText">
             ANIME
           </p>
@@ -83,16 +83,16 @@
       <div class="hSeparator">
         <br>
       </div>
-      <a href="/wishchan">
-        <div class="tile">
-          <img src="<?php if($_SESSION["tilestyle"]==0) {
-            echo("/webassets/tiles/board.gif");
+      <a href="/sekaichan">
+        <div class="tile" style='background:url("/webassets/tiles/<?php
+          if($_SESSION["tilestyle"]==0) {
+            echo("board.gif");
           } elseif($_SESSION["tilestyle"]==1) {
-            echo("/webassets/tiles/Gboard.gif");
+            echo("Gboard.gif");
           } else {
-            echo("/webassets/tiles/board.png");
+            echo("board.gif");
           }
-          ?>">
+        ?>");background-size:100%;'>
           <p class="tileText">
             BOARD
           </p>
@@ -103,15 +103,15 @@
       </div>
       <br>
       <a href="/DLF ARCHIVE">
-        <div class="tile">
-          <img src="<?php if($_SESSION["tilestyle"]==0) {
-            echo("/webassets/tiles/dlf.gif");
+        <div class="tile" style='background:url("/webassets/tiles/<?php
+          if($_SESSION["tilestyle"]==0) {
+            echo("dlf.gif");
           } elseif($_SESSION["tilestyle"]==1) {
-            echo("/webassets/tiles/Gdlf.gif");
+            echo("Gdlf.gif");
           } else {
-            echo("/webassets/tiles/dlf.png");
+            echo("dlf.gif");
           }
-          ?>">
+        ?>");background-size:100%;'>
           <p class="tileText">
             DLF
           </p>
@@ -121,15 +121,15 @@
         <br>
       </div>
       <a href="/hentai">
-        <div class="tile">
-          <img src="<?php if($_SESSION["tilestyle"]==0) {
-            echo("/webassets/tiles/hentai.gif");
+        <div class="tile" style='background:url("/webassets/tiles/<?php
+          if($_SESSION["tilestyle"]==0) {
+            echo("hentai.gif");
           } elseif($_SESSION["tilestyle"]==1) {
-            echo("/webassets/tiles/Ghentai.gif");
+            echo("Ghentai.gif");
           } else {
-            echo("/webassets/tiles/hentai.png");
+            echo("hentai.gif");
           }
-          ?>">
+        ?>");background-size:100%;'>
           <p class="tileText">
             HENTAI
           </p>
@@ -139,15 +139,15 @@
         <br>
       </div>
       <a href="/iso">
-        <div class="tile">
-          <img src="<?php if($_SESSION["tilestyle"]==0) {
-            echo("/webassets/tiles/iso.gif");
+        <div class="tile" style='background:url("/webassets/tiles/<?php
+          if($_SESSION["tilestyle"]==0) {
+            echo("iso.gif");
           } elseif($_SESSION["tilestyle"]==1) {
-            echo("/webassets/tiles/Giso.gif");
+            echo("Giso.gif");
           } else {
-            echo("/webassets/tiles/iso.png");
+            echo("iso.gif");
           }
-          ?>">
+        ?>");background-size:100%;'>
           <p class="tileText">
             ISO
           </p>

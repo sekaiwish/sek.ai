@@ -10,13 +10,9 @@ p {
 	font-family: Arial,Verdana,Tahoma;
 	color: white;
 }
-h2 {
-	font-family: "MoonFlower",Verdana,Tahoma;
-	text-align: center;
-	color: white;
-}
 label {
-	font-family: Arial,Verdana,Tahoma;
+	font-family: "MoonFlower",Verdana,Tahoma;
+	font-size: 200%;
 }
 video {
 	position: absolute;
@@ -33,7 +29,6 @@ a {
 input[type=email],
 input[type=text],
 input[type=password] {
-	margin: 8px 0;
 	border: 1px solid #ccc;
 	box-sizing: border-box;
 }
@@ -52,8 +47,21 @@ textarea {
 body {
 	background: linear-gradient(to left, #EECDA3 , #EF629F);
 }
+button {
+	margin-top: 5px;
+}
+.subHeading {
+	font-family: "MoonFlower",Verdana,Tahoma;
+	font-size: 300%;
+	color: white;
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
 .subTitle {
 	font-family: "MoonFlower",Verdana,Tahoma;
+	color: white;
+	font-size: 150%;
 }
 .pageTitle {
 	font-family: "MoonFlower",Verdana,Tahoma;
@@ -77,6 +85,9 @@ body {
 	bottom: 0px;
 }
 .centerDiv {
+	background: rgba(0,0,0,0.3);
+	padding: 10px;
+	border-radius: 20px;
 	position: fixed;
 	top: 40%;
 	left: 50%;
@@ -120,13 +131,13 @@ body {
 }
 .post {
 	display: inline-block;
-	background: #3787cc;
+	background: rgba(0,0,0,0.5);
 	margin-bottom: 20px;
 	margin-left: 10px;
 	padding-top: 15px;
 	padding-left: 15px;
 	padding-right: 15px;
-	width: 50%;
+	min-width: 20%;
 }
 .viewcount {
 	position: fixed;
