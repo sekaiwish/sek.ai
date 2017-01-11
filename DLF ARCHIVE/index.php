@@ -6,6 +6,11 @@
 	Sekai > DLF
 </p>
 <p>[<a href="/">Return</a>]<br>
+<style>
+	body {
+		background: linear-gradient(to left,#EC6EAD,#3494E6);
+	}
+</style>
 <form style="text-align:center;color:gray;" action="/DLF ARCHIVE/index.php" method="post" accept-charset="UTF-8">
 <input type="text" placeholder="VIDEO" name="vidselect" id="vidselect" required>
 <button type="submit">CHOOSE</button>

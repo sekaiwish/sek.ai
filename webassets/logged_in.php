@@ -7,6 +7,9 @@
       Sekai
     </title>
     <style>
+      body {
+        background: linear-gradient(to left,#EECDA3,#EF629F);
+      }
       img {
         position: absolute;
         transition: 1s linear;
@@ -34,7 +37,7 @@
       }
     </style>
   </head>
-  <body style="background:linear-gradient(to left,#EECDA3,#EF629F);">
+  <body>
     <p class="beta">DEV 0.5</p>
     <p style="position:fixed;right:10px;top:0px;">
       Logged in as <?php echo($_SESSION["username"]);?>.

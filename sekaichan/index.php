@@ -3,11 +3,16 @@ error_reporting(0);?>
         <title>
             Sekai > 世界chan
         </title>
-        <p class="subTitle" style="color:white;font-size:150%;">
+        <p class="subTitle">
             Sekai > 世界chan
         </p>
         <p>[<a href="/">Return</a>]</p>
-        <div style="position:fixed;right:11px;background:#3787cc;">
+        <style>
+          body {
+            background: linear-gradient(to left,#EC7EDD,#3494E6);
+          }
+        </style>
+        <div style="position:fixed;right:11px;background:rgba(0,0,0,0.5);">
             <textarea placeholder="Comment" form="upload" name="textUpload" id="textUpload"></textarea>
             <form class="commentBox" action="submit.php" method="post" enctype="multipart/form-data" id="upload">
                 <input type="file" name="fileUpload" id="fileUpload">

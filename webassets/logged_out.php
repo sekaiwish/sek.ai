@@ -8,7 +8,7 @@
       Login
     </title>
   </head>
-  <body style="background:linear-gradient(to left,#EECDA3,#EF629F);">
+  <body style="background:linear-gradient(to left,#4568DC,#B06AB3);">
     <div class="centerDiv">
       <p class="subHeading">
         <b>Login to Sekai</b>

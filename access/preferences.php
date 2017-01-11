@@ -4,6 +4,11 @@
   Sekai > Preferences
 </p>
 <p>[<a href="/">Return</a>]<br>
+<style>
+  body {
+    background: linear-gradient(to left,#EC7EDD,#3494E6);
+  }
+</style>
 <form method="post" action="/access/updateprefs.php" style="font-family:Arial,Verdana,Tahoma;color:white;">
   <input type="radio" name="linkstyle" value="0" required<?php if($_SESSION["linkstyle"]==0){echo(" checked");}?>>4chan Style Hyperlinks
   <br>
