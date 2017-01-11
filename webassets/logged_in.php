@@ -10,14 +10,10 @@
       body {
         background: linear-gradient(to left,#EECDA3,#EF629F);
       }
-      img {
-        position: absolute;
-        transition: 1s linear;
-      }
       .tileText {
         font-family: "MoonFlower";
         color: white;
-        font-size: 500%;
+        font-size: 420%;
         text-align: center;
         margin-top: 0px;
         margin-bottom: 0px;
@@ -26,14 +22,12 @@
         transform: translateY(-50%);
         filter: blur(2px);
         opacity: 0;
-        transition: 0.7s linear;
-      }
-      .tile:hover > img {
-        filter: blur(10px);
+        transition: 0.7s ease-out;
       }
       .tile:hover > .tileText {
         filter: blur(0px);
         opacity: 1;
+        font-size: 500%;
       }
     </style>
   </head>
@@ -59,7 +53,7 @@
           } else {
             echo("flac.gif");
           }
-        ?>");'>
+        ?>");background-position:center top;'>
           <p class="tileText">
             FLAC
           </p>
@@ -77,7 +71,7 @@
           } else {
             echo("anime.gif");
           }
-        ?>");'>
+        ?>");background-position:center top;'>
           <p class="tileText">
             ANIME
           </p>
@@ -95,7 +89,7 @@
           } else {
             echo("board.gif");
           }
-        ?>");background-position:bottom right,left top;background-repeat:no-repeat;'>
+        ?>");background-position:bottom right,center top;background-repeat:no-repeat;'>
           <p class="tileText">
             BOARD
           </p>
@@ -114,7 +108,7 @@
           } else {
             echo("dlf.gif");
           }
-        ?>");background-position:bottom right,left top;background-repeat:no-repeat;'>
+        ?>");background-position:bottom right,center top;background-repeat:no-repeat;'>
           <p class="tileText">
             DLF
           </p>
@@ -132,7 +126,7 @@
           } else {
             echo("hentai.gif");
           }
-        ?>");background-position:bottom right,left top;background-repeat:no-repeat;'>
+        ?>");background-position:bottom right,center top;background-repeat:no-repeat;'>
           <p class="tileText">
             HENTAI
           </p>
@@ -150,7 +144,7 @@
           } else {
             echo("iso.gif");
           }
-        ?>");'>
+        ?>");background-position:center top;'>
           <p class="tileText">
             ISO
           </p>
