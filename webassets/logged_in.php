@@ -59,7 +59,7 @@
           } else {
             echo("flac.gif");
           }
-        ?>");background-size:100%;'>
+        ?>");'>
           <p class="tileText">
             FLAC
           </p>
@@ -77,7 +77,7 @@
           } else {
             echo("anime.gif");
           }
-        ?>");background-size:100%;'>
+        ?>");'>
           <p class="tileText">
             ANIME
           </p>
@@ -87,7 +87,7 @@
         <br>
       </div>
       <a href="/sekaichan">
-        <div class="tile" style='background:url("/webassets/tiles/<?php
+        <div class="tile" style='background:url("/webassets/nsfw.png"),url("/webassets/tiles/<?php
           if($_SESSION["tilestyle"]==0) {
             echo("board.gif");
           } elseif($_SESSION["tilestyle"]==1) {
@@ -95,7 +95,7 @@
           } else {
             echo("board.gif");
           }
-        ?>");background-size:100%;'>
+        ?>");background-position:bottom right,left top;background-repeat:no-repeat;'>
           <p class="tileText">
             BOARD
           </p>
@@ -106,7 +106,7 @@
       </div>
       <br>
       <a href="/DLF ARCHIVE">
-        <div class="tile" style='background:url("/webassets/tiles/<?php
+        <div class="tile" style='background:url("/webassets/nsfw.png"),url("/webassets/tiles/<?php
           if($_SESSION["tilestyle"]==0) {
             echo("dlf.gif");
           } elseif($_SESSION["tilestyle"]==1) {
@@ -114,7 +114,7 @@
           } else {
             echo("dlf.gif");
           }
-        ?>");background-size:100%;'>
+        ?>");background-position:bottom right,left top;background-repeat:no-repeat;'>
           <p class="tileText">
             DLF
           </p>
@@ -124,7 +124,7 @@
         <br>
       </div>
       <a href="/hentai">
-        <div class="tile" style='background:url("/webassets/tiles/<?php
+        <div class="tile" style='background:url("/webassets/nsfw.png"),url("/webassets/tiles/<?php
           if($_SESSION["tilestyle"]==0) {
             echo("hentai.gif");
           } elseif($_SESSION["tilestyle"]==1) {
@@ -132,7 +132,7 @@
           } else {
             echo("hentai.gif");
           }
-        ?>");background-size:100%;'>
+        ?>");background-position:bottom right,left top;background-repeat:no-repeat;'>
           <p class="tileText">
             HENTAI
           </p>
@@ -150,7 +150,7 @@
           } else {
             echo("iso.gif");
           }
-        ?>");background-size:100%;'>
+        ?>");'>
           <p class="tileText">
             ISO
           </p>
