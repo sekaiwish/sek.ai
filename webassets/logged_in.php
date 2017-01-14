@@ -24,11 +24,6 @@
         opacity: 0;
         transition: 0.7s ease-out;
       }
-      .tile:hover > .tileText {
-        filter: blur(0px);
-        opacity: 1;
-        font-size: 500%;
-      }
     </style>
   </head>
   <body>
@@ -47,13 +42,13 @@
     </p>
     <div style="width:70%;margin:auto;">
       <a href="/flac">
-        <div class="tile" style='background:url("/webassets/tiles/<?php
+        <div class="tile" style='background-image:url("/webassets/tiles/<?php
           if($_SESSION["tilestyle"]==2) {
             echo("flac.png");
           } else {
             echo("flac.gif");
           }
-        ?>");background-position:center top;'>
+        ?>");'>
           <p class="tileText">
             FLAC
           </p>
@@ -63,15 +58,15 @@
         <br>
       </div>
       <a href="/anime">
-        <div class="tile" style='background:url("/webassets/tiles/<?php
+        <div class="tile" style='background-image:url("/webassets/tiles/<?php
           if($_SESSION["tilestyle"]==0) {
             echo("anime.gif");
           } elseif($_SESSION["tilestyle"]==1) {
             echo("Ganime.gif");
           } else {
-            echo("anime.gif");
+            echo("anime.png");
           }
-        ?>");background-position:center top;'>
+        ?>");'>
           <p class="tileText">
             ANIME
           </p>
@@ -80,16 +75,16 @@
       <div class="hSeparator">
         <br>
       </div>
-      <a href="/sekaichan">
-        <div class="tile" style='background:url("/webassets/nsfw.png"),url("/webassets/tiles/<?php
+      <a href="/chan">
+        <div class="nsfwTile" style='background-image:url("/webassets/nsfw.png"),url("/webassets/tiles/<?php
           if($_SESSION["tilestyle"]==0) {
             echo("board.gif");
           } elseif($_SESSION["tilestyle"]==1) {
             echo("Gboard.gif");
           } else {
-            echo("board.gif");
+            echo("board.png");
           }
-        ?>");background-position:bottom right,center top;background-repeat:no-repeat;'>
+        ?>");'>
           <p class="tileText">
             BOARD
           </p>
@@ -100,15 +95,15 @@
       </div>
       <br>
       <a href="/DLF ARCHIVE">
-        <div class="tile" style='background:url("/webassets/nsfw.png"),url("/webassets/tiles/<?php
+        <div class="nsfwTile" style='background-image:url("/webassets/nsfw.png"),url("/webassets/tiles/<?php
           if($_SESSION["tilestyle"]==0) {
             echo("dlf.gif");
           } elseif($_SESSION["tilestyle"]==1) {
             echo("Gdlf.gif");
           } else {
-            echo("dlf.gif");
+            echo("dlf.png");
           }
-        ?>");background-position:bottom right,center top;background-repeat:no-repeat;'>
+        ?>");'>
           <p class="tileText">
             DLF
           </p>
@@ -118,15 +113,15 @@
         <br>
       </div>
       <a href="/hentai">
-        <div class="tile" style='background:url("/webassets/nsfw.png"),url("/webassets/tiles/<?php
+        <div class="nsfwTile" style='background-image:url("/webassets/nsfw.png"),url("/webassets/tiles/<?php
           if($_SESSION["tilestyle"]==0) {
             echo("hentai.gif");
           } elseif($_SESSION["tilestyle"]==1) {
             echo("Ghentai.gif");
           } else {
-            echo("hentai.gif");
+            echo("hentai.png");
           }
-        ?>");background-position:bottom right,center top;background-repeat:no-repeat;'>
+        ?>");'>
           <p class="tileText">
             HENTAI
           </p>
@@ -136,15 +131,15 @@
         <br>
       </div>
       <a href="/iso">
-        <div class="tile" style='background:url("/webassets/tiles/<?php
+        <div class="tile" style='background-image:url("/webassets/tiles/<?php
           if($_SESSION["tilestyle"]==0) {
             echo("iso.gif");
           } elseif($_SESSION["tilestyle"]==1) {
             echo("Giso.gif");
           } else {
-            echo("iso.gif");
+            echo("iso.png");
           }
-        ?>");background-position:center top;'>
+        ?>");'>
           <p class="tileText">
             ISO
           </p>

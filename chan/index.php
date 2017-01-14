@@ -9,7 +9,7 @@ error_reporting(0);?>
         <p>[<a href="/">Return</a>]</p>
         <style>
           body {
-            background: linear-gradient(to left,#EC7EDD,#3494E6);
+            background: linear-gradient(to left, #EC7EDD, #3494E6);
           }
         </style>
         <div style="position:fixed;right:11px;background:rgba(0,0,0,0.5);">
@@ -22,8 +22,18 @@ error_reporting(0);?>
         </div>
 <?php
   include("C:/xampp/htdocs/access/sql.php");
+  $page = end(explode('?',$_SERVER['REQUEST_URI']));
   $x = $_SESSION["postsshown"];
-  $threads = "SELECT thread FROM posts WHERE op = 1 ORDER BY thread DESC LIMIT $x";
+  if(is_numeric($page)) {
+    if($page < 2) {
+      $offset = 0;
+    } else {
+      $offset = $x*$page-$x;
+    }
+  } else {
+    $offset = 0;
+  }
+  $threads = "SELECT thread FROM posts WHERE op = 1 ORDER BY thread DESC LIMIT $x OFFSET $offset";
   $threads = mysqli_query($link,$threads);
   $y = 0;
   while($thread = mysqli_fetch_array($threads,MYSQLI_ASSOC)) {
@@ -46,7 +56,7 @@ error_reporting(0);?>
         <div class="post">
 ');
     if(isset($postData[$x]['filename'])) {
-      echo('            <a href="/sekaichan/files/'.$postData[$x]['id'].'.'.$postData[$x]['filetype'].'" target="_blank"><img style="float:left;padding-right:15px;padding-bottom:15px;" src="/sekaichan/thumbs/'.$postData[$x]['id'].'.jpg"></a>
+      echo('            <a href="/chan/files/'.$postData[$x]['id'].'.'.$postData[$x]['filetype'].'" target="_blank"><img style="float:left;padding-right:15px;padding-bottom:15px;" src="/chan/thumbs/'.$postData[$x]['id'].'.jpg"></a>
 ');
     }
     echo("            <p>".

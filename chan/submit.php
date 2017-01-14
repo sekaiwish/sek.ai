@@ -58,10 +58,10 @@ if(isset($_FILES["fileUpload"])) {
     if(move_uploaded_file($temp,"files/$newpostnumber.$type")) {
       mysqli_close($link);
       if(make_thumb("files/$newpostnumber.$type","thumbs/$newpostnumber.jpg","125",$type)) {
-        header("Location: /sekaichan");
+        header("Location: /chan");
         exit();
       } else {
-        header("Location: /sekaichan");
+        header("Location: /chan");
         exit();
       }
     } else {

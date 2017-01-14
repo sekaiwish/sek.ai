@@ -10,7 +10,7 @@
   </head>
   <body style="background:linear-gradient(to left,#4568DC,#B06AB3);">
     <div class="centerDiv">
-      <p class="subHeading">
+      <p class="loginHeader">
         <b>Login to Sekai</b>
       </p>
       <form style="text-align:center;color:white;" action="/access/login.php" method="post" accept-charset="UTF-8">
@@ -93,8 +93,7 @@
         </p>
       </div>
     </div>
-");}
+");session_destroy();}
     ?>
   </body>
 </html>
-<?php session_destroy();?>
