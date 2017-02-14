@@ -65,6 +65,8 @@ if(isset($_POST['pagePrev'])) {
       $unit = "K";
     }
     echo('        <br>
+				<div class="postSeparator">
+				</div>
         <div class="post">
 ');
     if(isset($postData[$x]['filename'])) {
