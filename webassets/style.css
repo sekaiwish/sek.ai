@@ -43,27 +43,27 @@ textarea {
 button {
 	margin-top: 5px;
 }
-.loginHeader {
+p.loginHeader {
 	font-family: "MoonFlower", Verdana, Tahoma;
 	font-size: 300%;
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
-.subTitle {
+p.subTitle {
 	font-family: "MoonFlower", Verdana, Tahoma;
 	font-size: 150%;
 }
-.pageTitle {
+p.pageTitle {
 	font-family: "MoonFlower", Verdana, Tahoma;
 	text-align: center;
 	font-size: 850%;
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
-.link {
+a.link {
 	font-family: Arial, Verdana, Tahoma;
 }
-.beta {
+p.beta {
 	font-size: 120%;
 	color: white;
 	font-weight: bold;
@@ -72,7 +72,7 @@ button {
 	left: 25px;
 	bottom: 0px;
 }
-.centerDiv {
+div.centerDiv {
 	background: rgba(0,0,0,0.3);
 	padding: 10px;
 	border-radius: 20px;
@@ -81,19 +81,19 @@ button {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
-.errorDiv {
+div.errorDiv {
 	display: inline-block;
 	background: #ff4c4c;
 	border: 3px solid #d40000;
 }
-.errorText {
+p.errorText {
 	font-family: Arial, Verdana, Tahoma;
 	text-align: center;
 	color: white;
 	padding-left: 1em;
 	padding-right: 1em;
 }
-.tile {
+div.tile {
 	display: inline-block;
 	float: left;
 	height: 181px;
@@ -101,17 +101,17 @@ button {
 	background-position: center top;
 	background-size: cover;
 }
-.tile:hover > .tileText {
+div.tile:hover > p.tileText {
 	filter: blur(0px);
 	opacity: 1;
 	font-size: 500%;
 }
-.nsfwTile:hover > .tileText {
+div.nsfwTile:hover > p.tileText {
 	filter: blur(0px);
 	opacity: 1;
 	font-size: 500%;
 }
-.nsfwTile {
+div.nsfwTile {
 	display: inline-block;
 	float: left;
 	height: 181px;
@@ -120,23 +120,23 @@ button {
 	background-repeat: no-repeat, repeat;
 	background-size: auto, cover;
 }
-.hSeparator {
+div.hSeparator {
 	float: left;
 	width: 2%;
 	height: 1%;
 }
-.vSeparator {
+div.vSeparator {
 	float: left;
 	height: 1.5em;
 	width: 100%;
 }
-.commentBox {
+form.commentBox {
 	color: grey;
 	margin-bottom: 10px;
 	margin-left: 10px;
 	margin-right: 10px;
 }
-.post {
+div.post {
 	display: inline-block;
 	background: rgba(0, 0, 0, 0.5);
 	margin-bottom: 20px;
@@ -146,8 +146,29 @@ button {
 	padding-right: 15px;
 	width: 80%;
 }
-.viewcount {
+div.viewcount {
 	position: fixed;
 	right: 0px;
 	bottom: 0px;
+}
+div.pageBox {
+	float: left;
+	background: rgba(0, 0, 0, 0.5);
+}
+div.pageBox > div {
+	float: left;
+}
+p.pages {
+	margin-top: 6px;
+	margin-bottom: 0px;
+}
+img.chan {
+	float: left;
+	padding-right: 15px;
+	padding-bottom: 15px;
+}
+a > button {
+	margin-left: 4px;
+	margin-right: 4px;
+	margin-bottom: 4px;
 }
