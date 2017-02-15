@@ -15,7 +15,7 @@ for($y=1;$y<$logincount;$y++) {
   $usernameLower[$y] = strtolower($logins[$y]["username"]);
   if($usernameLower[$y] == $username) {
     if($logins[$y]["approved"] == 1) {
-      if($_POST["password"] == $logins[$y]["password"]) {
+      if(password_verify($_POST["password"],$logins[$y]["password"])) {
         $_SESSION["logged_in"] = TRUE;
         $_SESSION["username"] = $logins[$y]["username"];
         $_SESSION["userid"] = $logins[$y]["userid"];

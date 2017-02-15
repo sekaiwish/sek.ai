@@ -1,7 +1,7 @@
 <?php
 $username = $_POST["username"];
 $usernameLower = strtolower($_POST["username"]);
-$password = $_POST["password"];
+$password = password_hash($_POST["password"],PASSWORD_DEFAULT);
 $email = strtolower($_POST["email"]);
 include("C:/xampp/htdocs/access/sql.php");
 $usercheck = 'SELECT username FROM login';
