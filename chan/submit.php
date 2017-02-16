@@ -69,7 +69,7 @@ if(isset($_FILES["fileUpload"])) {
       exit();
     }
   } else {
-    echo("ERROR: ".mysqli_error($link));
+    echo("ERROR: MySQL encountered an error while submitting your file.<br>ERROR INFORMATION: ".mysqli_error($link));
     exit();
   }
 }

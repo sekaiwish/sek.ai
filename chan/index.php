@@ -44,6 +44,7 @@ if(isset($_POST['pagePrev'])) {
   } else {
     $offset = 0;
 		$page = 1;
+		$pageNext = 2;
   }
   $threads = "SELECT thread FROM posts WHERE op = 1 ORDER BY thread DESC LIMIT $x OFFSET $offset";
   $threads = mysqli_query($link,$threads);
@@ -96,7 +97,21 @@ if(isset($_POST['pagePrev'])) {
     echo('</p>
         </div>
 ');
+		$replyData[$x] = "SELECT id, name, time, body FROM posts WHERE thread = ".$displayThreads[$x]['thread']." AND op = 0 ORDER by id DESC LIMIT 3";
+		$replyData[$x] = mysqli_query($link,$replyData[$x]);
+		$replyData[$x] = mysqli_fetch_array($replyData[$x],MYSQLI_ASSOC);
+		$replies = count($replyData);
+		if(!isset($replyData[$x]['id'])) {
+			$replies = 0;
+		}
+		for($y = 1; $y <= $replies; $y++) {
+			echo('		<div class="reply">
+			<p><b>'.$replyData[$y]['name'].'</b> '.$replyData[$y]['time'].' No.'.$replyData[$y]['id'].' &gt;&gt;'.$postData[$x]['id'].'<br><br>'.$replyData[$y]['body'].'</p>
+		</div>
+');
+		}
   }
+	mysqli_close($link);
 	$pages = ' [<a href="?1">1</a>]'.
 	' [<a href="?2">2</a>]'.
 	' [<a href="?3">3</a>]'.
@@ -133,7 +148,6 @@ if(isset($_POST['pagePrev'])) {
             </div>
         </div>
 ');
-  mysqli_close($link);
 ?>
     </body>
 </html>
