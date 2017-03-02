@@ -2,75 +2,19 @@
 	font-family: "MoonFlower";
 	src: url(/webassets/moon-flower.ttf) format("truetype");
 }
-p {
-	font-family: Arial, Verdana, Tahoma;
-	color: white;
-}
-label {
-	font-family: "MoonFlower", Verdana, Tahoma;
-	font-size: 200%;
-}
-video {
-	position: absolute;
-	right: 10px;
-}
-embed {
-	position: fixed;
-	right: 10px;
-	top: 80px;
-}
 a {
 	outline: 0;
-}
-input[type=email],
-input[type=text],
-input[type=password] {
-	border: 1px solid #ccc;
-	box-sizing: border-box;
-}
-input[type=file] {
-	color: white;
-}
-textarea {
-	min-height: 6em;
-	max-height: 24em;
-	min-width: 20em;
-	max-width: 20em;
-	margin-top: 10px;
-	margin-left: 11px;
-	margin-right: 11px;
-}
-button {
-	margin-top: 5px;
-}
-p.loginHeader {
-	font-family: "MoonFlower", Verdana, Tahoma;
-	font-size: 300%;
-	margin-top: 0px;
-	margin-bottom: 0px;
-}
-p.subTitle {
-	font-family: "MoonFlower", Verdana, Tahoma;
-	font-size: 150%;
-}
-p.pageTitle {
-	font-family: "MoonFlower", Verdana, Tahoma;
-	text-align: center;
-	font-size: 850%;
-	margin-top: 0px;
-	margin-bottom: 0px;
 }
 a.link {
 	font-family: Arial, Verdana, Tahoma;
 }
-p.beta {
-	font-size: 120%;
-	color: white;
-	font-weight: bold;
-	text-align: center;
-	position: fixed;
-	left: 25px;
-	bottom: 0px;
+button {
+	margin-top: 5px;
+}
+a > button {
+	margin-left: 4px;
+	margin-right: 4px;
+	margin-bottom: 4px;
 }
 div.centerDiv {
 	background: rgba(0,0,0,0.3);
@@ -81,17 +25,77 @@ div.centerDiv {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+div.commentBox {
+	position: fixed;
+	right: 8px;
+	background: rgba(0,0,0,0.6);
+	display: block;
+	border-style: solid;
+	border-width: 1px;
+}
 div.errorDiv {
 	display: inline-block;
 	background: #ff4c4c;
 	border: 3px solid #d40000;
 }
-p.errorText {
-	font-family: Arial, Verdana, Tahoma;
-	text-align: center;
-	color: white;
-	padding-left: 1em;
-	padding-right: 1em;
+div.hSeparator {
+	float: left;
+	width: 2%;
+	height: 1%;
+}
+div.nsfwTile {
+	display: inline-block;
+	float: left;
+	height: 181px;
+	width: 32%;
+	background-position: bottom right, center top;
+	background-repeat: no-repeat, repeat;
+	background-size: auto, cover;
+}
+div.post {
+	/*
+	display: inline-block;
+	*/
+	display: flex;
+	background: rgba(0, 0, 0, 0.3);
+	/*
+	min-width: 50%;
+	padding-left: 8px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	*/
+	padding: 10px;
+	/*
+	margin-bottom: 10px;
+	*/
+}
+div.post > p {
+	margin: 0px;
+}
+div.pageBox {
+	float: left;
+	background: rgba(0, 0, 0, 0.5);
+	margin-bottom: 8px;
+	margin-right: 30%;
+}
+div.pageBox > div {
+	float: left;
+}
+div.reply {
+	border-top-style: solid;
+	border-top-width: 1px;
+	display: flex;
+	background: rgba(0, 0, 0, 0.2);
+	padding: 10px;
+}
+div.reply > p {
+	margin: 0px;
+}
+div.thread {
+	display: block;
+	border-style: solid;
+	border-width: 1px;
+	margin-bottom: 10px;
 }
 div.tile {
 	display: inline-block;
@@ -111,24 +115,20 @@ div.nsfwTile:hover > p.tileText {
 	opacity: 1;
 	font-size: 500%;
 }
-div.nsfwTile {
-	display: inline-block;
-	float: left;
-	height: 181px;
-	width: 32%;
-	background-position: bottom right, center top;
-	background-repeat: no-repeat, repeat;
-	background-size: auto, cover;
-}
-div.hSeparator {
-	float: left;
-	width: 2%;
-	height: 1%;
+div.viewcount {
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
 }
 div.vSeparator {
 	float: left;
 	height: 1.5em;
 	width: 100%;
+}
+embed {
+	position: fixed;
+	right: 10px;
+	top: 80px;
 }
 form.commentBox {
 	color: grey;
@@ -136,42 +136,77 @@ form.commentBox {
 	margin-left: 10px;
 	margin-right: 10px;
 }
-div.post {
-	display: inline-block;
-	width: 100%;
+img.chan {
+	float: left;
+	margin-right: 8px;
 }
-div.postSeparator {
-	display: inline-block;
-	background: rgba(0, 0, 0, 1);
-	margin-left: 15px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	width: 80%;
-	height: 1px;
+input[type=email],
+input[type=text],
+input[type=password] {
+	border: 1px solid #ccc;
+	box-sizing: border-box;
 }
-div.viewcount {
+input[type=file] {
+	color: white;
+}
+label {
+	font-family: "MoonFlower", Verdana, Tahoma;
+	font-size: 200%;
+}
+span.greentext {
+	color: #789922;
+}
+p {
+	font-family: Arial, Verdana, Tahoma;
+	color: white;
+}
+p.beta {
+	font-size: 120%;
+	color: white;
+	font-weight: bold;
+	text-align: center;
 	position: fixed;
-	right: 0px;
+	right: 25px;
 	bottom: 0px;
 }
-div.pageBox {
-	float: left;
-	background: rgba(0, 0, 0, 0.5);
+p.errorText {
+	font-family: Arial, Verdana, Tahoma;
+	text-align: center;
+	color: white;
+	padding-left: 1em;
+	padding-right: 1em;
 }
-div.pageBox > div {
-	float: left;
+p.loginHeader {
+	font-family: "MoonFlower", Verdana, Tahoma;
+	font-size: 300%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+p.subTitle {
+	font-family: "MoonFlower", Verdana, Tahoma;
+	font-size: 150%;
 }
 p.pages {
 	margin-top: 6px;
 	margin-bottom: 0px;
 }
-img.chan {
-	float: left;
-	padding-right: 15px;
-	padding-bottom: 15px;
+p.pageTitle {
+	font-family: "MoonFlower", Verdana, Tahoma;
+	text-align: center;
+	font-size: 850%;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
-a > button {
-	margin-left: 4px;
-	margin-right: 4px;
-	margin-bottom: 4px;
+textarea {
+	min-height: 6em;
+	max-height: 40em;
+	min-width: 20em;
+	max-width: 20em;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+video {
+	position: absolute;
+	right: 10px;
 }
