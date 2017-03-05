@@ -1,17 +1,15 @@
 <?php
-error_reporting(0);
-include('C:/xampp/htdocs/webassets/default.php');
-?>
-        <title>
+#error_reporting(0);
+include($_SERVER["DOCUMENT_ROOT"].'/webassets/default.php');
+echo('        <title>
             Sekai > 世界chan
         </title>
         <p class="subTitle">
             Sekai > 世界chan
         </p>
-        <p>[<a href="/" class="highlight">Return</a>]</p>
         <style>
           body {
-            background: linear-gradient(to left, #EC7EDD, #3494E6);
+            background: #2E3136;
           }
         </style>
         <script>
@@ -19,17 +17,14 @@ include('C:/xampp/htdocs/webassets/default.php');
                 var targ = event.target || event.srcElement;
                 document.getElementById("textUpload").value += ">>" + targ.textContent + "\n";
             }
-        </script>
-        <div class="container">
-<?php
-  if(reset(explode('=',end(explode('?',$_SERVER['REQUEST_URI'])))) == 'thread') {
-    include('C:/xampp/htdocs/chan/thread.php');
-	} elseif(reset(explode('=',end(explode('?',$_SERVER['REQUEST_URI'])))) == 'post') {
-    include('C:/xampp/htdocs/chan/post.php');
-	} else {
-		include('C:/xampp/htdocs/chan/catalog.php');
-	}
+        </script>');
+if(reset(explode('=',end(explode('?',$_SERVER['REQUEST_URI'])))) == 'thread') {
+  include('thread.php');
+} elseif(reset(explode('=',end(explode('?',$_SERVER['REQUEST_URI'])))) == 'post') {
+  include('post.php');
+} else {
+	include('catalog.php');
+}
+echo('    </body>
+</html>');
 ?>
-        </div>
-    </body>
-</html>

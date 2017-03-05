@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("C:/xampp/htdocs/access/sql.php");
+include($_SERVER["DOCUMENT_ROOT"].'/access/sql.php')
 $linkset = "UPDATE login SET linkstyle='".$_POST["linkstyle"]."' WHERE userid='".$_SESSION["userid"]."'";
 $tileset = "UPDATE login SET tilestyle='".$_POST["tilestyle"]."' WHERE userid='".$_SESSION["userid"]."'";
 $postset = "UPDATE login SET postsshown='".$_POST["postsshown"]."' WHERE userid='".$_SESSION["userid"]."'";

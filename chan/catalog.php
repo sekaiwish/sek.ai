@@ -1,5 +1,5 @@
 <?php
-include("C:/xampp/htdocs/access/sql.php");
+include($_SERVER["DOCUMENT_ROOT"].'/access/sql.php');
 $x = $_SESSION["postsshown"];
 $page = end(explode('?',$_SERVER['REQUEST_URI']));
 $offset = 0;
@@ -10,8 +10,21 @@ if(is_numeric($page)) {
 		$offset = $x * $page - $x;
 	}
 } else {
+	$page = 1;
 	$pageNext = 2;
 }
+$pages = ' [<a href="?1">1</a>]'.
+' [<a href="?2">2</a>]'.
+' [<a href="?3">3</a>]'.
+' [<a href="?4">4</a>]'.
+' [<a href="?5">5</a>]'.
+' [<a href="?6">6</a>]'.
+' [<a href="?7">7</a>]'.
+' [<a href="?8">8</a>]'.
+' [<a href="?9">9</a>]'.
+' [<a href="?10">10</a>]';
+$pages = explode('[<a href="?'.$page.'">'.$page.'</a>]', "$pages");
+$pages = $pages[0].'[<a href="?'.$page.'"><b>'.$page.'</b></a>]'.$pages[1];
 $threads = "SELECT thread FROM posts WHERE op = 1 ORDER BY thread DESC LIMIT $x OFFSET $offset";
 # Change to order by last updated, based on time or ID??
 $threads = mysqli_query($link,$threads);
@@ -21,7 +34,8 @@ while($thread = mysqli_fetch_array($threads,MYSQLI_ASSOC)) {
   $displayThreads[$y] = $thread;
 }
 $threadCount = count($displayThreads) + 1;
-echo('		<div class="commentBox">
+echo('<p>[<a href="/" class="highlight">Return</a>]</p>
+		<div class="commentBox">
             <select form="upload" name="threadUpload" id="threadUpload">
 								<option value="new">New thread</option>');
 for($x = 1; $x < $threadCount; $x++) {
@@ -102,8 +116,8 @@ for($x = 1; $x < $threadCount; $x++) {
 			$postData[$x]['replies'][$z]['id'].
 			'" class="notHighlight">No.</a><a onclick="insertReply(event)" class="notHighlight">'.
 			$postData[$x]['replies'][$z]['id'].
-			'</a> &gt;&gt;'.$postData[$x]['id'].
-			'<br><br>'.
+			'</a> </p><p style="font-size:60%;">&gt;&gt;'.$postData[$x]['id'].
+			'</p><p><br><br>'.
 			$postData[$x]['replies'][$z]['body'].
 			'</p>
 		</div>
@@ -114,18 +128,6 @@ for($x = 1; $x < $threadCount; $x++) {
 	echo('</div>');
 }
 mysqli_close($link);
-$pages = ' [<a href="?1">1</a>]'.
-' [<a href="?2">2</a>]'.
-' [<a href="?3">3</a>]'.
-' [<a href="?4">4</a>]'.
-' [<a href="?5">5</a>]'.
-' [<a href="?6">6</a>]'.
-' [<a href="?7">7</a>]'.
-' [<a href="?8">8</a>]'.
-' [<a href="?9">9</a>]'.
-' [<a href="?10">10</a>]';
-$pages = explode('[<a href="?'.$page.'">'.$page.'</a>]', "$pages");
-$pages = $pages[0].'[<a href="?'.$page.'"><b>'.$page.'</b></a>]'.$pages[1];
 echo('        <div class="pageBox">
           <div>
       <a href="?'.$pagePrev.'">

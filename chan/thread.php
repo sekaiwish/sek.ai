@@ -1,5 +1,5 @@
 <?php
-include("C:/xampp/htdocs/access/sql.php");
+include($_SERVER["DOCUMENT_ROOT"].'/access/sql.php');
 $thread = end(explode('=',end(explode('?',$_SERVER['REQUEST_URI']))));
 $getThread = "SELECT id, name, time, body, filename, filetype, filesize FROM `posts` WHERE thread = $thread";
 $getThread = mysqli_query($link,$getThread);
@@ -8,6 +8,8 @@ while($getPost = mysqli_fetch_array($getThread,MYSQLI_ASSOC)) {
   $x += 1;
   $posts[$x] = $getPost;
 }
+echo('<p>[<a href="/chan" class="highlight">Return</a>]</p>
+<div class="thread">');
 for($x = 1; $x <= count($posts); $x++) {
   echo('<div class="post" id="'.$posts[$x]['id'].'"><p style="width:100%;margin:0px;">');
   if($posts[$x]['filename'] != '') {
@@ -38,4 +40,5 @@ echo('<b>'.
       </div>
 ');
 }
+echo('</div>');
 ?>

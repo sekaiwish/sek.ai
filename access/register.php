@@ -3,7 +3,7 @@ $username = $_POST["username"];
 $usernameLower = strtolower($_POST["username"]);
 $password = password_hash($_POST["password"],PASSWORD_DEFAULT);
 $email = strtolower($_POST["email"]);
-include("C:/xampp/htdocs/access/sql.php");
+include($_SERVER["DOCUMENT_ROOT"].'/access/sql.php')
 $usercheck = 'SELECT username FROM login';
 $get = mysqli_query($link, $usercheck);
 $x = -1;

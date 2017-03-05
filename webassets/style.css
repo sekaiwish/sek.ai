@@ -16,7 +16,7 @@ a > button {
 	margin-right: 4px;
 	margin-bottom: 4px;
 }
-div.centerDiv {
+div.login {
 	background: rgba(0,0,0,0.3);
 	padding: 10px;
 	border-radius: 20px;
@@ -28,10 +28,9 @@ div.centerDiv {
 div.commentBox {
 	position: fixed;
 	right: 8px;
-	background: rgba(0,0,0,0.6);
+	background: #36393E;
 	display: block;
-	border-style: solid;
-	border-width: 1px;
+	border: 1px solid #3E4146;
 }
 div.errorDiv {
 	display: inline-block;
@@ -53,21 +52,10 @@ div.nsfwTile {
 	background-size: auto, cover;
 }
 div.post {
-	/*
 	display: inline-block;
-	*/
-	display: flex;
-	background: rgba(0, 0, 0, 0.3);
-	/*
-	min-width: 50%;
-	padding-left: 8px;
-	padding-top: 8px;
-	padding-bottom: 8px;
-	*/
+	background: #36393E;
+	width: 100%;
 	padding: 10px;
-	/*
-	margin-bottom: 10px;
-	*/
 }
 div.post > p {
 	margin: 0px;
@@ -82,10 +70,9 @@ div.pageBox > div {
 	float: left;
 }
 div.reply {
-	border-top-style: solid;
-	border-top-width: 1px;
+	border-top: 1px solid #3E4146;
 	display: flex;
-	background: rgba(0, 0, 0, 0.2);
+	background: #36393E;
 	padding: 10px;
 }
 div.reply > p {
@@ -93,9 +80,9 @@ div.reply > p {
 }
 div.thread {
 	display: block;
-	border-style: solid;
-	border-width: 1px;
+	border: 1px solid #3E4146;
 	margin-bottom: 10px;
+	overflow-x: hidden;
 }
 div.tile {
 	display: inline-block;
@@ -168,6 +155,12 @@ p.beta {
 	position: fixed;
 	right: 25px;
 	bottom: 0px;
+}
+p.errorPage {
+	font-family: "MoonFlower", Verdana, Tahoma;
+	font-size: 300%;
+	text-align: center;
+	margin: 0px;
 }
 p.errorText {
 	font-family: Arial, Verdana, Tahoma;

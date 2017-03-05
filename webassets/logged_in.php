@@ -94,7 +94,7 @@
       <div class="vSeparator">
       </div>
       <br>
-      <a href="/DLF ARCHIVE">
+      <a href="/dlf">
         <div class="nsfwTile" style='background-image:url("/webassets/nsfw.png"),url("/webassets/tiles/<?php
           if($_SESSION["tilestyle"]==0) {
             echo("dlf.gif");

@@ -24,10 +24,9 @@ Temporary Items
 .apdisk
 
 access/sql.php
-board/files/
 chan/files/
 chan/thumbs/
-DLF ARCHIVE/
-profile pictures/
 ps/
 *test*
+phpmyadmin/
+dlf/

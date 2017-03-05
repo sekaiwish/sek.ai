@@ -1,4 +1,4 @@
-<?php include('C:/xampp/htdocs/webassets/default.php');?>
+<?php include($_SERVER["DOCUMENT_ROOT"].'/webassets/default.php');?>
 <title>Sekai > Preferences</title>
 <p class="subTitle" style="color:white;font-size:150%">
   Sekai > Preferences
