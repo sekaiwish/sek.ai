@@ -1,9 +1,7 @@
 <?php
 #error_reporting(0);
 include($_SERVER["DOCUMENT_ROOT"].'/webassets/default.php');
-echo('        <title>
-            Sekai > 世界chan
-        </title>
+echo('        <title>Sekai: 世界chan</title>
         <p class="subTitle">
             Sekai > 世界chan
         </p>

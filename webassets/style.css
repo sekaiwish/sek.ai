@@ -2,6 +2,14 @@
 	font-family: "MoonFlower";
 	src: url(/webassets/moon-flower.ttf) format("truetype");
 }
+@keyframes gradient {
+	from {
+		background-position: 0px 0px;
+	}
+	to {
+		background-position: -3840px 0px;
+	}
+}
 a {
 	outline: 0;
 }
@@ -15,15 +23,6 @@ a > button {
 	margin-left: 4px;
 	margin-right: 4px;
 	margin-bottom: 4px;
-}
-div.login {
-	background: rgba(0,0,0,0.3);
-	padding: 10px;
-	border-radius: 20px;
-	position: fixed;
-	top: 40%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 }
 div.commentBox {
 	position: fixed;
@@ -43,13 +42,12 @@ div.hSeparator {
 	height: 1%;
 }
 div.nsfwTile {
-	display: inline-block;
-	float: left;
-	height: 181px;
-	width: 32%;
 	background-position: bottom right, center top;
 	background-repeat: no-repeat, repeat;
 	background-size: auto, cover;
+	float: left;
+	height: 181px;
+	width: 32%;
 }
 div.post {
 	display: inline-block;
@@ -85,12 +83,10 @@ div.thread {
 	overflow-x: hidden;
 }
 div.tile {
-	display: inline-block;
+	background-size: cover;
 	float: left;
 	height: 181px;
 	width: 32%;
-	background-position: center top;
-	background-size: cover;
 }
 div.tile:hover > p.tileText {
 	filter: blur(0px);
@@ -101,11 +97,6 @@ div.nsfwTile:hover > p.tileText {
 	filter: blur(0px);
 	opacity: 1;
 	font-size: 500%;
-}
-div.viewcount {
-	position: fixed;
-	right: 0px;
-	bottom: 0px;
 }
 div.vSeparator {
 	float: left;
@@ -161,19 +152,6 @@ p.errorPage {
 	font-size: 300%;
 	text-align: center;
 	margin: 0px;
-}
-p.errorText {
-	font-family: Arial, Verdana, Tahoma;
-	text-align: center;
-	color: white;
-	padding-left: 1em;
-	padding-right: 1em;
-}
-p.loginHeader {
-	font-family: "MoonFlower", Verdana, Tahoma;
-	font-size: 300%;
-	margin-top: 0px;
-	margin-bottom: 0px;
 }
 p.subTitle {
 	font-family: "MoonFlower", Verdana, Tahoma;

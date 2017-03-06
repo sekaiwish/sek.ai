@@ -3,14 +3,16 @@
   <head>
     <link rel="icon" href="/webassets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/webassets/style.css" type="text/css">
-    <title>
-      Sekai
-    </title>
+    <title>Sekai: Home</title>
     <style>
       body {
-        background: linear-gradient(to left,#EECDA3,#EF629F);
+        background-image: url(/webassets/gradients/light.png);
+        animation-duration: 5s;
+        animation-name: gradient;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
       }
-      .tileText {
+      p.tileText {
         font-family: "MoonFlower";
         color: white;
         font-size: 420%;
