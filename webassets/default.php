@@ -49,7 +49,7 @@ echo('<!DOCTYPE html>
 </style>
 </head>
 <body>
-<p class="beta">BETA 0.5</p>
+<p class="beta">DEV 0.6</p>
 <p class="user">Logged in as '.$_SESSION['username'].'.</p>
 <form method="POST" style="position:fixed;right:10px;top:40px;"><input type="submit" name="preferences" value="Preferences"></form>
 <form method="POST" style="position:fixed;right:10px;top:68px;"><input type="submit" name="logout" value="Log Out"></form>
