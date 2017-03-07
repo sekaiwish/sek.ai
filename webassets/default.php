@@ -33,28 +33,25 @@ for($y = 1; $y < $counter; $y++) {
 }
 echo('<!DOCTYPE html>
 <html>
-	<head>
-		<link rel="icon" href="/webassets/favicon.ico" type="image/x-icon">
-		<link rel="stylesheet" href="/webassets/style.css" type="text/css">');
+<head>
+<link rel="icon" href="/webassets/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/webassets/style.css" type="text/css">');
 		if ($_SESSION['linkstyle'] == 0) {
-			echo("\n".'		<link rel="stylesheet" href="/webassets/chan.css" type="text/css">');
+			echo("\n".'<link rel="stylesheet" href="/webassets/chan.css" type="text/css">');
 		} elseif ($_SESSION['linkstyle'] == 1) {
-			echo("\n".'		<link rel="stylesheet" href="/webassets/tube.css" type="text/css">');
+			echo("\n".'<link rel="stylesheet" href="/webassets/tube.css" type="text/css">');
 		}
-		echo("\n	".'<style>body{background:#2E3136;}</style>
-		</head>
-	<body>
-		<p class="beta">
-			DEV 0.5
-		</p>
-		<p style="position:fixed;right:10px;top:0px">
-			Logged in as '.$_SESSION['username'].'.
-		</p>
-		<form method="POST" style="position:fixed;right:10px;top:40px;">
-			<input type="submit" name="preferences" value="Preferences">
-		</form>
-		<form method="POST" style="position:fixed;right:10px;top:68px;">
-			<input type="submit" name="logout" value="Log Out">
-		</form>
+		echo('
+<style>
+	body {
+		background:#2E3136;
+	}
+</style>
+</head>
+<body>
+<p class="beta">DEV 0.5</p>
+<p class="user">Logged in as '.$_SESSION['username'].'.</p>
+<form method="POST" style="position:fixed;right:10px;top:40px;"><input type="submit" name="preferences" value="Preferences"></form>
+<form method="POST" style="position:fixed;right:10px;top:68px;"><input type="submit" name="logout" value="Log Out"></form>
 ')
 ?>

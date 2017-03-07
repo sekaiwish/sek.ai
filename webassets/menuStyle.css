@@ -1,0 +1,55 @@
+body {
+  background-image: url(/webassets/gradients/light.png);
+  animation-duration: 5s;
+  animation-name: gradient;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+div.hSeparator {
+	float: left;
+	width: 2%;
+	height: 1%;
+}
+div.nsfwTile {
+	background-position: bottom right, center top;
+	background-repeat: no-repeat, repeat;
+	background-size: auto, cover;
+	float: left;
+	height: 181px;
+	width: 32%;
+}
+div.tile {
+	background-size: cover;
+	float: left;
+	height: 181px;
+	width: 32%;
+}
+div.tile:hover > p.tileText {
+	filter: blur(0px);
+	opacity: 1;
+	font-size: 500%;
+}
+div.nsfwTile:hover > p.tileText {
+	filter: blur(0px);
+	opacity: 1;
+	font-size: 500%;
+}
+div.vSeparator {
+	float: left;
+	height: 1.5em;
+	width: 100%;
+}
+p.tileText {
+  font-family: "MoonFlower";
+  color: white;
+  font-size: 420%;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  filter: blur(2px);
+  opacity: 0;
+  transition: 0.7s ease-out;
+}

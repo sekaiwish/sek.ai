@@ -20,9 +20,11 @@ b {
 	border-bottom: 1px solid white;
 }
 body {
-  /*
-  background: linear-gradient(to left, #4568DC, #B06AB3);
-  */
+	background-image: url(/webassets/gradients/dark.png);
+	animation-duration: 5s;
+	animation-name: gradient;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 div.login {
 	background: rgba(0,0,0,0.3);
@@ -33,10 +35,11 @@ div.login {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
-div.viewcount {
-	position: fixed;
-	right: 0px;
-	bottom: 0px;
+div.viewCount {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translate(-50%);
 }
 label {
 	font-family: "MoonFlower", Verdana, Tahoma;

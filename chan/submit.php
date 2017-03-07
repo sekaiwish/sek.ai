@@ -46,13 +46,12 @@ if(isset($_FILES['fileUpload'])) {
   $type = explode('.',$name);
   $type = end($type);
   $body = preg_replace('/([>]{2})(\d+)/','⁆a href="?post=$2"⁗&gt;&gt;$2⁆/a⁗',$body);
-  $body = preg_replace('/([>]{1})(.+)(\b)/','⁆span class="greentext"⁗&gt;$2⁆/span⁗$3',$body);
+  $body = preg_replace('/([>]{1})(.+)(\B|\b)/','⁆span class="greentext"⁗&gt;$2⁆/span⁗$3',$body);
   $body = str_replace("<","&lt;",$body);
   $body = str_replace(">","&gt;",$body);
   $body = str_replace("⁆","<",$body);
   $body = str_replace("⁗",">",$body);
-  $body = str_replace("
-","<br>",$body);
+  $body = preg_replace('/(.*)(\n)/','$1<br>',$body);
   if($size > 1000000000) {
     echo('ERROR: File cannot be larger than one gibibyte.');
     exit();

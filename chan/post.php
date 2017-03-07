@@ -1,8 +1,7 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"].'/access/sql.php');
 $post = end(explode('=',end(explode('?',$_SERVER['REQUEST_URI']))));
-$sql = 'SELECT thread FROM posts WHERE id = '.$post;
-$thread = mysqli_query($link,$sql);
-$thread = implode(mysqli_fetch_array($thread,MYSQLI_ASSOC));
-header("Location: /chan/?thread=$thread#$post");
+$getThread = mysqli_query($link,'SELECT thread FROM posts WHERE id = '.$post);
+$gotoThread = implode(mysqli_fetch_array($getThread,MYSQLI_ASSOC));
+header("Location: /chan/?thread=$gotoThread#$post");
 ?>
