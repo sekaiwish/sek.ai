@@ -1,0 +1,82 @@
+div.commentBox {
+	position: fixed;
+	right: 8px;
+	background: #36393E;
+	display: block;
+	border: 1px solid #3E4146;
+}
+div.pageBox {
+	float: left;
+	background: #3A3D42;
+	border: 1px solid #3E4146;
+	margin-bottom: 8px;
+	margin-right: 30%;
+	padding-bottom: 1px;
+}
+div.pageBox > div {
+	float: left;
+}
+div.post {
+	display: inline-block;
+	background: #3A3D42;
+	width: 100%;
+	padding: 10px;
+}
+div.reply {
+	display: inline-block;
+	background: #36393E;
+	width: 100%;
+	padding: 10px;
+  border-top: 1px solid #3E4146;
+}
+div.thread {
+	display: block;
+	border: 1px solid #3E4146;
+	margin-bottom: 10px;
+	overflow-x: hidden;
+}
+form.commentBox {
+	color: grey;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+img.chan {
+	float: left;
+	margin-right: 8px;
+}
+input[type=file] {
+	color: white;
+}
+p.chan {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+p.comment {
+  margin-top: 7px;
+  margin-bottom: 0px;
+  margin-left: 5px;
+}
+p.pages {
+	margin-top: 6px;
+	margin-bottom: 0px;
+}
+select {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+span.greentext {
+	color: #789922;
+}
+span.replyThread {
+	font-size: 65%;
+  vertical-align: 0.2em;
+}
+textarea {
+	min-height: 6em;
+	max-height: 40em;
+	min-width: 20em;
+	max-width: 20em;
+	margin-left: 10px;
+	margin-right: 10px;
+}

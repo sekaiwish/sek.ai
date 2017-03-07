@@ -23,7 +23,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-board/files/
-DLF ARCHIVE/
-FLAC/*/
-profile pictures/*
+access/sql.php
+chan/files/
+chan/thumbs/
+ps/
+*test*
+phpmyadmin/
+dlf/

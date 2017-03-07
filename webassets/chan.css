@@ -1,23 +1,40 @@
 a:link {
 	font-family: Arial,Verdana,Tahoma;
-	color: blue;
+	color: #0096CF;
   text-decoration: none;
 }
-
 a:visited {
 	font-family: Arial,Verdana,Tahoma;
-	color: blue;
+	color: #0096CF;
   text-decoration: none;
 }
-
 a:hover {
 	font-family: Arial,Verdana,Tahoma;
-	color: red;
+	color: #C74345;
   text-decoration: none;
 }
-
 a:active {
 	font-family: Arial,Verdana,Tahoma;
-	color: red;
+	color: #C74345;
+  text-decoration: none;
+}
+a.notHighlight:link {
+	font-family: Arial,Verdana,Tahoma;
+	color: white;
+  text-decoration: none;
+}
+a.notHighlight:visited {
+	font-family: Arial,Verdana,Tahoma;
+	color: white;
+  text-decoration: none;
+}
+a.notHighlight:hover {
+	font-family: Arial,Verdana,Tahoma;
+	color: #C74345;
+  text-decoration: none;
+}
+a.notHighlight:active {
+	font-family: Arial,Verdana,Tahoma;
+	color: #C74345;
   text-decoration: none;
 }
