@@ -1,5 +1,4 @@
 <?php
-#error_reporting(0);
 include($_SERVER["DOCUMENT_ROOT"].'/webassets/default.php');
 echo('<link rel="stylesheet" href="/webassets/chanStyle.css" type="text/css">
 <title>Sekai: 世界chan</title>

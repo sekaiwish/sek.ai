@@ -31,7 +31,7 @@ if(isset($_SESSION['loginerror'])) {
 <button type="submit">Login</button>
 </form>
 </div>
-<p class="beta">DEV 0.5</p>
+<p class="beta">BETA 0.5</p>
 <p class="pageTitle">Sekai</p>
 <?php
   session_start();

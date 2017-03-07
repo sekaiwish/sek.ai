@@ -4,6 +4,14 @@ $x = $_SESSION["postsshown"];
 $page = end(explode('?',$_SERVER['REQUEST_URI']));
 $offset = 0;
 if(is_numeric($page)) {
+	if($page < 1) {
+		header('Location: /chan?1');
+		exit();
+	}
+	elseif ($page > 10) {
+		header('Location: /chan?10');
+		exit();
+	}
 	$pageNext = $page + 1;
 	$pagePrev = $page - 1;
 	if($page != 1) {
@@ -25,13 +33,11 @@ $pages = ' [<a href="?1">1</a>]'.
 ' [<a href="?10">10</a>]';
 $pages = explode('[<a href="?'.$page.'">'.$page.'</a>]', "$pages");
 $pages = $pages[0].'[<a href="?'.$page.'"><b>'.$page.'</b></a>]'.$pages[1];
-$threads = "SELECT DISTINCT thread FROM posts ORDER BY id DESC LIMIT $x OFFSET $offset";
-# Change to order by last updated, based on time or ID??
-$threads = mysqli_query($link,$threads);
-$y = 0;
+$threads = mysqli_query($link,"SELECT DISTINCT thread FROM posts ORDER BY id DESC LIMIT $x OFFSET $offset");
+$y = 1;
 while($thread = mysqli_fetch_array($threads,MYSQLI_ASSOC)) {
-  $y += 1;
   $displayThreads[$y] = $thread;
+	$y += 1;
 }
 echo('<p>[<a href="/" class="highlight">Return</a>]</p>
 <div class="commentBox">
@@ -39,12 +45,12 @@ echo('<p>[<a href="/" class="highlight">Return</a>]</p>
 for($x=1;$x<=count($displayThreads);$x++) {
 	echo('<option value="'.$displayThreads[$x]['thread'].'">Thread #'.$displayThreads[$x]['thread'].'</option>');
 }
-echo('</select>
+echo('</select><br>
 <textarea placeholder="Comment" form="upload" name="textUpload" id="textUpload"></textarea>
 <form class="commentBox" action="submit.php" method="post" enctype="multipart/form-data" id="upload"><input type="file" name="fileUpload" id="fileUpload"><br><input style="margin-top:7px;" type="submit" value="Submit file" name="submit"></form>
 </div>
 ');
-for($x= 1;$x<=count($displayThreads);$x++) {
+for($x=1;$x<=count($displayThreads);$x++) {
 	echo('<div class="thread">
 ');
   $postData[$x] = mysqli_query($link,"SELECT id, thread, name, time, body, filename, filetype, filesize FROM posts WHERE op = 1 AND thread = ".$displayThreads[$x]['thread']);
@@ -72,7 +78,7 @@ for($x= 1;$x<=count($displayThreads);$x++) {
   	$postData[$x]['body']);
   echo('</p></div>');
 	$z = 1;
-	for($y = 2; $y >= 0; $y--) {
+	for($y=2;$y>=0;$y--) {
 		$postData[$x]['replies'][$z] = mysqli_query($link,'SELECT id, name, time, body, filename, filetype, filesize FROM posts WHERE thread = '.$displayThreads[$x]['thread'].' AND op = 0 ORDER by id DESC LIMIT 3 OFFSET '.$y);
 		$postData[$x]['replies'][$z] = mysqli_fetch_array($postData[$x]['replies'][$z],MYSQLI_ASSOC);
 		if($postData[$x]['replies'][$z]['name'] != "") {
@@ -114,11 +120,11 @@ for($x= 1;$x<=count($displayThreads);$x++) {
 }
 mysqli_close($link);
 echo('<div class="pageBox"><div><a href="?'.$pagePrev.'"><button');
-if($page == 1) {
+if($page <= 1) {
   echo(' disabled');
 }
 echo('>Previous</button></a></div><div><p class="pages">'.$pages.'</p></div><div><a href="?'.$pageNext.'"><button');
-if($page == 10) {
+if($page >= 10) {
   echo(' disabled');
 }
 echo('>Next</button></a></div></div>
