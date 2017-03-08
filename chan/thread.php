@@ -59,7 +59,7 @@ for($y=1;$y<=count($reply);$y++) {
     $reply[$y]['name'].
     '</b> '.
     $reply[$y]['time'].
-    ' <a href="?thread='.
+    ' <a href="?post='.
     $reply[$y]['id'].
     '" class="notHighlight">No.</a><a onclick="insertReply(event)" class="notHighlight">'.
     $reply[$y]['id'].

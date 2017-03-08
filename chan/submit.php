@@ -89,7 +89,7 @@ if(isset($_FILES['fileUpload'])) {
           header('Location: /chan?post='.$nextPostId);
           exit();
         } else {
-          header('Location: /chan');
+          header('Location: /chan?post='.$nextPostId);
           exit();
         }
       } else {

@@ -23,7 +23,8 @@ if(!isset($_SESSION['registerStatus'])) {
 <label>Email Address</label><br><input type="text" placeholder="Enter Email Address" name="email" id="email" size="30" maxlength="48" required autofocus><br>
 <label>Username</label><br><input type="text" placeholder="Enter Username" name="username" id="username" maxlength="16" required><br>
 <label>Password</label><br><input type="password" placeholder="Enter Password" name="password" id="password" maxlength="16" required><br>
-<a href="/"><button>Return</button></a><button type="submit">Register</button>
+<a href="/"><button type="button">Return</button></a>
+<button type="submit">Register</button>
 </form>
 </div>
 </body>

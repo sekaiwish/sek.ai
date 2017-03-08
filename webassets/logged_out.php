@@ -59,7 +59,7 @@ if(isset($_SESSION['loginerror'])) {
       mysqli_close($link);
     }
   } else {
-    echo('<div class="viewcount"><p style="margin-bottom:10px;margin-right:10px;font-size:300%;">お早うヰシュー様!</p></div>');
+    echo('<div class="viewcount"><p style="text-align:center;">お早うヰシュー様!</p></div>');
   }?>
 </body>
 </html>
