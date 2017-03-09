@@ -64,6 +64,7 @@ p.pages {
 select {
 	margin-top: 10px;
 	margin-left: 10px;
+	width: 8em;
 }
 span.greentext {
 	color: #789922;
@@ -77,6 +78,7 @@ textarea {
 	max-height: 40em;
 	min-width: 20em;
 	max-width: 20em;
+	margin-top: 4px;
 	margin-left: 10px;
 	margin-right: 10px;
 }

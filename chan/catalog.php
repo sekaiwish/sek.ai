@@ -55,6 +55,15 @@ for($x=1;$x<=count($displayThreads);$x++) {
 ');
   $postData[$x] = mysqli_query($link,"SELECT id, thread, name, time, body, filename, filetype, filesize FROM posts WHERE op = 1 AND thread = ".$displayThreads[$x]['thread']);
   $postData[$x] = mysqli_fetch_array($postData[$x],MYSQLI_ASSOC);
+	$postData[$x]['replyCount'] = mysqli_query($link,"SELECT COUNT(id) FROM posts WHERE op = 0 AND thread = ".$postData[$x]['id']);
+	$postData[$x]['replyCount'] = mysqli_fetch_array($postData[$x]['replyCount'],MYSQLI_ASSOC);
+	if($postData[$x]['replyCount']['COUNT(id)'] == 1) {
+		$postData[$x]['replyCount'] = 1;
+		$postData[$x]['replyFormat'] = 0;
+	} else {
+		$postData[$x]['replyCount'] = $postData[$x]['replyCount']['COUNT(id)'];
+		$postData[$x]['replyFormat'] = 1;
+	}
   echo('<div class="post"><p class="chan"><a href="/chan/files/'.
     $postData[$x]['id'].
     '.'.
@@ -74,7 +83,20 @@ for($x=1;$x<=count($displayThreads);$x++) {
 		$postData[$x]['id'].
 		'" class="notHighlight">No.</a><a onclick="insertReply(event)" class="notHighlight">'.
   	$postData[$x]['id'].
-  	'</a> (OP)</p><p class="comment">'.
+  	'</a> (OP) [<a href="?thread='.
+		$postData[$x]['id'].
+		'">Reply</a>] '.
+		$postData[$x]['replyCount'].
+		' ');
+		if($postData[$x]['replyFormat'] == 0) {
+			echo('reply');
+		} else {
+			echo('replies');
+		}
+		if($postData[$x]['replyCount'] > 3) {
+			echo(' ('.($postData[$x]['replyCount'] - 3).' omitted)');
+		}
+		echo('</p><p class="comment">'.
   	$postData[$x]['body']);
   echo('</p></div>');
 	$z = 1;
