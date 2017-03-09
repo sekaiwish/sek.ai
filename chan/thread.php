@@ -25,8 +25,9 @@ echo('<p>[<a href="/chan" class="highlight">Return</a>]</p>
   $OP['filename'].
   '</a> '.
   $OP['filesize'].
-  'B'.
-  '<br><b>'.
+  'B ('.
+  $postData[$x]['resolution'].
+  ')<br><b>'.
   $OP['name'].
   '</b> '.
   $OP['time'].
@@ -52,8 +53,9 @@ for($y=1;$y<=count($reply);$y++) {
     $reply[$y]['filename'].
     '</a> '.
     $reply[$y]['filesize'].
-    'B'.
-    '<br>');
+    'B ('.
+		$postData[$x]['resolution'].
+  	')<br>');
   }
   echo('<b>'.
     $reply[$y]['name'].

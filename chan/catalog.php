@@ -53,7 +53,7 @@ echo('</select><br>
 for($x=1;$x<=count($displayThreads);$x++) {
 	echo('<div class="thread">
 ');
-  $postData[$x] = mysqli_query($link,"SELECT id, thread, name, time, body, filename, filetype, filesize FROM posts WHERE op = 1 AND thread = ".$displayThreads[$x]['thread']);
+  $postData[$x] = mysqli_query($link,"SELECT id, thread, name, time, body, filename, filetype, filesize, resolution FROM posts WHERE op = 1 AND thread = ".$displayThreads[$x]['thread']);
   $postData[$x] = mysqli_fetch_array($postData[$x],MYSQLI_ASSOC);
 	$postData[$x]['replyCount'] = mysqli_query($link,"SELECT COUNT(id) FROM posts WHERE op = 0 AND thread = ".$postData[$x]['id']);
 	$postData[$x]['replyCount'] = mysqli_fetch_array($postData[$x]['replyCount'],MYSQLI_ASSOC);
@@ -74,8 +74,9 @@ for($x=1;$x<=count($displayThreads);$x++) {
   	$postData[$x]['filename'].
   	'</a> '.
   	$postData[$x]['filesize'].
-  	'B'.
-  	'<br><b>'.
+  	'B ('.
+		$postData[$x]['resolution'].
+  	')<br><b>'.
   	$postData[$x]['name'].
   	'</b> '.
   	$postData[$x]['time'].
@@ -116,8 +117,9 @@ for($x=1;$x<=count($displayThreads);$x++) {
 				$postData[$x]['replies'][$z]['filename'].
 				'</a> '.
 				$postData[$x]['replies'][$z]['filesize'].
-				'B'.
-				'<br>');
+				'B ('.
+				$postData[$x]['resolution'].
+		  	')<br>');
 			}
 			echo('<b>'.
 			$postData[$x]['replies'][$z]['name'].

@@ -42,6 +42,8 @@ if(isset($_FILES['fileUpload'])) {
       $size = round($size/1024);
       $size = $size.'K';
     }
+    $resolution = getimagesize($_FILES['fileUpload']['tmp_name']);
+    $resolution = $resolution[0].'x'.$resolution[1];
   }
   $type = explode('.',$name);
   $type = end($type);
@@ -76,8 +78,8 @@ if(isset($_FILES['fileUpload'])) {
     $lastpostnumber = mysqli_fetch_array($lastpostnumber,MYSQLI_ASSOC);
     $nextPostId = $lastpostnumber["id"] + 1;
   }
-  $submit = "INSERT INTO posts (thread, op, ip, name, body, filename, filetype, filesize)
-  VALUES ('$thread', '1', '$ip', '$user', '$body', '$name', '$type', '$size')";
+  $submit = "INSERT INTO posts (thread, op, ip, name, body, filename, filetype, filesize, resolution)
+  VALUES ('$thread', '1', '$ip', '$user', '$body', '$name', '$type', '$size', '$resolution')";
   if($op == 0) {
     $submit = str_replace("'1'","'0'",$submit);
   }
