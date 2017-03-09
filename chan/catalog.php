@@ -86,7 +86,7 @@ for($x=1;$x<=count($displayThreads);$x++) {
 		$postData[$x]['id'].
 		'" onclick="insertReply(event);insertThread(this.id)" class="notHighlight">'.
   	$postData[$x]['id'].
-  	'</a> (OP) [<a href="?thread='.
+  	'</a> [<a href="?thread='.
 		$postData[$x]['id'].
 		'">Reply</a>] '.
 		$postData[$x]['replyCount'].

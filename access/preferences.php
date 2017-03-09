@@ -1,29 +1,20 @@
-<?php include($_SERVER["DOCUMENT_ROOT"].'/webassets/default.php');?>
-<title>Sekai > Preferences</title>
-<p class="subTitle" style="color:white;font-size:150%">
-  Sekai > Preferences
-</p>
-<p>[<a href="/">Return</a>]<br>
-<style>
-  body {
-    background: linear-gradient(to left,#EC7EDD,#3494E6);
+<?php
+session_start();
+include($_SERVER["DOCUMENT_ROOT"].'/access/sql.php')
+$linkset = "UPDATE login SET linkstyle='".$_POST["linkstyle"]."' WHERE userid='".$_SESSION["userid"]."'";
+$tileset = "UPDATE login SET tilestyle='".$_POST["tilestyle"]."' WHERE userid='".$_SESSION["userid"]."'";
+$postset = "UPDATE login SET postsshown='".$_POST["postsshown"]."' WHERE userid='".$_SESSION["userid"]."'";
+if(mysqli_query($link, $linkset)) {
+  if(mysqli_query($link, $tileset)) {
+    if(mysqli_query($link,$postset)) {
+      header("Location: /account/?success=1");
+    } else {
+      echo("MYSQL ERROR: ".mysqli_error($link));
+    }
+  } else {
+    echo("MYSQL ERROR: ".mysqli_error($link));
   }
-</style>
-<form method="post" action="/access/updateprefs.php" style="font-family:Arial,Verdana,Tahoma;color:white;">
-  <input type="radio" name="linkstyle" value="0" required<?php if($_SESSION["linkstyle"]==0){echo(" checked");}?>>4chan Style Hyperlinks
-  <br>
-  <input type="radio" name="linkstyle" value="1" required<?php if($_SESSION["linkstyle"]==1){echo(" checked");}?>>YouTube Style Hyperlinks
-  <br>
-  <br>
-  <input type="radio" name="tilestyle" value="0" required<?php if($_SESSION["tilestyle"]==0){echo(" checked");}?>>GIF Menu Tiles (Color)
-  <br>
-  <input type="radio" name="tilestyle" value="1" required<?php if($_SESSION["tilestyle"]==1){echo(" checked");}?>>GIF Menu Tiles (Black and White)
-  <br>
-  <input type="radio" name="tilestyle" value="2" required<?php if($_SESSION["tilestyle"]==2){echo(" checked");}?>>PNG Menu Tiles
-  <br>
-  <br>
-  <input type="number" name="postsshown" value="<?php echo($_SESSION["postsshown"]);?>" required min="5" max="50" style="max-width:3em;"> Posts shown per imageboard page
-  <br>
-  <br>
-  <input type="submit" name="confirm" value="Update Preferences">
-</form>
+} else {
+  echo("MYSQL ERROR: ".mysqli_error($link));
+}
+?>

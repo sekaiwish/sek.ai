@@ -12,11 +12,11 @@
 <?php
 if(isset($_SESSION['loginerror'])) {
   echo('<p class="errorText">');
-  if($_SESSION['loginerror']==1) {
+  if($_SESSION['loginerror'] == 1) {
     echo('User not found.');
-  } elseif($_SESSION['loginerror']==2) {
+  } elseif($_SESSION['loginerror'] == 2) {
     echo('Your account has not been approved yet.');
-  } elseif($_SESSION['loginerror']==3) {
+  } elseif($_SESSION['loginerror'] == 3) {
     echo('Incorrect password.');
   }
   echo('</p>');
@@ -27,7 +27,7 @@ if(isset($_SESSION['loginerror'])) {
 <input type="text" placeholder="Enter Username" name="username" id="username" maxlength="16" required><br>
 <label>Password</label><br>
 <input type="password" placeholder="Enter Password" name="password" id="password" maxlength="16" required><br>
-<a href="/register"><button type="button">Register</button></a>
+<a href="/register/"><button type="button">Register</button></a>
 <button type="submit">Login</button>
 </form>
 </div>

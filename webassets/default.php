@@ -10,7 +10,7 @@ if(isset($_POST['logout'])) {
   exit();
 }
 if(isset($_POST['preferences'])) {
-	header('Location: /access/preferences.php');
+	header('Location: /account.php');
 	exit();
 }
 include($_SERVER['DOCUMENT_ROOT'].'/access/sql.php');
@@ -44,7 +44,7 @@ echo('<!DOCTYPE html>
 		echo('
 <style>
 	body {
-		background:#2E3136;
+		background: #2E3136;
 	}
 </style>
 </head>
