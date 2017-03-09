@@ -82,7 +82,9 @@ for($x=1;$x<=count($displayThreads);$x++) {
   	$postData[$x]['time'].
   	' <a href="?thread='.
 		$postData[$x]['id'].
-		'" class="notHighlight">No.</a><a onclick="insertReply(event)" class="notHighlight">'.
+		'" class="notHighlight">No.</a><a id="'.
+		$postData[$x]['id'].
+		'" onclick="insertReply(event);insertThread(this.id)" class="notHighlight">'.
   	$postData[$x]['id'].
   	'</a> (OP) [<a href="?thread='.
 		$postData[$x]['id'].
@@ -102,7 +104,7 @@ for($x=1;$x<=count($displayThreads);$x++) {
   echo('</p></div>');
 	$z = 1;
 	for($y=2;$y>=0;$y--) {
-		$postData[$x]['replies'][$z] = mysqli_query($link,'SELECT id, name, time, body, filename, filetype, filesize FROM posts WHERE thread = '.$displayThreads[$x]['thread'].' AND op = 0 ORDER by id DESC LIMIT 3 OFFSET '.$y);
+		$postData[$x]['replies'][$z] = mysqli_query($link,'SELECT id, name, time, body, filename, filetype, filesize, resolution FROM posts WHERE thread = '.$displayThreads[$x]['thread'].' AND op = 0 ORDER by id DESC LIMIT 3 OFFSET '.$y);
 		$postData[$x]['replies'][$z] = mysqli_fetch_array($postData[$x]['replies'][$z],MYSQLI_ASSOC);
 		if($postData[$x]['replies'][$z]['name'] != "") {
 			echo('<div class="reply"><p class="chan">');
@@ -118,7 +120,7 @@ for($x=1;$x<=count($displayThreads);$x++) {
 				'</a> '.
 				$postData[$x]['replies'][$z]['filesize'].
 				'B ('.
-				$postData[$x]['resolution'].
+				$postData[$x]['replies'][$z]['resolution'].
 		  	')<br>');
 			}
 			echo('<b>'.
@@ -127,7 +129,9 @@ for($x=1;$x<=count($displayThreads);$x++) {
 			$postData[$x]['replies'][$z]['time'].
 			' <a href="?post='.
 			$postData[$x]['replies'][$z]['id'].
-			'" class="notHighlight">No.</a><a onclick="insertReply(event)" class="notHighlight">'.
+			'" class="notHighlight">No.</a><a id="'.
+			$postData[$x]['id'].
+			'" onclick="insertReply(event);insertThread(this.id)" class="notHighlight">'.
 			$postData[$x]['replies'][$z]['id'].
 			'</a> <a href="?thread='.
 			$postData[$x]['id'].

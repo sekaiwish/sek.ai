@@ -1,9 +1,9 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"].'/access/sql.php');
 $thread = end(explode('=',end(explode('?',$_SERVER['REQUEST_URI']))));
-$getOP = mysqli_query($link,"SELECT id, name, time, body, filename, filetype, filesize FROM posts WHERE thread = $thread AND op = 1");
+$getOP = mysqli_query($link,"SELECT id, name, time, body, filename, filetype, filesize, resolution FROM posts WHERE thread = $thread AND op = 1");
 $OP = mysqli_fetch_array($getOP,MYSQLI_ASSOC);
-$getThread = mysqli_query($link,"SELECT id, name, time, body, filename, filetype, filesize FROM posts WHERE thread = $thread AND op = 0");
+$getThread = mysqli_query($link,"SELECT id, name, time, body, filename, filetype, filesize, resolution FROM posts WHERE thread = $thread AND op = 0");
 $x = 0;
 while($getReplies = mysqli_fetch_array($getThread,MYSQLI_ASSOC)) {
   $x += 1;
@@ -26,7 +26,7 @@ echo('<p>[<a href="/chan" class="highlight">Return</a>]</p>
   '</a> '.
   $OP['filesize'].
   'B ('.
-  $postData[$x]['resolution'].
+  $OP['resolution'].
   ')<br><b>'.
   $OP['name'].
   '</b> '.
@@ -54,7 +54,7 @@ for($y=1;$y<=count($reply);$y++) {
     '</a> '.
     $reply[$y]['filesize'].
     'B ('.
-		$postData[$x]['resolution'].
+		$reply[$y]['resolution'].
   	')<br>');
   }
   echo('<b>'.

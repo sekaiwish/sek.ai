@@ -8,6 +8,9 @@ echo('<link rel="stylesheet" href="/webassets/chanStyle.css" type="text/css">
     var targ = event.target || event.srcElement;
     document.getElementById("textUpload").value += ">>" + targ.textContent + "\n";
   }
+  function insertThread(id) {
+    document.getElementById("threadUpload").value = id;
+  }
 </script>');
 if(reset(explode('=',end(explode('?',$_SERVER['REQUEST_URI'])))) == 'thread') {
   include('thread.php');
