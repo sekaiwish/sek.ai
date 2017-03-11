@@ -26,7 +26,6 @@ if(isset($_FILES['fileUpload'])) {
     imagejpeg($thumbnail,$destination);
   }
   include($_SERVER['DOCUMENT_ROOT'].'/access/sql.php');
-  $allowed = array('jpg','jpeg','png','gif','JPG','JPEG','PNG','GIF','');
   $username = $_SESSION['username'];
   $ip = $_SERVER['REMOTE_ADDR'];
   $thread = $_POST['threadUpload'];
@@ -35,24 +34,32 @@ if(isset($_FILES['fileUpload'])) {
   $lastID = mysqli_query($link,'SELECT id FROM posts ORDER BY id DESC LIMIT 1');
   $lastID = mysqli_fetch_array($lastID,MYSQLI_ASSOC);
   $nextID = $lastID["id"] + 1;
+  if($fileName == "" && $textBody == "") {
+    echo('ERROR: No message was attached.');
+    exit();
+  }
   if($fileName != "") {
-    $fileError = $_FILES['fileUpload']['error'];
-    $fileTemp = $_FILES['fileUpload']['tmp_name'];
-    $fileResolution = getimagesize($_FILES['fileUpload']['tmp_name']);
-    $fileResolution = $fileResolution[0].'x'.$fileResolution[1];
+    $allowed = array('image/jpeg','image/png','image/gif');
+    if(!in_array($_FILES['fileUpload']['type'],$allowed)) {
+      echo('ERROR: File submitted was not an image.');
+      exit();
+    }
     $fileSize = $_FILES['fileUpload']['size'];
     if($fileSize > 1048576) {
       $fileSize = round($fileSize/1048576,2);
       $fileSize = $fileSize.'M';
-    } else {
+    } elseif($fileSize > 0) {
       $fileSize = round($fileSize/1024);
       $fileSize = $fileSize.'K';
-    }
-    $fileType = end(explode('.',$fileName));
-    if(!in_array($fileType,$allowed)) {
-      echo('ERROR: File submitted was not an image.');
+    } else {
+      echo('ERROR: Submitted image was empty.');
       exit();
     }
+    $fileType = end(explode('.',$fileName));
+    $fileError = $_FILES['fileUpload']['error'];
+    $fileTemp = $_FILES['fileUpload']['tmp_name'];
+    $fileResolution = getimagesize($fileTemp);
+    $fileResolution = $fileResolution[0].'x'.$fileResolution[1];
   } else {
     if($thread == "new") {
       echo('ERROR: No image was attached to new thread.');
@@ -71,9 +78,6 @@ if(isset($_FILES['fileUpload'])) {
   if($thread == "new") {
       $submit = "INSERT INTO posts (thread, op, ip, name, body, filename, filetype, filesize, resolution)
       VALUES ('$nextID', '1', '$ip', '$username', '$textBody', '$fileName', '$fileType', '$fileSize', '$fileResolution')";
-  } elseif($fileName == "" && $textBody == "") {
-    echo('ERROR: No message was attached.');
-    exit();
   } elseif($fileName != "" && $textBody == "") {
     $submit = "INSERT INTO posts (thread, op, ip, name, filename, filetype, filesize, resolution)
     VALUES ('$thread', '0', '$ip', '$username', '$fileName', '$fileType', '$fileSize', '$fileResolution')";
