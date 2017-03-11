@@ -71,6 +71,7 @@ p.pageTitle {
 p.subTitle {
 	font-family: "MoonFlower", Verdana, Tahoma;
 	font-size: 150%;
+	margin-top: 0px;
 }
 p.user {
 	position: fixed;

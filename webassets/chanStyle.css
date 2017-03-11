@@ -4,6 +4,7 @@ div.commentBox {
 	background: #3A3D42;
 	display: block;
 	border: 1px solid #3E4146;
+	padding: 8px;
 }
 div.pageBox {
 	float: left;
@@ -37,9 +38,7 @@ div.thread {
 }
 form.commentBox {
 	color: grey;
-	margin-bottom: 10px;
-	margin-left: 10px;
-	margin-right: 10px;
+	margin: 0px;
 }
 img.chan {
 	float: left;
@@ -62,8 +61,6 @@ p.pages {
 	margin-bottom: 0px;
 }
 select {
-	margin-top: 10px;
-	margin-left: 10px;
 	width: 8em;
 }
 span.greentext {
@@ -78,7 +75,5 @@ textarea {
 	max-height: 40em;
 	min-width: 20em;
 	max-width: 20em;
-	margin-top: 4px;
-	margin-left: 10px;
-	margin-right: 10px;
+	margin: 0px;
 }
