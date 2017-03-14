@@ -74,6 +74,11 @@ if(isset($_FILES['fileUpload'])) {
     $textBody = str_replace("⁆","<",$textBody);
     $textBody = str_replace("⁗",">",$textBody);
     $textBody = preg_replace('/(.*)(\n)/','$1<br>',$textBody);
+  } else {
+    if($thread == "new") {
+      echo('ERROR: No text was attached to new thread.');
+      exit();
+    }
   }
   if($thread == "new") {
       $submit = "INSERT INTO posts (thread, op, ip, name, body, filename, filetype, filesize, resolution)
@@ -99,7 +104,7 @@ if(isset($_FILES['fileUpload'])) {
         exit();
       }
     } else {
-      echo('ERROR: An error occured while uploading your image.');
+      echo('ERROR: An error occured while uploading your image.<br>ERROR CODE: '.$fileError);
       exit();
     }
   } else {
