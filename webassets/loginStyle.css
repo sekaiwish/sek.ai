@@ -1,3 +1,4 @@
+@import url("/webassets/main.css");
 @font-face {
 	font-family: "MoonFlower";
 	src: url(/webassets/moon-flower.ttf) format("truetype");
@@ -43,11 +44,11 @@ div.viewCount {
 	transform: translate(-50%);
 }
 label {
-	font-family: "MoonFlower", Verdana, Tahoma;
+	font-family: var(--moonflower);
 	font-size: 200%;
 }
 p {
-	font-family: Arial, Verdana, Tahoma;
+	font-family: var(--arial);
 	color: white;
 }
 p.beta {
@@ -60,19 +61,19 @@ p.beta {
 	bottom: 0px;
 }
 p.errorText {
-	font-family: Arial, Verdana, Tahoma;
+	font-family: var(--arial);
 	text-align: center;
 	color: red;
 	margin: 2px;
 }
 p.loginHeader {
-	font-family: "MoonFlower", Verdana, Tahoma;
+	font-family: var(--moonflower);
 	font-size: 300%;
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
 p.pageTitle {
-	font-family: "MoonFlower", Verdana, Tahoma;
+	font-family: var(--moonflower);
 	text-align: center;
 	font-size: 850%;
 	margin-top: 0px;

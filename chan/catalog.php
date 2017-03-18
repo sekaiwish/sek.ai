@@ -1,5 +1,5 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"].'/access/sql.php');
+include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
 $x = $_SESSION["postsshown"];
 $page = end(explode('?',$_SERVER['REQUEST_URI']));
 $offset = 0;
@@ -21,17 +21,8 @@ if(is_numeric($page)) {
 	$page = 1;
 	$pageNext = 2;
 }
-$pages = ' [<a href="?1">1</a>]'.
-' [<a href="?2">2</a>]'.
-' [<a href="?3">3</a>]'.
-' [<a href="?4">4</a>]'.
-' [<a href="?5">5</a>]'.
-' [<a href="?6">6</a>]'.
-' [<a href="?7">7</a>]'.
-' [<a href="?8">8</a>]'.
-' [<a href="?9">9</a>]'.
-' [<a href="?10">10</a>]';
-$pages = explode('[<a href="?'.$page.'">'.$page.'</a>]', "$pages");
+$pages = ' [<a href="?1">1</a>] [<a href="?2">2</a>] [<a href="?3">3</a>] [<a href="?4">4</a>] [<a href="?5">5</a>] [<a href="?6">6</a>] [<a href="?7">7</a>] [<a href="?8">8</a>] [<a href="?9">9</a>] [<a href="?10">10</a>]';
+$pages = explode('[<a href="?'.$page.'">'.$page.'</a>]', $pages);
 $pages = $pages[0].'[<a href="?'.$page.'"><b>'.$page.'</b></a>]'.$pages[1];
 $threads = mysqli_query($link,"SELECT DISTINCT thread FROM posts ORDER BY id DESC LIMIT $x OFFSET $offset");
 $y = 1;
@@ -55,7 +46,7 @@ for($x=1;$x<=count($displayThreads);$x++) {
 ');
   $postData[$x] = mysqli_query($link,"SELECT id, thread, name, time, body, filename, filetype, filesize, resolution FROM posts WHERE op = 1 AND thread = ".$displayThreads[$x]['thread']);
   $postData[$x] = mysqli_fetch_array($postData[$x],MYSQLI_ASSOC);
-	$postData[$x]['replyCount'] = mysqli_query($link,"SELECT COUNT(id) FROM posts WHERE op = 0 AND thread = ".$postData[$x]['id']);
+	$postData[$x]['replyCount'] = mysqli_query($link,"SELECT COUNT(id) FROM posts WHERE op = 0 AND thread = {$postData[$x]['id']}");
 	$postData[$x]['replyCount'] = mysqli_fetch_array($postData[$x]['replyCount'],MYSQLI_ASSOC);
 	if($postData[$x]['replyCount']['COUNT(id)'] == 1) {
 		$postData[$x]['replyCount'] = 1;
@@ -104,7 +95,7 @@ for($x=1;$x<=count($displayThreads);$x++) {
   echo('</p></div>');
 	$z = 1;
 	for($y=2;$y>=0;$y--) {
-		$postData[$x]['replies'][$z] = mysqli_query($link,'SELECT id, name, time, body, filename, filetype, filesize, resolution FROM posts WHERE thread = '.$displayThreads[$x]['thread'].' AND op = 0 ORDER by id DESC LIMIT 3 OFFSET '.$y);
+		$postData[$x]['replies'][$z] = mysqli_query($link,"SELECT id, name, time, body, filename, filetype, filesize, resolution FROM posts WHERE thread = '{$displayThreads[$x]['thread']}' AND op = 0 ORDER by id DESC LIMIT 1 OFFSET $y");
 		$postData[$x]['replies'][$z] = mysqli_fetch_array($postData[$x]['replies'][$z],MYSQLI_ASSOC);
 		if($postData[$x]['replies'][$z]['name'] != "") {
 			echo('<div class="reply"><p class="chan">');

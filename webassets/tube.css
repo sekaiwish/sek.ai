@@ -1,23 +1,24 @@
+@import url("/webassets/main.css");
 a:link {
-	font-family: Arial,Verdana,Tahoma;
+	font-family: var(--arial);
 	color: white;
   text-decoration: none;
 }
 
 a:visited {
-	font-family: Arial,Verdana,Tahoma;
+	font-family: var(--arial);
 	color: white;
   text-decoration: none;
 }
 
 a:hover {
-	font-family: Arial,Verdana,Tahoma;
+	font-family: var(--arial);
 	color: blue;
   text-decoration: none;
 }
 
 a:active {
-	font-family: Arial,Verdana,Tahoma;
+	font-family: var(--arial);
 	color: blue;
   text-decoration: none;
 }

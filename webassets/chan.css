@@ -1,40 +1,41 @@
+@import url("/webassets/main.css");
 a:link {
-	font-family: Arial,Verdana,Tahoma;
-	color: #0096CF;
+	font-family: var(--arial);
+	color: var(--bluelink);
   text-decoration: none;
 }
 a:visited {
-	font-family: Arial,Verdana,Tahoma;
-	color: #0096CF;
+	font-family: var(--arial);
+	color: var(--bluelink);
   text-decoration: none;
 }
 a:hover {
-	font-family: Arial,Verdana,Tahoma;
-	color: #C74345;
+	font-family: var(--arial);
+	color: var(--redlink);
   text-decoration: none;
 }
 a:active {
-	font-family: Arial,Verdana,Tahoma;
-	color: #C74345;
+	font-family: var(--arial);
+	color: var(--redlink);
   text-decoration: none;
 }
 a.notHighlight:link {
-	font-family: Arial,Verdana,Tahoma;
+	font-family: var(--arial);
 	color: white;
   text-decoration: none;
 }
 a.notHighlight:visited {
-	font-family: Arial,Verdana,Tahoma;
+	font-family: var(--arial);
 	color: white;
   text-decoration: none;
 }
 a.notHighlight:hover {
-	font-family: Arial,Verdana,Tahoma;
-	color: #C74345;
+	font-family: var(--arial);
+	color: var(--redlink);
   text-decoration: none;
 }
 a.notHighlight:active {
-	font-family: Arial,Verdana,Tahoma;
-	color: #C74345;
+	font-family: var(--arial);
+	color: var(--redlink);
   text-decoration: none;
 }

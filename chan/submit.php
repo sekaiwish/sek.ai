@@ -25,7 +25,7 @@ if(isset($_FILES['fileUpload'])) {
     imagecopyresampled($thumbnail,$sourceImage,0,0,0,0,$thumbWidth,$thumbHeight,$width,$height);
     imagejpeg($thumbnail,$destination);
   }
-  include($_SERVER['DOCUMENT_ROOT'].'/access/sql.php');
+  include("{$_SERVER['DOCUMENT_ROOT']}/access/sql.php");
   $username = $_SESSION['username'];
   $ip = $_SERVER['REMOTE_ADDR'];
   $thread = $_POST['threadUpload'];
@@ -100,19 +100,19 @@ if(isset($_FILES['fileUpload'])) {
         header('Location: /chan?post='.$nextID);
         exit();
       } else {
-        echo('ERROR: MySQL encountered an error whilst updating the database.<br>ERROR INFORMATION: '.mysqli_error($link));
+        echo("ERROR: MySQL encountered an error whilst updating the database.<br>ERROR INFORMATION: {${mysqli_error($link)}}");
         exit();
       }
     } else {
-      echo('ERROR: An error occured while uploading your image.<br>ERROR CODE: '.$fileError);
+      echo("ERROR: An error occured while uploading your image.<br>ERROR CODE: $fileError");
       exit();
     }
   } else {
     if(mysqli_query($link,$submit)) {
-      header('Location: /chan?post='.$nextID);
+      header("Location: /chan?post=$nextID");
       exit();
     } else {
-      echo('ERROR: MySQL encountered an error whilst updating the database.<br>ERROR INFORMATION: '.mysqli_error($link));
+      echo("ERROR: MySQL encountered an error whilst updating the database.<br>ERROR INFORMATION: {${mysqli_error($link)}}");
       exit();
     }
   }
