@@ -1,4 +1,4 @@
-<?php include($_SERVER["DOCUMENT_ROOT"].'/webassets/default.php');?>
+<?php include("{$_SERVER['DOCUMENT_ROOT']}./webassets/default.php");?>
 <title>Sekai: Account</title>
 <p class="subTitle" style="color:white;font-size:150%">Sekai > Account</p>
 <p>[<a href="/">Return</a>]<br>

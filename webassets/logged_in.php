@@ -4,12 +4,28 @@
 <link rel="icon" href="/webassets/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="/webassets/style.css" type="text/css">
 <link rel="stylesheet" href="/webassets/menuStyle.css" type="text/css">
+<style>
+p.tileText {
+  font-family: "MoonFlower";
+  color: white;
+  font-size: 420%;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  filter: blur(2px);
+  opacity: 0;
+  transition: 0.7s ease-out;
+}
+</style>
 <title>Sekai: Home</title>
 </head>
 <body>
 <p class="beta">DEV 0.6</p>
 <p class="user">Logged in as <?php echo($_SESSION["username"]);?>.</p>
-<form method="POST" style="position:fixed;right:10px;top:40px;"><input type="submit" name="preferences" value="Preferences"></form>
+<a href="/account/" style="position:fixed;right:6px;top:35px;"><button>Account</button></a>
 <form method="POST" style="position:fixed;right:10px;top:68px;"><input type="submit" name="logout" value="Log Out"></form>
 <?php
 if(isset($_POST['logout'])) {

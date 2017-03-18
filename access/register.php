@@ -17,11 +17,12 @@ for($y = 1; $y < $usercount; $y++) {
 if(in_array($username, $usersLower)) {
   session_start();
   $_SESSION['registerError'] = 1;
-	header("Location: /register");
+	header("Location: /register/");
 } else {
 	$register = "INSERT INTO login (username, password, email, linkstyle, tilestyle)
 	VALUES ('$username', '$password', '$email', '0', '0')";
 	if(mysqli_query($link, $register)) {
+      session_start();
       $_SESSION['registerStatus'] = 1;
 			header("Location: /register/");
 	} else {
