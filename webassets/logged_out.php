@@ -48,6 +48,10 @@ if(isset($_SESSION['loginerror'])) {
       $newView = str_split($newView);
       $places = count($newView);
       $x = 0;
+      if(end($newView) == prev($newView)) {
+        echo('<p style="text-align:center;">Checked!</p>
+');
+      }
       while($x < $places) {
         echo('<img src="/webassets/views/'.$newView[$x].'.gif">
 ');

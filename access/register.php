@@ -23,7 +23,7 @@ if(in_array($username, $usersLower)) {
 	VALUES ('$username', '$password', '$email', '0', '0')";
 	if(mysqli_query($link, $register)) {
       $_SESSION['registerStatus'] = 1;
-			header("Location: /register");
+			header("Location: /register/");
 	} else {
 		echo("ERROR: ".mysqli_error($link));
 	}

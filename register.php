@@ -20,7 +20,7 @@ if(!isset($_SESSION['registerStatus'])) {
   }
   echo('
 <form style="text-align:center;color:white;" action="/access/register.php" method="post" accept-charset="UTF-8">
-<label>Email Address</label><br><input type="text" placeholder="Enter Email Address" name="email" id="email" size="30" maxlength="48" required autofocus><br>
+<label>Email Address</label><br><input type="email" placeholder="Enter Email Address" name="email" id="email" size="30" maxlength="48" required autofocus><br>
 <label>Username</label><br><input type="text" placeholder="Enter Username" name="username" id="username" maxlength="16" required><br>
 <label>Password</label><br><input type="password" placeholder="Enter Password" name="password" id="password" maxlength="16" required><br>
 <a href="/"><button type="button">Return</button></a>

@@ -1,4 +1,4 @@
-﻿Thumbs.db
+﻿*Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
@@ -30,3 +30,4 @@ ps/
 *test*
 phpmyadmin/
 dlf/
+google*.html
