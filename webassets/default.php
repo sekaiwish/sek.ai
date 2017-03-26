@@ -38,7 +38,7 @@ echo('<!DOCTYPE html>
 </style>
 </head>
 <body>
-<p class="beta">DEV 0.6</p>
+<p class="beta"><a class="notHighlight" target="_blank" href="https://github.com/Sek-ai/Sek.ai/tree/dev-0.6">DEV 0.6</a></p>
 <p class="user">Logged in as '.$_SESSION['username'].'.</p>
 <a href="/account/" style="position:fixed;right:6px;top:35px;"><button>Account</button></a>
 <form method="POST" style="position:fixed;right:10px;top:68px;"><input type="submit" name="logout" value="Log Out"></form>

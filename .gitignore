@@ -24,10 +24,12 @@ Temporary Items
 .apdisk
 
 access/sql.php
+access/recaptcha.php
+google*.html
+
 chan/files/
 chan/thumbs/
 ps/
 *test*
 phpmyadmin/
 dlf/
-google*.html

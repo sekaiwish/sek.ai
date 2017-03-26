@@ -1,6 +1,6 @@
 <?php
 session_start();
-include($_SERVER['DOCUMENT_ROOT'].'/access/sql.php');
+include("{$_SERVER['DOCUMENT_ROOT']}/access/sql.php");
 $getData = mysqli_query($link,"SELECT username, password, approved FROM login WHERE username = '".$_POST['username']."'");
 if($userData = mysqli_fetch_array($getData,MYSQLI_ASSOC)) {
   if($userData['approved'] == 1) {

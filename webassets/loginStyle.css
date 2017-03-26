@@ -17,6 +17,26 @@ input[type=password] {
   margin: 5px 0;
 	border: 1px solid #ccc;
 }
+a.notHighlight:link {
+	font-family: var(--arial);
+	color: white;
+  text-decoration: none;
+}
+a.notHighlight:visited {
+	font-family: var(--arial);
+	color: white;
+  text-decoration: none;
+}
+a.notHighlight:hover {
+	font-family: var(--arial);
+	color: var(--redlink);
+  text-decoration: none;
+}
+a.notHighlight:active {
+	font-family: var(--arial);
+	color: var(--redlink);
+  text-decoration: none;
+}
 b {
 	border-bottom: 1px solid white;
 }
@@ -78,4 +98,9 @@ p.pageTitle {
 	font-size: 850%;
 	margin-top: 0px;
 	margin-bottom: 0px;
+}
+span.inputInfo {
+	font-family: var(--arial);
+	font-size: 75%;
+	vertical-align: 1em;
 }
