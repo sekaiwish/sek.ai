@@ -1,6 +1,6 @@
 @font-face {
 	font-family: "MoonFlower";
-	src: url(/webassets/moon-flower.ttf) format("truetype");
+	src: url(/fonts/moon-flower.ttf) format("truetype");
 }
 @keyframes gradient {
   from {
@@ -19,11 +19,30 @@ p {
   margin: 0;
   text-align: center;
 }
+.success {
+	color: black;
+	text-align: left;
+}
 .card {
   display: flex;
 	position: fixed;
-	top: 45%;
+	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-  padding: 8px;
+}
+.beta {
+	font-size: 120%;
+	position: fixed;
+	right: 16px;
+	bottom: 0.5em;
+}
+.header {
+	font-family: 'MoonFlower';
+	font-size: 850%;
+}
+.viewCount {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translate(-50%);
 }

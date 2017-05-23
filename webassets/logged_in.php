@@ -1,56 +1,85 @@
-<?php if($_SESSION['logged_in']!=TRUE){header('Location: /');} ?><!DOCTYPE html>
-<html>
-<head>
-<link rel="icon" href="/webassets/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="/webassets/style.css" type="text/css">
-<link rel="stylesheet" href="/webassets/menuStyle.css" type="text/css">
-<style>
-p.tileText {
-  font-family: "MoonFlower";
-  color: white;
-  font-size: 420%;
-  text-align: center;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  filter: blur(2px);
-  opacity: 0;
-  transition: 0.7s ease-out;
-}
-</style>
-<title>Sekai: Home</title>
-</head>
-<body>
-<p class="beta"><a class="notHighlight" target="_blank" href="https://github.com/Sek-ai/Sek.ai/tree/dev-0.6">DEV 0.6</a></p>
-<p class="user">Logged in as <?php echo($_SESSION["username"]);?>.</p>
-<a href="/account/" style="position:fixed;right:6px;top:35px;"><button>Account</button></a>
-<form method="POST" style="position:fixed;right:10px;top:68px;"><input type="submit" name="logout" value="Log Out"></form>
 <?php
-if(isset($_POST['logout'])) {
-  session_destroy();
-  header("Location: /");
-  exit();
-}
-if(isset($_POST['preferences'])) {
-  header("Location: /account/");
-  exit();
-}
+include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultHeader.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultBody.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultNavbar.php");
 ?>
-<p class="pageTitle">Sekai</p>
-<div style="width:70%;margin:auto;">
-<a href="/flac/"><div class="tile" style='background-image:url("/webassets/tiles/<?php if($_SESSION["tilestyle"]==2){echo("flac.png");}else{echo("flac.gif");}?>");'><p class="tileText">FLAC</p></div></a>
-<div class="hSeparator"><br></div>
-<a href="/anime/"><div class="tile" style='background-image:url("/webassets/tiles/<?php if($_SESSION["tilestyle"]==0){echo("anime.gif");}elseif($_SESSION["tilestyle"]==1){echo("Ganime.gif");}else{echo("anime.png");}?>");'><p class="tileText">ANIME</p></div></a>
-<div class="hSeparator"><br></div>
-<a href="/chan/"><div class="nsfwTile" style='background-image:url("/webassets/nsfw.png"),url("/webassets/tiles/<?php if($_SESSION["tilestyle"]==0){echo("board.gif");}elseif($_SESSION["tilestyle"]==1){echo("Gboard.gif");}else{echo("board.png");}?>");'><p class="tileText">CHAN</p></div></a>
-<div class="vSeparator"><br></div>
-<a href="/dlf/"><div class="nsfwTile" style='background-image:url("/webassets/nsfw.png"),url("/webassets/tiles/<?php if($_SESSION["tilestyle"]==0){echo("dlf.gif");}elseif($_SESSION["tilestyle"]==1){echo("Gdlf.gif");}else{echo("dlf.png");}?>");'><p class="tileText">DLF</p></div></a>
-<div class="hSeparator"><br></div>
-<a href="/hentai/"><div class="nsfwTile" style='background-image:url("/webassets/nsfw.png"),url("/webassets/tiles/<?php if($_SESSION["tilestyle"]==0){echo("hentai.gif");}elseif($_SESSION["tilestyle"]==1){echo("Ghentai.gif");}else{echo("hentai.png");}?>");'><p class="tileText">HENTAI</p></div></a>
-<div class="hSeparator"><br></div>
-<a href="/iso/"><div class="tile" style='background-image:url("/webassets/tiles/<?php if($_SESSION["tilestyle"]==0){echo("iso.gif");}elseif($_SESSION["tilestyle"]==1){echo("Giso.gif");}else{echo("iso.png");}?>");'><p class="tileText">ISO</p></div></a>
-</div>
+  <div style="width:100%;margin-top:8rem;">
+    <div class="card-group">
+      <a href="/flac/">
+        <div class="card card-inverse card-outline-success">
+          <img class="card-img" src="/webassets/tiles/flac.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="FLAC graphic">
+          <div class="card-img-overlay">
+            <h1 class="card-title">
+              <strong>
+                /flac/
+              </strong>
+            </h1>
+          </div>
+        </div>
+      </a>
+      <a href="/anime/">
+        <div class="card card-inverse card-outline-success">
+          <img class="card-img" src="/webassets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>anime.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="Anime graphic">
+          <div class="card-img-overlay">
+            <h1 class="card-title">
+              <strong>
+                /anime/
+              </strong>
+            </h1>
+          </div>
+        </div>
+      </a>
+      <a href="/chan/">
+        <div class="card card-inverse card-outline-danger">
+          <img class="card-img" src="/webassets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>chan.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="世界chan graphic">
+          <div class="card-img-overlay">
+            <h1 class="card-title">
+              <strong>
+                /chan/
+              </strong>
+            </h1>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="card-group">
+      <a href="/dlf/">
+        <div class="card card-inverse card-outline-danger">
+          <img class="card-img" src="/webassets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>dlf.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="DLF graphic">
+          <div class="card-img-overlay">
+            <h1 class="card-title">
+              <strong>
+                /dlf/
+              </strong>
+            </h1>
+          </div>
+        </div>
+      </a>
+      <a href="/hentai/">
+        <div class="card card-inverse card-outline-danger">
+          <img class="card-img" src="/webassets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>anime.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="Hentai graphic">
+          <div class="card-img-overlay">
+            <h1 class="card-title">
+              <strong>
+                /hentai/
+              </strong>
+            </h1>
+          </div>
+        </div>
+      </a>
+      <a href="/iso/">
+        <div class="card card-inverse card-outline-success">
+          <img class="card-img" src="/webassets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>iso.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="ISO graphic">
+          <div class="card-img-overlay">
+            <h1 class="card-title">
+              <strong>
+                /iso/
+              </strong>
+            </h1>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
 </body>
 </html>

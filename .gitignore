@@ -33,3 +33,12 @@ ps/
 *test*
 phpmyadmin/
 dlf/
+.well-known/
+css/bootstrap*
+css/font-awesome*
+js/bootstrap*
+js/jquery*
+js/livestamp*
+js/moment*
+js/tether*
+fonts/fontawesome*

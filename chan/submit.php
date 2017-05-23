@@ -1,5 +1,26 @@
 <?php
 if(isset($_FILES['fileUpload'])) {
+  /*
+  $data = array('secret' => "$recaptcha",
+  'response' => "{$_POST['g-recaptcha-response']}",
+  'remoteip' => "{$_SERVER['REMOTE_ADDR']}");
+  $options = array(
+      'http' => array(
+          'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+          'method'  => 'POST',
+          'content' => http_build_query($data)
+      )
+  );
+  $context = stream_context_create($options);
+  $result = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
+  $success = json_decode($result,true);
+  if($success['success'] != 1) {
+    session_start();
+    $_SESSION['submitError'] = 1;
+    header('Location: /chan/');
+    exit();
+  }
+  */
   session_start();
   function make_thumb($source,$destination,$sourceType) {
     $sourceType = strtolower($sourceType);
@@ -34,10 +55,12 @@ if(isset($_FILES['fileUpload'])) {
   $lastID = mysqli_query($link,'SELECT id FROM posts ORDER BY id DESC LIMIT 1');
   $lastID = mysqli_fetch_array($lastID,MYSQLI_ASSOC);
   $nextID = $lastID["id"] + 1;
+  # Stop users from submitting empty posts.
   if($fileName == "" && $textBody == "") {
     echo('ERROR: No message was attached.');
     exit();
   }
+  # File content formatting
   if($fileName != "") {
     $allowed = array('image/jpeg','image/png','image/gif');
     if(!in_array($_FILES['fileUpload']['type'],$allowed)) {
@@ -60,13 +83,16 @@ if(isset($_FILES['fileUpload'])) {
     $fileTemp = $_FILES['fileUpload']['tmp_name'];
     $fileResolution = getimagesize($fileTemp);
     $fileResolution = $fileResolution[0].'x'.$fileResolution[1];
+
   } else {
     if($thread == "new") {
       echo('ERROR: No image was attached to new thread.');
       exit();
     }
   }
+  # Text content formatting.
   if($textBody != "") {
+    preg_match('/(?<=[>]{2})\d+/',$textBody,$replies);
     $textBody = preg_replace('/([>]{2})(\d+)/','⁆a href="?post=$2"⁗&gt;&gt;$2⁆/a⁗',$textBody);
     $textBody = preg_replace('/([>]{1})(.+)(\B|\b)/','⁆span class="greentext"⁗&gt;$2⁆/span⁗$3',$textBody);
     $textBody = str_replace("<","&lt;",$textBody);
@@ -80,24 +106,38 @@ if(isset($_FILES['fileUpload'])) {
       exit();
     }
   }
-  if($thread == "new") {
-      $submit = "INSERT INTO posts (thread, op, ip, name, body, filename, filetype, filesize, resolution)
-      VALUES ('$nextID', '1', '$ip', '$username', '$textBody', '$fileName', '$fileType', '$fileSize', '$fileResolution')";
-  } elseif($fileName != "" && $textBody == "") {
-    $submit = "INSERT INTO posts (thread, op, ip, name, filename, filetype, filesize, resolution)
-    VALUES ('$thread', '0', '$ip', '$username', '$fileName', '$fileType', '$fileSize', '$fileResolution')";
-  } elseif($fileName == "" && $textBody != "") {
-    $submit = "INSERT INTO posts (thread, op, ip, name, body)
-    VALUES ('$thread', '0', '$ip', '$username', '$textBody')";
-  } else {
-    $submit = "INSERT INTO posts (thread, op, ip, name, body, filename, filetype, filesize, resolution)
-    VALUES ('$thread', '0', '$ip', '$username', '$textBody', '$fileName', '$fileType', '$fileSize', '$fileResolution')";
+  # Update replies array.
+  # ! NOT IMPLEMENTED YET !
+  if($replies != []) {
+    for($x=0;$x<count($replies);$x++) {
+      $oldReplies = mysqli_query($link,"SELECT replies FROM posts WHERE id = {$replies[$x]}");
+      $oldReplies = mysqli_fetch_array($oldReplies,MYSQLI_ASSOC);
+      $oldReplies = $oldReplies['replies'];
+      var_dump($oldReplies);
+      if($oldReplies == NULL) {
+        mysqli_query($link,"UPDATE posts SET replies = $nextID WHERE id = {$replies[$x]}");
+      } else {
+        $newReplies = "$oldReplies,$nextID";
+        mysqli_query($link,"UPDATE posts SET replies = $newReplies WHERE id = {$replies[$x]}");
+      }
+    }
   }
+  # Select SQL template to use for post.
+  if($thread == "new") {
+    $submit = "INSERT INTO posts (thread, op, ip, name, body, filename, filetype, filesize, resolution) VALUES ('$nextID', '1', '$ip', '$username', '$textBody', '$fileName', '$fileType', '$fileSize', '$fileResolution')";
+  } elseif($fileName != "" && $textBody == "") {
+    $submit = "INSERT INTO posts (thread, ip, name, filename, filetype, filesize, resolution) VALUES ('$thread', '$ip', '$username', '$fileName', '$fileType', '$fileSize', '$fileResolution')";
+  } elseif($fileName == "" && $textBody != "") {
+    $submit = "INSERT INTO posts (thread, ip, name, body) VALUES ('$thread', '$ip', '$username', '$textBody')";
+  } else {
+    $submit = "INSERT INTO posts (thread, ip, name, body, filename, filetype, filesize, resolution) VALUES ('$thread', '$ip', '$username', '$textBody', '$fileName', '$fileType', '$fileSize', '$fileResolution')";
+  }
+  # Submission for posts with file
   if($fileName != "") {
     if(move_uploaded_file($fileTemp,"files/$nextID.$fileType")) {
       make_thumb("files/$nextID.$fileType","thumbs/$nextID.jpg",$fileType);
       if(mysqli_query($link,$submit)) {
-        header('Location: /chan?post='.$nextID);
+        header("Location: /chan?post=$nextID");
         exit();
       } else {
         echo("ERROR: MySQL encountered an error whilst updating the database.<br>ERROR INFORMATION: {${mysqli_error($link)}}");
@@ -107,6 +147,7 @@ if(isset($_FILES['fileUpload'])) {
       echo("ERROR: An error occured while uploading your image.<br>ERROR CODE: $fileError");
       exit();
     }
+  # Submission for posts without file
   } else {
     if(mysqli_query($link,$submit)) {
       header("Location: /chan?post=$nextID");

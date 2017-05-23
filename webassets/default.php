@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+#error_reporting(0);
 session_start();
 if($_SESSION['logged_in'] != TRUE) {
 	header('Location: /');
@@ -20,11 +20,15 @@ mysqli_close($link);
 $_SESSION['linkstyle'] = $data['linkstyle'];
 $_SESSION['tilestyle'] = $data['tilestyle'];
 $_SESSION['postsshown'] = $data['postsshown'];
-echo('<!DOCTYPE html>
+echo("<!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" href="/webassets/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="/webassets/style.css" type="text/css">');
+<link rel=\"icon\" href=\"/webassets/favicon.ico\" type=\"image/x-icon\">
+<link rel=\"stylesheet\" href=\"/webassets/style.css\" type=\"text/css\">
+<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css\" integrity=\"sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ\" crossorigin=\"anonymous\">
+<script src=\"https://code.jquery.com/jquery-3.1.1.slim.min.js\" integrity=\"sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n\" crossorigin=\"anonymous\"></script>
+<script src=\"https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js\" integrity=\"sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb\" crossorigin=\"anonymous\"></script>
+<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js\" integrity=\"sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn\" crossorigin=\"anonymous\"></script>");
 		if ($_SESSION['linkstyle'] == 0) {
 			echo("\n".'<link rel="stylesheet" href="/webassets/chan.css" type="text/css">');
 		} elseif ($_SESSION['linkstyle'] == 1) {
