@@ -22,17 +22,20 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*test*
 
 access/sql.php
 access/recaptcha.php
-google*.html
+access/dns.php
 
+files/
 chan/files/
 chan/thumbs/
 ps/
-*test*
 phpmyadmin/
 dlf/
+
+google*.html
 .well-known/
 css/bootstrap*
 css/font-awesome*
@@ -41,4 +44,5 @@ js/jquery*
 js/livestamp*
 js/moment*
 js/tether*
+js/npm*
 fonts/fontawesome*

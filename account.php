@@ -58,7 +58,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultNavbar.php");
             </legend>
             <div class="form-check">
               <label class="form-check-label">
-                <input type="number" class="form-check-input" name="postsshown" value="<?php echo("{$_SESSION["postsshown"]}");?>">
+                <input type="number" class="form-check-input" name="postsshown" min="5" max="15" value="<?php echo("{$_SESSION["postsshown"]}");?>">
                 posts
               </label>
             </div>

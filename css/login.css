@@ -1,6 +1,9 @@
 @font-face {
-	font-family: "MoonFlower";
-	src: url(/fonts/moon-flower.ttf) format("truetype");
+  font-family: "Amatic SC";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Amatic SC Regular"), local("AmaticSC-Regular"), url(https://fonts.gstatic.com/s/amaticsc/v9/DPPfSFKxRTXvae2bKDzp5FtXRa8TVwTICgirnJhmVJw.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 @keyframes gradient {
   from {
@@ -16,33 +19,40 @@ body {
 }
 p {
   color: white;
-  margin: 0;
-  text-align: center;
 }
 .success {
 	color: black;
 	text-align: left;
 }
 .card {
-  display: flex;
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
 .beta {
-	font-size: 120%;
 	position: fixed;
-	right: 16px;
-	bottom: 0.5em;
+	right: 0.5rem;
+	bottom: 0.5rem;
 }
 .header {
-	font-family: 'MoonFlower';
-	font-size: 850%;
+  text-align: center;
+	font-family: "Amatic SC";
+	font-size: 900%;
 }
-.viewCount {
+.viewcount {
 	position: absolute;
-	bottom: 20px;
+	bottom: 5px;
 	left: 50%;
 	transform: translate(-50%);
+}
+@media only screen and (max-width: 768px) {
+    .mobile-hidden {
+      display: none;
+    }
+    .card {
+      width: 100%;
+      top: 100%;
+      transform: translate(-50%, -100%)
+    }
 }
