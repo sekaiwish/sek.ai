@@ -1,8 +1,10 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/access/recaptcha.php");
-$data = array('secret' => "$recaptcha",
-'response' => "{$_POST['g-recaptcha-response']}",
-'remoteip' => "{$_SERVER['REMOTE_ADDR']}");
+$data = array(
+  "secret" => "$recaptcha",
+  "response" => "{$_POST["g-recaptcha-response"]}",
+  "remoteip" => "{$_SERVER["REMOTE_ADDR"]}"
+);
 $options = array(
     'http' => array(
         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -47,8 +49,8 @@ if(in_array($usernameLower,$usersLower)) {
 	header('Location: /register/');
   exit();
 } else {
-	$register = "INSERT INTO login (username, password, email, linkstyle, tilestyle)
-	VALUES ('$username', '$password', '$email', '0', '0')";
+	$register = "INSERT INTO login (username, password, email)
+	VALUES ('$username', '$password', '$email')";
 	if(mysqli_query($link,$register)) {
       session_start();
       $_SESSION['registerStatus'] = 1;

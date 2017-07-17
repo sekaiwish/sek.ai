@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "Amatic SC";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Amatic SC Regular"), local("AmaticSC-Regular"), url(https://fonts.gstatic.com/s/amaticsc/v9/DPPfSFKxRTXvae2bKDzp5FtXRa8TVwTICgirnJhmVJw.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v14/MTP_ySUJH_bn48VBG8sNSugdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+@keyframes gradient {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: -3840px 0px;
+  }
+}
+body {
+	background-image: url(/webassets/gradients/light.png);
+  animation: gradient 5s linear 0s infinite normal;
+}
+p {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  margin: 0;
+  text-align: center;
+}
+span {
+  font-size: 250%;
+}
+a {
+  color: blue;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.header {
+	font-family: "Amatic SC";
+	font-size: 900%;
+}

@@ -13,14 +13,21 @@ if($_SESSION["logged_in"] == TRUE) {
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="/webassets/favicon.ico" type="image/x-icon">
+	<link type="image/png" href="/webassets/favicon/256.png" sizes="256x256" rel="icon">
+	<link type="image/png" href="/webassets/favicon/32.png" sizes="32x32" rel="icon">
+  <link type="image/png" href="/webassets/favicon/16.png" sizes="16x16" rel="icon">
+	<link href="/webassets/favicon/180.png" sizes="180x180" rel="apple-touch-icon">
+  <link href="/webassets/favicon/manifest.json" rel="manifest">
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/font-awesome.min.css" rel="stylesheet">
   <link href="/css/login.css" rel="stylesheet">
   <script src="/js/validate.js"></script>
-  <script src="/js/jquery-3.2.1.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js"></script>
+	<script>
+		function onSubmit(token) {
+			document.getElementById("registration").submit();
+		}
+	</script>
+  <script src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
   <title>
     Sekai: Register
   </title>
@@ -46,12 +53,12 @@ if(!isset($_SESSION["registerStatus"])) {
     }
     echo("  </div>\n");
   }
-  echo("  <div class=\"card\" style=\"width:21.5rem;\">
+  echo("  <div class=\"card\">
     <div class=\"card-header\">
       Register
     </div>
     <div class=\"card-block\">
-      <form onsubmit=\"return validateLogin(1)\" action=\"/access/register.php\" method=\"POST\">
+      <form onsubmit=\"return validateLogin(1)\" id=\"registration\" action=\"/access/register.php\" method=\"POST\">
         <div class=\"input-group\">
           <span class=\"input-group-addon\"><i class=\"fa fa-envelope fa-fw\"></i></span>
           <input class=\"form-control\" type=\"email\" placeholder=\"電子メールアドレス\" name=\"email\" maxlength=\"48\" required>
@@ -67,12 +74,9 @@ if(!isset($_SESSION["registerStatus"])) {
           <input class=\"form-control\" type=\"password\" placeholder=\"パスワード\" name=\"password\" maxlength=\"16\" required>
         </div>
         <br>
-        <div class=\"g-recaptcha\" data-sitekey=\"6LdkYRoUAAAAAOPDZh5DE_9DRkvcEg6jXNzcORCM\">
-        </div>
-        <br>
-        <button class=\"btn btn-success\" type=\"submit\">
-          <i class=\"fa fa-pencil-square-o\"></i> Register
-        </button>
+				<button class=\"btn btn-success g-recaptcha\" data-sitekey=\"6LcykxoUAAAAAMEKIJkUZ7do2Q2DohJ2L7TKbgK6\" data-callback=\"onSubmit\">
+					<i class=\"fa fa-pencil-square-o\"></i> Register
+				</button>
         <a class=\"btn btn-secondary\" href=\"/\">
           <i class=\"fa fa-arrow-circle-left\"></i> Return
         </a>
@@ -98,10 +102,10 @@ if(!isset($_SESSION["registerStatus"])) {
   <p class="header">
     Sekai
   </p>
-  <div class="beta">
-    <a target="_blank" href="https://github.com/Sek-ai/Sek.ai/tree/dev-0.6">
-      <button class="btn btn-secondary">DEV 0.6</button>
-    </a>
-  </div>
+	<div class="beta mobile-hidden">
+		<a target="_blank" href="https://github.com/Sek-ai/Sek.ai/tree/dev-0.6">
+			<button class="btn btn-secondary"><i class="fa fa-github"></i> <b>DEV 0.6</b></button>
+		</a>
+	</div>
 </body>
 </html>
