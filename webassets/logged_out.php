@@ -87,7 +87,6 @@ $newView = $getView["count"] + 1;
 if($ip != "127.0.0.1") {
   if(mysqli_query($link,"INSERT INTO views (ip) VALUES ('$ip')")) {
     mysqli_close($link);
-		/** DISABLED
     echo("	<div class=\"viewcount mobile-hidden\">");
     $newView = str_split($newView);
     $places = count($newView);
