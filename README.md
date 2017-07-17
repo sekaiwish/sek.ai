@@ -1,19 +1,16 @@
-#Sekai
-#Preview at http://sek.ai/
+# Sekai
+### Available at [Sek.ai](https://sek.ai/)
+#### Currently developing **[BETA 0.6](https://github.com/Sek-ai/Sek.ai/tree/dev-0.6)**.
 
-Version information:
+#### Version history:
+##### BETA 0.5 (Latest release)
+- Implementation of tiles on homepage
+- Create imageboard
+  - Create post database using MySQL
+  - Display posts with all relevant information and thumbnails
+  - Create board with expandability in mind with pages
 
-BETA 0.6
-- Compatibility with differing browsers and resolutions
-
-BETA 0.5 (Released)
-- Finish implementing menu tiles
-- Remake board section into an image sharing section
-  - Use MySQL to create file database
-  - Display file previews with username and date
-  - Board designed with page system
-
-BETA 0.4 (Released)
-- Build full login database and protected registration system
-  - Create user preferences for optimised experience
-- Revamp homepage tiles
+##### BETA 0.4
+- Build login database and registration system with MySQL
+  - Create user preferences for optimised website usability
+- Redesigned homepage
