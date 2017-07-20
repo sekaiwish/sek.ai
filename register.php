@@ -17,7 +17,7 @@ if($_SESSION["logged_in"] == TRUE) {
 	<link type="image/png" href="/webassets/favicon/32.png" sizes="32x32" rel="icon">
   <link type="image/png" href="/webassets/favicon/16.png" sizes="16x16" rel="icon">
 	<link href="/webassets/favicon/180.png" sizes="180x180" rel="apple-touch-icon">
-  <link href="/webassets/favicon/manifest.json" rel="manifest">
+  <link href="/webassets/manifest.json" rel="manifest">
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/font-awesome.min.css" rel="stylesheet">
   <link href="/css/login.css" rel="stylesheet">
@@ -50,6 +50,9 @@ if(!isset($_SESSION["registerStatus"])) {
     } elseif ($_SESSION["registerError"] == 3) {
       echo("That username is already in use.\n");
       session_destroy();
+    } elseif ($_SESSION["registerError"] == 4) {
+    	echo("An error occurred with the mailer.\n");
+			session_destroy();
     }
     echo("  </div>\n");
   }

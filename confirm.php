@@ -1,27 +1,20 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link type="image/png" href="/webassets/favicon/256.png" sizes="256x256" rel="icon">
-  	<link type="image/png" href="/webassets/favicon/32.png" sizes="32x32" rel="icon">
-    <link type="image/png" href="/webassets/favicon/16.png" sizes="16x16" rel="icon">
-  	<link href="/webassets/favicon/180.png" sizes="180x180" rel="apple-touch-icon">
-    <link href="/webassets/favicon/manifest.json" rel="manifest">
-    <link rel="stylesheet" href="/webassets/style.css" type="text/css">
-    <title>Confirmation</title>
-  </head>
-  <body>
-    <p class="header">Sekai</p>
-    <?php
-    if(isset($_GET["key"])) {
-      echo("GOT KEY");
-    } else {
-      echo("NO KEY");
+<?php
+include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
+if(isset($_GET["key"])) {
+  $sql = mysqli_query($link, "SELECT approved FROM login WHERE confirm = '{$_GET["key"]}'");
+  $result = mysqli_fetch_array($sql, MYSQLI_ASSOC);
+  if(isset($result["approved"])) {
+    if($result["approved"] == 0) {
+      if(mysqli_query($link, "UPDATE login SET approved = '1' WHERE confirm = '{$_GET["key"]}'")) {
+        mysqli_close();
+        session_start();
+        $_SESSION["activated"] = 1;
+        header("Location: /");
+        exit();
+      }
     }
-    ?>
-    <p class="errorPage">Account Confirmation</p>
-    <p style="text-align:center;">
-      The page you tried to access is restricted.<br>
-      <a href="/">Click here</a> to return to the homepage.
-    </p>
-  </body>
-</html>
+  }
+} else {
+  header("Location: /error/401.html");
+}
+?>

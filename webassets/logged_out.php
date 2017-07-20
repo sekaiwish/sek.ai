@@ -16,7 +16,7 @@ if($_SESSION["logged_in"] == TRUE) {
 	<link type="image/png" href="/webassets/favicon/32.png" sizes="32x32" rel="icon">
 	<link type="image/png" href="/webassets/favicon/16.png" sizes="16x16" rel="icon">
 	<link href="/webassets/favicon/180.png" sizes="180x180" rel="apple-touch-icon">
-	<link href="/webassets/favicon/manifest.json" rel="manifest">
+	<link href="/webassets/manifest.json" rel="manifest">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/css/login.css" rel="stylesheet">
@@ -52,22 +52,27 @@ if($_SESSION["logged_in"] == TRUE) {
 		</div>
 	</div>
 <?php
-# Display variable errors thrown by login.php
-if(isset($_SESSION['loginerror'])) {
-  echo("	<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">
-		<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-			<span aria-hidden=\"true\">&times;</span>
-			</button>
-			<strong>Login Error:</strong> ");
+# Display variable messages by various session updaters
+if(isset($_SESSION["loginerror"])) {
+  echo("	<div class=\"alert alert-warning\" role=\"alert\">
+		<strong>Login Error:</strong> ");
   if($_SESSION["loginerror"] == 1) {
     echo("User not found.");
   } elseif($_SESSION["loginerror"] == 2) {
     echo("Your account has not been approved yet.");
   } elseif($_SESSION["loginerror"] == 3) {
     echo("Incorrect password.");
-  }
+  } else {
+		echo("Login failed.");
+	}
   echo("\n  </div>\n");
-  session_destroy();
+  unset($_SESSION["loginerror"]);
+}
+if(isset($_SESSION["activated"])) {
+	echo("	<div class=\"alert alert-success\" role=\"alert\">
+		<strong>Account confirmed.</strong>
+	</div>\n");
+	unset($_SESSION["activated"]);
 }
 ?>
 	<p class="header">
@@ -99,7 +104,6 @@ if($ip != "127.0.0.1") {
       $x += 1;
     }
     echo("</div>\n");
-		*/
   } else {
     mysqli_close($link);
   }

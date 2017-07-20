@@ -1,6 +1,6 @@
 <?php
-include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultHeader.php");
-if($_SESSION["rank"] !> 1) {
+include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultHeader.php");
+if($_SESSION["rank"] < 2) {
   header("Location: /error/403.html");
   exit();
 }
@@ -17,7 +17,7 @@ $count = mysqli_num_rows($sql);
 <?php
   for($x=0;$x<$count;$x++) {
     $unapproved = mysqli_fetch_array($sql, MYSQLI_ASSOC);
-    echo("          <div class=\"form-check\"><label class=\"form-check-label\"><input type=\"checkbox\" class=\"form-check-input\" value=\"{$unapproved['username']}\" name=\"{$unapproved['username']}\"> {$unapproved['username']} ({$unapproved['email']})</label></div>\n");
+    echo("          <div class=\"form-check\"><label class=\"form-check-label\"><input type=\"checkbox\" class=\"form-check-input\" value=\"{$unapproved["username"]}\" name=\"{$unapproved["username"]}\"> {$unapproved["username"]} ({$unapproved["email"]})</label></div>\n");
   }
   mysqli_close($link);
 ?>

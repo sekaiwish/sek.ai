@@ -2,7 +2,8 @@
 error_reporting(0);
 session_start();
 if($_SESSION["logged_in"] != TRUE) {
-	header("Location: /");
+	header("Location: /error/401.html");
+  exit();
 }
 if(isset($_POST["logout"])) {
   session_destroy();
@@ -48,7 +49,7 @@ if($page == "account") {
 	<link type="image/png" href="/webassets/favicon/32.png" sizes="32x32" rel="icon">
 	<link type="image/png" href="/webassets/favicon/16.png" sizes="16x16" rel="icon">
 	<link href="/webassets/favicon/180.png" sizes="180x180" rel="apple-touch-icon">
-	<link href="/webassets/favicon/manifest.json" rel="manifest">
+	<link href="/webassets/manifest.json" rel="manifest">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/font-awesome.min.css" rel="stylesheet">
 	<script src="/js/jquery-3.2.1.min.js"></script>

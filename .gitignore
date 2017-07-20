@@ -28,4 +28,4 @@ js/livestamp*
 js/moment*
 js/tether*
 js/npm*
-fonts/fontawesome*
+fonts/*
