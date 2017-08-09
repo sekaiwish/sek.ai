@@ -1,7 +1,7 @@
 <?php
-include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultHeader.php");
-include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultBody.php");
-include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultNavbar.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultHeader.php");
+echo("</head>");
+include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
 ?>
 <br>
 <div class="row" style="justify-content:center;margin:0px;">
@@ -104,5 +104,6 @@ include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultNavbar.php");
     </div>
   </div>
 </div>
-</body>
-</html>
+<?php
+include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultFooter.php");
+?>

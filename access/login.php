@@ -3,8 +3,8 @@ session_start();
 include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
 $getData = mysqli_query($link,"SELECT password, approved FROM login WHERE username = '{$_POST["username"]}'");
 if($userData = mysqli_fetch_array($getData,MYSQLI_ASSOC)) {
-  if($userData['approved'] == 1) {
-    if(password_verify($_POST['password'],$userData['password'])) {
+  if($userData["approved"] == 1) {
+    if(password_verify($_POST["password"],$userData["password"])) {
       $getData = mysqli_query($link,"SELECT userid, rank, username, linkstyle, tilestyle, postsshown FROM login WHERE username = '{$_POST["username"]}'");
       $userData = mysqli_fetch_array($getData,MYSQLI_ASSOC);
       $logData = mysqli_query($link,"INSERT INTO login_logs (userid) VALUES ('{$userData["userid"]}')");

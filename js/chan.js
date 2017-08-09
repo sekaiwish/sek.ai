@@ -5,3 +5,7 @@ function insertReply(event) {
 function insertThread(id) {
   document.getElementById("threadUpload").value = id;
 }
+$(".custom-file-input").on("change",function(){
+  var fileName = $(this).val().replace("C:\\fakepath\\", "");
+  $(this).next(".form-control-file").addClass("selected").html(fileName);
+})

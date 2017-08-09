@@ -2,8 +2,13 @@
 # Handle users that are already signed in
 error_reporting(0);
 session_start();
-if($_SESSION["logged_in"] == TRUE) {
+if($_SESSION["logged_in"] == TRUE && $_SESSION["userid"] != "1") {
 	header("Location: /");
+	exit();
+}
+if(isset($_POST["return"])) {
+	header("Location: /");
+	exit();
 }
 ?>
 <!DOCTYPE html>
@@ -20,6 +25,7 @@ if($_SESSION["logged_in"] == TRUE) {
   <link href="/webassets/manifest.json" rel="manifest">
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
   <link href="/css/login.css" rel="stylesheet">
   <script src="/js/validate.js"></script>
 	<script>
@@ -105,10 +111,6 @@ if(!isset($_SESSION["registerStatus"])) {
   <p class="header">
     Sekai
   </p>
-	<div class="beta mobile-hidden">
-		<a target="_blank" href="https://github.com/Sek-ai/Sek.ai/tree/dev-0.6">
-			<button class="btn btn-secondary"><i class="fa fa-github"></i> <b>DEV 0.6</b></button>
-		</a>
-	</div>
-</body>
-</html>
+<?php
+include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultFooter.php");
+?>

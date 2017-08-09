@@ -1,11 +1,11 @@
 <?php
 include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultHeader.php");
+echo("</head>");
 if($_SESSION["rank"] < 2) {
   header("Location: /error/403.html");
   exit();
 }
-include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultBody.php");
-include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultNavbar.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
 include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
 $sql = mysqli_query($link, "SELECT username, email FROM login WHERE approved = '0'");
 $count = mysqli_num_rows($sql);

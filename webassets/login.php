@@ -1,9 +1,18 @@
 <?php
 # Handle users that are already signed in
 session_start();
-if($_SESSION["logged_in"] == TRUE) {
+if($_SESSION["logged_in"] == TRUE && $_SESSION["userid"] != "1") {
 	header("Location: /");
+	exit();
 }
+if(isset($_POST["register"])) {
+	header("Location: /register/");
+	exit();
+}
+$time = microtime();
+$time = explode(" ", $time);
+$time = $time[1] + $time[0];
+$start = $time;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,8 +28,8 @@ if($_SESSION["logged_in"] == TRUE) {
 	<link href="/webassets/manifest.json" rel="manifest">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
 	<link href="/css/login.css" rel="stylesheet">
-	<script src="/js/validate.js"></script>
 	<title>
 		Sekai: Sign in
 	</title>
@@ -38,7 +47,7 @@ if($_SESSION["logged_in"] == TRUE) {
 				</div>
 				<br>
 				<div class="input-group">
-					<span class="input-group-addon"><i class="fa fa-question-circle fa-fw"></i></span>
+					<span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
 					<input class="form-control" type="password" placeholder="パスワード" id="password" name="password" maxlength="16" required>
 				</div>
 				<br>
@@ -54,7 +63,7 @@ if($_SESSION["logged_in"] == TRUE) {
 <?php
 # Display variable messages by various session updaters
 if(isset($_SESSION["loginerror"])) {
-  echo("	<div class=\"alert alert-warning\" role=\"alert\">
+  echo("	<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
 		<strong>Login Error:</strong> ");
   if($_SESSION["loginerror"] == 1) {
     echo("User not found.");
@@ -69,7 +78,7 @@ if(isset($_SESSION["loginerror"])) {
   unset($_SESSION["loginerror"]);
 }
 if(isset($_SESSION["activated"])) {
-	echo("	<div class=\"alert alert-success\" role=\"alert\">
+	echo("	<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
 		<strong>Account confirmed.</strong>
 	</div>\n");
 	unset($_SESSION["activated"]);
@@ -78,11 +87,6 @@ if(isset($_SESSION["activated"])) {
 	<p class="header">
 		Sekai
 	</p>
-	<div class="beta mobile-hidden">
-		<a target="_blank" href="https://github.com/Sek-ai/Sek.ai/tree/dev-0.6">
-			<button class="btn btn-secondary"><i class="fa fa-github"></i> <b>DEV 0.6</b></button>
-		</a>
-	</div>
 <?php
 include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
 $ip = $_SERVER["REMOTE_ADDR"];
@@ -95,10 +99,10 @@ if($ip != "127.0.0.1") {
     echo("	<div class=\"viewcount mobile-hidden\">");
     $newView = str_split($newView);
     $places = count($newView);
-    $x = 0;
     if(end($newView) == prev($newView)) {
       echo("		<p style=\"text-align:center;\">Checked!</p>");
     }
+		$x = 0;
     while($x < $places) {
       echo("<img src=\"/webassets/views/{$newView[$x]}.gif\">");
       $x += 1;
@@ -114,6 +118,5 @@ if($ip != "127.0.0.1") {
 		</p>
 	</div>\n");
 }
+include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultFooter.php");
 ?>
-</body>
-</html>

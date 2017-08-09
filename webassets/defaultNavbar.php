@@ -1,3 +1,4 @@
+<body>
 <?php
 $page = explode("/",$_SERVER["REQUEST_URI"]);
 $page = $page[1];
@@ -33,15 +34,9 @@ echo("  <nav class=\"navbar fixed-top navbar-toggleable-md navbar-inverse bg-inv
         </li>\n");
         }
       }
-      if($_SESSION['rank'] > 1) {
-        echo("      </ul>\n      <span class=\"navbar-text\">\n        Logged in as {$_SESSION['username']} (Admin)\n      </span>\n");
-      } elseif ($_SESSION["rank"] > 0) {
-        echo("      </ul>\n      <span class=\"navbar-text\">\n        Logged in as {$_SESSION['username']} (Mod)\n      </span>\n");
-      } else {
-        echo("      </ul>\n      <span class=\"navbar-text\">\n        Logged in as {$_SESSION['username']}\n      </span>\n");
-      }
+      echo("      </ul>\n");
       if($page == "account") {
-        echo("      <a class=\"btn btn-outline-info\" href=\"/\">\n        <i class=\"fa fa-arrow-circle-left\"></i> Return\n      </a>");
+        echo("      <form class=\"form-inline\" method=\"POST\">\n        <button class=\"btn btn-outline-info\" type=\"submit\" name=\"return\"><i class=\"fa fa-arrow-circle-left\"></i> Return</button>\n      </form>");
       } else {
         echo("      <form class=\"form-inline\" method=\"POST\">\n        <button class=\"btn btn-info\" type=\"submit\" name=\"account\"><i class=\"fa fa-user\"></i> Account</button>\n      </form>");
       }

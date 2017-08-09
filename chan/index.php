@@ -1,18 +1,11 @@
 <?php
-include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultHeader.php");
-include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultBody.php");
-include("{$_SERVER['DOCUMENT_ROOT']}/webassets/defaultNavbar.php");
-error_reporting(0);
-?>
-<link href="/css/chan.css" rel="stylesheet">
-<?php
-if(reset(explode("=",end(explode("?",$_SERVER["REQUEST_URI"])))) == "thread") {
+error_reporting(1);
+if(isset($_GET["thread"])) {
   include("thread.php");
-} elseif(reset(explode("=",end(explode("?",$_SERVER["REQUEST_URI"])))) == "post") {
+} elseif (isset($_GET["post"])) {
   include("post.php");
 } else {
-	include("catalog.php");
+  include("catalog.php");
 }
+include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultFooter.php");
 ?>
-</body>
-</html>
