@@ -26,7 +26,7 @@ include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
 </script>
 <?php
 if($OP["filename"] == "") {
-  echo("<div class=\"alert alert-danger fade show\" role=\"alert\"><strong>Error:</strong> Thread does not exist.</div>");
+  echo("<div class=\"alert alert-danger fade show\" role=\"alert\"><b>Error:</b> Thread does not exist.</div>");
   exit();
 }
 ?>
@@ -43,7 +43,7 @@ if($OP["filename"] == "") {
   </button>
 </form>
 <div class="thread">
-<a class="btn btn-outline-info" href="/chan/"><i class="fa fa-arrow-circle-left"></i> Return</a>
+<a class="btn btn-outline-info" href="."><i class="fa fa-arrow-circle-left"></i> Return</a>
 <?php
 echo("<div class=\"post\"><p class=\"chan\"><img src=\"/chan/thumbs/{$OP["id"]}.jpg\" id=\"i{$OP["id"]}\" onclick=\"enlargeImage(\"{$OP["id"]}\",\"{$OP["filetype"]}\")\"><b>{$OP["name"]}</b> {$OP["time"]} <a href=\"?thread={$OP["id"]}\" class=\"notHighlight\">No.</a><a onclick=\"insertReply(event)\" class=\"notHighlight\">{$OP["id"]}</a> (OP)<br><a class=\"notHighlight\" target=\"_blank\" href=\"/chan/files/{$OP["id"]}.{$OP["filetype"]}\">{$OP["filename"]}</a> {$OP["filesize"]}B ({$OP["resolution"]})</p><p id=\"test\" class=\"comment\">{$OP["body"]}</p></div>");
 for($y=0;$y<count($reply);$y++) {

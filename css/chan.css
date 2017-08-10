@@ -79,11 +79,14 @@ textarea {
 	position: fixed;
 	top: 20%;
 	display: block;
-	border: 1px solid #3E4146;
+	border: 1.4px solid #3E4146;
 	border-right: none;
 	border-top-left-radius: .25rem;
 	border-bottom-left-radius: .25rem;
 	padding: 8px;
+}
+.btn-outline-info {
+	margin-left: 8px;
 }
 @media only screen and (min-width: 576px) {
 	.commentBox {

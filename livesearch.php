@@ -12,7 +12,7 @@ $dir_iterator = new RecursiveDirectoryIterator("$directory/", RecursiveDirectory
 $iterator = new RecursiveIteratorIterator($dir_iterator, RecursiveIteratorIterator::SELF_FIRST);
 $count = 0;
 $list = [];
-/* Use for folder-only search
+/* Use for directory search
 foreach($iterator as $file) {
   if ($file->isDir()) {
     $file = substr($file, 1+$directoryLength);
@@ -24,7 +24,7 @@ foreach($iterator as $file) {
 }
 */
 foreach($iterator as $file) {
-  $file = substr($file, 1+$directoryLength);
+  $file = substr($file, $directoryLength + 1);
   if (preg_match("/\.php/", $file)) {
     continue;
   } else {
