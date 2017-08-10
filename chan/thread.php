@@ -10,7 +10,7 @@ while($getReplies = mysqli_fetch_array($getThread,MYSQLI_ASSOC)) {
   $x++;
 }
 include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultHeader.php");
-echo("    <link href=\"/css/chan.css\" rel=\"stylesheet\">\n</head>");
+echo("    <link href=\"/css/chan.css\" rel=\"stylesheet\">\n</head>\n");
 include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
 ?>
 <script>
@@ -29,12 +29,24 @@ if($OP["filename"] == "") {
   echo("<div class=\"alert alert-danger fade show\" role=\"alert\"><strong>Error:</strong> Thread does not exist.</div>");
   exit();
 }
-echo("<div class=\"commentBox\">
-<form class=\"commentBox\" action=\"submit.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"upload\"><input type=\"hidden\" name=\"threadUpload\" id=\"threadUpload\" value=\"{$OP["id"]}\"><textarea placeholder=\"Comment\" form=\"upload\" name=\"textUpload\" id=\"textUpload\"></textarea><br><input type=\"file\" name=\"fileUpload\" id=\"fileUpload\"><div class=\"g-recaptcha\" data-sitekey=\"6LdkYRoUAAAAAOPDZh5DE_9DRkvcEg6jXNzcORCM\"></div><input style=\"margin-top:7px;\" type=\"submit\" value=\"Submit file\" name=\"submit\"></form></div>
-<div class=\"thread\">
-<a class=\"btn btn-outline-info\" href=\"/chan/\"><i class=\"fa fa-arrow-circle-left\"></i> Return</a>
-<div class=\"post\"><p class=\"chan\"><img src=\"/chan/thumbs/{$OP["id"]}.jpg\" id=\"i{$OP["id"]}\" onclick=\"enlargeImage(\"{$OP["id"]}\",\"{$OP["filetype"]}\")\"><b>{$OP["name"]}</b> {$OP["time"]} <a href=\"?thread={$OP["id"]}\" class=\"notHighlight\">No.</a><a onclick=\"insertReply(event)\" class=\"notHighlight\">{$OP["id"]}</a> (OP)<br><a class=\"notHighlight\" target=\"_blank\" href=\"/chan/files/{$OP["id"]}.{$OP["filetype"]}\">{$OP["filename"]}</a> {$OP["filesize"]}B ({$OP["resolution"]})</p><p id=\"test\" class=\"comment\">{$OP["body"]}</p></div>");
-for($y=0;$y<=count($reply);$y++) {
+?>
+<form class="commentBox" enctype="multipart/form-data" id="upload" action="submit.php" method="post">
+  <input type="hidden" name="threadUpload" value="<?php echo($OP["id"]); ?>">
+  <textarea class="form-control col-sm-12" placeholder="Comment" form="upload" name="textUpload" id="textUpload"></textarea>
+  <label class="custom-file col-sm-12">
+    <input class="custom-file-input" type="file" name="fileUpload" id="fileUpload">
+    <span class="custom-file-control form-control-file"></span>
+  </label>
+  <br>
+  <button class="btn btn-sm g-recaptcha form-control col-sm-12" data-sitekey="6LcykxoUAAAAAMEKIJkUZ7do2Q2DohJ2L7TKbgK6" data-callback="onSubmit">
+    Submit Post
+  </button>
+</form>
+<div class="thread">
+<a class="btn btn-outline-info" href="/chan/"><i class="fa fa-arrow-circle-left"></i> Return</a>
+<?php
+echo("<div class=\"post\"><p class=\"chan\"><img src=\"/chan/thumbs/{$OP["id"]}.jpg\" id=\"i{$OP["id"]}\" onclick=\"enlargeImage(\"{$OP["id"]}\",\"{$OP["filetype"]}\")\"><b>{$OP["name"]}</b> {$OP["time"]} <a href=\"?thread={$OP["id"]}\" class=\"notHighlight\">No.</a><a onclick=\"insertReply(event)\" class=\"notHighlight\">{$OP["id"]}</a> (OP)<br><a class=\"notHighlight\" target=\"_blank\" href=\"/chan/files/{$OP["id"]}.{$OP["filetype"]}\">{$OP["filename"]}</a> {$OP["filesize"]}B ({$OP["resolution"]})</p><p id=\"test\" class=\"comment\">{$OP["body"]}</p></div>");
+for($y=0;$y<count($reply);$y++) {
   echo("<div class=\"reply\" id=\"{$reply[$y]["id"]}\"><p class=\"chan\">");
   if($reply[$y]["filename"] != "") {
     echo("<img class=\"chan\" src=\"/chan/thumbs/{$reply[$y]["id"]}.jpg\" id=\"i{$reply[$y]["id"]}\" onclick=\"enlargeImage(\"{$reply[$y]["id"]}\",\"{$reply[$y]["filetype"]}\")\">");
