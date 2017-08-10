@@ -6,23 +6,25 @@ $OP = mysqli_fetch_array($getOP,MYSQLI_ASSOC);
 $getThread = mysqli_query($link,"SELECT id, name, time, body, filename, filetype, filesize, resolution FROM posts WHERE thread = $thread AND op = 0");
 $x = 0;
 while($getReplies = mysqli_fetch_array($getThread,MYSQLI_ASSOC)) {
-  $x += 1;
   $reply[$x] = $getReplies;
+  $x++;
 }
 include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultHeader.php");
 echo("    <link href=\"/css/chan.css\" rel=\"stylesheet\">\n</head>");
 include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
-echo("<script>
+?>
+<script>
   function enlargeImage(id, filetype) {
-    var imageid = \"i\" + id;
-    const result = document.getElementById(imageid).src.replace(/(.*)(\/.*\/.*\/.*)/g, \"$2\");
-    if (result == \"/chan/thumbs/\" + id + \".jpg\") {
-      document.getElementById(imageid).src = \"/chan/files/\" + id + \".\" + filetype;
+    var imageid = "i" + id;
+    const result = document.getElementById(imageid).src.replace(/(.*)(/.*/.*/.*)/g, "$2");
+    if (result == "/chan/thumbs/" + id + ".jpg") {
+      document.getElementById(imageid).src = "/chan/files/" + id + "." + filetype;
     } else {
-      document.getElementById(imageid).src = \"/chan/thumbs/\" + id + \".jpg\";
+      document.getElementById(imageid).src = "/chan/thumbs/" + id + ".jpg";
     }
   }
-</script>\n");
+</script>
+<?php
 if($OP["filename"] == "") {
   echo("<div class=\"alert alert-danger fade show\" role=\"alert\"><strong>Error:</strong> Thread does not exist.</div>");
   exit();
@@ -32,7 +34,7 @@ echo("<div class=\"commentBox\">
 <div class=\"thread\">
 <a class=\"btn btn-outline-info\" href=\"/chan/\"><i class=\"fa fa-arrow-circle-left\"></i> Return</a>
 <div class=\"post\"><p class=\"chan\"><img src=\"/chan/thumbs/{$OP["id"]}.jpg\" id=\"i{$OP["id"]}\" onclick=\"enlargeImage(\"{$OP["id"]}\",\"{$OP["filetype"]}\")\"><b>{$OP["name"]}</b> {$OP["time"]} <a href=\"?thread={$OP["id"]}\" class=\"notHighlight\">No.</a><a onclick=\"insertReply(event)\" class=\"notHighlight\">{$OP["id"]}</a> (OP)<br><a class=\"notHighlight\" target=\"_blank\" href=\"/chan/files/{$OP["id"]}.{$OP["filetype"]}\">{$OP["filename"]}</a> {$OP["filesize"]}B ({$OP["resolution"]})</p><p id=\"test\" class=\"comment\">{$OP["body"]}</p></div>");
-for($y=1;$y<=count($reply);$y++) {
+for($y=0;$y<=count($reply);$y++) {
   echo("<div class=\"reply\" id=\"{$reply[$y]["id"]}\"><p class=\"chan\">");
   if($reply[$y]["filename"] != "") {
     echo("<img class=\"chan\" src=\"/chan/thumbs/{$reply[$y]["id"]}.jpg\" id=\"i{$reply[$y]["id"]}\" onclick=\"enlargeImage(\"{$reply[$y]["id"]}\",\"{$reply[$y]["filetype"]}\")\">");
