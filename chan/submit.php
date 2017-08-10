@@ -1,107 +1,161 @@
 <?php
-if(isset($_FILES['fileUpload'])) {
+if(isset($_FILES["fileUpload"])) {
+  /*
+  $data = array("secret" => "$recaptcha",
+  "response" => "{$_POST["g-recaptcha-response"]}",
+  "remoteip" => "{$_SERVER["REMOTE_ADDR"]}");
+  $options = array(
+      "http" => array(
+          "header"  => "Content-type: application/x-www-form-urlencoded\r\n",
+          "method"  => "POST",
+          "content" => http_build_query($data)
+      )
+  );
+  $context = stream_context_create($options);
+  $result = file_get_contents("https://www.google.com/recaptcha/api/siteverify", false, $context);
+  $success = json_decode($result,true);
+  if($success["success"] != 1) {
+    session_start();
+    $_SESSION["submitError"] = 1;
+    header("Location: /chan/");
+    exit();
+  }
+  */
   session_start();
-  function make_thumb($src,$dest,$desired_width,$mime) {
-    $mime = strtolower($mime);
-    if($mime == 'jpg' || $mime == 'jpeg') {
-      $source_image = imagecreatefromjpeg($src);
+  function make_thumb($source,$destination,$sourceType) {
+    $sourceType = strtolower($sourceType);
+    if($sourceType == "jpg" || $sourceType == "jpeg") {
+      $sourceImage = imagecreatefromjpeg($source);
     }
-    if($mime == 'png') {
-      $source_image = imagecreatefrompng($src);
+    if($sourceType == "png") {
+      $sourceImage = imagecreatefrompng($source);
     }
-    if($mime == 'gif') {
-      $source_image = imagecreatefromgif($src);
+    if($sourceType == "gif") {
+      $sourceImage = imagecreatefromgif($source);
     }
-    $width = imagesx($source_image);
-    $height = imagesy($source_image);
-    #if($width < $height) {
-    #  $desired_width = floor($width*($resolution/$height));
-    #} else {
-    #  $desired_height = floor($height*($resolution/$width));
-    #}
-    $desired_height = floor($height*($desired_width/$width));
-    $virtual_image = imagecreatetruecolor($desired_width,$desired_height);
-    imagecopyresampled($virtual_image,$source_image,0,0,0,0,$desired_width,$desired_height,$width,$height);
-    imagejpeg($virtual_image,$dest);
-  }
-  include($_SERVER['DOCUMENT_ROOT'].'/access/sql.php');
-  $allowed = array('jpg','jpeg','png','gif','JPG','JPEG','PNG','GIF','');
-  $err = $_FILES['fileUpload']['error'];
-  $temp = $_FILES['fileUpload']['tmp_name'];
-  $ip = $_SERVER['REMOTE_ADDR'];
-  $name = $_FILES['fileUpload']['name'];
-  $user = $_SESSION['username'];
-  $body = $_POST['textUpload'];
-  $size = $_FILES['fileUpload']['size'];
-  $thread = $_POST['threadUpload'];
-  if($name != '') {
-    if($size > 1048576) {
-      $size = round($size/1048576,2);
-      $size = $size.'M';
+    $width = imagesx($sourceImage);
+    $height = imagesy($sourceImage);
+    if($width < $height) {
+      $thumbWidth = floor($width*(125/$height));
+      $thumbHeight = 125;
     } else {
-      $size = round($size/1024);
-      $size = $size.'K';
+      $thumbHeight = floor($height*(125/$width));
+      $thumbWidth = 125;
     }
+    $thumbnail = imagecreatetruecolor($thumbWidth,$thumbHeight);
+    imagecopyresampled($thumbnail,$sourceImage,0,0,0,0,$thumbWidth,$thumbHeight,$width,$height);
+    imagejpeg($thumbnail,$destination);
   }
-  $type = explode('.',$name);
-  $type = end($type);
-  $body = preg_replace('/([>]{2})(\d+)/','⁆a href="?post=$2"⁗&gt;&gt;$2⁆/a⁗',$body);
-  $body = preg_replace('/([>]{1})(.+)(\B|\b)/','⁆span class="greentext"⁗&gt;$2⁆/span⁗$3',$body);
-  $body = str_replace("<","&lt;",$body);
-  $body = str_replace(">","&gt;",$body);
-  $body = str_replace("⁆","<",$body);
-  $body = str_replace("⁗",">",$body);
-  $body = preg_replace('/(.*)(\n)/','$1<br>',$body);
-  if($size > 1000000000) {
-    echo('ERROR: File cannot be larger than one gibibyte.');
+  include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
+  $username = $_SESSION["username"];
+  $ip = $_SERVER["REMOTE_ADDR"];
+  $thread = $_POST["threadUpload"];
+  $textBody = $_POST["textUpload"];
+  $fileName = $_FILES["fileUpload"]["name"];
+  $lastID = mysqli_query($link,"SELECT id FROM posts ORDER BY id DESC LIMIT 1");
+  $lastID = mysqli_fetch_array($lastID,MYSQLI_ASSOC);
+  $nextID = $lastID["id"] + 1;
+  # Stop users from submitting empty posts.
+  if($fileName == "" && $textBody == "") {
+    echo("ERROR: No message was attached.");
     exit();
   }
-  if(!in_array($type,$allowed)) {
-    echo('ERROR: File submitted was not an image.');
-    exit();
-  }
-  if($thread == "new") {
-    $op = 1;
-    $lastpostnumber = mysqli_query($link,'SELECT id FROM posts ORDER BY id DESC LIMIT 1');
-    $lastpostnumber = mysqli_fetch_array($lastpostnumber,MYSQLI_ASSOC);
-    $nextPostId = $lastpostnumber["id"] + 1;
-    $thread = $nextPostId;
-    if($name == '') {
-      echo('ERROR: Submitting a thread requires an image to be attached.');
+  # File content formatting
+  if($fileName != "") {
+    $allowed = array("image/jpeg","image/png","image/gif");
+    if(!in_array($_FILES["fileUpload"]["type"],$allowed)) {
+      echo("ERROR: File submitted was not an image.");
       exit();
     }
+    $fileSize = $_FILES["fileUpload"]["size"];
+    if($fileSize > 1048576) {
+      $fileSize = round($fileSize/1048576,2);
+      $fileSize = $fileSize."M";
+    } elseif($fileSize > 0) {
+      $fileSize = round($fileSize/1024);
+      $fileSize = $fileSize."K";
+    } else {
+      echo("ERROR: Submitted image was empty.");
+      exit();
+    }
+    $fileType = end(explode(".",$fileName));
+    $fileError = $_FILES["fileUpload"]["error"];
+    $fileTemp = $_FILES["fileUpload"]["tmp_name"];
+    $fileResolution = getimagesize($fileTemp);
+    $fileResolution = $fileResolution[0]."x".$fileResolution[1];
+
   } else {
-    $op = 0;
-    $lastpostnumber = mysqli_query($link,'SELECT id FROM posts ORDER BY id DESC LIMIT 1');
-    $lastpostnumber = mysqli_fetch_array($lastpostnumber,MYSQLI_ASSOC);
-    $nextPostId = $lastpostnumber["id"] + 1;
+    if($thread == "new") {
+      echo("ERROR: No image was attached to new thread.");
+      exit();
+    }
   }
-  $submit = "INSERT INTO posts (thread, op, ip, name, body, filename, filetype, filesize)
-  VALUES ('$thread', '1', '$ip', '$user', '$body', '$name', '$type', '$size')";
-  if($op == 0) {
-    $submit = str_replace("'1'","'0'",$submit);
+  # Text content formatting.
+  if($textBody != "") {
+    preg_match("/(?<=[>]{2})\d+/",$textBody,$replies);
+    $textBody = preg_replace("/([>]{2})(\d+)/","⁆a href=\"?post=$2\"⁗&gt;&gt;$2⁆/a⁗",$textBody);
+    $textBody = preg_replace("/([>]{1})(.+)(\B|\b)/","⁆span class=\"greentext\"⁗&gt;$2⁆/span⁗$3",$textBody);
+    $textBody = str_replace("<","&lt;",$textBody);
+    $textBody = str_replace(">","&gt;",$textBody);
+    $textBody = str_replace("⁆","<",$textBody);
+    $textBody = str_replace("⁗",">",$textBody);
+    $textBody = preg_replace("/(.*)(\n)/","$1<br>",$textBody);
+  } else {
+    if($thread == "new") {
+      echo("ERROR: No text was attached to new thread.");
+      exit();
+    }
   }
-  if(mysqli_query($link,$submit)) {
-    if($name != '') {
-      if(move_uploaded_file($temp,"files/$nextPostId.$type")) {
-        mysqli_close($link);
-        if(make_thumb("files/$nextPostId.$type","thumbs/$nextPostId.jpg","125",$type)) {
-          header('Location: /chan?post='.$nextPostId);
-          exit();
-        } else {
-          header('Location: /chan');
-          exit();
-        }
+  # Update replies array.
+  # ! NOT IMPLEMENTED YET !
+  if($replies != []) {
+    for($x=0;$x<count($replies);$x++) {
+      $oldReplies = mysqli_query($link,"SELECT replies FROM posts WHERE id = {$replies[$x]}");
+      $oldReplies = mysqli_fetch_array($oldReplies,MYSQLI_ASSOC);
+      $oldReplies = $oldReplies["replies"];
+      var_dump($oldReplies);
+      if($oldReplies == NULL) {
+        mysqli_query($link,"UPDATE posts SET replies = $nextID WHERE id = {$replies[$x]}");
       } else {
-        echo('ERROR: Your upload was interrupted.<br>ERROR CODE: '.$err);
+        $newReplies = "$oldReplies,$nextID";
+        mysqli_query($link,"UPDATE posts SET replies = $newReplies WHERE id = {$replies[$x]}");
+      }
+    }
+  }
+  # Select SQL template to use for post.
+  if($thread == "new") {
+    $submit = "INSERT INTO posts (thread, op, ip, name, body, filename, filetype, filesize, resolution) VALUES ('$nextID', '1', '$ip', '$username', '$textBody', '$fileName', '$fileType', '$fileSize', '$fileResolution')";
+  } elseif($fileName != "" && $textBody == "") {
+    $submit = "INSERT INTO posts (thread, ip, name, filename, filetype, filesize, resolution) VALUES ('$thread', '$ip', '$username', '$fileName', '$fileType', '$fileSize', '$fileResolution')";
+  } elseif($fileName == "" && $textBody != "") {
+    $submit = "INSERT INTO posts (thread, ip, name, body) VALUES ('$thread', '$ip', '$username', '$textBody')";
+  } else {
+    $submit = "INSERT INTO posts (thread, ip, name, body, filename, filetype, filesize, resolution) VALUES ('$thread', '$ip', '$username', '$textBody', '$fileName', '$fileType', '$fileSize', '$fileResolution')";
+  }
+  # Submission for posts with file
+  if($fileName != "") {
+    if(move_uploaded_file($fileTemp,"files/$nextID.$fileType")) {
+      make_thumb("files/$nextID.$fileType","thumbs/$nextID.jpg",$fileType);
+      if(mysqli_query($link,$submit)) {
+        header("Location: /chan?post=$nextID");
+        exit();
+      } else {
+        echo("ERROR: MySQL encountered an error whilst updating the database.<br>ERROR INFORMATION: {${mysqli_error($link)}}");
         exit();
       }
     } else {
-      header('Location: /chan?post='.$nextPostId);
+      echo("ERROR: An error occured while uploading your image.<br>ERROR CODE: $fileError");
+      exit();
     }
+  # Submission for posts without file
   } else {
-    echo('ERROR: MySQL encountered an error while submitting your file.<br>ERROR INFORMATION: '.mysqli_error($link));
-    exit();
+    if(mysqli_query($link,$submit)) {
+      header("Location: /chan?post=$nextID");
+      exit();
+    } else {
+      echo("ERROR: MySQL encountered an error whilst updating the database.<br>ERROR INFORMATION: {${mysqli_error($link)}}");
+      exit();
+    }
   }
 }
 ?>

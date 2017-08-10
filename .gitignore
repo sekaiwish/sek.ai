@@ -1,5 +1,4 @@
-﻿Thumbs.db
-ehthumbs.db
+﻿*Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 *.cab
@@ -7,26 +6,26 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 *.lnk
-.DS_Store
-.AppleDouble
-.LSOverride
-._*
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+*test*
 
 access/sql.php
+access/recaptcha.php
+
+files/
 chan/files/
 chan/thumbs/
 ps/
-*test*
 phpmyadmin/
 dlf/
+
+google*.html
+.well-known/
+css/bootstrap*
+css/font-awesome*
+js/bootstrap*
+js/jquery*
+js/livestamp*
+js/moment*
+js/tether*
+js/npm*
+fonts/*

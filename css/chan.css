@@ -1,0 +1,106 @@
+:link, :visited {
+	color: #0096CF;
+  text-decoration: none;
+}
+a:hover, a:active, .notHighlight:hover, .notHighlight:active {
+	color: #C74345;
+  text-decoration: none;
+}
+.notHighlight:link, .notHighlight:visited {
+	color: white;
+  text-decoration: none;
+}
+.chanFooter {
+	text-align: center;
+	background: #3E4146;
+	padding-bottom: 8px;
+}
+.post {
+	display: inline-block;
+	float: left;
+	background: #3A3D42;
+	width: 100%;
+	padding: 10px;
+}
+img {
+	float: left;
+	margin-right: 8px;
+}
+.reply {
+	display: inline-block;
+	float: left;
+	background: #36393E;
+	width: 100%;
+	padding: 10px;
+  border-top: 1px solid #3E4146;
+}
+.thread {
+	display: flow-root;
+	width: 100%;
+	background: #3A3D42;
+	border-width: 1px 1px 4px 1px;
+	border-style: solid;
+	border-color: #3E4146
+	overflow-x: hidden;
+}
+.postinfo {
+	margin-right: 8px;
+}
+.custom-file {
+	margin-top: 1px;
+}
+.custom-file-control.selected:lang(en)::after {
+  content: "" !important;
+}
+.comment, strong {
+	color: white;
+}
+select {
+	width: 8em;
+}
+.greentext {
+	color: #789922;
+}
+.replyThread {
+	font-size: 65%;
+  vertical-align: 0.2em;
+}
+textarea {
+	min-height: 6em;
+	max-height: 40em;
+	min-width: 19em;
+	max-width: 19em;
+	margin: 0px;
+}
+.g-recaptcha, .btn-outline-info, .btn-secondary, .btn-primary {
+	margin-top: 8px;
+}
+.commentBox {
+	position: fixed;
+	top: 20%;
+	display: block;
+	border: 1.4px solid #3E4146;
+	border-right: none;
+	border-top-left-radius: .25rem;
+	border-bottom-left-radius: .25rem;
+	padding: 8px;
+}
+.btn-outline-info {
+	margin-left: 8px;
+}
+@media only screen and (min-width: 576px) {
+	.commentBox {
+		right: 0px;
+		background: #3A3D42;
+	}
+}
+@media only screen and (max-width: 575px) {
+	.commentBox {
+		right: -60%;
+		background: #FFF;
+		transition: right .5s ease-in-out;
+	}
+	.commentBox:hover {
+		right: 0px;
+	}
+}
