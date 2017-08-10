@@ -1,6 +1,6 @@
   <div class="beta mobile-hidden">
-    <a target="_blank" href="https://github.com/Sek-ai/Sek.ai/tree/dev">
-      <button class="btn btn-secondary"><i class="fa fa-github"></i> <b>D0.6</b></button>
+    <a target="_blank" href="https://github.com/Sek-ai/Sek.ai/">
+      <button class="btn btn-secondary"><i class="fa fa-github"></i> <b>B0.6</b></button>
     </a>
   </div>
 	<script src="/js/jquery-3.2.1.min.js"></script>
