@@ -1,5 +1,5 @@
 <?php
-error_reporting(1);
+error_reporting(0);
 if(isset($_GET["thread"])) {
   include("thread.php");
 } elseif (isset($_GET["post"])) {

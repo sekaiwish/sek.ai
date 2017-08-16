@@ -1,5 +1,5 @@
 <?php
-error_reporting(1);
+error_reporting(0);
 # Echo the templated page content
 include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultHeader.php");
 echo("  	<link href=\"/css/chan.css\" rel=\"stylesheet\">\n</head>");

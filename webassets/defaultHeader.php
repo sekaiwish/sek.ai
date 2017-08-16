@@ -1,5 +1,5 @@
 <?php
-error_reporting(1);
+error_reporting(0);
 session_start();
 if($_SESSION["logged_in"] != TRUE) {
 	header("Location: /error/401.html");
