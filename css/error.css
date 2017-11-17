@@ -21,7 +21,7 @@
   }
 }
 body {
-	background-image: url(/webassets/gradients/light.png);
+	background-image: url(/assets/gradients/light.png);
   animation: gradient 5s linear 0s infinite normal;
 }
 p {

@@ -18,7 +18,7 @@ echo("  <nav class=\"navbar fixed-top navbar-toggleable-md navbar-inverse bg-inv
       <span class=\"navbar-toggler-icon\"></span>
     </button>
     <a class=\"navbar-brand\" href=\"/\">
-      <img src=\"/webassets/favicon/32.png\" width=\"30\" height=\"30\" class=\"d-inline-block align-top\">
+      <img src=\"/assets/favicon/32.png\" width=\"30\" height=\"30\" class=\"d-inline-block align-top\">
       Sekai
     </a>
     <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">

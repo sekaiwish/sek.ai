@@ -7,5 +7,5 @@ if(isset($_GET["thread"])) {
 } else {
   include("catalog.php");
 }
-include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultFooter.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultFooter.php");
 ?>

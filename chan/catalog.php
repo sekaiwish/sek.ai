@@ -1,9 +1,9 @@
 <?php
 error_reporting(0);
 # Echo the templated page content
-include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultHeader.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultHeader.php");
 echo("  	<link href=\"/css/chan.css\" rel=\"stylesheet\">\n</head>");
-include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultNavbar.php");
 # Include necessary SQL login information
 include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
 # Set a primary variable to a session variable

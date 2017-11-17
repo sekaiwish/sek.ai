@@ -1,27 +1,86 @@
 body {
-	background-image: url(/webassets/gradients/dark.png);
-  animation: gradient 5s linear 0s infinite normal;
+  background: linear-gradient(-80deg, rgba(69, 104, 220, .6), rgba(176, 107, 179, .6), rgba(69, 104, 220, .6));
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  background-size: 600% 600%;
+  animation: gradient 20s ease-in-out infinite normal;
+  display: flex;
 }
-.success {
-	color: black;
-	text-align: left;
+h1 {
+  color: white;
+  text-align: center;
+  font-family: "Lobster";
+  font-size: 600%;
 }
-.card {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+.links {
+  margin: auto;
 }
-.viewcount {
-	position: absolute;
-	bottom: 2rem;
-	left: 50%;
-	transform: translate(-50%);
+.links > a:hover,
+.links > a:visited,
+.links > a:link,
+.links > a:active {
+  border-top: 3px dashed white;
+  padding-top: 1.5rem;
+  text-decoration: none;
+  outline: none;
 }
-@media only screen and (max-width: 768px) {
-    .card {
-      width: 100%;
-      top: 100%;
-      transform: translate(-50%, -100%)
-    }
+.shadow {
+  transition: filter .3s;
+}
+.shadow:hover {
+  filter: drop-shadow(0 0 5px #000);
+}
+button {
+  display: inline-block;
+  margin-top: 1rem;
+  transform: translate(-50%);
+  cursor: pointer;
+  color: white;
+}
+.btn-dark.jp {
+  margin-left: 50%;
+}
+.jp {
+  font-family: "Sawarabi Gothic";
+  margin-bottom: 0;
+  font-size: .91em;
+}
+.btn-primary {
+  width: 100%;
+}
+.github {
+  position: fixed;
+  right: 1rem;
+  bottom: -1.6rem;
+  transition: bottom .5s;
+}
+a > .btn {
+  cursor: pointer;
+  padding: .2rem .7rem;
+}
+.github:hover {
+  bottom: -.1rem;
+}
+.fa-caret-up {
+  color: white;
+  display: block;
+}
+@font-face {
+  font-family: "Lobster";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lobster"), local("Lobster-Regular"), url(//fonts.gstatic.com/s/lobster/v19/cycBf3mfbGkh66G5NhszPQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

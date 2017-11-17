@@ -21,11 +21,11 @@ $start = $time;
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link type="image/png" href="/webassets/favicon/256.png" sizes="256x256" rel="icon">
-	<link type="image/png" href="/webassets/favicon/32.png" sizes="32x32" rel="icon">
-	<link type="image/png" href="/webassets/favicon/16.png" sizes="16x16" rel="icon">
-	<link href="/webassets/favicon/180.png" sizes="180x180" rel="apple-touch-icon">
-	<link href="/webassets/manifest.json" rel="manifest">
+	<link type="image/png" href="/assets/favicon/256.png" sizes="256x256" rel="icon">
+	<link type="image/png" href="/assets/favicon/32.png" sizes="32x32" rel="icon">
+	<link type="image/png" href="/assets/favicon/16.png" sizes="16x16" rel="icon">
+	<link href="/assets/favicon/180.png" sizes="180x180" rel="apple-touch-icon">
+	<link href="/assets/manifest.json" rel="manifest">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/css/style.css" rel="stylesheet">
@@ -104,7 +104,7 @@ if($ip != "127.0.0.1") {
     }
 		$x = 0;
     while($x < $places) {
-      echo("<img src=\"/webassets/views/{$newView[$x]}.gif\">");
+      echo("<img src=\"/assets/views/{$newView[$x]}.gif\">");
       $x += 1;
     }
     echo("</div>\n");
@@ -118,5 +118,5 @@ if($ip != "127.0.0.1") {
 		</p>
 	</div>\n");
 }
-include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultFooter.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultFooter.php");
 ?>

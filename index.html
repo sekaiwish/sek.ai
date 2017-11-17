@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/sawarabigothic.css" type="text/css">
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script>$(document).ready(function(){$('[data-toggle="tooltip"]').tooltip();});</script>
+  </head>
+  <body>
+    <div class="links">
+      <h1>Wish</h1>
+      <a href="//twitter.com/Wish495" target="_blank">
+        <img class="shadow" src="assets/twitter.svg" data-toggle="tooltip" data-placement="top" title="Twitter">
+      </a>
+      <a href="//youtube.com/user/wish495" target="_blank">
+        <img class="shadow" src="assets/youtube.svg" data-toggle="tooltip" data-placement="top" title="YouTube">
+      </a>
+      <a href="//twitch.tv/TheRealWish" target="_blank">
+        <img class="shadow" src="assets/twitch.svg" data-toggle="tooltip" data-placement="top" title="Twitch.tv">
+      </a>
+      <a href="//github.com/Wish495" target="_blank">
+        <img class="shadow" src="assets/github.svg" data-toggle="tooltip" data-placement="top" title="GitHub">
+      </a>
+      <a href="//steamcommunity.com/id/sadwish" target="_blank">
+        <img class="shadow" src="assets/steam.svg" data-toggle="tooltip" data-placement="top" title="Steam">
+      </a>
+      <a href="//discord.gg/WFAgUJk" target="_blank">
+        <img class="shadow" src="assets/discord.svg" data-toggle="tooltip" data-placement="top" title="Discord">
+      </a>
+      <a href="//osu.ppy.sh/u/Wishu" target="_blank">
+        <img class="shadow" src="assets/osu.svg" data-toggle="tooltip" data-placement="top" title="osu!">
+      </a>
+      <a href="//last.fm/user/Wish495" target="_blank">
+        <img class="shadow" src="assets/lastfm.svg" data-toggle="tooltip" data-placement="top" title="Last.fm">
+      </a>
+      <a href="//myanimelist.net/profile/Ain" target="_blank">
+        <img class="shadow" src="assets/myanimelist.svg" data-toggle="tooltip" data-placement="top" title="MyAnimeList">
+      </a>
+      <br>
+      <button class="btn btn-dark jp" data-toggle="modal" data-target="#login">
+        &#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
+      </button>
+    </div>
+    <div class="modal fade" id="login" tabindex="-1">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title jp">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="php/login.php" method="post">
+              <div class="form-group">
+                <div class="input-group mb-2 mb-sm-0">
+                  <div class="input-group-addon"><i class="fa fa-user-circle fa-fw"></i></div>
+                  <input class="form-control jp" type="text" placeholder="&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;" name="username" maxlength="16" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2 mb-sm-0">
+                  <div class="input-group-addon"><i class="fa fa-lock fa-fw"></i></div>
+                  <input class="form-control jp" type="password" placeholder="&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;" name="password" maxlength="16" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <input class="btn btn-primary jp" type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <p class="text-muted jp">&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x8981;&#x6C42;&#x306E;&#x969B;&#x306B;&#x3001;Secure Socket Layer(SSL)&#x3092;&#x6709;&#x52B9;&#x306B;&#x70BA;&#x308B;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="github">
+      <a target="_blank" href="//github.com/Sek-ai/Sek.ai/tree/dev">
+        <button class="btn btn-dark">
+          <i class="fa fa-caret-up"></i>
+          <i class="fa fa-github"></i> <b>D0.7</b>
+        </button>
+      </a>
+    </div>
+  </body>
+</html>

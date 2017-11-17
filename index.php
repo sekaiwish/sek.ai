@@ -2,8 +2,8 @@
 error_reporting(0);
 session_start();
 if($_SESSION["logged_in"] != TRUE) {
-  include("webassets/login.php");
+  include("assets/login.php");
 } else {
-  include("webassets/home.php");
+  include("assets/home.php");
 }
 ?>

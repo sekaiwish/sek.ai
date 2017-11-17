@@ -9,9 +9,9 @@ while($getReplies = mysqli_fetch_array($getThread,MYSQLI_ASSOC)) {
   $reply[$x] = $getReplies;
   $x++;
 }
-include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultHeader.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultHeader.php");
 echo("    <link href=\"/css/chan.css\" rel=\"stylesheet\">\n</head>\n");
-include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultNavbar.php");
 ?>
 <script>
   function enlargeImage(id, filetype) {

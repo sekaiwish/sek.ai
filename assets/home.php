@@ -1,13 +1,13 @@
 <?php
-include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultHeader.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultHeader.php");
 echo("</head>");
-include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultNavbar.php");
 ?>
   <div style="width:100%;margin-top:8rem;">
     <div class="card-group">
       <a href="/flac/">
         <div class="card card-inverse card-outline-success">
-          <img class="card-img" src="/webassets/tiles/flac.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="FLAC">
+          <img class="card-img" src="/assets/tiles/flac.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="FLAC">
           <div class="card-img-overlay">
             <h1 class="card-title">
               <strong>
@@ -19,7 +19,7 @@ include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
       </a>
       <a href="/anime/">
         <div class="card card-inverse card-outline-success">
-          <img class="card-img" src="/webassets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>anime.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="Anime">
+          <img class="card-img" src="/assets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>anime.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="Anime">
           <div class="card-img-overlay">
             <h1 class="card-title">
               <strong>
@@ -31,7 +31,7 @@ include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
       </a>
       <a href="/chan/">
         <div class="card card-inverse card-outline-danger">
-          <img class="card-img" src="/webassets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>chan.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="世界chan">
+          <img class="card-img" src="/assets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>chan.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="世界chan">
           <div class="card-img-overlay">
             <h1 class="card-title">
               <strong>
@@ -45,7 +45,7 @@ include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
     <div class="card-group">
       <a href="/dlf/">
         <div class="card card-inverse card-outline-danger">
-          <img class="card-img" src="/webassets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>dlf.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="DLF">
+          <img class="card-img" src="/assets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>dlf.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="DLF">
           <div class="card-img-overlay">
             <h1 class="card-title">
               <strong>
@@ -57,7 +57,7 @@ include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
       </a>
       <a href="/hentai/">
         <div class="card card-inverse card-outline-danger">
-          <img class="card-img" src="/webassets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>anime.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="Hentai">
+          <img class="card-img" src="/assets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>anime.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="Hentai">
           <div class="card-img-overlay">
             <h1 class="card-title">
               <strong>
@@ -69,7 +69,7 @@ include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
       </a>
       <a href="/iso/">
         <div class="card card-inverse card-outline-success">
-          <img class="card-img" src="/webassets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>iso.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="ISO">
+          <img class="card-img" src="/assets/tiles/<?php if($_SESSION["tilestyle"]==1){echo("G");}?>iso.<?php if($_SESSION["tilestyle"]!=2){echo("gif");}else{echo("png");}?>" alt="ISO">
           <div class="card-img-overlay">
             <h1 class="card-title">
               <strong>
@@ -82,5 +82,5 @@ include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultNavbar.php");
     </div>
   </div>
 <?php
-include("{$_SERVER["DOCUMENT_ROOT"]}/webassets/defaultFooter.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultFooter.php");
 ?>
