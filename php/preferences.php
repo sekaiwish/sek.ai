@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
 if($_POST["linkstyle"] > 1 || $_POST["linkstyle"] < 0) {
   $_POST["linkstyle"] = 0;
 }

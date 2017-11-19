@@ -11,7 +11,7 @@ include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultNavbar.php");
         Change website preferences
       </div>
       <div class="card-block">
-        <form method="POST" action="/access/preferences.php">
+        <form method="POST" action="/php/preferences.php">
           <fieldset class="form-group">
             <legend>
               Hyperlink style
@@ -73,7 +73,7 @@ include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultNavbar.php");
         Change password
       </div>
       <div class="card-block">
-        <form method="POST" action="/access/password.php">
+        <form method="POST" action="/php/password.php">
           <fieldset class="form-group">
             <legend>
               Current password

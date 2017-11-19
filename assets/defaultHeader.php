@@ -18,7 +18,7 @@ if(isset($_POST["return"])) {
 	header("Location: /");
 	exit();
 }
-include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
 $get = mysqli_query($link, "SELECT linkstyle, tilestyle, postsshown FROM login WHERE username = '{$_SESSION["username"]}'");
 $data = mysqli_fetch_array($get,MYSQLI_ASSOC);
 mysqli_close($link);

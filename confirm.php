@@ -1,5 +1,5 @@
 <?php
-include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
 if(isset($_GET["key"])) {
   $sql = mysqli_query($link, "SELECT approved FROM login WHERE confirm = '{$_GET["key"]}'");
   $result = mysqli_fetch_array($sql, MYSQLI_ASSOC);

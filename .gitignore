@@ -8,14 +8,14 @@ $RECYCLE.BIN/
 *.lnk
 *test*
 
-access/sql.php
-access/recaptcha.php
+php/sql.php
+php/recaptcha.php
 
 files/
 chan/files/
 chan/thumbs/
 ps/
-phpmyadmin/
+pma/
 dlf/
 
 google*.html

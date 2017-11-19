@@ -46,7 +46,7 @@ if(isset($_FILES["fileUpload"])) {
     imagecopyresampled($thumbnail,$sourceImage,0,0,0,0,$thumbWidth,$thumbHeight,$width,$height);
     imagejpeg($thumbnail,$destination);
   }
-  include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
+  include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
   $username = $_SESSION["username"];
   $ip = $_SERVER["REMOTE_ADDR"];
   $thread = $_POST["threadUpload"];

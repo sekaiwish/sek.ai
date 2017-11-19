@@ -5,7 +5,7 @@ include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultHeader.php");
 echo("  	<link href=\"/css/chan.css\" rel=\"stylesheet\">\n</head>");
 include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultNavbar.php");
 # Include necessary SQL login information
-include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
 # Set a primary variable to a session variable
 $x = $_SESSION[postsshown];
 # Set a default value for a variable

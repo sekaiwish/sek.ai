@@ -67,7 +67,7 @@ if(!isset($_SESSION["registerStatus"])) {
       Register
     </div>
     <div class=\"card-block\">
-      <form onsubmit=\"return validateLogin(1)\" id=\"registration\" action=\"/access/register.php\" method=\"POST\">
+      <form onsubmit=\"return validateLogin(1)\" id=\"registration\" action=\"/php/register.php\" method=\"POST\">
         <div class=\"input-group\">
           <span class=\"input-group-addon\"><i class=\"fa fa-envelope fa-fw\"></i></span>
           <input class=\"form-control\" type=\"email\" placeholder=\"電子メールアドレス\" name=\"email\" maxlength=\"48\" required>

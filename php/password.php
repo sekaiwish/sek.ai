@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
 $get = mysqli_query($link,"SELECT password FROM login WHERE username = '{$_SESSION["username"]}'");
 $oldPassword = mysqli_fetch_array($get,MYSQLI_ASSOC);
 if(password_verify($_POST["oldpassword"],$oldPassword["password"])) {

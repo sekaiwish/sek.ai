@@ -25,34 +25,35 @@ h1 {
   text-decoration: none;
   outline: none;
 }
-.shadow {
+img {
   transition: filter .3s;
 }
-.shadow:hover {
+img:hover {
   filter: drop-shadow(0 0 5px #000);
 }
-button {
-  display: inline-block;
+.btn-dark.jp {
   margin-top: 1rem;
   transform: translate(-50%);
   cursor: pointer;
-  color: white;
-}
-.btn-dark.jp {
   margin-left: 50%;
+}
+.login {
+  display: none;
+  margin: auto;
 }
 .jp {
   font-family: "Sawarabi Gothic";
   margin-bottom: 0;
   font-size: .91em;
 }
+.btn-group,
 .btn-primary {
   width: 100%;
 }
 .github {
   position: fixed;
   right: 1rem;
-  bottom: -1.6rem;
+  bottom: -1.5rem;
   transition: bottom .5s;
 }
 a > .btn {
@@ -60,7 +61,7 @@ a > .btn {
   padding: .2rem .7rem;
 }
 .github:hover {
-  bottom: -.1rem;
+  bottom: -.2rem;
 }
 .fa-caret-up {
   color: white;

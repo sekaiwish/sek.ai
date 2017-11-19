@@ -1,5 +1,5 @@
 <?php
-include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
 $thread = $_GET["thread"];
 $getOP = mysqli_query($link,"SELECT id, name, time, body, filename, filetype, filesize, resolution FROM posts WHERE thread = $thread AND op = 1");
 $OP = mysqli_fetch_array($getOP,MYSQLI_ASSOC);

@@ -40,7 +40,7 @@ $start = $time;
 			Sign in
 		</div>
 		<div class="card-block">
-			<form onsubmit="return validateLogin(0)" id="login" action="/access/login.php" method="POST">
+			<form onsubmit="return validateLogin(0)" id="login" action="/php/login.php" method="POST">
 				<div class="input-group">
 					<span class="input-group-addon"><i class="fa fa-user-circle fa-fw"></i></span>
 					<input class="form-control" type="text" placeholder="ユーザー名" id="username" name="username" maxlength="16" required>
@@ -88,7 +88,7 @@ if(isset($_SESSION["activated"])) {
 		Sekai
 	</p>
 <?php
-include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
 $ip = $_SERVER["REMOTE_ADDR"];
 $getView = mysqli_query($link,"SELECT count FROM views ORDER BY count DESC LIMIT 1");
 $getView = mysqli_fetch_array($getView,MYSQLI_ASSOC);

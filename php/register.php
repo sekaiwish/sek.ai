@@ -1,5 +1,5 @@
 <?php
-include("{$_SERVER["DOCUMENT_ROOT"]}/access/recaptcha.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/php/recaptcha.php");
 $data = array(
   "secret" => "$recaptcha",
   "response" => "{$_POST["g-recaptcha-response"]}",
@@ -32,7 +32,7 @@ if(!isset($matches[0])) {
 $usernameLower = strtolower($_POST["username"]);
 $password = password_hash($_POST["password"],PASSWORD_DEFAULT);
 $email = strtolower($_POST["email"]);
-include("{$_SERVER["DOCUMENT_ROOT"]}/access/sql.php");
+include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
 $get = mysqli_query($link,"SELECT username FROM login");
 $x = 0;
 while($row = mysqli_fetch_array($get,MYSQLI_ASSOC)) {
