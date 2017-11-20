@@ -67,6 +67,11 @@ a > .btn {
   color: white;
   display: block;
 }
+.ms {
+  position: fixed;
+  right: 1rem;
+  top: -.2rem;
+}
 @font-face {
   font-family: "Lobster";
   font-style: normal;
