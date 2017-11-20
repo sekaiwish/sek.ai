@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/sawarabigothic.css" type="text/css">
     <link rel="stylesheet" href="/css/login.css">
-    <link rel="icon" type="image/png" href="assets/favicon/wish/196.png" sizes="196x196">
-    <link rel="icon" type="image/png" href="assets/favicon/wish/128.png" sizes="128x128">
-    <link rel="icon" type="image/png" href="assets/favicon/wish/96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="assets/favicon/wish/32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="assets/favicon/wish/16.png" sizes="16x16">
+    <link rel="icon" href="assets/favicon/wish/196.png" type="image/png" sizes="196x196">
+    <link rel="icon" href="assets/favicon/wish/128.png" type="image/png" sizes="128x128">
+    <link rel="icon" href="assets/favicon/wish/96.png" type="image/png" sizes="96x96">
+    <link rel="icon" href="assets/favicon/wish/32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="assets/favicon/wish/16.png" type="image/png" sizes="16x16">
     <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
@@ -76,7 +76,7 @@
     </div>
     <div class="github">
       <a target="_blank" href="//github.com/Sek-ai/Sek.ai/tree/dev">
-        <button class="btn btn-dark"><i class="fa fa-github"></i> D0.7</button>
+        <button class="btn btn-dark"><i class="fa fa-github"></i> <b>D0.7</b></button>
       </a>
     </div>
     <div class="copyright">
