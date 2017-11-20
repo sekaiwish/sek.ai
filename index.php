@@ -1,3 +1,4 @@
+<?php $time=microtime();$time=explode(' ',$time);$time=$time[1]+$time[0];$start=$time;?>
 <!doctype html>
 <html>
   <head>
@@ -24,6 +25,14 @@
           document.getElementById("links").style.display = "block";
           document.getElementById("login").style.display = "none";
         }
+      }
+      function showLogin() {
+        document.getElementById("links").style.display = "none";
+        document.getElementById("login").style.display = "block";
+      }
+      function showLinks() {
+        document.getElementById("links").style.display = "block";
+        document.getElementById("login").style.display = "none";
       }
     </script>
   </head>
@@ -58,7 +67,7 @@
         <img class="shadow" src="assets/myanimelist.svg" data-toggle="tooltip" data-placement="top" title="MyAnimeList">
       </a>
       <br>
-      <button class="btn btn-dark jp" onclick="switchDisplay()">
+      <button class="btn btn-dark jp" onclick="showLogin()">
         &#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
       </button>
     </div>
@@ -78,11 +87,10 @@
           </div>
         </div>
         <div class="btn-group" role="group">
-          <button class="btn btn-secondary jp" type="button" onclick="switchDisplay()">&#x7D42;&#x4E86;</button>
+          <button class="btn btn-secondary jp" type="button" onclick="showLinks()">&#x7D42;&#x4E86;</button>
           <input class="btn btn-primary jp" type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
         </div>
       </form>
-      <p class="card-footer text-muted jp">&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x8981;&#x6C42;&#x306E;&#x969B;&#x306B;&#x3001;Secure Socket Layer(SSL)&#x3092;&#x6709;&#x52B9;&#x306B;&#x70BA;&#x308B;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
     </div>
     <div class="github">
       <a target="_blank" href="//github.com/Sek-ai/Sek.ai/tree/dev">
@@ -91,6 +99,9 @@
           <i class="fa fa-github"></i> <b>D0.7</b>
         </button>
       </a>
+    </div>
+    <div class="ms">
+      <button class="btn btn-dark"><?php $time=microtime();$time=explode(' ',$time);$time=$time[1]+$time[0];$finish=$time;$total_time=round(($finish-$start),5)*1000;echo("{$total_time}ms");?></button>
     </div>
   </body>
 </html>
