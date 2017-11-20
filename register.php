@@ -26,7 +26,7 @@ if(isset($_POST["return"])) {
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/css/style.css" rel="stylesheet">
-  <link href="/css/login.css" rel="stylesheet">
+  <link href="/css/loginold.css" rel="stylesheet">
   <script src="/js/validate.js"></script>
 	<script>
 		function onSubmit(token) {

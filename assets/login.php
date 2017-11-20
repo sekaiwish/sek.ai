@@ -1,5 +1,5 @@
 <?php
-# Handle users that are already signed in
+error_reporting(0);
 session_start();
 if($_SESSION["logged_in"] == TRUE && $_SESSION["userid"] != "1") {
 	header("Location: /");
@@ -26,10 +26,11 @@ $start = $time;
 	<link type="image/png" href="/assets/favicon/16.png" sizes="16x16" rel="icon">
 	<link href="/assets/favicon/180.png" sizes="180x180" rel="apple-touch-icon">
 	<link href="/assets/manifest.json" rel="manifest">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" type="text/css">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/css/style.css" rel="stylesheet">
-	<link href="/css/login.css" rel="stylesheet">
+	<link href="/css/loginold.css" rel="stylesheet">
 	<title>
 		Sekai: Sign in
 	</title>

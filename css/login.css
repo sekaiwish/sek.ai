@@ -12,6 +12,7 @@ h1 {
   text-align: center;
   font-family: "Lobster";
   font-size: 600%;
+  -webkit-user-select: none;
 }
 .links {
   margin: auto;
@@ -53,19 +54,16 @@ img:hover {
 .github {
   position: fixed;
   right: 1rem;
-  bottom: -1.5rem;
-  transition: bottom .5s;
+  bottom: -.2rem;
 }
 a > .btn {
   cursor: pointer;
   padding: .2rem .7rem;
 }
-.github:hover {
+.copyright {
+  position: fixed;
+  left: 1rem;
   bottom: -.2rem;
-}
-.fa-caret-up {
-  color: white;
-  display: block;
 }
 .ms {
   position: fixed;

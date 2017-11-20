@@ -16,25 +16,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script>$(document).ready(function(){$("[data-toggle='tooltip']").tooltip();});</script>
-    <script>
-      function switchDisplay() {
-        if (document.getElementById("links").style.display = "block") {
-          document.getElementById("links").style.display = "none";
-          document.getElementById("login").style.display = "block";
-        } else {
-          document.getElementById("links").style.display = "block";
-          document.getElementById("login").style.display = "none";
-        }
-      }
-      function showLogin() {
-        document.getElementById("links").style.display = "none";
-        document.getElementById("login").style.display = "block";
-      }
-      function showLinks() {
-        document.getElementById("links").style.display = "block";
-        document.getElementById("login").style.display = "none";
-      }
-    </script>
+    <script>function showLogin(){document.getElementById("links").style.display="none";document.getElementById("login").style.display="block";} function showLinks(){document.getElementById("links").style.display="block";document.getElementById("login").style.display="none";}</script>
   </head>
   <body>
     <div class="links" id="links">
@@ -86,7 +68,7 @@
             <input class="form-control jp" type="password" placeholder="&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;" name="password" maxlength="16" required>
           </div>
         </div>
-        <div class="btn-group" role="group">
+        <div class="btn-group">
           <button class="btn btn-secondary jp" type="button" onclick="showLinks()">&#x7D42;&#x4E86;</button>
           <input class="btn btn-primary jp" type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
         </div>
@@ -94,11 +76,11 @@
     </div>
     <div class="github">
       <a target="_blank" href="//github.com/Sek-ai/Sek.ai/tree/dev">
-        <button class="btn btn-dark">
-          <i class="fa fa-caret-up"></i>
-          <i class="fa fa-github"></i> <b>D0.7</b>
-        </button>
+        <button class="btn btn-dark"><i class="fa fa-github"></i> D0.7</button>
       </a>
+    </div>
+    <div class="copyright">
+      <button class="btn btn-dark">&copy; Wish 2016-2017</button>
     </div>
     <div class="ms">
       <button class="btn btn-dark"><?php $time=microtime();$time=explode(' ',$time);$time=$time[1]+$time[0];$finish=$time;$total_time=round(($finish-$start),5)*1000;echo("{$total_time}ms");?></button>
