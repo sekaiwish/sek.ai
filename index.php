@@ -29,7 +29,7 @@
         <img class="shadow" src="assets/youtube.svg" data-toggle="tooltip" data-placement="top" title="YouTube">
       </a>
       <a href="//twitch.tv/TheRealWish" target="_blank">
-        <img class="shadow" src="assets/twitch.svg" data-toggle="tooltip" data-placement="top" title="Twitch.tv">
+        <img class="shadow" src="assets/twitch.svg" data-toggle="tooltip" data-placement="top" title="Twitch">
       </a>
       <a href="//github.com/Wish495" target="_blank">
         <img class="shadow" src="assets/github.svg" data-toggle="tooltip" data-placement="top" title="GitHub">
