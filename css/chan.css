@@ -12,6 +12,11 @@ footer {
 p {
   color: white;
 }
+.alert {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
 .github {
   position: fixed;
   right: 1rem;
@@ -95,7 +100,7 @@ img {
 .custom-file-control.selected:lang(en)::after {
   content: "" !important;
 }
-.comment, strong {
+.comment {
 	color: white;
 }
 select {

@@ -22,14 +22,10 @@
   <body>
     <?php if (isset($_GET["e"])) { if ($_GET["e"] == "1"): ?><div class="alert alert-warning alert-dismissible fade show">
       <strong>Error</strong> &mdash; The user entered does not exist.
-      <button type="button" class="close" data-dismiss="alert">
-        <span>&times;</span>
-      </button>
+      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
     </div><?php elseif ($_GET["e"] == "2"): ?><div class="alert alert-warning alert-dismissible fade show">
       <strong>Error</strong> &mdash; The incorrect password was entered.
-      <button type="button" class="close" data-dismiss="alert">
-        <span>&times;</span>
-      </button>
+      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
     </div><?php endif; } ?>
     <div class="links" id="links">
       <h1>Wish</h1>

@@ -1,28 +1,18 @@
 <?php
 session_start();
 include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
-$get = mysqli_query($link,"SELECT password FROM login WHERE username = '{$_SESSION["username"]}'");
-$oldPassword = mysqli_fetch_array($get,MYSQLI_ASSOC);
-if(password_verify($_POST["oldpassword"],$oldPassword["password"])) {
-  if($_POST["newpassword"] == $_POST["confirmpassword"]) {
-    $newPassword = password_hash($_POST["newpassword"],PASSWORD_DEFAULT);
-    if(mysqli_query($link,"UPDATE login SET password = '$newPassword' WHERE username = '{$_SESSION["username"]}'")) {
-      mysqli_close($link);
-      header("Location: /account/?passwordsuccess=1");
-      exit();
-    } else {
-      echo("MYSQL ERROR: ".mysqli_error($link));
-      mysqli_close($link);
-      exit();
-    }
-  } else {
-    mysqli_close($link);
-    header("Location: /account/password/?passworderror=2");
-    exit();
-  }
+$query = $db->prepare("SELECT password FROM users WHERE username = (:username)");
+$query->bindValue(":username", $_SESSION["username"], PDO::PARAM_STR);
+$query->execute();
+$password = $query->fetchColumn();
+if (password_verify($_POST["old"], $password) && $_POST["new"] == $_POST["confirm"]) {
+  $password = password_hash($_POST["new"], PASSWORD_DEFAULT);
+  $query = $db->prepare("UPDATE users SET password = (:password) WHERE username = (:username)");
+  $query->bindValue(":password", $password, PDO::PARAM_STR);
+  $query->bindValue(":username", $_SESSION["username"], PDO::PARAM_STR);
+  $query->execute();
+  header("Location: /account/?s=2");
 } else {
-  mysqli_close($link);
-  header("Location: /account/password/?passworderror=1");
-  exit();
+  header("Location: /account/?e=1");
 }
 ?>
