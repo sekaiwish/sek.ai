@@ -3,6 +3,7 @@
 <html>
   <head>
     <title>Wish</title>
+    <meta name="author" content="Wish">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/sawarabigothic.css" type="text/css">
