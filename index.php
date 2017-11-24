@@ -1,4 +1,4 @@
-<?php $time=microtime();$time=explode(' ',$time);$time=$time[1]+$time[0];$start=$time;?>
+<?php $time=explode(' ',microtime());$start=$time[1]+$time[0];?>
 <!doctype html>
 <html>
   <head>
@@ -83,7 +83,7 @@
       <button class="btn btn-dark">&copy; Wish 2016-2017</button>
     </div>
     <div class="ms">
-      <button class="btn btn-dark"><?php $time=microtime();$time=explode(' ',$time);$time=$time[1]+$time[0];$finish=$time;$total_time=round(($finish-$start),5)*1000;echo("{$total_time}ms");?></button>
+      <button class="btn btn-dark"><?php $time=explode(' ',microtime());$finish=$time[1]+$time[0];echo round(($finish-$start),5)*1000 ."ms";?></button>
     </div>
   </body>
 </html>
