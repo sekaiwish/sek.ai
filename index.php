@@ -1,4 +1,4 @@
-<?php $time=explode(' ',microtime());$start=$time[1]+$time[0];?>
+<?php $time = explode(' ', microtime()); $start = $time[1] + $time[0]; session_start(); ?>
 <!doctype html>
 <html>
   <head>
@@ -20,39 +20,53 @@
     <script>function showLogin(){document.getElementById("links").style.display="none";document.getElementById("login").style.display="block";} function showLinks(){document.getElementById("links").style.display="block";document.getElementById("login").style.display="none";}</script>
   </head>
   <body>
+    <?php if (isset($_GET["e"])) { if ($_GET["e"] == "1"): ?><div class="alert alert-warning alert-dismissible fade show">
+      <strong>Error</strong> &mdash; The user entered does not exist.
+      <button type="button" class="close" data-dismiss="alert">
+        <span>&times;</span>
+      </button>
+    </div><?php elseif ($_GET["e"] == "2"): ?><div class="alert alert-warning alert-dismissible fade show">
+      <strong>Error</strong> &mdash; The incorrect password was entered.
+      <button type="button" class="close" data-dismiss="alert">
+        <span>&times;</span>
+      </button>
+    </div><?php endif; } ?>
     <div class="links" id="links">
       <h1>Wish</h1>
-      <a href="//twitter.com/Wish495" target="_blank">
-        <img class="shadow" src="assets/twitter.svg" data-toggle="tooltip" data-placement="top" title="Twitter">
+      <a class="link" href="//twitter.com/Wish495" target="_blank">
+        <img class="shadow" src="assets/svg/twitter.svg" data-toggle="tooltip" data-placement="top" title="Twitter">
       </a>
-      <a href="//youtube.com/user/wish495" target="_blank">
-        <img class="shadow" src="assets/youtube.svg" data-toggle="tooltip" data-placement="top" title="YouTube">
+      <a class="link" href="//youtube.com/user/wish495" target="_blank">
+        <img class="shadow" src="assets/svg/youtube.svg" data-toggle="tooltip" data-placement="top" title="YouTube">
       </a>
-      <a href="//twitch.tv/TheRealWish" target="_blank">
-        <img class="shadow" src="assets/twitch.svg" data-toggle="tooltip" data-placement="top" title="Twitch">
+      <a class="link" href="//twitch.tv/TheRealWish" target="_blank">
+        <img class="shadow" src="assets/svg/twitch.svg" data-toggle="tooltip" data-placement="top" title="Twitch">
       </a>
-      <a href="//github.com/Wish495" target="_blank">
-        <img class="shadow" src="assets/github.svg" data-toggle="tooltip" data-placement="top" title="GitHub">
+      <a class="link" href="//github.com/Wish495" target="_blank">
+        <img class="shadow" src="assets/svg/github.svg" data-toggle="tooltip" data-placement="top" title="GitHub">
       </a>
-      <a href="//steamcommunity.com/id/sadwish" target="_blank">
-        <img class="shadow" src="assets/steam.svg" data-toggle="tooltip" data-placement="top" title="Steam">
+      <a class="link" href="//steamcommunity.com/id/sadwish" target="_blank">
+        <img class="shadow" src="assets/svg/steam.svg" data-toggle="tooltip" data-placement="top" title="Steam">
       </a>
-      <a href="//discord.gg/WFAgUJk" target="_blank">
-        <img class="shadow" src="assets/discord.svg" data-toggle="tooltip" data-placement="top" title="Discord">
+      <a class="link" href="//discord.gg/WFAgUJk" target="_blank">
+        <img class="shadow" src="assets/svg/discord.svg" data-toggle="tooltip" data-placement="top" title="Discord">
       </a>
-      <a href="//osu.ppy.sh/users/Wishu" target="_blank">
-        <img class="shadow" src="assets/osu.svg" data-toggle="tooltip" data-placement="top" title="osu!">
+      <a class="link" href="//osu.ppy.sh/users/Wishu" target="_blank">
+        <img class="shadow" src="assets/svg/osu.svg" data-toggle="tooltip" data-placement="top" title="osu!">
       </a>
-      <a href="//last.fm/user/Wish495" target="_blank">
-        <img class="shadow" src="assets/lastfm.svg" data-toggle="tooltip" data-placement="top" title="Last.fm">
+      <a class="link" href="//last.fm/user/Wish495" target="_blank">
+        <img class="shadow" src="assets/svg/lastfm.svg" data-toggle="tooltip" data-placement="top" title="Last.fm">
       </a>
-      <a href="//myanimelist.net/profile/Ain" target="_blank">
-        <img class="shadow" src="assets/myanimelist.svg" data-toggle="tooltip" data-placement="top" title="MyAnimeList">
+      <a class="link" href="//myanimelist.net/profile/Ain" target="_blank">
+        <img class="shadow" src="assets/svg/myanimelist.svg" data-toggle="tooltip" data-placement="top" title="MyAnimeList">
       </a>
       <br>
-      <button class="btn btn-dark jp" onclick="showLogin()">
+      <?php if (isset($_SESSION["username"])): ?><a href="/chan/" class="btn btn-dark jp">
+        &#x304A;&#x3063;&#x3059;&#x3001;<b><?php echo $_SESSION["username"]; ?></b>!&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
+      </a>
+      <?php else: ?><button class="btn btn-dark jp" onclick="showLogin()">
         &#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
-      </button>
+      </button><?php endif; ?>
     </div>
     <div class="login card bg-dark text-white" id="login">
       <h5 class="card-header jp">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;</h5>
@@ -84,7 +98,7 @@
       <button class="btn btn-dark">&copy; Wish 2016-2017</button>
     </div>
     <div class="ms">
-      <button class="btn btn-dark"><?php $time=explode(' ',microtime());$finish=$time[1]+$time[0];echo round(($finish-$start),5)*1000 ."ms";?></button>
+      <button class="btn btn-dark"><?php $time = explode(' ', microtime()); $finish = $time[1] + $time[0]; echo round(($finish-$start),5) * 1000 . "ms"; ?></button>
     </div>
   </body>
 </html>

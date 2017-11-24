@@ -14,13 +14,15 @@ h1 {
   font-size: 600%;
   -webkit-user-select: none;
 }
+.alert {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
 .links {
   margin: auto;
 }
-.links > a:hover,
-.links > a:visited,
-.links > a:link,
-.links > a:active {
+.links > .link {
   border-top: 3px dashed white;
   padding-top: 1.5rem;
   text-decoration: none;

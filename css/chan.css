@@ -1,3 +1,45 @@
+body {
+  background-image: url(/assets/gradients/light.png);
+  animation: gradient 5s linear 0s infinite normal;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+}
+p {
+  color: white;
+}
+.github {
+  position: fixed;
+  right: 1rem;
+  bottom: 1.5rem;
+}
+.float-right {
+	text-align: end;
+}
+@keyframes gradient {
+  from {
+    background-position: 0px 0px;
+  } to {
+    background-position: -3840px 0px;
+  }
+}
+@media only screen and (min-width: 576px) {
+  body {
+    margin-bottom: 30px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .mobile-hidden {
+    display: none;
+  }
+  body {
+    margin-bottom: 0px;
+  }
+}
 :link, :visited {
 	color: #0096CF;
   text-decoration: none;
@@ -14,6 +56,7 @@ a:hover, a:active, .notHighlight:hover, .notHighlight:active {
 	text-align: center;
 	background: #3E4146;
 	padding-bottom: 8px;
+	padding-top: 8px;
 }
 .post {
 	display: inline-block;
@@ -72,9 +115,6 @@ textarea {
 	max-width: 19em;
 	margin: 0px;
 }
-.g-recaptcha, .btn-outline-info, .btn-secondary, .btn-primary {
-	margin-top: 8px;
-}
 .commentBox {
 	position: fixed;
 	top: 20%;
@@ -84,9 +124,6 @@ textarea {
 	border-top-left-radius: .25rem;
 	border-bottom-left-radius: .25rem;
 	padding: 8px;
-}
-.btn-outline-info {
-	margin-left: 8px;
 }
 @media only screen and (min-width: 576px) {
 	.commentBox {

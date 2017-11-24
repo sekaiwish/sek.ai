@@ -1,11 +1,9 @@
 <?php
-error_reporting(0);
-if(isset($_GET["thread"])) {
+if(isset($_GET["t"])) {
   include("thread.php");
-} elseif (isset($_GET["post"])) {
+} elseif (isset($_GET["g"])) {
   include("post.php");
 } else {
   include("catalog.php");
 }
-include("{$_SERVER["DOCUMENT_ROOT"]}/assets/defaultFooter.php");
 ?>
