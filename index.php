@@ -23,11 +23,11 @@
     <?php if (isset($_GET["e"])) { if ($_GET["e"] == "1"): ?><div class="alert alert-warning alert-dismissible fade show">
       <strong>Error</strong> &mdash; The user entered does not exist.
       <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
-    </div><?php elseif ($_GET["e"] == "2"): ?><div class="alert alert-warning alert-dismissible fade show">
+    </div><?php echo "\n    "; elseif ($_GET["e"] == "2"): ?><div class="alert alert-warning alert-dismissible fade show">
       <strong>Error</strong> &mdash; The incorrect password was entered.
       <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
-    </div><?php endif; } ?>
-    <div class="links" id="links">
+    </div><?php echo "\n    "; endif; } ?>
+<div class="links" id="links">
       <h1>Wish</h1>
       <a class="link" href="//twitter.com/Wish495" target="_blank">
         <img class="shadow" src="assets/svg/twitter.svg" data-toggle="tooltip" data-placement="top" title="Twitter">
@@ -62,7 +62,7 @@
       </a>
       <?php else: ?><button class="btn btn-dark jp" onclick="showLogin()">
         &#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
-      </button><?php endif; ?>
+      </button><?php endif; echo "\n"; ?>
     </div>
     <div class="login card bg-dark text-white" id="login">
       <h5 class="card-header jp">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;</h5>
@@ -86,8 +86,8 @@
       </form>
     </div>
     <div class="github">
-      <a target="_blank" href="//github.com/Sek-ai/Sek.ai/tree/dev">
-        <button class="btn btn-dark"><i class="fa fa-github"></i> <b>D0.7</b></button>
+      <?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//github.com/Wish495/Sek.ai/commit/<?php echo $commit; ?>">
+        <button class="btn btn-dark"><i class="fa fa-github"></i>&nbsp;<?php echo $commit; ?></button>
       </a>
     </div>
     <div class="copyright">

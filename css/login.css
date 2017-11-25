@@ -53,14 +53,14 @@ img:hover {
 .btn-primary {
   width: 100%;
 }
+a > .btn {
+  cursor: pointer;
+  padding: .2rem .7rem;
+}
 .github {
   position: fixed;
   right: 1rem;
   bottom: -.2rem;
-}
-a > .btn {
-  cursor: pointer;
-  padding: .2rem .7rem;
 }
 .copyright {
   position: fixed;

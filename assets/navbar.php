@@ -1,5 +1,6 @@
 <body>
-<?php $page=explode("/",$_SERVER["REQUEST_URI"])[1];?>
+<?php $page=explode("/",$_SERVER["REQUEST_URI"]);?>
+<?php $page=$page[count($page)-2]; ?>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <b class="navbar-brand">
       <img src="/assets/favicon/sekai/32.png" width="30" height="30">
@@ -13,7 +14,7 @@
       <button class="btn btn-outline-info"><i class="fa fa-arrow-circle-left"></i> Return</button>
     </a>
     <?php else: ?><a class="ml-auto nav-item" href="/chan/submit/">
-      <button class="btn btn-alert"><i class="fa fa-pencil-square-o"></i> Submit Post</button>
+      <button class="btn btn-alert"><i class="fa fa-pencil-square-o"></i> Submit Thread</button>
     </a>
     &nbsp;&nbsp;<a class="nav-item" href="/account/">
       <button class="btn btn-info"><i class="fa fa-user"></i> Account</button>

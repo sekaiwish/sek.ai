@@ -143,10 +143,10 @@ mysqli_close($link);
 			</div>
 		</div>
 		<div class="github">
-			<a target="_blank" href="//github.com/Sek-ai/Sek.ai/tree/dev">
-				<button class="btn btn-dark"><i class="fa fa-github"></i> <b>D0.7</b></button>
-			</a>
-		</div>
+      <?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//github.com/Wish495/Sek.ai/commit/<?php echo $commit; ?>">
+        <button class="btn btn-dark"><i class="fa fa-github"></i>&nbsp;<?php echo $commit; ?></button>
+      </a>
+    </div>
 		<script src="/js/chan.js"></script>
 		<script src="//www.google.com/recaptcha/api.js?render=explicit"></script>
 		<footer class="footer bg-dark">
