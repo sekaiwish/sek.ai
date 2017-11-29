@@ -6,8 +6,8 @@
     <meta name="author" content="Wish">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/sawarabigothic.css" type="text/css">
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/mplus1p.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="assets/favicon/wish/196.png" type="image/png" sizes="196x196">
     <link rel="icon" href="assets/favicon/wish/128.png" type="image/png" sizes="128x128">
     <link rel="icon" href="assets/favicon/wish/96.png" type="image/png" sizes="96x96">

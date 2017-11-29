@@ -10,22 +10,23 @@ if(isset($_POST["logout"])) {
 }
 ?>
 <!doctype html>
-<html>
-<head>
-	<meta name="author" content="Wish">
-	<link type="image/png" href="/assets/favicon/256.png" sizes="256x256" rel="icon">
-	<link type="image/png" href="/assets/favicon/32.png" sizes="32x32" rel="icon">
-	<link type="image/png" href="/assets/favicon/16.png" sizes="16x16" rel="icon">
-	<link type="image/png" href="/assets/favicon/180.png" sizes="180x180" rel="apple-touch-icon">
-	<link type="application/json" href="/assets/manifest.json" rel="manifest">
-	<link type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
-	<link type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<script src="//code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-	<link type="text/css" href="/css/chan.css" rel="stylesheet">
-	<title>&#x4E16;&#x754C;&#x3061;&#x3083;&#x3093;</title>
-</head>
+<html lang="en">
+	<head>
+		<title>&#x4E16;&#x754C;&#x3061;&#x3083;&#x3093;</title>
+		<meta name="author" content="Wish">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+		<link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/mplus1p.css" type="text/css">
+		<link rel="stylesheet" href="/css/chan.css">
+		<link rel="icon" href="/assets/favicon/sekai/196.png" type="image/png" sizes="196x196">
+		<link rel="icon" href="/assets/favicon/sekai/128.png" type="image/png" sizes="128x128">
+		<link rel="icon" href="/assets/favicon/sekai/96.png" type="image/png" sizes="96x96">
+		<link rel="icon" href="/assets/favicon/sekai/32.png" type="image/png" sizes="32x32">
+		<link rel="icon" href="/assets/favicon/sekai/16.png" type="image/png" sizes="16x16">
+		<script src="//code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	</head>
 <?php
 include("{$_SERVER["DOCUMENT_ROOT"]}/assets/navbar.php");
 include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
@@ -60,7 +61,7 @@ while($thread = mysqli_fetch_array($threads,MYSQLI_ASSOC)) {
 	$y++;
 }
 ?>
-	<form class="commentBox" enctype="multipart/form-data" id="upload" action="submit.php" method="post">
+	<form class="commentBox" enctype="multipart/form-data" id="upload" action="/php/submit.php" method="post">
 		<select class="form-control form-control-sm col-sm-12" form="upload" name="threadUpload" id="threadUpload">
 			<option value="new">New thread</option>
 <?php

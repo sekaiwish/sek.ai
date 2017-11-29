@@ -2,8 +2,8 @@
 <?php $page=explode("/",$_SERVER["REQUEST_URI"]);?>
 <?php $page=$page[count($page)-2]; ?>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <b class="navbar-brand">
-      <img src="/assets/favicon/sekai/32.png" width="30" height="30">
+    <b class="navbar-brand jp">
+      <img src="/assets/favicon/sekai/32.png" width="32" height="32">
       &#x4E16;&#x754C;&#x3061;&#x3083;&#x3093;
     </b>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
