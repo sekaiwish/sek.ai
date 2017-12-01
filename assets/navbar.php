@@ -10,16 +10,17 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <?php if($page == "account"): ?><a class="ml-auto nav-item" href="/chan/">
+    <?php if ($page == "account"): ?><a class="ml-auto nav-item" href="/chan/">
       <button class="btn btn-outline-info"><i class="fa fa-arrow-circle-left"></i> Return</button>
     </a>
     <?php else: ?><a class="ml-auto nav-item" href="/chan/submit/">
       <button class="btn btn-alert"><i class="fa fa-pencil-square-o"></i> Submit Thread</button>
     </a>
+    <?php if ($_SESSION["username"] !== "Anonymous"): ?>
     &nbsp;&nbsp;<a class="nav-item" href="/account/">
       <button class="btn btn-info"><i class="fa fa-user"></i> Account</button>
     </a>
-    <?php endif; ?>&nbsp;&nbsp;<form class="nav-item form-inline" method="post">
+    <?php endif; endif; ?>&nbsp;&nbsp;<form class="nav-item form-inline" method="post">
       <button class="btn btn-danger" type="submit" name="logout"><i class="fa fa-sign-out"></i> Log out</button>
     </form>
     </div>

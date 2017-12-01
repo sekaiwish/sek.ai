@@ -17,7 +17,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script>$(document).ready(function(){$("[data-toggle='tooltip']").tooltip();});</script>
-    <script>function showLogin(){document.getElementById("links").style.display="none";document.getElementById("login").style.display="block";} function showLinks(){document.getElementById("links").style.display="block";document.getElementById("login").style.display="none";}</script>
+    <script>function showLogin(){document.getElementById("links").style.display="none";document.getElementById("login").style.display="block";} function showLinks(){document.getElementById("links").style.display="block";document.getElementById("login").style.display="none";} function anonLogin(){window.location.href="php/anon_login.php";}</script>
   </head>
   <body>
     <?php if (isset($_GET["e"])) { if ($_GET["e"] == "1"): ?><div class="alert alert-warning alert-dismissible fade show">
@@ -79,9 +79,14 @@
             <input class="form-control jp" type="password" placeholder="&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;" name="password" maxlength="16" required>
           </div>
         </div>
+        <div class="form-group">
+          <div class="btn-group">
+            <button class="btn btn-secondary jp" onclick="showLinks()">&#x7D42;&#x4E86;</button>
+            <input class="btn btn-primary jp" type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
+          </div>
+        </div>
         <div class="btn-group">
-          <button class="btn btn-secondary jp" type="button" onclick="showLinks()">&#x7D42;&#x4E86;</button>
-          <input class="btn btn-primary jp" type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
+          <button class="btn btn-success" type="button" onclick="anonLogin()">Anonymous&#x3068;&#x3057;&#x3066;&#x30ED;&#x30B0;&#x30A4;&#x30F3;</button>
         </div>
       </form>
     </div>

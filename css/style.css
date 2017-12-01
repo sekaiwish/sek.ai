@@ -63,7 +63,8 @@ img:hover {
   font-weight: 300;
 }
 .btn-group,
-.btn-primary {
+.btn-primary,
+.btn-success {
   width: 100%;
 }
 a > .btn {
