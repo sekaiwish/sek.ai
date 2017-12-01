@@ -72,12 +72,12 @@ if($OP["filename"] == "") {
 <div class="thread">
 <a class="btn btn-outline-info" href="."><i class="fa fa-arrow-circle-left"></i> Return</a>
 <?php
-echo("<div class=\"post\"><p class=\"chan\"><img src=\"/chan/thumbs/{$OP["id"]}.jpg\" id=\"i{$OP["id"]}\" onclick=\"enlargeImage(\"{$OP["id"]}\",\"{$OP["filetype"]}\")\"><b>{$OP["name"]}</b> {$OP["time"]} <a href=\"?thread={$OP["id"]}\" class=\"notHighlight\">No.</a><a onclick=\"insertReply(event)\" class=\"notHighlight\">{$OP["id"]}</a> (OP)<br><a class=\"notHighlight\" target=\"_blank\" href=\"/chan/files/{$OP["id"]}.{$OP["filetype"]}\">{$OP["filename"]}</a> {$OP["filesize"]}B ({$OP["resolution"]})</p><p id=\"test\" class=\"comment\">{$OP["body"]}</p></div>");
+echo("<div class=\"post\"><p class=\"chan\"><img src=\"/chan/thumbs/{$OP["id"]}.jpg\" id=\"i{$OP["id"]}\" onclick=\"enlargeImage('{$OP["id"]}','{$OP["filetype"]}')\"><b>{$OP["name"]}</b> {$OP["time"]} <a href=\"?t={$OP["id"]}\" class=\"notHighlight\">No.</a><a onclick=\"insertReply(event)\" class=\"notHighlight\">{$OP["id"]}</a> (OP)<br><a class=\"notHighlight\" target=\"_blank\" href=\"/chan/files/{$OP["id"]}.{$OP["filetype"]}\">{$OP["filename"]}</a> {$OP["filesize"]}B ({$OP["resolution"]})</p><p id=\"test\" class=\"comment\">{$OP["body"]}</p></div>");
 if (isset($reply)) {
 	for($y=0;$y<count($reply);$y++) {
 	  echo("<div class=\"reply\" id=\"{$reply[$y]["id"]}\"><p class=\"chan\">");
 	  if($reply[$y]["filename"] != "") {
-	    echo("<img class=\"chan\" src=\"/chan/thumbs/{$reply[$y]["id"]}.jpg\" id=\"i{$reply[$y]["id"]}\" onclick=\"enlargeImage(\"{$reply[$y]["id"]}\",\"{$reply[$y]["filetype"]}\")\">");
+	    echo("<img class=\"chan\" src=\"/chan/thumbs/{$reply[$y]["id"]}.jpg\" id=\"i{$reply[$y]["id"]}\" onclick=\"enlargeImage('{$reply[$y]["id"]}','{$reply[$y]["filetype"]}')\">");
 	  }
 	  echo("<b>{$reply[$y]["name"]}</b> {$reply[$y]["time"]} <a href=\"?g={$reply[$y]["id"]}\" class=\"notHighlight\">No.</a><a onclick=\"insertReply(event)\" class=\"notHighlight\">{$reply[$y]["id"]}</a>");
 	  if($reply[$y]["filename"] != "") {
@@ -88,3 +88,14 @@ if (isset($reply)) {
 }
 echo("</div>");
 ?>
+<footer class="footer bg-dark">
+	<div class="github">
+		<?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//github.com/Wish495/Sek.ai/commit/<?php echo $commit; ?>">
+			<button class="btn btn-dark"><i class="fa fa-github"></i>&nbsp;<?php echo $commit; ?></button>
+		</a>
+	</div>
+	<div class="container">
+		<span class="text-muted float-left">&copy; 2016-2017 Wish</span>
+		<span class="text-muted float-right">Logged in as <?php echo $_SESSION["username"]; if ($_SESSION["rank"] == 2): ?> (Administrator)<?php elseif ($_SESSION["rank"] == 1): ?> (Moderator)<?php endif; ?></span>
+	</div>
+</footer>

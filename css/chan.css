@@ -6,7 +6,6 @@ body {
   background-size: 600% 600%;
   animation: gradient 20s ease-in-out infinite normal;
   -webkit-user-select: none;
-  margin-bottom: 30px;
 }
 @keyframes gradient {
   0% {
@@ -24,11 +23,11 @@ body {
   font-weight: 300;
 }
 footer {
-  position: fixed;
-  bottom: 0;
   width: 100%;
   height: 30px;
   line-height: 30px;
+  position: sticky;
+  bottom: 0;
 }
 p {
   color: white;
@@ -39,25 +38,12 @@ p {
   z-index: 1;
 }
 .github {
-  position: fixed;
+  position: absolute;
   right: 1rem;
   bottom: 1.5rem;
 }
 .float-right {
 	text-align: end;
-}
-@media only screen and (min-width: 576px) {
-  body {
-    margin-bottom: 30px;
-  }
-}
-@media only screen and (max-width: 575px) {
-  .mobile-hidden {
-    display: none;
-  }
-  body {
-    margin-bottom: 0px;
-  }
 }
 :link, :visited {
 	color: #0096CF;
@@ -144,13 +130,13 @@ textarea {
 	border-bottom-left-radius: .25rem;
 	padding: 8px;
 }
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 531px) {
 	.commentBox {
 		right: 0px;
 		background: #3A3D42;
 	}
 }
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 530px) {
 	.commentBox {
 		right: -60%;
 		background: #FFF;

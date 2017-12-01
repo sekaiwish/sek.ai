@@ -1,4 +1,6 @@
 <?php
+$time = explode(' ', microtime());
+$start = $time[1] + $time[0];
 session_start();
 if(!isset($_SESSION["username"])) {
 	header("Location: /error/401.html");
@@ -26,6 +28,8 @@ if(isset($_POST["logout"])) {
 		<script src="//code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+		<script src="/js/chan.js"></script>
+		<script src="//www.google.com/recaptcha/api.js?render=explicit"></script>
 	</head>
 <?php
 include("{$_SERVER["DOCUMENT_ROOT"]}/assets/navbar.php");
@@ -64,11 +68,11 @@ while($thread = mysqli_fetch_array($threads,MYSQLI_ASSOC)) {
 	<form class="commentBox" enctype="multipart/form-data" id="upload" action="/php/submit.php" method="post">
 		<select class="form-control form-control-sm col-sm-12" form="upload" name="threadUpload" id="threadUpload">
 			<option value="new">New thread</option>
-<?php
-	for($x=1;$x<=count($displayThreads);$x++) {
-		echo("			<option value=\"{$displayThreads[$x]["thread"]}\">Thread #{$displayThreads[$x]["thread"]}</option>\n");
-	}
-?>
+			<?php
+				for ($x = 1; $x <= count($displayThreads); $x++) {
+					echo("			<option value=\"{$displayThreads[$x]["thread"]}\">Thread #{$displayThreads[$x]["thread"]}</option>\n");
+				}
+			?>
 		</select>
 		<textarea class="form-control col-sm-12" placeholder="Comment" form="upload" name="textUpload" id="textUpload"></textarea>
 		<label class="custom-file col-sm-12">
@@ -81,12 +85,12 @@ while($thread = mysqli_fetch_array($threads,MYSQLI_ASSOC)) {
 		</button>
 	</form>
 <?php
-for($x=1;$x<=count($displayThreads);$x++) {
+for ($x = 1; $x <= count($displayThreads); $x++) {
 	echo("<div class=\"thread\">");
 	$postData[$x] = mysqli_query($link,"SELECT id, thread, name, time, body, filename, filetype, filesize, resolution FROM posts WHERE op = 1 AND thread = {$displayThreads[$x]["thread"]}");
-	$postData[$x] = mysqli_fetch_array($postData[$x],MYSQLI_ASSOC);
-	$postData[$x]["replyCount"] = mysqli_query($link,"SELECT COUNT(id) FROM posts WHERE op = 0 AND thread = {$postData[$x]["id"]}");
-	$postData[$x]["replyCount"] = mysqli_fetch_array($postData[$x]["replyCount"],MYSQLI_ASSOC);
+	$postData[$x] = mysqli_fetch_array($postData[$x], MYSQLI_ASSOC);
+	$postData[$x]["replyCount"] = mysqli_query($link, "SELECT COUNT(id) FROM posts WHERE op = 0 AND thread = {$postData[$x]["id"]}");
+	$postData[$x]["replyCount"] = mysqli_fetch_array($postData[$x]["replyCount"], MYSQLI_ASSOC);
 	if($postData[$x]["replyCount"]["COUNT(id)"] == 1) {
 		$postData[$x]["replyCount"] = 1;
 		$postData[$x]["replyFormat"] = 0;
@@ -94,7 +98,7 @@ for($x=1;$x<=count($displayThreads);$x++) {
 		$postData[$x]["replyCount"] = $postData[$x]["replyCount"]["COUNT(id)"];
 		$postData[$x]["replyFormat"] = 1;
 	}
-	echo("<div class=\"post\"><a href=\"/chan/files/{$postData[$x]["id"]}.{$postData[$x]["filetype"]}\" class=\"notHighlight\" target=\"_blank\"><img src=\"/chan/thumbs/{$postData[$x]["id"]}.jpg\"></a><div class=\"postinfo\"><p><b>{$postData[$x]["name"]}</b> {$postData[$x]["time"]} <a href=\"?thread={$postData[$x]["id"]}\" class=\"notHighlight\">No.</a><a id=\"{$postData[$x]["id"]}\" onclick=\"insertReply(event);insertThread(this.id)\" class=\"notHighlight\">{$postData[$x]["id"]}</a> [<a href=\"?t={$postData[$x]["id"]}\">Reply</a>] {$postData[$x]["replyCount"]} ");
+	echo("<div class=\"post\"><a href=\"/chan/files/{$postData[$x]["id"]}.{$postData[$x]["filetype"]}\" class=\"notHighlight\" target=\"_blank\"><img src=\"/chan/thumbs/{$postData[$x]["id"]}.jpg\"></a><div class=\"postinfo\"><p><b>{$postData[$x]["name"]}</b> {$postData[$x]["time"]} <a href=\"?t={$postData[$x]["id"]}\" class=\"notHighlight\">No.</a><a id=\"{$postData[$x]["id"]}\" onclick=\"insertReply(event);insertThread(this.id)\" class=\"notHighlight\">{$postData[$x]["id"]}</a> [<a href=\"?t={$postData[$x]["id"]}\">Reply</a>] {$postData[$x]["replyCount"]} ");
 	if($postData[$x]["replyFormat"] == 0) {
 		echo("reply");
 	} else {
@@ -143,16 +147,14 @@ mysqli_close($link);
 				<a class="btn btn-outline-info" href="?p=$pageNext">Next <i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
-		<div class="github">
-      <?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//github.com/Wish495/Sek.ai/commit/<?php echo $commit; ?>">
-        <button class="btn btn-dark"><i class="fa fa-github"></i>&nbsp;<?php echo $commit; ?></button>
-      </a>
-    </div>
-		<script src="/js/chan.js"></script>
-		<script src="//www.google.com/recaptcha/api.js?render=explicit"></script>
 		<footer class="footer bg-dark">
+			<div class="github">
+	      <?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//github.com/Wish495/Sek.ai/commit/<?php echo $commit; ?>">
+	        <button class="btn btn-dark"><i class="fa fa-github"></i>&nbsp;<?php echo $commit; ?></button>
+	      </a>
+	    </div>
 			<div class="container">
-				<span class="text-muted float-left">&copy; 2016-2017 Wish</span>
+				<span class="text-muted float-left">&copy; 2016-2017 Wish (<?php $time = explode(' ', microtime()); $finish = $time[1] + $time[0]; echo round(($finish-$start),5) * 1000 . "ms"; ?>)</span>
 				<span class="text-muted float-right">Logged in as <?php echo $_SESSION["username"]; if ($_SESSION["rank"] == 2): ?> (Administrator)<?php elseif ($_SESSION["rank"] == 1): ?> (Moderator)<?php endif; ?></span>
 			</div>
 		</footer>
