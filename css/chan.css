@@ -29,7 +29,8 @@ footer {
   position: sticky;
   bottom: 0;
 }
-p {
+p,
+.btn-info {
   color: white;
 }
 .alert {

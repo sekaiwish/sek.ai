@@ -27,34 +27,34 @@
       <strong>Error</strong> &mdash; The incorrect password was entered.
       <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
     </div><?php echo "\n    "; endif; } ?>
-<div class="links" id="links">
+    <div class="links" id="links">
       <h1>Wish</h1>
       <a class="link" href="//twitter.com/Wish495" target="_blank">
-        <img class="shadow" src="assets/svg/twitter.svg" data-toggle="tooltip" data-placement="top" title="Twitter">
+        <img src="assets/svg/twitter.svg" data-toggle="tooltip" data-placement="top" title="Twitter">
       </a>
       <a class="link" href="//youtube.com/user/wish495" target="_blank">
-        <img class="shadow" src="assets/svg/youtube.svg" data-toggle="tooltip" data-placement="top" title="YouTube">
+        <img src="assets/svg/youtube.svg" data-toggle="tooltip" data-placement="top" title="YouTube">
       </a>
       <a class="link" href="//twitch.tv/TheRealWish" target="_blank">
-        <img class="shadow" src="assets/svg/twitch.svg" data-toggle="tooltip" data-placement="top" title="Twitch">
+        <img src="assets/svg/twitch.svg" data-toggle="tooltip" data-placement="top" title="Twitch">
       </a>
       <a class="link" href="//github.com/Wish495" target="_blank">
-        <img class="shadow" src="assets/svg/github.svg" data-toggle="tooltip" data-placement="top" title="GitHub">
+        <img src="assets/svg/github.svg" data-toggle="tooltip" data-placement="top" title="GitHub">
       </a>
       <a class="link" href="//steamcommunity.com/id/sadwish" target="_blank">
-        <img class="shadow" src="assets/svg/steam.svg" data-toggle="tooltip" data-placement="top" title="Steam">
+        <img src="assets/svg/steam.svg" data-toggle="tooltip" data-placement="top" title="Steam">
       </a>
       <a class="link" href="//discord.gg/WFAgUJk" target="_blank">
-        <img class="shadow" src="assets/svg/discord.svg" data-toggle="tooltip" data-placement="top" title="Discord">
+        <img src="assets/svg/discord.svg" data-toggle="tooltip" data-placement="top" title="Discord">
       </a>
       <a class="link" href="//osu.ppy.sh/users/Wishu" target="_blank">
-        <img class="shadow" src="assets/svg/osu.svg" data-toggle="tooltip" data-placement="top" title="osu!">
+        <img src="assets/svg/osu.svg" data-toggle="tooltip" data-placement="top" title="osu!">
       </a>
       <a class="link" href="//last.fm/user/Wish495" target="_blank">
-        <img class="shadow" src="assets/svg/lastfm.svg" data-toggle="tooltip" data-placement="top" title="Last.fm">
+        <img src="assets/svg/lastfm.svg" data-toggle="tooltip" data-placement="top" title="Last.fm">
       </a>
       <a class="link" href="//myanimelist.net/profile/Ain" target="_blank">
-        <img class="shadow" src="assets/svg/myanimelist.svg" data-toggle="tooltip" data-placement="top" title="MyAnimeList">
+        <img src="assets/svg/myanimelist.svg" data-toggle="tooltip" data-placement="top" title="MyAnimeList">
       </a>
       <br>
       <?php if (isset($_SESSION["username"])): ?><a href="/chan/" class="btn btn-dark jp">
@@ -81,7 +81,7 @@
         </div>
         <div class="form-group">
           <div class="btn-group">
-            <button class="btn btn-secondary jp" onclick="showLinks()">&#x7D42;&#x4E86;</button>
+            <a class="btn btn-secondary jp" onclick="showLinks()">&#x7D42;&#x4E86;</a>
             <input class="btn btn-primary jp" type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
           </div>
         </div>
@@ -90,13 +90,16 @@
         </div>
       </form>
     </div>
+    <div class="views">
+      <?php include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");$query=$db->prepare("SELECT num FROM views ORDER BY num DESC LIMIT 1");$query->execute();$result=$query->fetchColumn();$result=str_split($result+1);foreach($result as $key=>$value){$value="<img src=\"assets/views/$value.gif\">";echo $value;}$query=$db->prepare("INSERT INTO views (ip) VALUES (:ip)");$query->bindValue(":ip",$_SERVER["REMOTE_ADDR"]);$query->execute();echo "\n"; ?>
+    </div>
     <div class="github">
-      <?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//github.com/Wish495/Sek.ai/commit/<?php echo $commit; ?>">
+      <?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//github.com/Wish495/sekai-php/commit/<?php echo $commit; ?>">
         <button class="btn btn-dark"><i class="fa fa-github"></i>&nbsp;<?php echo $commit; ?></button>
       </a>
     </div>
     <div class="copyright">
-      <button class="btn btn-dark">&copy; Wish 2016-2017</button>
+      <button class="btn btn-dark">&copy; Wish 2016-2018</button>
     </div>
     <div class="ms">
       <button class="btn btn-dark"><?php $time = explode(' ', microtime()); $finish = $time[1] + $time[0]; echo round(($finish-$start),5) * 1000 . "ms"; ?></button>

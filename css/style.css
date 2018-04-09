@@ -62,6 +62,9 @@ img:hover {
   font-family: "Mplus 1p";
   font-weight: 300;
 }
+b {
+  font-weight: 500;
+}
 .btn-group,
 .btn-primary,
 .btn-success {
@@ -70,6 +73,12 @@ img:hover {
 a > .btn {
   cursor: pointer;
   padding: .2rem .7rem;
+}
+.views {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
 }
 .github {
   position: fixed;

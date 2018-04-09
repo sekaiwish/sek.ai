@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "Rounded Mplus 1c";
+  font-style: normal;
+  font-weight: 100;
+  src: url(//fonts.gstatic.com/ea/roundedmplus1c/v1/RoundedMplus1c-Thin.eot);
+  src: url(//fonts.gstatic.com/ea/roundedmplus1c/v1/RoundedMplus1c-Thin.eot?#iefix) format("embedded-opentype"),
+       url(//fonts.gstatic.com/ea/roundedmplus1c/v1/RoundedMplus1c-Thin.woff2) format("woff2"),
+       url(//fonts.gstatic.com/ea/roundedmplus1c/v1/RoundedMplus1c-Thin.woff) format("woff"),
+       url(//fonts.gstatic.com/ea/roundedmplus1c/v1/RoundedMplus1c-Thin.ttf) format("truetype");
+}
+.jp {
+  font-family: "Rounded Mplus 1p";
+}
+body {
+  margin: 0;
+  display: flex;
+  background-attachment: fixed, fixed;
+  background-color: #1D1F21;
+  background-image: url(img/l.png), url(img/r.png);
+  background-position: bottom left, bottom right;
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  height: 100vh;
+  line-height: 20px;
+  -webkit-user-select: none
+}
+.jumbotron {
+  margin: auto;
+  max-width: 457px;
+}
+p {
+  color: white;
+  margin: 0 0 10px
+}
+a {
+  color: #0078B4;
+  text-decoration: none;
+  transition: color .25s
+}
+a:active,
+a:focus,
+a:hover {
+  color: #005580;
+}
+.head {
+  font-size: 36px;
+  line-height: 1.1;
+  margin: 0;
+  text-rendering: optimizelegibility
+}
+#tail {
+  font-size: 18px;
+  line-height: 1.1;
+  margin: 0;
+  text-align: right;
+  text-rendering: optimizelegibility
+}
+.btn {
+  font-weight: 400;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  font-size: 2rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+  padding: 2rem;
+}
+.btn:hover {
+  color: #fff;
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+.btn:focus, .btn.focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+}
+.mo-hide {
+  display: block
+}
+.mo-show {
+  display: none
+}
+@media (max-width: 660px) {
+  body {
+    background-image: url(img/r.png);
+    background-position: center;
+    overflow: hidden
+  }
+  .btn {
+    border-radius: 1.75rem
+  }
+  .fa {
+    border-radius: 20px;
+    padding: 0 1em
+  }
+  .jumbotron, .tail {
+    text-align: center;
+    width: 100%;
+    max-width: 660px
+  }
+  .mo-hide {
+    display: none
+  }
+  .mo-show {
+    display: inline-block
+  }
+  #tail {
+    text-align: center
+  }
+}

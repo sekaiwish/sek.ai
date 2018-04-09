@@ -58,7 +58,31 @@ if(is_numeric($page)) {
 	$pageNext = 2;
 	$pagePrev = 0;
 }
+$query = $db->prepare("SELECT DISTINCT thread FROM posts ORDER BY id DESC LIMIT :threads OFFSET :page");
+$query->bindValue(":threads", $x, PDO::PARAM_STR);
+$query->bindValue(":page", $offset, PDO::PARAM_STR);
+var_dump($query);
+$query->execute();
+$result = $query->fetchColumn();
+print_r($result);
+
 $threads = mysqli_query($link,"SELECT DISTINCT thread FROM posts ORDER BY id DESC LIMIT $x OFFSET $offset");
+
+$queryString = "SELECT * FROM posts WHERE thread = (:thread1)";
+for ($i = 1; $i < $x; $i++) {
+	$queryString = $queryString . " OR thread = (:thread" . ($i + 1) . ")";
+}
+
+$query = $db->prepare($queryString);
+for ($i = 1; $i <= $x; $i++) {
+	$query->bindValue(":thread$i", $result[$i-1], PDO::PARAM_INT);
+}
+$query->execute();
+$result = $query->fetchAll();
+
+var_dump($result);
+
+
 $y = 1;
 while($thread = mysqli_fetch_array($threads,MYSQLI_ASSOC)) {
 	$displayThreads[$y] = $thread;
@@ -139,22 +163,22 @@ mysqli_close($link);
 ?>
 		<div class="chanFooter">
 			<div>
-				<a class="btn btn-outline-info" href="?p=$pagePrev"><i class="fa fa-arrow-circle-left"></i> Previous</a>
-					<div class="btn-group">
-						<?php for($x=1;$x<=10;$x++) { if ($x == $page): ?><a class="btn btn-primary"><strong><?php echo $x;?></strong></a>
-						<?php else: ?><a class="btn btn-dark" href="?p=<?php echo $x;?>"><?php echo $x;?></a><?php endif; } ?>
-					</div>
-				<a class="btn btn-outline-info" href="?p=$pageNext">Next <i class="fa fa-arrow-circle-right"></i></a>
+				<div class="btn-group">
+					<a class="btn btn-outline-info<?php if ($pagePrev === 0) { echo " disabled"; } ?>" href="?p=<?php echo $pagePrev; ?>">&laquo;</a>
+					<?php for ($x = 1; $x <= 10; $x++) { if ($x == $page): ?><a class="btn btn-info"><b><?php echo $x; ?></b></a>
+					<?php else: ?><a class="btn btn-outline-info" href="?p=<?php echo $x; ?>"><?php echo $x; ?></a><?php endif; } ?>
+					<a class="btn btn-outline-info<?php if ($pageNext === 11) { echo " disabled"; } ?>" href="?p=<?php echo $pageNext; ?>">&raquo;</a>
+				</div>
 			</div>
 		</div>
 		<footer class="footer bg-dark">
 			<div class="github">
-	      <?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//github.com/Wish495/Sek.ai/commit/<?php echo $commit; ?>">
+	      <?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//github.com/Wish495/sekai-php/commit/<?php echo $commit; ?>">
 	        <button class="btn btn-dark"><i class="fa fa-github"></i>&nbsp;<?php echo $commit; ?></button>
 	      </a>
 	    </div>
 			<div class="container">
-				<span class="text-muted float-left">&copy; 2016-2017 Wish (<?php $time = explode(' ', microtime()); $finish = $time[1] + $time[0]; echo round(($finish-$start),5) * 1000 . "ms"; ?>)</span>
+				<span class="text-muted float-left">&copy; Wish 2016-2018 (<?php $time = explode(' ', microtime()); $finish = $time[1] + $time[0]; echo round(($finish-$start),5) * 1000 . "ms"; ?>)</span>
 				<span class="text-muted float-right">Logged in as <?php echo $_SESSION["username"]; if ($_SESSION["rank"] == 2): ?> (Administrator)<?php elseif ($_SESSION["rank"] == 1): ?> (Moderator)<?php endif; ?></span>
 			</div>
 		</footer>

@@ -11,6 +11,8 @@ $RECYCLE.BIN/
 php/sql.php
 php/recaptcha.php
 
+iki/includes/settings.inc.php
+
 files/
 chan/files/
 chan/thumbs/
