@@ -17,7 +17,15 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script>$(document).ready(function(){$("[data-toggle='tooltip']").tooltip();});</script>
-    <script>function showLogin(){document.getElementById("links").style.display="none";document.getElementById("login").style.display="block";} function showLinks(){document.getElementById("links").style.display="block";document.getElementById("login").style.display="none";} function anonLogin(){window.location.href="php/anon_login.php";}</script>
+    <script>
+      var discord = 0;
+      function Discord(){if(discord==0){showDiscord();discord=1}else{hideDiscord();discord=0}}
+      function showDiscord(){document.getElementById("discord").classList.add("visible")}
+      function hideDiscord(){document.getElementById("discord").classList.remove("visible")}
+      function showLogin(){document.getElementById("links").classList.add("trigger");document.getElementById("login").classList.add("trigger")}
+      function showLinks(){document.getElementById("links").classList.remove("trigger");document.getElementById("login").classList.remove("trigger")}
+      function anonLogin(){window.location.href="php/anon_login.php";}
+    </script>
   </head>
   <body>
     <?php if (isset($_GET["e"])) { if ($_GET["e"] == "1"): ?><div class="alert alert-warning alert-dismissible fade show">
@@ -41,11 +49,11 @@
       <a class="link" href="//github.com/Wish495" target="_blank">
         <img src="assets/svg/github.svg" data-toggle="tooltip" data-placement="top" title="GitHub">
       </a>
+      <a class="link" onclick="Discord()">
+        <img src="assets/svg/discord.svg" data-toggle="tooltip" data-placement="top" title="Discord">
+      </a>
       <a class="link" href="//steamcommunity.com/id/sadwish" target="_blank">
         <img src="assets/svg/steam.svg" data-toggle="tooltip" data-placement="top" title="Steam">
-      </a>
-      <a class="link" href="//discord.gg/WFAgUJk" target="_blank">
-        <img src="assets/svg/discord.svg" data-toggle="tooltip" data-placement="top" title="Discord">
       </a>
       <a class="link" href="//osu.ppy.sh/users/Wishu" target="_blank">
         <img src="assets/svg/osu.svg" data-toggle="tooltip" data-placement="top" title="osu!">
@@ -92,6 +100,9 @@
     </div>
     <div class="views">
       <?php include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");$query=$db->prepare("SELECT num FROM views ORDER BY num DESC LIMIT 1");$query->execute();$result=$query->fetchColumn();$result=str_split($result+1);foreach($result as $key=>$value){$value="<img src=\"assets/views/$value.gif\">";echo $value;}$query=$db->prepare("INSERT INTO views (ip) VALUES (:ip)");$query->bindValue(":ip",$_SERVER["REMOTE_ADDR"]);$query->execute();echo "\n"; ?>
+    </div>
+    <div id="discord">
+      <iframe src="https://discordapp.com/widget?id=212908561771134977&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
     </div>
     <div class="github">
       <?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//github.com/Wish495/sekai-php/commit/<?php echo $commit; ?>">

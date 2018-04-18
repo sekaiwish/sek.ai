@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(-80deg, rgba(69, 104, 220, .6), rgba(176, 107, 179, .6), rgba(69, 104, 220, .6));
+  background: linear-gradient(-80deg, rgb(240, 194, 123), rgb(75, 18, 72), rgb(240, 194, 123));
   width: 100%;
   height: 100vh;
   background-color: #000;
@@ -35,6 +35,19 @@ h1, h2 {
 .links {
   color: white;
   margin: auto;
+  display: block;
+  transition: all .5s ease-in-out;
+}
+.links.trigger {
+  display: none;
+}
+.login {
+  display: none;
+  margin: auto;
+  transition: all .5s ease-in-out .5s;
+}
+.login.trigger {
+  display: block;
 }
 .links > .link {
   border-top: 3px dashed white;
@@ -53,10 +66,6 @@ img:hover {
   transform: translate(-50%);
   cursor: pointer;
   margin-left: 50%;
-}
-.login {
-  display: none;
-  margin: auto;
 }
 .jp {
   font-family: "Mplus 1p";
@@ -79,6 +88,16 @@ a > .btn {
   bottom: 0;
   left: 50%;
   transform: translate(-50%);
+}
+#discord {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -21.9rem;
+  transition: all 1s ease-in-out;
+}
+#discord.visible {
+  right: -.8rem;
 }
 .github {
   position: fixed;
