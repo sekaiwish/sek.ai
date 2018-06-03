@@ -57,6 +57,7 @@ h1, h2 {
 }
 img {
   transition: filter .3s;
+  image-rendering: optimizespeed;
 }
 img:hover {
   filter: drop-shadow(0 0 5px #000);
