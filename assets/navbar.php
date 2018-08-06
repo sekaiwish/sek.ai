@@ -17,7 +17,7 @@
       <button class="btn btn-alert"><i class="fa fa-pencil-square-o"></i> Submit Thread</button>
     </a>
     <?php if ($_SESSION["username"] !== "Anonymous"): ?>
-    &nbsp;&nbsp;<a class="nav-item" href="/account/">
+    &nbsp;&nbsp;<a class="nav-item" href="/account.php">
       <button class="btn btn-info"><i class="fa fa-user"></i> Account</button>
     </a>
     <?php endif; endif; ?>&nbsp;&nbsp;<form class="nav-item form-inline" method="post">

@@ -6,6 +6,7 @@ body {
   background-size: 600% 600%;
   animation: gradient 20s ease-in-out infinite normal;
   display: flex;
+  user-select: none;
   -webkit-user-select: none;
 }
 @keyframes gradient {
@@ -32,6 +33,25 @@ h1, h2 {
   width: 100%;
   z-index: 1;
 }
+#unused {
+  display: block!important;
+}
+.jumbotron {
+  width: 60%;
+  display: block;
+  margin: auto;
+}
+.jumbotron .btn {
+  width: 100%;
+}
+.jp img {
+  margin-bottom: 14px;
+}
+.card-columns {
+  margin: auto;
+  width: 80%;
+  height: 80%;
+}
 .links {
   color: white;
   margin: auto;
@@ -41,12 +61,12 @@ h1, h2 {
 .links.trigger {
   display: none;
 }
-.login {
+#login {
   display: none;
   margin: auto;
   transition: all .5s ease-in-out .5s;
 }
-.login.trigger {
+#login.trigger {
   display: block;
 }
 .links > .link {
@@ -72,9 +92,6 @@ img:hover {
   font-family: "Mplus 1p";
   font-weight: 300;
 }
-b {
-  font-weight: 500;
-}
 .btn-group,
 .btn-primary,
 .btn-success {
@@ -99,6 +116,11 @@ a > .btn {
 }
 #discord.visible {
   right: -.8rem;
+}
+.logout {
+  position: fixed;
+  left: 1rem;
+  top: -.2rem;
 }
 .github {
   position: fixed;

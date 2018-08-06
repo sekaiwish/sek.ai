@@ -12,7 +12,7 @@ if (empty($result)) {
     $_SESSION["rank"] = $result[0][1];
     $_SESSION["username"] = $result[0][2];
     $_SESSION["threads"] = $result[0][4];
-    header("Location: /chan/");
+    header("Location: /home/");
   } else {
     header("Location: /?e=2");
   }
