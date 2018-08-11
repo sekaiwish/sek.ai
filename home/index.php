@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.13/css/brands.css" integrity="sha384-VGCZwiSnlHXYDojsRqeMn3IVvdzTx5JEuHgqZ3bYLCLUBV8rvihHApoA1Aso2TZA" crossorigin="anonymous">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.13/css/fontawesome.css" integrity="sha384-GVa9GOgVQgOk+TNYXu7S/InPTfSDTtBalSgkgqQ7sCik56N9ztlkoTr2f/T44oKV" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="icon" href="assets/favicon/wish/196.png" type="image/png" sizes="196x196">
-    <link rel="icon" href="assets/favicon/wish/128.png" type="image/png" sizes="128x128">
-    <link rel="icon" href="assets/favicon/wish/96.png" type="image/png" sizes="96x96">
-    <link rel="icon" href="assets/favicon/wish/32.png" type="image/png" sizes="32x32">
-    <link rel="icon" href="assets/favicon/wish/16.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="/assets/favicon/wish/196.png" type="image/png" sizes="196x196">
+    <link rel="icon" href="/assets/favicon/wish/128.png" type="image/png" sizes="128x128">
+    <link rel="icon" href="/assets/favicon/wish/96.png" type="image/png" sizes="96x96">
+    <link rel="icon" href="/assets/favicon/wish/32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon/wish/16.png" type="image/png" sizes="16x16">
   </head>
   <body>
     <div class="jumbotron bg-dark text-white">
