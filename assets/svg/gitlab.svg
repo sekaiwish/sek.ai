@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   aria-hidden="true"
+   data-prefix="fab"
+   data-icon="gitlab"
+   class="svg-inline--fa fa-gitlab fa-w-16"
+   role="img"
+   viewBox="0 0 50 50"
+   version="1.1"
+   id="svg3795"
+   sodipodi:docname="gitlab-brands.svg"
+   width="50"
+   height="50"
+   inkscape:version="0.92.2 2405546, 2018-03-11">
+  <metadata
+     id="metadata3801">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3799" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="958"
+     inkscape:window-height="1044"
+     id="namedview3797"
+     showgrid="false"
+     inkscape:zoom="13.40625"
+     inkscape:cx="25.027108"
+     inkscape:cy="23.686934"
+     inkscape:window-x="0"
+     inkscape:window-y="18"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     transform="translate(0,-462)">
+    <circle
+       id="path3905"
+       cx="25"
+       cy="487"
+       style="fill:#292961;stroke-width:0.09776867;fill-opacity:1"
+       r="25" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Layer 1"
+     transform="translate(0,-462)">
+    <g
+       sketch:type="MSPage"
+       id="g5541"
+       style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+       transform="matrix(0.05279087,0,0,0.05279087,11.809439,474.19515)">
+      <g
+         sketch:type="MSArtboardGroup"
+         id="logo-square">
+        <g
+           transform="translate(2,19)"
+           sketch:type="MSLayerGroup"
+           id="logo-no-bg">
+          <g
+             sketch:type="MSShapeGroup"
+             id="Page-1">
+            <g
+               id="gitlab_logo">
+              <g
+                 transform="matrix(1,0,0,-1,0,457.3333)"
+                 id="g10">
+                <g
+                   id="g16">
+                  <g
+                     id="g18-Clipped">
+                    <g
+                       id="g18">
+                      <g
+                         id="g5531">
+                        <g
+                           transform="translate(0.666658,0.666658)"
+                           id="Group">
+                          <g
+                             transform="translate(0.532,0.774933)"
+                             id="g44"
+                             style="fill:#fc6d26">
+                            <path
+                               id="path46"
+                               d="m 491.99999,194.66666 -27.55867,84.81467 -54.61733,168.09733 c -2.80933,8.64799 -15.04533,8.64799 -17.856,0 L 337.34933,279.48133 H 155.98266 l -54.62,168.09733 c -2.809329,8.64799 -15.045329,8.64799 -17.855995,0 L 28.889333,279.48133 1.332,194.66666 c -2.5146666,-7.736 0.24,-16.21066 6.8199998,-20.992 L 246.66533,0.38533332 485.17999,173.67466 c 6.58,4.78134 9.33333,13.256 6.82,20.992"
+                               inkscape:connector-curvature="0" />
+                          </g>
+                          <g
+                             transform="translate(156.19786,1.160267)"
+                             id="g48"
+                             style="fill:#e24329">
+                            <path
+                               id="path50"
+                               d="M 90.999998,0 V 0 L 181.68399,279.09599 H 0.31599997 Z"
+                               inkscape:connector-curvature="0" />
+                          </g>
+                          <g
+                             transform="translate(28.531199,1.1608)"
+                             id="g56"
+                             style="fill:#fc6d26">
+                            <path
+                               id="path58"
+                               d="m 218.66666,0 -90.684,279.09466 H 0.89066664 Z"
+                               inkscape:connector-curvature="0" />
+                          </g>
+                          <g
+                             transform="translate(0.088533,0.255867)"
+                             id="g64"
+                             style="fill:#fca326">
+                            <path
+                               id="path66"
+                               d="m 29.333333,279.99999 v 0 L 1.7746666,195.18533 c -2.51333325,-7.736 0.24,-16.21067 6.8213332,-20.99067 L 247.10933,0.90533331 Z"
+                               inkscape:connector-curvature="0" />
+                          </g>
+                          <g
+                             transform="translate(29.421866,280.25559)"
+                             id="g72"
+                             style="fill:#e24329">
+                            <path
+                               id="path74"
+                               d="M 0,0 H 127.092 L 72.473331,168.09733 c -2.810666,8.64933 -15.046666,8.64933 -17.855999,0 z"
+                               inkscape:connector-curvature="0" />
+                          </g>
+                          <g
+                             transform="translate(247.19786,1.1608)"
+                             id="g76"
+                             style="fill:#fc6d26">
+                            <path
+                               id="path78"
+                               d="M 0,0 90.683998,279.09466 H 217.77599 Z"
+                               inkscape:connector-curvature="0" />
+                          </g>
+                          <g
+                             transform="translate(246.30706,0.255867)"
+                             id="g80"
+                             style="fill:#fca326">
+                            <path
+                               id="path82"
+                               d="m 218.66666,279.99999 v 0 l 27.55867,-84.81466 c 2.51333,-7.736 -0.24,-16.21067 -6.82134,-20.99067 L 0.89066664,0.90533331 Z"
+                               inkscape:connector-curvature="0" />
+                          </g>
+                          <g
+                             transform="translate(336.97372,280.25559)"
+                             id="g84"
+                             style="fill:#e24329">
+                            <path
+                               id="path86"
+                               d="M 128,0 H 0.90799998 L 55.526665,168.09733 c 2.810667,8.64933 15.046667,8.64933 17.856,0 z"
+                               inkscape:connector-curvature="0" />
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -41,8 +41,8 @@
       <a class="link" href="//twitch.tv/TheRealWish" target="_blank">
         <img src="assets/svg/twitch.svg">
       </a>
-      <a class="link" href="//github.com/Wish495" target="_blank">
-        <img src="assets/svg/github.svg">
+      <a class="link" href="//gitlab.com/wishu" target="_blank">
+        <img src="assets/svg/gitlab.svg">
       </a>
       <a class="link" onclick="Discord()">
         <img src="assets/svg/discord.svg">
