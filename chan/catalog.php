@@ -172,11 +172,7 @@ mysqli_close($link);
 			</div>
 		</div>
 		<footer class="footer bg-dark">
-			<div class="github">
-	      <?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//github.com/Wish495/sekai-php/commit/<?php echo $commit; ?>">
-	        <button class="btn btn-dark"><i class="fa fa-github"></i>&nbsp;<?php echo $commit; ?></button>
-	      </a>
-	    </div>
+			<?php include "{$_SERVER["DOCUMENT_ROOT"]}/php/commit.php"; ?>
 			<div class="container">
 				<span class="text-muted float-left">&copy; Wish 2016-2018 (<?php $time = explode(' ', microtime()); $finish = $time[1] + $time[0]; echo round(($finish-$start),5) * 1000 . "ms"; ?>)</span>
 				<span class="text-muted float-right">Logged in as <?php echo $_SESSION["username"]; if ($_SESSION["rank"] == 2): ?> (Administrator)<?php elseif ($_SESSION["rank"] == 1): ?> (Moderator)<?php endif; ?></span>

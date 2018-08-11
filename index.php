@@ -108,11 +108,7 @@
     <div id="discord">
       <iframe src="https://discordapp.com/widget?id=212908561771134977&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
     </div>
-    <div class="github">
-      <?php include "{$_SERVER["DOCUMENT_ROOT"]}/php/commit.php"; ?>
-        <button class="btn btn-dark"><i class="fab fa-github"></i>&nbsp;<?php echo $commit; ?></button>
-      </a>
-    </div>
+    <?php include "{$_SERVER["DOCUMENT_ROOT"]}/php/commit.php"; ?>
     <div class="copyright">
       <button class="btn btn-dark"><i class="fas fa-copyright"></i> Wish 2016-2018</button>
     </div>

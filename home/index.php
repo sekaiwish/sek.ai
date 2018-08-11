@@ -45,11 +45,7 @@
     <div class="logout">
       <a class="btn btn-danger" href="/php/logout.php">Logout</a>
     </div>
-    <div class="github">
-      <?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//github.com/Wish495/sekai-php/commit/<?php echo $commit; ?>">
-        <button class="btn btn-dark"><i class="fab fa-github"></i>&nbsp;<?php echo $commit; ?></button>
-      </a>
-    </div>
+    <?php include "{$_SERVER["DOCUMENT_ROOT"]}/php/commit.php"; ?>
     <div class="copyright">
       <button class="btn btn-dark"><i class="fas fa-copyright"></i> Wish 2016-2018</button>
     </div>
