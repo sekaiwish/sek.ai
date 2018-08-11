@@ -109,7 +109,7 @@
       <iframe src="https://discordapp.com/widget?id=212908561771134977&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
     </div>
     <div class="github">
-      <?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//github.com/Wish495/sekai-php/commit/<?php echo $commit; ?>">
+      <?php $proc=proc_open("git rev-parse --short HEAD",array(array("pipe","r"),array("pipe","w"),array("pipe","w")),$pipes);$commit=trim(stream_get_contents($pipes[1])); ?><a target="_blank" href="//gitlab.com/wishu/sekai-php/commit/<?php echo $commit; ?>">
         <button class="btn btn-dark"><i class="fab fa-github"></i>&nbsp;<?php echo $commit; ?></button>
       </a>
     </div>
