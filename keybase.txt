@@ -1,0 +1,50 @@
+================================================================== 
+https://keybase.io/wish495 
+-------------------------------------------------------------------- I 
+hereby claim:
+  * I am an admin of https://sek.ai
+  * I am wish495 (https://keybase.io/wish495) on keybase.
+  * I have a public key ASAousmJrj_fJxf8MwH3XMA7dnprvJuBl3w6TIrcvqwZ0wo 
+To do so, I am signing this object: {
+  "body": {
+    "key": {
+      "eldest_kid": 
+"012028bac989ae3fdf2717fc3301f75cc03b767a6bbc9b81977c3a4c8adcbeac19d30a",
+      "host": "keybase.io",
+      "kid": 
+"012028bac989ae3fdf2717fc3301f75cc03b767a6bbc9b81977c3a4c8adcbeac19d30a",
+      "uid": "85cada47755b60418ffce71faadd4919",
+      "username": "wish495"
+    },
+    "merkle_root": {
+      "ctime": 1521216272,
+      "hash": 
+"67d36fe2d77f986b453335036a84274af1263fcff5af10fc834529363723d0148b7cc1c4b40a954b98eebb703ddd1efeede11debc2c74cc311906e10781408aa",
+      "hash_meta": 
+"639690eb86b2c962dfa3775b4c8a845e2edda4387f10321c34259948bb75af01",
+      "seqno": 2245921
+    },
+    "service": {
+      "hostname": "sek.ai",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.45"
+  },
+  "ctime": 1521216295,
+  "expire_in": 504576000,
+  "prev": 
+"7e66a9ae42a846475095dc991318347775c797bccf179b7d2f8df315bec18e50",
+  "seqno": 27,
+  "tag": "signature"
+}
+which yields the signature: 
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgKLrJia4/3ycX/DMB91zAO3Z6a7ybgZd8OkyK3L6sGdMKp3BheWxvYWTFAz57ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwMjhiYWM5ODlhZTNmZGYyNzE3ZmMzMzAxZjc1Y2MwM2I3NjdhNmJiYzliODE5NzdjM2E0YzhhZGNiZWFjMTlkMzBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMjhiYWM5ODlhZTNmZGYyNzE3ZmMzMzAxZjc1Y2MwM2I3NjdhNmJiYzliODE5NzdjM2E0YzhhZGNiZWFjMTlkMzBhIiwidWlkIjoiODVjYWRhNDc3NTViNjA0MThmZmNlNzFmYWFkZDQ5MTkiLCJ1c2VybmFtZSI6Indpc2g0OTUifSwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE1MjEyMTYyNzIsImhhc2giOiI2N2QzNmZlMmQ3N2Y5ODZiNDUzMzM1MDM2YTg0Mjc0YWYxMjYzZmNmZjVhZjEwZmM4MzQ1MjkzNjM3MjNkMDE0OGI3Y2MxYzRiNDBhOTU0Yjk4ZWViYjcwM2RkZDFlZmVlZGUxMWRlYmMyYzc0Y2MzMTE5MDZlMTA3ODE0MDhhYSIsImhhc2hfbWV0YSI6IjYzOTY5MGViODZiMmM5NjJkZmEzNzc1YjRjOGE4NDVlMmVkZGE0Mzg3ZjEwMzIxYzM0MjU5OTQ4YmI3NWFmMDEiLCJzZXFubyI6MjI0NTkyMX0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJzZWsuYWkiLCJwcm90b2NvbCI6Imh0dHBzOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC40NSJ9LCJjdGltZSI6MTUyMTIxNjI5NSwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsInByZXYiOiI3ZTY2YTlhZTQyYTg0NjQ3NTA5NWRjOTkxMzE4MzQ3Nzc1Yzc5N2JjY2YxNzliN2QyZjhkZjMxNWJlYzE4ZTUwIiwic2Vxbm8iOjI3LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQHSNY2zLtAGeShbJMVAJNXwaA/3bOG7t1r/E4bQKuHJdUk6zEpO5KGq9mjWhempYO4jXWtsyfYSOfjV1ScP2Zgaoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCDtJMo9RWQNy6/jA+n1kqp4Xo1sejXu0P+rnvtQuWsxKKN0YWfNAgKndmVyc2lvbgE= 
+And finally, I am proving ownership of this host by posting or appending 
+to this document. View my publicly-auditable identity here: 
+https://keybase.io/wish495
+==================================================================
