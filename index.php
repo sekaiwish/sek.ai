@@ -35,7 +35,7 @@
       <a class="link" href="//twitter.com/Wish495" target="_blank">
         <img src="assets/svg/twitter.svg">
       </a>
-      <a class="link" href="//youtube.com/user/wish495" target="_blank">
+      <a class="link" href="//youtube.com/wish495" target="_blank">
         <img src="assets/svg/youtube.svg">
       </a>
       <a class="link" href="//twitch.tv/TheRealWish" target="_blank">
