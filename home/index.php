@@ -27,16 +27,25 @@
             <div class="card-body">
               <h5 class="card-title">Anime Collection</h5>
               <p class="card-text">Collection of Crunchyroll and Blu-ray Disc copies of various anime.</p>
-              <a href="/anime/" class="btn btn-outline-primary"><b>/anime/</b></a>
+              <a href="/anime/" class="btn btn-outline-primary jp"><b>/anime/</b></a>
             </div>
           </div>
         </div>
         <div class="col-sm-6">
           <div class="card bg-outline-dark text-dark">
             <div class="card-body">
+              <h5 class="card-title">FLAC Collection</h5>
+              <p class="card-text">Collection of lossless audio files, mostly in FLAC format.</p>
+              <a href="/flac/" class="btn btn-outline-warning jp"><b>/flac/</b></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="card bg-outline-dark text-dark">
+            <div class="card-body">
               <h5 class="card-title">Sekai Channel</h5>
               <p class="card-text">Exclusive invite-only imagebooru for Sekai users.</p>
-              <a href="/chan/" class="btn btn-outline-success"><b>/chan/</b></a>
+              <a href="/chan/" class="btn btn-outline-success jp"><b>/chan/</b></a>
             </div>
           </div>
         </div>
