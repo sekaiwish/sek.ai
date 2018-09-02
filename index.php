@@ -90,25 +90,27 @@
     </div>
     <div class="views">
       <?php
-        include("php/sql.php");
-        $query = $db -> prepare("SELECT num FROM views ORDER BY num DESC LIMIT 1");
-        $query -> execute();
-        $result = $query -> fetchColumn();
-        $result = str_split($result + 1);
-        foreach ($result as $key => $value) {
-          $value = "<img src=\"assets/views/$value.gif\">";
-          echo $value;
+        if (include("php/sql.php")) {
+          $stmt = $dbi->prepare("SELECT num FROM views ORDER BY num DESC LIMIT 1");
+          $stmt->execute();
+          $res = $stmt->get_result();
+          $row = $res->fetch_assoc();
+          $result = str_split($row["num"] + 1);
+          foreach ($result as $key => $value) {
+            echo "<img src=\"assets/views/$value.gif\">";
+          }
+          echo "\n";
+          $stmt = $dbi->prepare("INSERT INTO views (ip) VALUES (?)");
+          $ip = $_SERVER["REMOTE_ADDR"];
+          $stmt->bind_param("s", $ip);
+          $stmt->execute();
         }
-        $query = $db -> prepare("INSERT INTO views (ip) VALUES (:ip)");
-        $query -> bindValue(":ip",$_SERVER["REMOTE_ADDR"]);
-        $query -> execute();
-        echo "\n";
       ?>
     </div>
     <div id="discord">
       <iframe src="https://discordapp.com/widget?id=212908561771134977&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
     </div>
-    <?php include "{$_SERVER["DOCUMENT_ROOT"]}/php/commit.php"; ?>
+    <?php include("php/commit.php"); ?>
     <div class="copyright">
       <button class="btn btn-dark"><i class="fas fa-copyright"></i> Wish 2016-2018</button>
     </div>
