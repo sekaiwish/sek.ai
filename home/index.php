@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.13/css/brands.css" integrity="sha384-VGCZwiSnlHXYDojsRqeMn3IVvdzTx5JEuHgqZ3bYLCLUBV8rvihHApoA1Aso2TZA" crossorigin="anonymous">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.13/css/fontawesome.css" integrity="sha384-GVa9GOgVQgOk+TNYXu7S/InPTfSDTtBalSgkgqQ7sCik56N9ztlkoTr2f/T44oKV" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="icon" href="/assets/favicon/wish/196.png" type="image/png" sizes="196x196">
-    <link rel="icon" href="/assets/favicon/wish/128.png" type="image/png" sizes="128x128">
-    <link rel="icon" href="/assets/favicon/wish/96.png" type="image/png" sizes="96x96">
-    <link rel="icon" href="/assets/favicon/wish/32.png" type="image/png" sizes="32x32">
-    <link rel="icon" href="/assets/favicon/wish/16.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="/assets/favicon/sekai/196.png" type="image/png" sizes="196x196">
+    <link rel="icon" href="/assets/favicon/sekai/128.png" type="image/png" sizes="128x128">
+    <link rel="icon" href="/assets/favicon/sekai/96.png" type="image/png" sizes="96x96">
+    <link rel="icon" href="/assets/favicon/sekai/32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon/sekai/16.png" type="image/png" sizes="16x16">
   </head>
   <body>
     <div class="jumbotron bg-dark text-white">
@@ -51,10 +51,11 @@
         </div>
       </div>
     </div>
-    <div class="logout">
+    <div class="account btn-group">
       <a class="btn btn-danger" href="/php/logout.php">Logout</a>
+      <a class="btn btn-secondary" href="/account.php">Account</a>
     </div>
-    <?php include "{$_SERVER["DOCUMENT_ROOT"]}/php/commit.php"; ?>
+    <?php include("../php/commit.php"); ?>
     <div class="copyright">
       <button class="btn btn-dark"><i class="fas fa-copyright"></i> Wish 2016-2018</button>
     </div>

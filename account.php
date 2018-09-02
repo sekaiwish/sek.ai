@@ -1,60 +1,33 @@
-<?php
-session_start();
-if (!isset($_SESSION["username"])) {
-	header("Location: /error/401.html");
-  exit();
-}
-if ($_SESSION["username"] == "Anonymous") {
-	header("Location: /error/401.html");
-	exit();
-}
-if (isset($_POST["logout"])) {
-  session_destroy();
-	header("Location: /");
-}
-?>
+<?php $time = explode(' ', microtime()); $start = $time[1] + $time[0]; session_start(); if (!isset($_SESSION["username"])) { header("Location: /error/401.html"); exit(); } ?>
 <!doctype html>
 <html>
   <head>
-		<title>&#x4E16;&#x754C;&#x3061;&#x3083;&#x3093;&nbsp;&raquo;&nbsp;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;</title>
+		<title>&#x4E16;&#x754C; &raquo; Account</title>
     <meta name="author" content="Wish">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+		<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/mplus1p.css" type="text/css">
-		<link rel="stylesheet" href="/css/chan.css">
-    <link rel="icon" href="assets/favicon/wish/196.png" type="image/png" sizes="196x196">
-    <link rel="icon" href="assets/favicon/wish/128.png" type="image/png" sizes="128x128">
-    <link rel="icon" href="assets/favicon/wish/96.png" type="image/png" sizes="96x96">
-    <link rel="icon" href="assets/favicon/wish/32.png" type="image/png" sizes="32x32">
-    <link rel="icon" href="assets/favicon/wish/16.png" type="image/png" sizes="16x16">
-    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.13/css/solid.css" integrity="sha384-Rw5qeepMFvJVEZdSo1nDQD5B6wX0m7c5Z/pLNvjkB14W6Yki1hKbSEQaX9ffUbWe" crossorigin="anonymous">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.13/css/brands.css" integrity="sha384-VGCZwiSnlHXYDojsRqeMn3IVvdzTx5JEuHgqZ3bYLCLUBV8rvihHApoA1Aso2TZA" crossorigin="anonymous">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.13/css/fontawesome.css" integrity="sha384-GVa9GOgVQgOk+TNYXu7S/InPTfSDTtBalSgkgqQ7sCik56N9ztlkoTr2f/T44oKV" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/assets/favicon/sekai/196.png" type="image/png" sizes="196x196">
+    <link rel="icon" href="/assets/favicon/sekai/128.png" type="image/png" sizes="128x128">
+    <link rel="icon" href="/assets/favicon/sekai/96.png" type="image/png" sizes="96x96">
+    <link rel="icon" href="/assets/favicon/sekai/32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon/sekai/16.png" type="image/png" sizes="16x16">
   </head>
-  <?php include("{$_SERVER["DOCUMENT_ROOT"]}/assets/navbar.php");
-  if (isset($_GET["s"])) {
-    if ($_GET["s"] == "1"): ?><div class="alert alert-success alert-dismissable fade show">
-      <strong>Success</strong> &mdash; Your preferences were successfully updated.
-      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
-    </div><?php elseif ($_GET["s"] == "2"): ?><div class="alert alert-success alert-dismissable fade show">
-      <strong>Success</strong> &mdash; Your password was successfully updated.
-      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
-    </div><?php endif;
-  } elseif (isset($_GET["e"])) {
-    if ($_GET["e"] == "1"): ?><div class="alert alert-warning alert-dismissable fade show">
-      <strong>Error</strong> &mdash; Passwords did not match.
-      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
-    </div><?php endif; } ?>
-    <div class="row" style="justify-content:center;margin:0px;transform:translate(0,20%);">
-      <div class="card-group jp" style="width:40rem;">
-        <div class="card">
-          <div class="card-header">&#x4E16;&#x754C;&#x3061;&#x3083;&#x3093;&#x306E;&#x8A2D;&#x5B9A;</div>
+	<body>
+		<div class="row" style="justify-content:center;margin:auto;">
+      <div class="card-group">
+        <div class="card bg-dark text-white">
+          <div class="card-header">Website Settings</div>
           <div class="card-body">
             <form method="post" action="/php/preferences.php">
               <div class="form-group">
-                <label>&#x4E16;&#x754C;&#x3061;&#x3083;&#x3093;&#x9801;&#x5F53;&#x305F;&#x308A;&#x306E;&#x30B9;&#x30EC;&#x30C3;&#x30C9;</label>
+                <label>Threads per Sekai Channel page</label>
                 <select class="form-control" name="threads">
-                  <?php $a = ["3", "5", "10", "15"];
+                  <?php
+									$a = ["3", "5", "10", "15"];
                   $t = $_SESSION["threads"];
                   for ($i=0; $i < 4; $i++) {
                     if ($a[$i] == $t) {
@@ -65,42 +38,58 @@ if (isset($_POST["logout"])) {
                   } ?>
                 </select>
               </div>
-              <input type="submit" class="btn btn-success" value="&#x66F4;&#x65B0;&#x8A2D;&#x5B9A;">
+							<input type="submit" class="btn btn-outline-success" value="Change Settings">
             </form>
           </div>
         </div>
-        <div class="card">
-          <div class="card-header">&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x306E;&#x5909;&#x66F4;</div>
+        <div class="card bg-dark text-white">
+          <div class="card-header">Change Password</div>
           <div class="card-body">
             <form method="post" action="/php/password.php">
               <div class="form-group">
-                <label>&#x73FE;&#x5728;&#x306E;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;</label>
+                <label>Current Password</label>
                 <input type="password" class="form-control" name="old" maxlength="16" required>
               </div>
               <div class="form-group">
-                <label>&#x65B0;&#x3057;&#x3044;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;</label>
+                <label>New Password</label>
                 <input type="password" class="form-control" name="new" maxlength="16" required>
               </div>
               <div class="form-group">
-                <label>&#x78BA;&#x8A8D;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;</label>
+                <label>Confirm New Password</label>
                 <input type="password" class="form-control" name="confirm" maxlength="16" required>
               </div>
-              <input type="submit" class="btn btn-success" value="&#x66F4;&#x65B0;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;">
+              <input type="submit" class="btn btn-outline-success" value="Change Password">
             </form>
           </div>
         </div>
       </div>
     </div>
-    <div class="github">
-      <a target="_blank" href="//github.com/Sek-ai/Sek.ai/tree/dev">
-        <button class="btn btn-dark"><i class="fa fa-github"></i> <b>D0.7</b></button>
-      </a>
-    </div>
-    <footer class="footer bg-dark">
-      <div class="container">
-        <span class="text-muted float-left">&copy; 2016-2017 Wish</span>
-        <span class="text-muted float-right">Logged in as <?php echo $_SESSION["username"]; if ($_SESSION["rank"] == 2): ?> (Administrator)<?php elseif ($_SESSION["rank"] == 1): ?> (Moderator)<?php endif; ?></span>
-      </div>
-    </footer>
-  </body>
+		<div class="account btn-group">
+			<a class="btn btn-danger" href="/php/logout.php">Logout</a>
+			<a class="btn btn-secondary" href="/home/">Home</a>
+		</div>
+		<?php include("php/commit.php"); ?>
+		<div class="copyright">
+			<button class="btn btn-dark"><i class="fas fa-copyright"></i> Wish 2016-2018</button>
+		</div>
+		<div class="status">
+			<?php
+			if (isset($_GET["s"])) {
+				if ($_GET["s"] == "1") {
+					echo '<div class="btn alert-success"><strong>Success</strong> &mdash; Your preferences were successfully updated.</div>';
+				} elseif ($_GET["s"] == "2") {
+					echo '<div class="btn alert-success"><strong>Success</strong> &mdash; Your password was successfully updated.</div>';
+				}
+			}
+			if (isset($_GET["e"])) {
+				if ($_GET["e"] == "1") {
+					echo '<div class="btn alert-warning"><strong>Error</strong> &mdash; Passwords did not match.</div>';
+				}
+			}
+			?>
+		</div>
+		<div class="ms">
+			<button class="btn btn-dark"><?php $time = explode(' ', microtime()); $finish = $time[1] + $time[0]; echo round(($finish-$start),5) * 1000 . "ms"; ?></button>
+		</div>
+	</body>
 </html>

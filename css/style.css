@@ -97,7 +97,8 @@ img:hover {
 }
 .btn-group,
 .btn-primary,
-.btn-success {
+.btn-success,
+.btn-outline-success {
   width: 100%;
 }
 a > .btn {
@@ -120,7 +121,17 @@ a > .btn {
 #discord.visible {
   right: -.8rem;
 }
-.logout {
+.status {
+  position: fixed;
+  top: -.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.btn.alert-success,
+.btn.alert-warning {
+  cursor: default!important;
+}
+.account {
   position: fixed;
   left: 1rem;
   top: -.2rem;

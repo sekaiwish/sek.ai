@@ -13,5 +13,5 @@ $query->bindValue(":threads", $threads, PDO::PARAM_INT);
 $query->bindValue(":username", $_SESSION["username"], PDO::PARAM_STR);
 $query->execute();
 $_SESSION["threads"] = $threads;
-header("Location: /account/?s=1");
+header("Location: /account.php?s=1");
 ?>
