@@ -24,7 +24,6 @@
       $i = 1;
       foreach ($files as $key) {
         if (is_dir($key)) {
-
           array_push($anime, $key);
         }
       }
@@ -37,19 +36,9 @@
       </div>
     <?php $i++; endforeach; ?>
     </div>
-    <div class="account btn-group">
-      <a class="btn btn-danger" href="/php/logout.php">Logout</a>
-      <a class="btn btn-secondary" href="/home/">Home</a>
-    </div>
-    <?php include("../php/commit.php"); ?>
-    <div class="copyright">
-      <button class="btn btn-dark"><i class="fas fa-copyright"></i> Wish 2016-2018</button>
-    </div>
-    <div class="ms">
-      <button class="btn btn-dark"><?php $time = explode(' ', microtime()); $finish = $time[1] + $time[0]; echo round(($finish-$start),5) * 1000 . "ms"; ?></button>
-    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script>$(document).ready(function(){$("[data-toggle='collapse']").collapse();});</script>
+    <?php include("../php/buttons.php"); ?>
   </body>
 </html>

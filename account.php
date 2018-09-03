@@ -64,14 +64,6 @@
         </div>
       </div>
     </div>
-		<div class="account btn-group">
-			<a class="btn btn-danger" href="/php/logout.php">Logout</a>
-			<a class="btn btn-secondary" href="/home/">Home</a>
-		</div>
-		<?php include("php/commit.php"); ?>
-		<div class="copyright">
-			<button class="btn btn-dark"><i class="fas fa-copyright"></i> Wish 2016-2018</button>
-		</div>
 		<div class="status">
 			<?php
 			if (isset($_GET["s"])) {
@@ -88,8 +80,6 @@
 			}
 			?>
 		</div>
-		<div class="ms">
-			<button class="btn btn-dark"><?php $time = explode(' ', microtime()); $finish = $time[1] + $time[0]; echo round(($finish-$start),5) * 1000 . "ms"; ?></button>
-		</div>
+    <?php include("php/buttons.php"); ?>
 	</body>
 </html>
