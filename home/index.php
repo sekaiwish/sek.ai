@@ -34,7 +34,7 @@
             <div class="card-body">
               <h5 class="card-title">Sekai Channel</h5>
               <p class="card-text">Exclusive invite-only imagebooru for Sekai users.</p>
-              <a href="/chan/" class="btn btn-outline-success jp disabled"><b>/chan/ - Unavailable</b></a>
+              <a href="/chan/" class="btn btn-outline-success jp disabled"><b>Unavailable</b></a>
             </div>
           </div>
         </div>
