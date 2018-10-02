@@ -1,11 +1,4 @@
 ﻿*Thumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-*.cab
-*.msi
-*.msm
-*.msp
-*.lnk
 *test*
 
 php/sql.php
@@ -13,18 +6,9 @@ php/sql.php
 files/
 chan/files/
 chan/thumbs/
-ps/
-pma/
-dlf/
+
+/*.png
+/*.mp4
+/*.jpg
 
 google*.html
-.well-known/
-css/bootstrap*
-css/font-awesome*
-js/bootstrap*
-js/jquery*
-js/livestamp*
-js/moment*
-js/tether*
-js/npm*
-fonts/*
