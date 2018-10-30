@@ -14,6 +14,7 @@
     </script>
   </head>
   <body>
+    <audio src="theme.mp3"></audio>
     <?php if (isset($_GET["e"])) { if ($_GET["e"] == "1"): ?><div class="alert alert-warning">
       <strong>Error</strong> &mdash; The user entered does not exist.
     </div><?php echo "\n    "; elseif ($_GET["e"] == "2"): ?><div class="alert alert-warning">
