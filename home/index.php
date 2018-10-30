@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="jumbotron bg-dark text-white">
-      <h6 class="display-4 jp"><img src="/assets/favicon/sekai/128.png" height="80">&#x4E16;&#x754C;&#x3078;&#x3088;&#x3046;&#x3053;&#x305D;, <?php echo $_SESSION["username"]; ?>!</h6>
+      <h6 class="display-4 jp"><img src="/assets/favicon/sekai/apple-touch-icon-120x120.png" height="80">&#x4E16;&#x754C;&#x3078;&#x3088;&#x3046;&#x3053;&#x305D;, <?php echo $_SESSION["username"]; ?>!</h6>
       <p class="lead">Welcome to Sekai! You are now logged into the domain.<br>Feel free to access the content available to you.</p>
       <hr class="my-4">
       <div class="row">
