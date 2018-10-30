@@ -11,7 +11,7 @@
       function hideDiscord(){document.getElementById("discord").classList.remove("visible")}
       function showLogin(){document.getElementById("links").classList.add("trigger");document.getElementById("login").classList.add("trigger")}
       function showLinks(){document.getElementById("links").classList.remove("trigger");document.getElementById("login").classList.remove("trigger")}
-      function playMusic(){var player=document.getElementById("player");player.volume=0.1;player.loop=true;player.play()}
+      function playMusic(){var player=document.getElementById("player");player.volume=0.05;player.loop=true;player.play()}
     </script>
   </head>
   <body>
