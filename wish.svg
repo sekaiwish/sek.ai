@@ -1,24 +1,11 @@
-<!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="249.65829" height="75.238945" viewBox="0 0 66.055425 19.906971" version="1.1" id="svg8" inkscape:version="0.92.2 (5c3e80d, 2017-08-06)" sodipodi:docname="drawing.svg" style="">
-  <defs id="defs2"></defs>
-  <sodipodi:namedview id="base" pagecolor="#b4b4b4" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:zoom="1.4" inkscape:cx="125.64702" inkscape:cy="-30.366304" inkscape:document-units="mm" inkscape:current-layer="layer2" showgrid="false" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:window-width="1920" inkscape:window-height="1017" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:pagecheckerboard="true" units="px"></sodipodi:namedview>
-  <metadata id="metadata5">
-    <rdf:rdf>
-      <cc:work rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
-        <dc:title></dc:title>
-      </cc:work>
-    </rdf:rdf>
-  </metadata>
-  <g inkscape:groupmode="layer" id="layer2" inkscape:label="Layer 2" style="display:inline" transform="translate(-0.2843428,0.01613618)">
-    <path style="fill: none; stroke: rgb(255, 255, 255); stroke-width: 1.00075; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 1;" d="M 0.74491462,0.55828468 8.3691861,18.51374 13.333828,6.8350106 18.274828,18.537381 25.745433,0.87744032 H 3.7828026" id="path818" inkscape:connector-curvature="0" sodipodi:nodetypes="cccccc" class="DsLQFeBv_0"></path>
-    <path style="fill: none; stroke: rgb(255, 255, 255); stroke-width: 1.00075; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 1;" d="M 30.710075,0.3809761 V 19.447566" id="path820" inkscape:connector-curvature="0" sodipodi:nodetypes="cc" class="DsLQFeBv_1"></path>
-    <path style="fill: none; stroke: rgb(255, 255, 255); stroke-width: 1.00075; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 1;" d="m 47.979937,2.1422419 c -2.388503,-2.23344599 -7.990151,-2.12845568 -9.893823,-0.1773087 -1.428376,1.5721341 -1.474582,4.4725182 0,5.6975178 2.639269,2.424537 6.710394,1.8515435 9.669231,4.208125 2.185328,1.740516 1.482383,4.615285 -0.04728,6.052135 -1.993021,1.872091 -8.42841,2.1048 -10.947787,-0.189034" id="path822" inkscape:connector-curvature="0" sodipodi:nodetypes="cccssc" class="DsLQFeBv_2"></path>
-    <path style="fill: none; stroke: rgb(255, 255, 255); stroke-width: 1.00075; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 1;" d="m 54.990972,0.39027649 0.0015,19.05694051" id="path824" inkscape:connector-curvature="0" sodipodi:nodetypes="cc" class="DsLQFeBv_3"></path>
-    <path style="fill: none; stroke: rgb(255, 255, 255); stroke-width: 1.00075; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 1;" d="m 54.902591,9.4035381 10.970231,0.0043" id="path826" inkscape:connector-curvature="0" sodipodi:nodetypes="cc" class="DsLQFeBv_4"></path>
-    <path style="fill: none; stroke: rgb(255, 255, 255); stroke-width: 1.00075; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 1;" d="M 65.839392,0.39195661 V 19.455822" id="path828" inkscape:connector-curvature="0" sodipodi:nodetypes="cc" class="DsLQFeBv_5"></path>
-  </g>
-<style data-made-with="vivus-instant">.DsLQFeBv_0{stroke-dasharray:87 89;stroke-dashoffset:88;animation:DsLQFeBv_draw 3000ms ease 0ms forwards;}.DsLQFeBv_1{stroke-dasharray:20 22;stroke-dashoffset:21;animation:DsLQFeBv_draw 3000ms ease 0ms forwards;}.DsLQFeBv_2{stroke-dasharray:47 49;stroke-dashoffset:48;animation:DsLQFeBv_draw 3000ms ease 0ms forwards;}.DsLQFeBv_3{stroke-dasharray:20 22;stroke-dashoffset:21;animation:DsLQFeBv_draw 3000ms ease 0ms forwards;}.DsLQFeBv_4{stroke-dasharray:11 13;stroke-dashoffset:12;animation:DsLQFeBv_draw 3000ms ease 0ms forwards;}.DsLQFeBv_5{stroke-dasharray:20 22;stroke-dashoffset:21;animation:DsLQFeBv_draw 3000ms ease 0ms forwards;}@keyframes DsLQFeBv_draw{100%{stroke-dashoffset:0;}}@keyframes DsLQFeBv_fade{0%{stroke-opacity:1;}94.44444444444444%{stroke-opacity:1;}100%{stroke-opacity:0;}}</style></svg>
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg width="249.66" height="75.239" version="1.1" viewBox="0 0 66.055 19.907" xmlns="http://www.w3.org/2000/svg" style="">
+ <g transform="translate(-.28434 .016136)" fill="none" stroke="#fff" stroke-width="1.0007">
+  <path d="m0.74491 0.55828 7.6243 17.955 4.9646-11.679 4.941 11.702 7.4706-17.66h-21.963" class="wQEfkAnJ_0"></path>
+  <path d="m30.71 0.38098v19.067" class="wQEfkAnJ_1"></path>
+  <path d="m47.98 2.1422c-2.3885-2.2334-7.9902-2.1285-9.8938-0.17731-1.4284 1.5721-1.4746 4.4725 0 5.6975 2.6393 2.4245 6.7104 1.8515 9.6692 4.2081 2.1853 1.7405 1.4824 4.6153-0.04728 6.0521-1.993 1.8721-8.4284 2.1048-10.948-0.18903" class="wQEfkAnJ_2"></path>
+  <path d="m54.991 0.39028 0.0015 19.057" class="wQEfkAnJ_3"></path>
+  <path d="m54.903 9.4035 10.97 0.0043" class="wQEfkAnJ_4"></path>
+  <path d="m65.839 0.39196v19.064" class="wQEfkAnJ_5"></path>
+ </g>
+<style data-made-with="vivus-instant">.wQEfkAnJ_0{stroke-dasharray:87 89;stroke-dashoffset:88;animation:wQEfkAnJ_draw 3000ms ease 0ms forwards;}.wQEfkAnJ_1{stroke-dasharray:20 22;stroke-dashoffset:21;animation:wQEfkAnJ_draw 3000ms ease 0ms forwards;}.wQEfkAnJ_2{stroke-dasharray:47 49;stroke-dashoffset:48;animation:wQEfkAnJ_draw 3000ms ease 0ms forwards;}.wQEfkAnJ_3{stroke-dasharray:20 22;stroke-dashoffset:21;animation:wQEfkAnJ_draw 3000ms ease 0ms forwards;}.wQEfkAnJ_4{stroke-dasharray:11 13;stroke-dashoffset:12;animation:wQEfkAnJ_draw 3000ms ease 0ms forwards;}.wQEfkAnJ_5{stroke-dasharray:20 22;stroke-dashoffset:21;animation:wQEfkAnJ_draw 3000ms ease 0ms forwards;}@keyframes wQEfkAnJ_draw{100%{stroke-dashoffset:0;}}@keyframes wQEfkAnJ_fade{0%{stroke-opacity:1;}94.44444444444444%{stroke-opacity:1;}100%{stroke-opacity:0;}}</style></svg>
