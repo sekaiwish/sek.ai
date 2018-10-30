@@ -11,10 +11,11 @@
       function hideDiscord(){document.getElementById("discord").classList.remove("visible")}
       function showLogin(){document.getElementById("links").classList.add("trigger");document.getElementById("login").classList.add("trigger")}
       function showLinks(){document.getElementById("links").classList.remove("trigger");document.getElementById("login").classList.remove("trigger")}
+      function playMusic(){var player=document.getElementById("player");player.volume=0.1;player.loop=true;player.play()}
     </script>
   </head>
   <body>
-    <audio src="theme.mp3"></audio>
+    <audio id="player" onLoad="playMusic" src="theme.mp3"></audio>
     <?php if (isset($_GET["e"])) { if ($_GET["e"] == "1"): ?><div class="alert alert-warning">
       <strong>Error</strong> &mdash; The user entered does not exist.
     </div><?php echo "\n    "; elseif ($_GET["e"] == "2"): ?><div class="alert alert-warning">
