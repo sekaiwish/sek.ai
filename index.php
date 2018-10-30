@@ -14,8 +14,8 @@
       function playMusic(){var player=document.getElementById("player");player.volume=0.05;player.loop=true;player.play()}
     </script>
   </head>
-  <body>
-    <audio id="player" onLoad="playMusic()" src="theme.mp3"></audio>
+  <body onLoad="playMusic()">
+    <audio id="player" src="theme.mp3"></audio>
     <?php if (isset($_GET["e"])) { if ($_GET["e"] == "1"): ?><div class="alert alert-warning">
       <strong>Error</strong> &mdash; The user entered does not exist.
     </div><?php echo "\n    "; elseif ($_GET["e"] == "2"): ?><div class="alert alert-warning">
