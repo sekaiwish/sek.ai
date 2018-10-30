@@ -91,10 +91,14 @@ img {
 img:hover {
   filter: drop-shadow(0 0 5px #000);
 }
+.wish {
+  margin-left: 50%;
+  transform: translate(-50%);
+  margin-bottom: 2rem;
+}
 .btn-dark.jp {
   margin-top: 1rem;
   transform: translate(-50%);
-  cursor: pointer;
   margin-left: 50%;
 }
 .jp {

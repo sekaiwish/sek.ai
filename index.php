@@ -20,7 +20,8 @@
       <strong>Error</strong> &mdash; The incorrect password was entered.
     </div><?php echo "\n    "; endif; } ?>
     <div class="links" id="links">
-      <h1>wish</h1>
+      <img class="wish" src="wish.svg">
+      <br>
       <a class="link" href="//twitter.com/Wish495" target="_blank">
         <img src="assets/svg/twitter.svg">
       </a>
