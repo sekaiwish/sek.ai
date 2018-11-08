@@ -95,6 +95,7 @@ img:hover {
 }
 .btn-dark {
   background-color: rgba(53, 58, 64, 0.5);
+  border-color: rgba(255, 58, 64, 0.5);
 }
 .btn-dark.jp {
   margin-top: 1rem;
