@@ -24,7 +24,7 @@
     <div class="links" id="links">
       <img class="wish" src="wish.svg">
       <br>
-      <a class="link" href="//twitter.com/Wish495" target="_blank">
+      <a class="link" href="//twitter.com/wishdere" target="_blank">
         <img src="assets/svg/twitter.svg">
       </a>
       <a class="link" href="//youtube.com/wish495" target="_blank">
