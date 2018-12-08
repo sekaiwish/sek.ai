@@ -7,11 +7,10 @@
     <script>
       function showLogin(){document.getElementById("links").classList.add("trigger");document.getElementById("login").classList.add("trigger")}
       function showLinks(){document.getElementById("links").classList.remove("trigger");document.getElementById("login").classList.remove("trigger")}
-      function playMusic(){var player=document.getElementById("player");player.volume=0.05;player.loop=true;player.play()}
+      function playMusic(){let a=document.createElement("AUDIO");a.src="theme.mp3";a.id="player";document.getElementsByTagName("BODY")[0].appendChild(a);var player=document.getElementById("player");player.volume=0.05;player.loop=true;player.play()}
     </script>
   </head>
   <body onLoad="playMusic()">
-    <audio id="player" src="theme.mp3"></audio>
     <?php if (isset($_GET["e"])) { if ($_GET["e"] == "1"): ?><div class="alert alert-warning">
       <strong>Error</strong> &mdash; The user entered does not exist.
     </div><?php echo "\n    "; elseif ($_GET["e"] == "2"): ?><div class="alert alert-warning">
