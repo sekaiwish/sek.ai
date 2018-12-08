@@ -122,16 +122,6 @@ a > .btn {
   left: 50%;
   transform: translate(-50%);
 }
-#discord {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  right: -21.9rem;
-  transition: all 1s ease-in-out;
-}
-#discord.visible {
-  right: -.8rem;
-}
 .status {
   position: fixed;
   top: -.2rem;

@@ -5,10 +5,6 @@
     <title>wish</title>
     <?php include("php/sources.php"); ?>
     <script>
-      var discord = 0;
-      function Discord(){if(discord==0){showDiscord();discord=1}else{hideDiscord();discord=0}}
-      function showDiscord(){document.getElementById("discord").classList.add("visible")}
-      function hideDiscord(){document.getElementById("discord").classList.remove("visible")}
       function showLogin(){document.getElementById("links").classList.add("trigger");document.getElementById("login").classList.add("trigger")}
       function showLinks(){document.getElementById("links").classList.remove("trigger");document.getElementById("login").classList.remove("trigger")}
       function playMusic(){var player=document.getElementById("player");player.volume=0.05;player.loop=true;player.play()}
@@ -36,7 +32,7 @@
       <a class="link" href="//gitlab.com/wishu" target="_blank">
         <img src="assets/svg/gitlab.svg">
       </a>
-      <a class="link" onclick="Discord()">
+      <a class="link" href="//discord.gg/vCXWfya" target="_blank">
         <img src="assets/svg/discord.svg">
       </a>
       <a class="link" href="//steamcommunity.com/id/sadwish" target="_blank">
@@ -98,9 +94,6 @@
           $stmt->execute();
         }
       ?>
-    </div>
-    <div id="discord">
-      <iframe src="https://discordapp.com/widget?id=212908561771134977&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
     </div>
     <?php include("php/buttons.php"); ?>
   </body>
