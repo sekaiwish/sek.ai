@@ -7,7 +7,7 @@
     <script>
       function showLogin(){document.getElementById("links").classList.add("trigger");document.getElementById("login").classList.add("trigger")}
       function showLinks(){document.getElementById("links").classList.remove("trigger");document.getElementById("login").classList.remove("trigger")}
-      function playMusic(){let a=document.createElement("AUDIO");a.src="theme.mp3";a.id="player";document.getElementsByTagName("BODY")[0].appendChild(a);var player=document.getElementById("player");player.volume=0.05;player.loop=true;player.play()}
+      function playMusic(){let a=document.createElement("AUDIO");a.src="theme.opus";a.id="player";document.getElementsByTagName("BODY")[0].appendChild(a);var player=document.getElementById("player");player.volume=0.05;player.loop=true;player.play()}
     </script>
   </head>
   <body onLoad="playMusic()">
