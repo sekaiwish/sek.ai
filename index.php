@@ -17,7 +17,7 @@
       <strong>Error</strong> &mdash; The incorrect password was entered.
     </div><?php echo "\n    "; endif; } ?>
     <div class="links" id="links">
-      <img class="wish" src="cdn/svg/wish.svg">
+      <img class="wish" src="//cdn.sek.ai/svg/wish.svg">
       <br>
       <a class="link" href="//twitter.com/wishdere" target="_blank">
         <img src="cdn/svg/twitter.svg">
