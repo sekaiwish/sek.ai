@@ -7,7 +7,7 @@
     <script>
       function showLogin(){document.getElementById("links").classList.add("trigger");document.getElementById("login").classList.add("trigger")}
       function showLinks(){document.getElementById("links").classList.remove("trigger");document.getElementById("login").classList.remove("trigger")}
-      function playMusic(){let a=document.createElement("AUDIO");a.src="theme.opus";a.id="player";document.getElementsByTagName("BODY")[0].appendChild(a);var player=document.getElementById("player");player.volume=0.05;player.loop=true;player.play()}
+      function playMusic(){let a=document.createElement("AUDIO");a.src="cdn/theme.opus";a.id="player";document.getElementsByTagName("BODY")[0].appendChild(a);var player=document.getElementById("player");player.volume=0.05;player.loop=true;player.play()}
     </script>
   </head>
   <body onLoad="playMusic()">
@@ -17,34 +17,34 @@
       <strong>Error</strong> &mdash; The incorrect password was entered.
     </div><?php echo "\n    "; endif; } ?>
     <div class="links" id="links">
-      <img class="wish" src="wish.svg">
+      <img class="wish" src="cdn/svg/wish.svg">
       <br>
       <a class="link" href="//twitter.com/wishdere" target="_blank">
-        <img src="assets/svg/twitter.svg">
+        <img src="cdn/svg/twitter.svg">
       </a>
       <a class="link" href="//youtube.com/wish495" target="_blank">
-        <img src="assets/svg/youtube.svg">
+        <img src="cdn/svg/youtube.svg">
       </a>
       <a class="link" href="//twitch.tv/TheRealWish" target="_blank">
-        <img src="assets/svg/twitch.svg">
+        <img src="cdn/svg/twitch.svg">
       </a>
       <a class="link" href="//gitlab.com/wishu" target="_blank">
-        <img src="assets/svg/gitlab.svg">
+        <img src="cdn/svg/gitlab.svg">
       </a>
       <a class="link" href="//discord.gg/vCXWfya" target="_blank">
-        <img src="assets/svg/discord.svg">
+        <img src="cdn/svg/discord.svg">
       </a>
       <a class="link" href="//steamcommunity.com/id/sadwish" target="_blank">
-        <img src="assets/svg/steam.svg">
+        <img src="cdn/svg/steam.svg">
       </a>
       <a class="link" href="//osu.ppy.sh/users/Wishu" target="_blank">
-        <img src="assets/svg/osu.svg">
+        <img src="cdn/svg/osu.svg">
       </a>
       <a class="link" href="//last.fm/user/Wish495" target="_blank">
-        <img src="assets/svg/lastfm.svg">
+        <img src="cdn/svg/lastfm.svg">
       </a>
       <a class="link" href="//myanimelist.net/profile/Ain" target="_blank">
-        <img src="assets/svg/myanimelist.svg">
+        <img src="cdn/svg/myanimelist.svg">
       </a>
       <br>
       <?php if (isset($_SESSION["username"])): ?><a href="/home/" class="btn btn-dark jp">
@@ -84,7 +84,7 @@
           $row = $res->fetch_assoc();
           $result = str_split($row["num"] + 1);
           foreach ($result as $key => $value) {
-            echo "<img src=\"assets/views/$value.gif\">";
+            echo "<img src=\"cdn/views/$value.gif\">";
           }
           echo "\n";
           $stmt = $dbi->prepare("INSERT INTO views (ip) VALUES (?)");
