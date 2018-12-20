@@ -1,0 +1,3 @@
+[submodule "cdn"]
+  path = cdn
+  url = https://gitlab.com/wishu/sek.ai-assets/
