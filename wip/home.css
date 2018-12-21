@@ -1,3 +1,7 @@
+@@font-face {
+  font-family: "DejaVuSansMonoBold";
+  src: url("//cdn.sek.ai/fonts/wish.ttf");
+}
 body {
   background: #000;
   color: white;
@@ -9,7 +13,7 @@ body {
   position: absolute;
 }
 h1 {
-  font-family: monospace;
+  font-family: "DejaVuSansMonoBold";
   font-size: 8rem;
   color: white;
   left: 10vw;
