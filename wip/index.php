@@ -13,9 +13,9 @@
     <div id="modal">
       <h2>&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;</h2>
       <form class="login" action="../php/login.php" method="post">
-        <input type="text" name="username" maxlength="16" required>
+        <input type="text" name="username" maxlength="16" placeholder="&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;" required>
         <br>
-        <input type="password" name="password" maxlength="16" required>
+        <input type="password" name="password" maxlength="16" placeholder="&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;" required>
         <br>
         <input type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
       </form>
