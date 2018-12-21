@@ -13,7 +13,7 @@ body {
   position: absolute;
 }
 h1 {
-  font-family: "DejaVuSansMonoBold";
+  font-family: "DejaVuSansMonoBold", monospace;
   font-size: 8rem;
   color: white;
   left: 10vw;
