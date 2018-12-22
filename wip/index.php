@@ -10,6 +10,7 @@
       <h1 class="halfStyle" id="wish">_</h1>
       <button type="button" name="button" onclick="modalToggle()">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&nbsp;&nbsp;&#10148;</button>
     </div>
+    <div id="catch" onclick="catchModal()"></div>
     <div id="modal">
       <h2>&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;</h2>
       <form class="login" action="../php/login.php" method="post">
