@@ -1,7 +1,6 @@
 @font-face {
     font-family: "Bitstream Vera Sans Mono";
-    src: url(https://cdn.sek.ai/fonts/subset-BitstreamVeraSansMono-Bold.woff2) format("woff2"),
-      url(https://cdn.sek.ai/fonts/subset-BitstreamVeraSansMono-Bold.woff) format("woff");
+    src: url(font.woff2) format("woff2");
     font-weight: bold;
     font-style: normal;
 }
