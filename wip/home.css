@@ -1,6 +1,9 @@
 @font-face {
-  font-family: wish;
-  src: url("//cdn.sek.ai/fonts/wish.ttf");
+    font-family: "Bitstream Vera Sans Mono";
+    src: url(https://cdn.sek.ai/fonts/subset-BitstreamVeraSansMono-Bold.woff2) format("woff2"),
+      url(https://cdn.sek.ai/fonts/subset-BitstreamVeraSansMono-Bold.woff) format("woff");
+    font-weight: bold;
+    font-style: normal;
 }
 body {
   background: #000;
@@ -13,7 +16,7 @@ body {
   position: absolute;
 }
 h1 {
-  font-family: wish, monospace;
+  font-family: "Bitstream Vera Sans Mono", monospace;
   font-size: 8rem;
   color: white;
   left: 10vw;
