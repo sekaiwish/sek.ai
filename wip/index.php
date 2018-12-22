@@ -9,14 +9,14 @@
   <body>
     <div id="body">
       <h1 class="halfStyle" id="wish">_</h1>
-      <br><a href="//discord.gg/vCXWfya">discord</a>
-      <br><a href="//steamcommunity.com/id/sadwish">steam</a>
-      <br><a href="//gitlab.com/wishu">gitlab</a>
-      <br><a href="//youtube.com/wish495">youtube</a>
-      <br><a href="//twitter.com/wishdere">twitter</a>
-      <br><a href="//last.fm/user/Wish495">last.fm</a>
-      <br><a href="//myanimelist.net/profile/Ain">myanimelist</a>
-      <br><a href="//osu.ppy.sh/users/Wishu">osu!</a>
+      <br><a target="_blank" href="//discord.gg/vCXWfya">discord</a>
+      <br><a target="_blank" href="//steamcommunity.com/id/sadwish">steam</a>
+      <br><a target="_blank" href="//gitlab.com/wishu">gitlab</a>
+      <br><a target="_blank" href="//youtube.com/wish495">youtube</a>
+      <br><a target="_blank" href="//twitter.com/wishdere">twitter</a>
+      <br><a target="_blank" href="//last.fm/user/Wish495">last.fm</a>
+      <br><a target="_blank" href="//myanimelist.net/profile/Ain">myanimelist</a>
+      <br><a target="_blank" href="//osu.ppy.sh/users/Wishu">osu!</a>
       <?php if (isset($_SESSION["username"])): ?>
         <button type="button" name="button" onclick="window.location.href='/home/'">&#x4E16;&#x754C;&#x306B;&#x7D9A;&#x3051;&#x308B;&nbsp;&nbsp;&#10148;</button>
       <?php else: ?>
