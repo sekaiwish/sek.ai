@@ -4,6 +4,10 @@
     font-weight: bold;
     font-style: normal;
 }
+.jp {
+  font-family: "M PLUS 1p";
+  font-weight: 300;
+}
 body {
   background: #000;
   margin: auto;

@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>wish</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300&amp;subset=japanese">
     <link rel="stylesheet" href="home.css">
   </head>
   <body>
@@ -18,20 +19,20 @@
       <br><a target="_blank" href="//myanimelist.net/profile/Ain">myanimelist</a>
       <br><a target="_blank" href="//osu.ppy.sh/users/Wishu">osu!</a>
       <?php if (isset($_SESSION["username"])): ?>
-        <button type="button" name="button" onclick="window.location.href='/home/'">&#x4E16;&#x754C;&#x306B;&#x7D9A;&#x3051;&#x308B;&nbsp;&nbsp;&#10148;</button>
+        <button class="jp" type="button" name="button" onclick="window.location.href='/home/'">&#x4E16;&#x754C;&#x306B;&#x7D9A;&#x3051;&#x308B;&nbsp;&nbsp;&#10148;</button>
       <?php else: ?>
-        <button type="button" name="button" onclick="modalToggle()">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&nbsp;&nbsp;&#10148;</button>
+        <button class="jp" type="button" name="button" onclick="modalToggle()">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&nbsp;&nbsp;&#10148;</button>
       <?php endif; ?>
     </div>
     <div id="catch" onclick="catchModal()"></div>
     <div id="modal">
-      <h2>&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;</h2>
+      <h2 class="jp">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;</h2>
       <form class="login" action="../php/login.php" method="post">
-        <input type="text" name="username" maxlength="16" placeholder="&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;" required>
+        <input class="jp" type="text" name="username" maxlength="16" placeholder="&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;" required>
         <br>
-        <input type="password" name="password" maxlength="16" placeholder="&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;" required>
+        <input class="jp" type="password" name="password" maxlength="16" placeholder="&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;" required>
         <br>
-        <input type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
+        <input class="jp" type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
       </form>
     </div>
     <audio id="player" src="theme.flac"></audio>
