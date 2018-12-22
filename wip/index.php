@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,7 +17,11 @@
       <br><a href="//last.fm/user/Wish495">last.fm</a>
       <br><a href="//myanimelist.net/profile/Ain">myanimelist</a>
       <br><a href="//osu.ppy.sh/users/Wishu">osu!</a>
-      <button type="button" name="button" onclick="modalToggle()">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&nbsp;&nbsp;&#10148;</button>
+      <?php if (isset($_SESSION["username"])): ?>
+        <button type="button" name="button" onclick="window.location.href='/home/'">&#x4E16;&#x754C;&#x306B;&#x7D9A;&#x3051;&#x308B;&nbsp;&nbsp;&#10148;</button>
+      <?php else: ?>
+        <button type="button" name="button" onclick="modalToggle()">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&nbsp;&nbsp;&#10148;</button>
+      <?php endif; ?>
     </div>
     <div id="catch" onclick="catchModal()"></div>
     <div id="modal">

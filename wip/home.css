@@ -11,6 +11,7 @@ body {
 #body {
   position: absolute;
   left: 10vw;
+  z-index: 0;
 }
 h1 {
   font-family: "Bitstream Vera Sans Mono", monospace;
@@ -22,12 +23,15 @@ a {
   color: white;
   text-decoration: none;
   transition: padding-left .5s, text-shadow .5s;
-  padding: .3em;
+  padding: .3rem;
 }
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   padding-left: 1.3rem;
   text-shadow: 0px 0px 4px #FFF;
+}
+a:hover::before {
+  content: "> ";
 }
 br {
   margin-bottom: .6em;

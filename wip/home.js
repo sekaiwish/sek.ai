@@ -1,6 +1,7 @@
 var cursorState = false;
 var modalState = false;
 var killModal;
+var linkObject;
 function blink() {
   if (cursorState === false) {
     document.getElementById("cursor").style.visibility = "hidden";
@@ -33,6 +34,16 @@ function catchModal() {
   document.getElementById("modal").style.opacity = 0;
   modalState = false;
 }
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    var isEscape = false;
+    if ("key" in evt) {
+        isEscape = (evt.key == "Escape" || evt.key == "Esc");
+    }
+    if (isEscape) {
+        catchModal();
+    }
+};
 setTimeout(function(){document.getElementById("wish").innerHTML="<span class='halfStyle' data-content='w'>w</span>_"},180);
 setTimeout(function(){document.getElementById("wish").innerHTML="<span class='halfStyle' data-content='w'>w</span><span class='halfStyle' data-content='i'>i</span>_"},360);
 setTimeout(function(){document.getElementById("wish").innerHTML="<span class='halfStyle' data-content='w'>w</span><span class='halfStyle' data-content='i'>i</span><span class='halfStyle' data-content='s'>s</span>_"},540);
