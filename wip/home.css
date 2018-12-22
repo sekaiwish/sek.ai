@@ -10,12 +10,27 @@ body {
 }
 #body {
   position: absolute;
+  left: 10vw;
 }
 h1 {
   font-family: "Bitstream Vera Sans Mono", monospace;
   font-size: 8rem;
   color: white;
-  left: 10vw;
+}
+a {
+  font-family: "Bitstream Vera Sans Mono", monospace;
+  color: white;
+  text-decoration: none;
+  transition: padding-left .5s, text-shadow .5s;
+  padding: .3em;
+}
+a:hover {
+  text-decoration: underline;
+  padding-left: 1.3rem;
+  text-shadow: 0px 0px 4px #FFF;
+}
+br {
+  margin-bottom: .6em;
 }
 h2 {
   text-shadow: 0px 0px 4px #FFF;
@@ -75,6 +90,7 @@ button {
   border: 1px solid #FFF;
   background: black;
   color: white;
+  text-shadow: 0px 0px 4px #FFF;
   box-shadow: 0px 0px 6px #FFF, inset 0px 0px 6px #FFF;
   padding: .2em .8em;
   cursor: pointer;

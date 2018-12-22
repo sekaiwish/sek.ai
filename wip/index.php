@@ -8,6 +8,14 @@
   <body>
     <div id="body">
       <h1 class="halfStyle" id="wish">_</h1>
+      <br><a href="//discord.gg/vCXWfya">discord</a>
+      <br><a href="//steamcommunity.com/id/sadwish">steam</a>
+      <br><a href="//gitlab.com/wishu">gitlab</a>
+      <br><a href="//youtube.com/wish495">youtube</a>
+      <br><a href="//twitter.com/wishdere">twitter</a>
+      <br><a href="//last.fm/user/Wish495">last.fm</a>
+      <br><a href="//myanimelist.net/profile/Ain">myanimelist</a>
+      <br><a href="//osu.ppy.sh/users/Wishu">osu!</a>
       <button type="button" name="button" onclick="modalToggle()">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&nbsp;&nbsp;&#10148;</button>
     </div>
     <div id="catch" onclick="catchModal()"></div>
