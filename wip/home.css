@@ -19,7 +19,8 @@ body {
 }
 h1 {
   font-family: "Bitstream Vera Sans Mono", monospace;
-  font-size: 8rem;
+  font-size: 10vmax;
+  white-space: nowrap;
   color: white;
 }
 a {
