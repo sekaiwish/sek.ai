@@ -8,6 +8,13 @@ var canvasWidth = window.innerWidth;
 function init() {
   window.requestAnimationFrame(draw);
 }
+function scale() {
+  var scale = window.innerWidth / canvasWidth;
+  for (var i = 0; i < trails.length; i++) {
+    trails[i].position = Math.round(trails[i].position * scale);
+  }
+  canvasWidth = window.innerWidth;
+}
 function draw() {
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
