@@ -82,8 +82,11 @@ setTimeout(function(){document.getElementById("wish").innerHTML="<span class='ha
 setTimeout(function(){document.getElementById("wish").innerHTML="<span class='halfStyle' data-content='w'>w</span><span class='halfStyle' data-content='i'>i</span>_"},360);
 setTimeout(function(){document.getElementById("wish").innerHTML="<span class='halfStyle' data-content='w'>w</span><span class='halfStyle' data-content='i'>i</span><span class='halfStyle' data-content='s'>s</span>_"},540);
 setTimeout(function(){document.getElementById("wish").innerHTML="<span class='halfStyle' data-content='w'>w</span><span class='halfStyle' data-content='i'>i</span><span class='halfStyle' data-content='s'>s</span><span class='halfStyle' data-content='h'>h</span><span id='cursor'>_</span>";setInterval(blink,500);},720);
-var audio = document.getElementById("player");
-player.volume = 0.1;
-player.loop = true;
-player.play();
+function play() {
+  audio = document.getElementById("player");
+  audio.volume = 0.1;
+  audio.loop = true;
+  audio.play();
+}
+setTimeout(play, 0);
 init();

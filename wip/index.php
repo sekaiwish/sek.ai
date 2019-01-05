@@ -38,6 +38,8 @@
       </form>
     </div>
     <script src="home.js" charset="utf-8"></script>
-    <audio id="player" src="theme.flac"></audio>
+    <audio id="player">
+      <source src="theme.flac" type="audio/flac">
+    </audio>
   </body>
 </html>
