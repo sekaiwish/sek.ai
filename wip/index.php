@@ -37,7 +37,7 @@
         <input class="jp" type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
       </form>
     </div>
-    <audio id="player" src="theme.flac"></audio>
     <script src="home.js" charset="utf-8"></script>
+    <audio id="player" src="theme.flac"></audio>
   </body>
 </html>
