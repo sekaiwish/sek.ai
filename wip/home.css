@@ -8,6 +8,10 @@
   font-family: "M PLUS 1p";
   font-weight: 300;
 }
+canvas {
+  position: absolute;
+  z-index: 0;
+}
 body {
   background: #000;
   margin: auto;

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="home.css">
   </head>
   <body>
+    <canvas id="canvas"></canvas>
     <div id="body">
       <h1 class="halfStyle" id="wish">_</h1>
       <br><a target="_blank" href="//discord.gg/vCXWfya">discord</a>

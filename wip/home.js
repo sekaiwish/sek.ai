@@ -1,7 +1,41 @@
 var cursorState = false;
 var modalState = false;
 var killModal;
-var linkObject;
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var trails = [];
+var canvasWidth = window.innerWidth;
+function init() {
+  window.requestAnimationFrame(draw);
+}
+function draw() {
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  if (canvasWidth !== window.innerWidth) {
+    scale();
+  }
+  if (trails[0]) {
+    while (trails[0].age < 1) {
+      trails.shift();
+    }
+  }
+  var newPixel = {};
+  let trailLength = 60;
+  newPixel.age = window.innerHeight + trailLength;
+  newPixel.position = (Math.floor((Math.random() * window.innerWidth) + 1));
+  trails.push(newPixel);
+  for (var i = 0; i < trails.length; i++) {
+    ctx.fillStyle = "#FFF";
+    ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age + trailLength, 1, 1);
+    var gradient = ctx.createLinearGradient(trails[i].position, window.innerHeight - trails[i].age + trailLength, trails[i].position, window.innerHeight - trails[i].age);
+    gradient.addColorStop(0, "#00a0a0");
+    gradient.addColorStop(1, "#000");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age, 1, trailLength);
+    trails[i].age -= 2;
+  }
+  window.requestAnimationFrame(draw);
+}
 function blink() {
   if (cursorState === false) {
     document.getElementById("cursor").style.visibility = "hidden";
@@ -43,7 +77,7 @@ document.onkeydown = function(evt) {
     if (isEscape) {
         catchModal();
     }
-};
+}
 setTimeout(function(){document.getElementById("wish").innerHTML="<span class='halfStyle' data-content='w'>w</span>_"},180);
 setTimeout(function(){document.getElementById("wish").innerHTML="<span class='halfStyle' data-content='w'>w</span><span class='halfStyle' data-content='i'>i</span>_"},360);
 setTimeout(function(){document.getElementById("wish").innerHTML="<span class='halfStyle' data-content='w'>w</span><span class='halfStyle' data-content='i'>i</span><span class='halfStyle' data-content='s'>s</span>_"},540);
@@ -52,3 +86,4 @@ var audio = document.getElementById("player");
 player.volume = 0.1;
 player.loop = true;
 player.play();
+init();
