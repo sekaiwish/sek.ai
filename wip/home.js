@@ -29,7 +29,8 @@ function draw() {
   var newPixel = {};
   let trailLength = 60;
   newPixel.age = window.innerHeight + trailLength;
-  newPixel.position = (Math.floor((Math.random() * window.innerWidth) + 1));
+  newPixel.position = Math.floor((Math.random() * window.innerWidth) + 1);
+  newPixel.velocity = Math.floor((Math.random() * 3) + 1);
   trails.push(newPixel);
   for (var i = 0; i < trails.length; i++) {
     ctx.fillStyle = "#FFF";
@@ -39,7 +40,7 @@ function draw() {
     gradient.addColorStop(1, "#000");
     ctx.fillStyle = gradient;
     ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age, 1, trailLength);
-    trails[i].age -= 2;
+    trails[i].age -= trails[i].velocity;
   }
   window.requestAnimationFrame(draw);
 }
