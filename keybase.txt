@@ -1,28 +1,25 @@
-================================================================== 
-https://keybase.io/wish495 
--------------------------------------------------------------------- I 
-hereby claim:
+==================================================================
+https://keybase.io/wish495
+--------------------------------------------------------------------
+
+I hereby claim:
+
   * I am an admin of https://sek.ai
   * I am wish495 (https://keybase.io/wish495) on keybase.
-  * I have a public key ASAousmJrj_fJxf8MwH3XMA7dnprvJuBl3w6TIrcvqwZ0wo 
-To do so, I am signing this object: {
+  * I have a public key with fingerprint 2AF7 60A2 0C6C 06EA E251  517B 6E15 5E41 6332 4DC8
+
+To do so, I am signing this object:
+
+{
   "body": {
     "key": {
-      "eldest_kid": 
-"012028bac989ae3fdf2717fc3301f75cc03b767a6bbc9b81977c3a4c8adcbeac19d30a",
+      "eldest_kid": "01111bd7e7e1207fba821b20729673a60fcd365f2c90230355b50ff9b28f869a27bd0a",
+      "fingerprint": "2af760a20c6c06eae251517b6e155e4163324dc8",
       "host": "keybase.io",
-      "kid": 
-"012028bac989ae3fdf2717fc3301f75cc03b767a6bbc9b81977c3a4c8adcbeac19d30a",
+      "key_id": "6e155e4163324dc8",
+      "kid": "01111bd7e7e1207fba821b20729673a60fcd365f2c90230355b50ff9b28f869a27bd0a",
       "uid": "85cada47755b60418ffce71faadd4919",
       "username": "wish495"
-    },
-    "merkle_root": {
-      "ctime": 1521216272,
-      "hash": 
-"67d36fe2d77f986b453335036a84274af1263fcff5af10fc834529363723d0148b7cc1c4b40a954b98eebb703ddd1efeede11debc2c74cc311906e10781408aa",
-      "hash_meta": 
-"639690eb86b2c962dfa3775b4c8a845e2edda4387f10321c34259948bb75af01",
-      "seqno": 2245921
     },
     "service": {
       "hostname": "sek.ai",
@@ -31,20 +28,35 @@ To do so, I am signing this object: {
     "type": "web_service_binding",
     "version": 1
   },
-  "client": {
-    "name": "keybase.io go client",
-    "version": "1.0.45"
-  },
-  "ctime": 1521216295,
-  "expire_in": 504576000,
-  "prev": 
-"7e66a9ae42a846475095dc991318347775c797bccf179b7d2f8df315bec18e50",
-  "seqno": 27,
+  "ctime": 1547300085,
+  "expire_in": 157680000,
+  "prev": "3b40e00c499c96bcad028a1f6fa94b8aa1c91541c3bf68db868bb02e32413f0c",
+  "seqno": 35,
   "tag": "signature"
 }
-which yields the signature: 
-hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgKLrJia4/3ycX/DMB91zAO3Z6a7ybgZd8OkyK3L6sGdMKp3BheWxvYWTFAz57ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwMjhiYWM5ODlhZTNmZGYyNzE3ZmMzMzAxZjc1Y2MwM2I3NjdhNmJiYzliODE5NzdjM2E0YzhhZGNiZWFjMTlkMzBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMjhiYWM5ODlhZTNmZGYyNzE3ZmMzMzAxZjc1Y2MwM2I3NjdhNmJiYzliODE5NzdjM2E0YzhhZGNiZWFjMTlkMzBhIiwidWlkIjoiODVjYWRhNDc3NTViNjA0MThmZmNlNzFmYWFkZDQ5MTkiLCJ1c2VybmFtZSI6Indpc2g0OTUifSwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE1MjEyMTYyNzIsImhhc2giOiI2N2QzNmZlMmQ3N2Y5ODZiNDUzMzM1MDM2YTg0Mjc0YWYxMjYzZmNmZjVhZjEwZmM4MzQ1MjkzNjM3MjNkMDE0OGI3Y2MxYzRiNDBhOTU0Yjk4ZWViYjcwM2RkZDFlZmVlZGUxMWRlYmMyYzc0Y2MzMTE5MDZlMTA3ODE0MDhhYSIsImhhc2hfbWV0YSI6IjYzOTY5MGViODZiMmM5NjJkZmEzNzc1YjRjOGE4NDVlMmVkZGE0Mzg3ZjEwMzIxYzM0MjU5OTQ4YmI3NWFmMDEiLCJzZXFubyI6MjI0NTkyMX0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJzZWsuYWkiLCJwcm90b2NvbCI6Imh0dHBzOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC40NSJ9LCJjdGltZSI6MTUyMTIxNjI5NSwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsInByZXYiOiI3ZTY2YTlhZTQyYTg0NjQ3NTA5NWRjOTkxMzE4MzQ3Nzc1Yzc5N2JjY2YxNzliN2QyZjhkZjMxNWJlYzE4ZTUwIiwic2Vxbm8iOjI3LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQHSNY2zLtAGeShbJMVAJNXwaA/3bOG7t1r/E4bQKuHJdUk6zEpO5KGq9mjWhempYO4jXWtsyfYSOfjV1ScP2Zgaoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCDtJMo9RWQNy6/jA+n1kqp4Xo1sejXu0P+rnvtQuWsxKKN0YWfNAgKndmVyc2lvbgE= 
-And finally, I am proving ownership of this host by posting or appending 
-to this document. View my publicly-auditable identity here: 
-https://keybase.io/wish495
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtUr9rFEEY3WjUJCTgCbHSwgEF5Qwzszu/rlMLsbCIIiJIzvmZG+7cPXf3zoTz
+bBUUtLGxELUwQbg/QxC0SCda2ilqIagg/po9ki6l08zM4733fe/juz+3M5qqpfNL
+JzQ++3Li1QcVXRaffg6AyswqaAxA244v2zG2KJttb0ADQBSOMswyizBkTkmOkQov
+LCiLJYVOm5gSh7WAOIYxIYpA54TC3HEqJGbKQAnqwPl02ebd3KdlsMXSMQolhppq
+SK20mCCCmKIWEWITROMYJ0bzIGxlRaUIzSlZ2AWfBSx8muP2tuH/5757YztOtDQy
+YSzwKEwQd05bhpyUxiQCiYpY2DyVV21gX/dFKxEEDOsggH2vbTXXKsgmobDtBemD
+qJtnZaazTsBaZdktGpWmXO2OXaxqbsqbyqcmDDAo+jYvfJaCBgpMXfrKD5GExRBC
+TurArnR9bpu+YhBGeYBhVcf2g2WsEmgh1IkQWtBzKoSCmEvkqJMiUVxKpEVwQzpW
+jnKjOOVKQWzDdFHsoAZVomtpBhpxqFXK5SqMX05l2cstGM7c7k1Gtano4P5Dk8d+
+XHk629n98f3i4mBr6XbtqDYumpneu4WMLkV/4j1s/ebat7f3Torva3eOngf90d1b
+v/8ubVy4eGp0fHoi+jX7+NGL9X2fzzx8PnwyfxgceD33ZeXdgxunN+pf39SejY78
+Aw==
+=WkES
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/wish495
+
 ==================================================================
