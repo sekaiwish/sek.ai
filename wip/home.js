@@ -10,7 +10,8 @@ function init() {
 }
 function scale() {
   var scale = window.innerWidth / canvasWidth;
-  for (var i = 0; i < trails.length; i++) {
+  var len = trails.length;
+  for (var i = 0; i < len; i++) {
     trails[i].position = Math.round(trails[i].position * scale);
   }
   canvasWidth = window.innerWidth;
@@ -32,7 +33,8 @@ function draw() {
   newPixel.position = Math.floor((Math.random() * window.innerWidth) + 1);
   newPixel.velocity = Math.floor((Math.random() * 3) + 1);
   trails.push(newPixel);
-  for (var i = 0; i < trails.length; i++) {
+  var len = trails.length;
+  for (var i = 0; i < len; i++) {
     ctx.fillStyle = "#FFF";
     ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age + trailLength, 1, 1);
     var gradient = ctx.createLinearGradient(trails[i].position, window.innerHeight - trails[i].age + trailLength, trails[i].position, window.innerHeight - trails[i].age);
