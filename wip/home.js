@@ -4,6 +4,7 @@ var killModal;
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var trails = [];
+var dead = [];
 var canvasWidth = window.innerWidth;
 function init() {
   window.requestAnimationFrame(draw);
@@ -22,9 +23,14 @@ function draw() {
     scale();
   }
   if (trails[0]) {
-    while (trails[0].age < 1) {
-      trails.shift();
+    for (var i = 0; i < trails.length; i++) {
+      if (trails[i].age < 0) {
+        dead.push(i);
+      }
     }
+    for (var i = dead.length - 1; i >= 0; i--)
+      trails.splice(dead[i], 1);
+    dead = [];
   }
   var newPixel = {};
   let trailLength = 60;
