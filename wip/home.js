@@ -36,7 +36,7 @@ function draw() {
   let trailLength = 60;
   newPixel.age = window.innerHeight + trailLength;
   newPixel.position = Math.floor((Math.random() * window.innerWidth) + 1);
-  newPixel.velocity = Math.floor((Math.random() * 3) + 1);
+  newPixel.velocity = Math.floor((Math.random() * 5) + 2);
   trails.push(newPixel);
   for (var i = 0; i < trails.length; i++) {
     ctx.fillStyle = "#FFF";
