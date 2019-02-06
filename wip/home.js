@@ -24,7 +24,8 @@ function draw() {
     scale();
   }
   if (trails[0]) {
-    for (var i = 0; i < trails.length; i++) {
+    let len = trails.length;
+    for (var i = 0; i < len; i++) {
       if (trails[i].age < 0) {
         dead.push(i);
       }
@@ -39,8 +40,8 @@ function draw() {
   newPixel.position = Math.floor((Math.random() * window.innerWidth) + 1);
   newPixel.velocity = Math.floor((Math.random() * 5) + 2);
   trails.push(newPixel);
-  var len = trails.length;
-  for (var i = 0; i < len; i++) {
+  let leng = trails.length;
+  for (var i = 0; i < leng; i++) {
     ctx.fillStyle = "#FFF";
     ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age + trailLength, 1, 1);
     var gradient = ctx.createLinearGradient(trails[i].position, window.innerHeight - trails[i].age + trailLength, trails[i].position, window.innerHeight - trails[i].age);
