@@ -12,7 +12,7 @@
     <canvas id="canvas"></canvas>
     <div id="body">
       <h1 class="halfStyle" id="wish">_</h1>
-      <br><a target="_blank" href="discord://open/users/119094696487288833">discord</a>
+      <br><a href="discord://open/users/119094696487288833">discord</a>
       <br><a target="_blank" href="//steamcommunity.com/id/sadwish">steam</a>
       <br><a target="_blank" href="//gitlab.com/wishu">gitlab</a>
       <br><a target="_blank" href="//youtube.com/wish495">youtube</a>
