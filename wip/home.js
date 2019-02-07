@@ -58,16 +58,14 @@ function blink() {
     document.getElementById("cursor").style.visibility = "hidden";
     cursorState = false;
     var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
-    link.type = "image/x-icon";
-    link.rel = "shortcut icon";
+    link.rel = "icon";
     link.href = "favicoff.ico";
     document.getElementsByTagName("head")[0].appendChild(link);
   } else {
     document.getElementById("cursor").style.visibility = "visible";
     cursorState = true;
     var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
-    link.type = "image/x-icon";
-    link.rel = "shortcut icon";
+    link.rel = "icon";
     link.href = "favicon.ico";
     document.getElementsByTagName("head")[0].appendChild(link);
   }
