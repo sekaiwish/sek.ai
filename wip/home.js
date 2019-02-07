@@ -57,9 +57,19 @@ function blink() {
   if (cursorState === false) {
     document.getElementById("cursor").style.visibility = "hidden";
     cursorState = true;
+    var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+    link.type = "image/x-icon";
+    link.rel = "shortcut icon";
+    link.href = "favicon.ico";
+    document.getElementsByTagName("head")[0].appendChild(link);
   } else {
     document.getElementById("cursor").style.visibility = "visible";
     cursorState = false;
+    var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+    link.type = "image/x-icon";
+    link.rel = "shortcut icon";
+    link.href = "favicoff.ico";
+    document.getElementsByTagName("head")[0].appendChild(link);
   }
 }
 function modalToggle() {
