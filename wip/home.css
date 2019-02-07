@@ -141,3 +141,11 @@ button:hover, input[type="submit"]:hover {
   color: #000;
   text-shadow: 2px 0 #000, -2px 0 #000;
 }
+@media screen and (max-height: 500px) {
+  #modal {
+    height: unset;
+  }
+  input[type="submit"] {
+    margin-bottom: 2em;
+  }
+}
