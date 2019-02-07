@@ -7,7 +7,7 @@
     <title>wish</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300&amp;subset=japanese">
     <link rel="stylesheet" href="home.css">
-    <link type="image/x-icon" rel="shortcut icon" href="favicoff.ico">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
     <canvas id="canvas"></canvas>
