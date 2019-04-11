@@ -41,6 +41,30 @@ a:hover {
 a:hover::before {
   content: "> ";
 }
+a.a1:hover::after {
+  content: " - wish#0001";
+}
+a.a2:hover::after {
+  content: " - sadwish";
+}
+a.a3:hover::after {
+  content: " - wishu";
+}
+a.a4:hover::after {
+  content: " - wish495";
+}
+a.a5:hover::after {
+  content: " - wishdere";
+}
+a.a6:hover::after {
+  content: " - wish495";
+}
+a.a7:hover::after {
+  content: " - ain";
+}
+a.a8:hover::after {
+  content: " - wishu";
+}
 br {
   margin-bottom: .6em;
 }

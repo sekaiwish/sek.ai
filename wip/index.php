@@ -13,14 +13,14 @@
     <canvas id="canvas"></canvas>
     <div id="body">
       <h1 class="halfStyle" id="wish">_</h1>
-      <br><a href="discord://open/users/119094696487288833">discord</a>
-      <br><a target="_blank" href="//steamcommunity.com/id/sadwish">steam</a>
-      <br><a target="_blank" href="//gitlab.com/wishu">gitlab</a>
-      <br><a target="_blank" href="//youtube.com/wish495">youtube</a>
-      <br><a target="_blank" href="//twitter.com/wishdere">twitter</a>
-      <br><a target="_blank" href="//last.fm/user/Wish495">last.fm</a>
-      <br><a target="_blank" href="//myanimelist.net/profile/Ain">myanimelist</a>
-      <br><a target="_blank" href="//osu.ppy.sh/users/Wishu">osu!</a>
+      <br><a class="a1" href="discord://open/users/119094696487288833">discord</a>
+      <br><a class="a2" target="_blank" href="//steamcommunity.com/id/sadwish">steam</a>
+      <br><a class="a3" target="_blank" href="//gitlab.com/wishu">gitlab</a>
+      <br><a class="a4" target="_blank" href="//youtube.com/wish495">youtube</a>
+      <br><a class="a5" target="_blank" href="//twitter.com/wishdere">twitter</a>
+      <br><a class="a6" target="_blank" href="//last.fm/user/Wish495">last.fm</a>
+      <br><a class="a7" target="_blank" href="//myanimelist.net/profile/Ain">myanimelist</a>
+      <br><a class="a8" target="_blank" href="//osu.ppy.sh/users/Wishu">osu!</a>
       <?php if (isset($_SESSION["username"])): ?>
         <button class="jp" type="button" name="button" onclick="window.location.href='/home/'">&#x4E16;&#x754C;&#x306B;&#x7D9A;&#x3051;&#x308B;&nbsp;&nbsp;&#10148;</button>
       <?php else: ?>
