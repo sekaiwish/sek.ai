@@ -18,6 +18,7 @@
       <br><a href="/flac/">/flac/ - lossless music collection</a>
       <br><a href="/anime/">/anime/ - bd and webrip collection</a>
       <br><a>/chan/ - unavailable</a>
+      <h4>&copy; wish 2019</h4>
       <button class="jp" id="button" onclick="window.location.href='/php/logout.php';">&#x30ED;&#x30B0;&#x30A2;&#x30A6;&#x30C8;&nbsp;&nbsp;&#10148;</button>
     </div>
     <script src="../js/home.js" charset="utf-8"></script>
