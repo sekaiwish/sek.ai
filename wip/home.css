@@ -1,168 +1,177 @@
 @font-face {
-    font-family: "Bitstream Vera Sans Mono";
-    src: url(font.woff2) format("woff2");
-    font-weight: bold;
-    font-style: normal;
+font-family:"Bitstream Vera Sans Mono";
+src:url(font.woff2) format("woff2");
+font-weight:700;
+font-style:normal
 }
+
 .jp {
-  font-family: "M PLUS 1p";
-  font-weight: 300;
+font-family:"M PLUS 1p";
+font-weight:300
 }
+
 canvas {
-  position: absolute;
-  z-index: 0;
+position:absolute;
+z-index:0
 }
+
 body {
-  background: #000;
-  margin: auto;
+background:#000;
+margin:auto
 }
+
 #body {
-  position: absolute;
-  left: 10vw;
-  z-index: 0;
+position:absolute;
+left:10vw;
+z-index:0
 }
+
 h1 {
-  font-family: "Bitstream Vera Sans Mono", monospace;
-  font-size: 10vmax;
-  white-space: nowrap;
-  color: white;
+font-family:"Bitstream Vera Sans Mono",monospace;
+font-size:10vmax;
+white-space:nowrap;
+color:#fff
 }
+
 a {
-  font-family: "Bitstream Vera Sans Mono", monospace;
-  color: white;
-  text-decoration: none;
-  transition: padding-left .5s, text-shadow .5s;
-  padding: .3rem;
+font-family:"Bitstream Vera Sans Mono",monospace;
+color:#fff;
+text-decoration:none;
+transition:padding-left .5s,text-shadow .5s;
+padding:.3rem
 }
+
 a:hover {
-  padding-left: 1.3rem;
-  text-shadow: 0px 0px 4px #FFF;
+padding-left:1.3rem;
+text-shadow:0 0 4px #FFF
 }
+
 a:hover::before {
-  content: "> ";
+content:"> "
 }
-a.a1:hover::after {
-  content: " - wish#0001";
-}
-a.a2:hover::after {
-  content: " - sadwish";
-}
-a.a3:hover::after {
-  content: " - wishu";
-}
-a.a4:hover::after {
-  content: " - wish495";
-}
-a.a5:hover::after {
-  content: " - wishdere";
-}
-a.a6:hover::after {
-  content: " - wish495";
-}
-a.a7:hover::after {
-  content: " - ain";
-}
-a.a8:hover::after {
-  content: " - wishu";
-}
+
 br {
-  margin-bottom: .6em;
+margin-bottom:.6em
 }
+
 h2 {
-  text-shadow: 0px 0px 4px #FFF;
-  margin: auto;
-  padding: .5em;
-  border-bottom: 1px solid #FFF;
+text-shadow:0 0 4px #FFF;
+margin:auto;
+padding:.5em;
+border-bottom:1px solid #FFF
 }
+
 * {
-  transition: opacity 3s;
+transition:opacity 3s
 }
+
 #catch {
-  height: 100vh;
-  width: 100%;
-  visibility: hidden;
-  z-index: 10;
+height:100vh;
+width:100%;
+visibility:hidden;
+z-index:10;
+position:absolute
 }
+
 #modal {
-  position: absolute;
-  visibility: hidden;
-  opacity: 0;
-  width: 60vw;
-  max-width: 450px;
-  height: 15.7em;
-  right: 20vw;
-  top: 20vh;
-  text-align: center;
-  border: 1px solid #FFF;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  box-shadow: 0px 0px 6px #FFF, inset 0px 0px 6px #FFF;
-  z-index: 20;
-  transition: opacity 3s;
+position:absolute;
+visibility:hidden;
+opacity:0;
+width:60vw;
+max-width:450px;
+height:15.7em;
+right:20vw;
+top:20vh;
+text-align:center;
+border:1px solid #FFF;
+background:rgba(0,0,0,0.5);
+color:#fff;
+box-shadow:0 0 6px #FFF,inset 0 0 6px #FFF;
+z-index:20;
+transition:opacity 3s
 }
+
 input {
-  margin-top: 2em;
-  width: 60%;
-  border: 1px solid #FFF;
-  background: #000;
-  color: white;
-  box-shadow: 0px 0px 6px #FFF, inset 0px 0px 6px #FFF;
-  padding: .8em .8em;
+margin-top:2em;
+width:60%;
+border:1px solid #FFF;
+background:#000;
+color:#fff;
+box-shadow:0 0 6px #FFF,inset 0 0 6px #FFF;
+padding:.8em
 }
+
 input::placeholder {
-  font-weight: bold;
-  text-shadow: 0px 0px 4px #808080;
+font-weight:700;
+text-shadow:0 0 4px gray
 }
+
 input[type="submit"] {
-  font-weight: bold;
-  width: 8em;
-  text-shadow: 0px 0px 4px #FFF;
-  cursor: pointer;
-  transition: background-color .3s, color .3s;
+font-weight:700;
+width:8em;
+text-shadow:0 0 4px #FFF;
+cursor:pointer;
+transition:background-color .3s,color .3s
 }
+
+h4 {
+font-family:"Bitstream Vera Sans Mono",monospace;
+color:#fff;
+position:fixed;
+bottom:2em;
+left:2em;
+margin:0
+}
+
 button {
-  position: fixed;
-  bottom: 2em;
-  right: 2em;
-  border: 1px solid #FFF;
-  background: black;
-  color: white;
-  text-shadow: 0px 0px 4px #FFF;
-  box-shadow: 0px 0px 6px #FFF, inset 0px 0px 6px #FFF;
-  padding: .2em .8em;
-  cursor: pointer;
-  transition: background-color .3s, color .3s;
+position:fixed;
+bottom:2em;
+right:2em;
+border:1px solid #FFF;
+background:#000;
+color:#fff;
+text-shadow:0 0 4px #FFF;
+box-shadow:0 0 6px #FFF,inset 0 0 6px #FFF;
+padding:.2em .8em;
+cursor:pointer;
+transition:background-color .3s,color .3s
 }
-button:hover, input[type="submit"]:hover {
-  background-color: #FFF;
-  color: #000;
+
+button:hover,input[type="submit"]:hover {
+background-color:#FFF;
+color:#000
 }
+
 :focus {
-  outline: none;
+outline:none
 }
+
 ::-moz-focus-inner {
-  border: 0;
+border:0
 }
+
 .halfStyle {
-  position: relative;
-  display: inline-block;
+position:relative;
+display:inline-block
 }
+
 .halfStyle:before {
-  z-index: 2;
-  position: absolute;
-  height: 50%;
-  content: attr(data-content);
-  overflow: hidden;
-  pointer-events: none;
+z-index:2;
+position:absolute;
+height:50%;
+content:attr(data-content);
+overflow:hidden;
+pointer-events:none
 }
+
 .halfStyle:after {
-  display: block;
-  position: absolute;
-  top: 0;
-  height: 62%;
-  content: attr(data-content);
-  overflow: hidden;
-  pointer-events: none;
-  color: #000;
-  text-shadow: 2px 0 #000, -2px 0 #000;
+display:block;
+position:absolute;
+top:0;
+height:62%;
+content:attr(data-content);
+overflow:hidden;
+pointer-events:none;
+color:#000;
+text-shadow:2px 0 #000,-2px 0 #000
 }
