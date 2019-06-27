@@ -1,99 +1,48 @@
-<?php $time = explode(' ', microtime()); $start = $time[1] + $time[0]; session_start(); ?>
+<?php session_start(); ?>
 <!doctype html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>wish</title>
-    <?php include("php/sources.php"); ?>
-    <script>
-      function showLogin(){document.getElementById("links").classList.add("trigger");document.getElementById("login").classList.add("trigger")}
-      function showLinks(){document.getElementById("links").classList.remove("trigger");document.getElementById("login").classList.remove("trigger")}
-      function playMusic(){let a=document.createElement("AUDIO");a.src="//cdn.sek.ai/theme.opus";a.id="player";document.getElementsByTagName("BODY")[0].appendChild(a);var player=document.getElementById("player");player.volume=0.05;player.loop=true;player.play()}
-    </script>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300&amp;subset=japanese">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="icon" href="favicon.ico">
   </head>
-  <body onLoad="playMusic()">
-    <?php if (isset($_GET["e"])) { if ($_GET["e"] == "1"): ?><div class="alert alert-warning">
-      <strong>Error</strong> &mdash; The user entered does not exist.
-    </div><?php echo "\n    "; elseif ($_GET["e"] == "2"): ?><div class="alert alert-warning">
-      <strong>Error</strong> &mdash; The incorrect password was entered.
-    </div><?php echo "\n    "; endif; } ?>
-    <div class="links" id="links">
-      <img class="wish" src="//cdn.sek.ai/svg/wish.svg">
-      <br>
-      <a class="link" href="//twitter.com/wishdere" target="_blank">
-        <img src="//cdn.sek.ai/svg/twitter.svg">
-      </a>
-      <a class="link" href="//youtube.com/wish495" target="_blank">
-        <img src="//cdn.sek.ai/svg/youtube.svg">
-      </a>
-      <a class="link" href="//twitch.tv/TheRealWish" target="_blank">
-        <img src="//cdn.sek.ai/svg/twitch.svg">
-      </a>
-      <a class="link" href="//gitlab.com/wishu" target="_blank">
-        <img src="//cdn.sek.ai/svg/gitlab.svg">
-      </a>
-      <a class="link" href="//discord.gg/vCXWfya" target="_blank">
-        <img src="//cdn.sek.ai/svg/discord.svg">
-      </a>
-      <a class="link" href="//steamcommunity.com/id/sadwish" target="_blank">
-        <img src="//cdn.sek.ai/svg/steam.svg">
-      </a>
-      <a class="link" href="//osu.ppy.sh/users/Wishu" target="_blank">
-        <img src="//cdn.sek.ai/svg/osu.svg">
-      </a>
-      <a class="link" href="//last.fm/user/Wish495" target="_blank">
-        <img src="//cdn.sek.ai/svg/lastfm.svg">
-      </a>
-      <a class="link" href="//myanimelist.net/profile/Ain" target="_blank">
-        <img src="//cdn.sek.ai/svg/myanimelist.svg">
-      </a>
-      <br>
-      <?php if (isset($_SESSION["username"])): ?><a href="/home/" class="btn btn-dark jp">
-        &#x304A;&#x3063;&#x3059;&#x3001;<b><?php echo $_SESSION["username"]; ?></b>!&nbsp;&nbsp;<i class="fas fa-chevron-circle-right"></i>
-      </a>
-      <?php else: ?><button class="btn btn-dark jp" onclick="showLogin()">
-        &#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&nbsp;&nbsp;<i class="fas fa-chevron-circle-right"></i>
-      </button><?php endif; echo "\n"; ?>
+  <body>
+    <canvas id="canvas"></canvas>
+    <div id="body">
+      <h1 class="halfStyle" id="wish">_</h1>
+      <br><a href="discord://open/users/119094696487288833">discord</a>
+      <br><a target="_blank" href="//steamcommunity.com/id/sadwish">steam</a>
+      <br><a target="_blank" href="//gitlab.com/wishu">gitlab</a>
+      <br><a target="_blank" href="//youtube.com/wish495">youtube</a>
+      <br><a target="_blank" href="//twitch.tv/wishdere">twitch</a>
+      <br><a target="_blank" href="//twitter.com/wishdere">twitter</a>
+      <br><a target="_blank" href="//last.fm/user/Wish495">last.fm</a>
+      <br><a target="_blank" href="//myanimelist.net/profile/Ain">myanimelist</a>
+      <br><a target="_blank" href="//osu.ppy.sh/users/Wishu">osu!</a>
+      <h4>&copy; wish 2019</h4>
+      <?php if (isset($_SESSION["username"])): ?>
+        <button class="jp" type="button" name="button" onclick="window.location.href='/home/'">&#x4E16;&#x754C;&#x306B;&#x7D9A;&#x3051;&#x308B;&nbsp;&nbsp;&#10148;</button>
+      <?php else: ?>
+        <button class="jp" type="button" name="button" onclick="modalToggle()">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&nbsp;&nbsp;&#10148;</button>
+      <?php endif; ?>
     </div>
-    <div class="card bg-dark text-white" id="login">
-      <h5 class="card-header jp">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;</h5>
-      <form class="card-body" action="php/login.php" method="post">
-        <div class="form-group">
-          <div class="input-group">
-            <div class="input-group-prepend"><i class="input-group-text fas fa-user-circle"></i></div>
-            <input class="form-control jp" type="text" placeholder="&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;" name="username" maxlength="16" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="input-group">
-            <div class="input-group-prepend"><i class="input-group-text fas fa-lock"></i></div>
-            <input class="form-control jp" type="password" placeholder="&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;" name="password" maxlength="16" required>
-          </div>
-        </div>
-        <div class="btn-group">
-          <a class="btn btn-secondary jp" onclick="showLinks()">&#x7D42;&#x4E86;</a>
-          <input class="btn btn-primary jp" type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
-        </div>
+    <div id="catch" onclick="catchModal()"></div>
+    <div id="modal">
+      <h2 class="jp">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;</h2>
+      <form class="login" action="../php/login.php" method="post">
+        <input class="jp" type="text" name="username" maxlength="16" placeholder="&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;" required>
+        <br>
+        <input class="jp" type="password" name="password" maxlength="16" placeholder="&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;" required>
+        <br>
+        <input class="jp" type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
       </form>
     </div>
-    <div class="views">
-      <?php
-        if (include("php/sql.php")) {
-          $stmt = $dbi->prepare("SELECT num FROM views ORDER BY num DESC LIMIT 1");
-          $stmt->execute();
-          $res = $stmt->get_result();
-          $row = $res->fetch_assoc();
-          $result = str_split($row["num"] + 1);
-          foreach ($result as $key => $value) {
-            echo "<img src=\"//cdn.sek.ai/views/$value.gif\">";
-          }
-          echo "\n";
-          $stmt = $dbi->prepare("INSERT INTO views (ip) VALUES (?)");
-          $ip = $_SERVER["REMOTE_ADDR"];
-          $stmt->bind_param("s", $ip);
-          $stmt->execute();
-        }
-      ?>
-    </div>
-    <?php include("php/buttons.php"); ?>
+    <script src="home.js" charset="utf-8"></script>
+    <audio id="player">
+      <source src="theme.flac" type="audio/flac">
+    </audio>
   </body>
 </html>
