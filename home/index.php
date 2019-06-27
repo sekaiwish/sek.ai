@@ -14,7 +14,7 @@
     <div id=body>
       <h1>世界へようこそ！</h1>
       <br><a href="/account.php">sek.ai account settings</a><br>
-      <br><a href="/iki/">/iki/ - pomf-powered file hosting</a>
+      <br><a href="/iku/">/iku/ - pomf-powered file hosting</a>
       <br><a href="/flac/">/flac/ - lossless music collection</a>
       <br><a href="/anime/">/anime/ - bd and webrip collection</a>
       <br><a>/chan/ - unavailable</a>
