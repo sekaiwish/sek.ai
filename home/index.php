@@ -1,4 +1,4 @@
-<?php if (!isset($_SESSION["username"])) { header("Location: /error/401.html"); exit(); } ?>
+<?php session_start(); if (!isset($_SESSION["username"])) { header("Location: /error/401.html"); exit(); } ?>
 <!doctype html>
 <html>
   <head>
