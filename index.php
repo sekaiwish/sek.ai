@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>wish</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300&amp;subset=japanese">
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/index.css">
     <link rel="icon" href="favicon.ico">
   </head>
   <body>
@@ -40,7 +40,7 @@
         <input class="jp" type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
       </form>
     </div>
-    <script src="js/home.js" charset="utf-8"></script>
+    <script src="js/index.js" charset="utf-8"></script>
     <audio id="player">
       <source src="theme.flac" type="audio/flac">
     </audio>
