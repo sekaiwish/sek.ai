@@ -24,7 +24,7 @@
     <div id="catch" onclick="catchModal()"></div>
     <div id="modal">
       <h2 class="en">change password</h2>
-      <form action="php/password.php" method="post">
+      <form action="/php/password.php" method="post">
         <input class="en" type="password" name="old" maxlength="16" placeholder="current password" required>
         <br>
         <input class="en" type="password" name="new" maxlength="16" placeholder="new password" required>
