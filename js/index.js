@@ -112,7 +112,7 @@ function play() {
   audio.volume = 0.1;
   audio.loop = true;
   var isChromium = window.chrome;
-  if (isChromium !== null) {
+  if (isChromium !== null && typeof isChromium !== "undefined") {
     document.body.addEventListener("mousemove", function() {
       audio.play()
     });
