@@ -54,7 +54,14 @@ function play() {
   audio = document.getElementById("player");
   audio.volume = 0.1;
   audio.loop = true;
-  audio.play();
+  var isChromium = window.chrome;
+  if (isChromium !== null) {
+    document.body.addEventListener("mousemove", function() {
+      audio.play()
+    });
+  } else {
+    audio.play();
+  }
 }
 setTimeout(play, 0);
 init();
