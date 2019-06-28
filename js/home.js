@@ -85,6 +85,10 @@ document.onkeydown = function(evt) {
         catchModal();
     }
 }
+if (window.location.search.substring(1) === "s=1")
+  document.getElementById("s").innerHTML = "- updated successfully!";
+if (window.location.search.substring(1) === "e=1")
+  document.getElementById("s").innerHTML = "- update failed.";
 function play() {
   audio = document.getElementById("player");
   audio.volume = 0.1;

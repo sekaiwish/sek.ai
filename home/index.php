@@ -13,7 +13,7 @@
     <canvas id="canvas"></canvas>
     <div id=body>
       <h1>世界へようこそ！</h1>
-      <br><a onclick="modalToggle()">sek.ai account settings</a><br>
+      <br><a onclick="modalToggle()">sek.ai account settings</a><span id="s"></span><br>
       <br><a href="/iku/">/iku/ - pomf-powered file hosting</a>
       <br><a href="/flac/">/flac/ - lossless music collection</a>
       <br><a href="/anime/">/anime/ - bd and webrip collection</a>
