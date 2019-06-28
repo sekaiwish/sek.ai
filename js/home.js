@@ -1,3 +1,5 @@
+var modalState = false;
+var killModal;
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var trails = [];
@@ -49,6 +51,39 @@ function draw() {
     trails[i].age -= trails[i].velocity;
   }
   window.requestAnimationFrame(draw);
+}
+function modalToggle() {
+  if (modalState === false) {
+    clearTimeout(killModal);
+    document.getElementById("body").style.opacity = 0.2;
+    document.getElementById("modal").style.visibility = "visible";
+    document.getElementById("catch").style.visibility = "visible";
+    document.getElementById("modal").style.opacity = 1;
+    modalState = true;
+  } else {
+    document.getElementById("body").style.opacity = 1;
+    killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"},3000);
+    document.getElementById("catch").style.visibility = "hidden";
+    document.getElementById("modal").style.opacity = 0;
+    modalState = false;
+  }
+}
+function catchModal() {
+  document.getElementById("body").style.opacity = 1;
+  killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"},3000);
+  document.getElementById("catch").style.visibility = "hidden";
+  document.getElementById("modal").style.opacity = 0;
+  modalState = false;
+}
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    var isEscape = false;
+    if ("key" in evt) {
+        isEscape = (evt.key == "Escape" || evt.key == "Esc");
+    }
+    if (isEscape) {
+        catchModal();
+    }
 }
 function play() {
   audio = document.getElementById("player");

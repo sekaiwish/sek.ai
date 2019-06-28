@@ -32,7 +32,7 @@
     <div id="catch" onclick="catchModal()"></div>
     <div id="modal">
       <h2 class="jp">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;</h2>
-      <form class="login" action="php/login.php" method="post">
+      <form action="php/login.php" method="post">
         <input class="jp" type="text" name="username" maxlength="16" placeholder="&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;" required>
         <br>
         <input class="jp" type="password" name="password" maxlength="16" placeholder="&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;" required>
@@ -40,7 +40,7 @@
         <input class="jp" type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
       </form>
     </div>
-    <script src="js/index.js" charset="utf-8"></script>
+    <script src="/js/index.js" charset="utf-8"></script>
     <audio id="player">
       <source src="theme.flac" type="audio/flac">
     </audio>

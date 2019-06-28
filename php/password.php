@@ -11,8 +11,8 @@ if (password_verify($_POST["old"], $password) && $_POST["new"] == $_POST["confir
   $query->bindValue(":password", $password, PDO::PARAM_STR);
   $query->bindValue(":username", $_SESSION["username"], PDO::PARAM_STR);
   $query->execute();
-  header("Location: /account/?s=2");
+  header("Location: /home/?s=1");
 } else {
-  header("Location: /account/?e=1");
+  header("Location: /home/?e=1");
 }
 ?>
