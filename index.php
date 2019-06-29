@@ -4,8 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="og:url" content="https://sek.ai">
-    <meta name="og:title" content="&#x4E16;&#x754C;">
+    <meta property="og:image" content="https://desu.systems/src/embed.png">
+    <meta property="og:url" content="https://sek.ai">
+    <meta property="og:title" content="&#x4E16;&#x754C;">
     <meta name="theme-color" content="#00a0a0">
     <title>wish</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300&amp;subset=japanese">
