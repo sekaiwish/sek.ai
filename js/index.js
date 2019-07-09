@@ -23,6 +23,7 @@ function draw() {
   if (canvasWidth !== window.innerWidth) {
     scale();
   }
+  let trailLength = 60;
   if (trails[0]) {
     let len = trails.length;
     for (var i = 0; i < len; i++) {
@@ -35,7 +36,6 @@ function draw() {
     dead = [];
   }
   var newPixel = {};
-  let trailLength = 60;
   newPixel.age = window.innerHeight + trailLength;
   newPixel.position = Math.floor((Math.random() * window.innerWidth) + 1);
   newPixel.velocity = Math.floor((Math.random() * 5) + 2);
