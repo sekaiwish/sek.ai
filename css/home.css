@@ -11,7 +11,7 @@ font-weight:300
 }
 
 canvas {
-position:absolute;
+position:fixed;
 z-index:0
 }
 
