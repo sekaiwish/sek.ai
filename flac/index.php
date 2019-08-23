@@ -9,10 +9,10 @@
   <body>
     <canvas id="canvas"></canvas>
     <div id="body">
-      <h1>/flac/<span><?php echo(str_replace("%20", " ", (substr($_SERVER["REQUEST_URI"], 6)))); ?></span></h1>
+      <h1>/flac/<span><?php echo(urldecode(substr($_SERVER["REQUEST_URI"], 6))); ?></span></h1>
       <p>
         <?php
-        $dir = str_replace("%20", " ", ("." . substr($_SERVER["REQUEST_URI"], 5)));
+        $dir = urldecode("." . substr($_SERVER["REQUEST_URI"], 5));
         $list = scandir($dir);
         foreach ($list as $key => $value) {
           if (in_array($value, array(".", "index.php"))) {
