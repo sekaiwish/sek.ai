@@ -21,19 +21,27 @@
             if (is_dir("$dir$value")) {
               echo("<a href='$value/'>$value</a><br>");
             } else {
-              $size = round(filesize($dir . $value) / 1024);
-              if ($size > 1024) {
-                $size = round($size / 1024);
-                echo("<a href='$value'>$value - {$size}MB</a><br>");
+              if (substr($value, -5) == ".flac") {
+                echo("<a onclick='play(\"$dir$value\")'>$value - [Play]</a><br>");
               } else {
-                echo("<a href='$value'>$value - {$size}KB</a><br>");
+                $size = round(filesize($dir . $value) / 1024);
+                if ($size > 1024) {
+                  $size = round($size / 1024);
+                  echo("<a href='$value'>$value - {$size}MB</a><br>");
+                } else {
+                  echo("<a href='$value'>$value - {$size}KB</a><br>");
+                }
               }
+
             }
           }
         }
         ?>
       </p>
     </div>
-    <script src="/js/home.js" charset="utf-8"></script>
+    <audio id="player" preload="auto">
+      <source src="/flac/theme.flac" type="audio/flac">
+    </audio>
+    <script src="/js/flac.js" charset="utf-8"></script>
   </body>
 </html>
