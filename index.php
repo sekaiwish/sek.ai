@@ -29,20 +29,20 @@
       <br><a target="_blank" href="//osu.ppy.sh/users/Wishu">osu!</a>
       <h4>&copy; wish 2019</h4>
       <?php if (isset($_SESSION["username"])): ?>
-        <button class="jp" type="button" name="button" onclick="window.location.href='/home/'">&#x4E16;&#x754C;&#x306B;&#x7D9A;&#x3051;&#x308B;&nbsp;&nbsp;&#10148;</button>
+        <button class="jp" type="button" name="button" onclick="window.location.href='/home/'">世界に続ける&nbsp;&nbsp;&#10148;</button>
       <?php else: ?>
-        <button class="jp" type="button" name="button" onclick="modalToggle()">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&nbsp;&nbsp;&#10148;</button>
+        <button class="jp" type="button" name="button" onclick="modalToggle()">世界にログイン&nbsp;&nbsp;&#10148;</button>
       <?php endif; ?>
     </div>
     <div id="catch" onclick="catchModal()"></div>
     <div id="modal">
-      <h2 class="jp">&#x4E16;&#x754C;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;</h2>
+      <h2 class="jp">世界にログイン</h2>
       <form action="/php/login.php" method="post">
-        <input class="jp" type="text" name="username" maxlength="16" placeholder="&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;" required>
+        <input class="jp" type="text" name="username" maxlength="16" placeholder="ユーザー名" required>
         <br>
-        <input class="jp" type="password" name="password" maxlength="16" placeholder="&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;" required>
+        <input class="jp" type="password" name="password" maxlength="16" placeholder="パスワード" required>
         <br>
-        <input class="jp" type="submit" value="&#x30ED;&#x30B0;&#x30A4;&#x30F3;">
+        <input class="jp" type="submit" value="ログイン">
       </form>
     </div>
     <script src="/js/index.js" charset="utf-8"></script>
