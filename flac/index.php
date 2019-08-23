@@ -22,7 +22,7 @@
               echo("<a href='$value/'>$value</a><br>");
             } else {
               if (substr($value, -5) == ".flac") {
-                echo("<a onclick='play(\"$dir$value\")'>$value - [Play]</a><br>");
+                echo("<a onclick='play(\"./$value\")'>$value - [Play]</a><br>");
               } else {
                 $size = round(filesize($dir . $value) / 1024);
                 if ($size > 1024) {
