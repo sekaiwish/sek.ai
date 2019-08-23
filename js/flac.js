@@ -50,24 +50,23 @@ function draw() {
   }
   window.requestAnimationFrame(draw);
 }
-function setCookie(name, value) {
-  var cookieValue = escape(value);
-  document.cookie = name + "=" + cookieValue;
+function store(name, value) {
+  sessionStorage.setItem(name, value);
 }
-function getCookie(name) {
-  var value = "; " + document.cookie;
-  var parts = value.split("; " + name + "=");
-  if (parts.length == 2) return parts.pop().split(";").shift();
+function retrieve(name) {
+  return sessionStorage.getItem(name);
 }
 var audio = document.getElementById("player");
 var played = false;
-var timePlayed = getCookie("timePlayed");
+var timePlayed = retrieve("played");
 function update() {
   if (!played) {
     if (timePlayed) {
+      var track = retrieve("track");
       audio.volume = 0.1;
       audio.loop = true;
       audio.currentTime = timePlayed;
+      audio.src = track;
       var isChromium = window.chrome;
       if (isChromium !== null && typeof isChromium !== "undefined") {
         document.body.addEventListener("mousemove", function() {
@@ -77,15 +76,22 @@ function update() {
         audio.play();
       }
       played = true;
+    } else {
+      played = true;
+      play("/home/theme.flac");
     }
   } else {
-    setCookie("timePlayed", audio.currentTime);
+    store("played", audio.currentTime);
+    store("track", audio.src);
   }
 }
 function play(track) {
+  audio.loop = true;
   audio.src = track;
+  audio.volume = 0.1;
   audio.currentTime = 0;
   audio.play();
+  update();
 }
 update();
 setInterval(update, 100);

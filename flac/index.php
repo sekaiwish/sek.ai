@@ -32,16 +32,13 @@
                   echo("<a href='$value'>$value - {$size}KB</a><br>");
                 }
               }
-
             }
           }
         }
         ?>
       </p>
     </div>
-    <audio id="player" preload="auto">
-      <source src="/flac/theme.flac" type="audio/flac">
-    </audio>
+    <audio id="player" preload="auto"></audio>
     <script src="/js/flac.js" charset="utf-8"></script>
   </body>
 </html>
