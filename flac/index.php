@@ -15,21 +15,22 @@
         $dir = urldecode("." . substr($_SERVER["REQUEST_URI"], 5));
         $list = scandir($dir);
         foreach ($list as $key => $value) {
+          $url = str_replace("'", "%27", $value);
           if (in_array($value, array(".", "index.php"))) {
             continue;
           } else {
             if (is_dir("$dir$value")) {
-              echo("<a href='$value/'>$value</a><br>");
+              echo("<a href='$url/'>$value</a><br>");
             } else {
               if (substr($value, -5) == ".flac") {
-                echo("<a onclick='play(\"./$value\")'>$value - [Play]</a><br>");
+                echo("<a onclick='play(\"./$url\")'>$value - [Play]</a><br>");
               } else {
                 $size = round(filesize($dir . $value) / 1024);
                 if ($size > 1024) {
                   $size = round($size / 1024);
-                  echo("<a href='$value'>$value - {$size}MB</a><br>");
+                  echo("<a href='$url'>$value - {$size}MB</a><br>");
                 } else {
-                  echo("<a href='$value'>$value - {$size}KB</a><br>");
+                  echo("<a href='$url'>$value - {$size}KB</a><br>");
                 }
               }
             }
