@@ -46,7 +46,7 @@
       <div class="music">
         <div class="cover">
           <?php
-          $cover = array_values(preg_grep("/^(c|C)over\.(jpg|png)$/", $list))[0];
+          $cover = array_values(preg_grep("/^(c|C|f|F)o(v|ld)er\.(jpg|jpeg|png)$/", $list))[0];
           if (!empty($cover)) {
             echo("<data id='data' value='./$cover'></data>");
           }
