@@ -64,7 +64,7 @@ function play(track) {
   document.getElementById("track").innerHTML = decodeURI(track.substring(2, track.length - 5));
   try {
     document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[3]);
-  }
+  } catch {}
   if (document.getElementById("data")) {
     let node = document.createElement("IMG");
     document.getElementsByClassName("cover")[0].appendChild(node);
