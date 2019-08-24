@@ -48,7 +48,7 @@
           <?php
           $cover = array_values(preg_grep("/^(c|C)over\.(jpg|png)$/", $list))[0];
           if (!empty($cover)) {
-            echo("<img src='./$cover'>");
+            echo("<data id='data' value='./$cover'></data>");
           }
           ?>
         </div>

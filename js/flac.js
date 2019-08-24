@@ -62,6 +62,15 @@ function createSession() {
 }
 function play(track) {
   document.getElementById("track").innerHTML = decodeURI(track.substring(2, track.length - 5));
+  document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[3]);
+  if (document.getElementById("data")) {
+    let node = document.createElement("IMG");
+    document.getElementsByClassName("cover")[0].appendChild(node);
+    node.src = document.getElementById("data").value;
+    store("art", node.src);
+  } else {
+    store("art");
+  }
   audio.src = track;
   audio.play();
   audio.volume = retrieve("volume");
@@ -77,6 +86,12 @@ function init() {
   if (timePlayed !== "0.0" && timePlayed !== null) {
     var track = retrieve("track");
     var volume = retrieve("volume");
+    var artExist = retrieve("art");
+    if (artExist !== null && typeof artExist !== "undefined") {
+      let node = document.createElement("IMG");
+      document.getElementsByClassName("cover")[0].appendChild(node);
+      node.src = artExist;
+    }
     var title = track.split("/").pop();
     document.getElementById("track").innerHTML = decodeURI(title.substring(0, title.length - 5));
     audio.volume = volume;
