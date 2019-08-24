@@ -62,15 +62,18 @@ function createSession() {
 }
 function play(track) {
   document.getElementById("track").innerHTML = decodeURI(track.substring(2, track.length - 5));
-  try {
-    document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[3]);
-  } catch {}
   if (document.getElementById("data")) {
+    try {
+      document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[3]);
+    } catch {}
     let node = document.createElement("IMG");
     document.getElementsByClassName("cover")[0].appendChild(node);
     node.src = document.getElementById("data").value;
     store("art", node.src);
   } else {
+    try {
+      document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[1]);
+    } catch {}
     store("art");
   }
   audio.src = track;
