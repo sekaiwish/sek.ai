@@ -90,7 +90,7 @@ function update() {
   }
 }
 function play(track) {
-  document.getElementById("track").innerHTML = track.substring(2, track.length - 5);
+  document.getElementById("track").innerHTML = decodeURI(title.substring(2, title.length - 5));
   audio.loop = true;
   audio.src = track;
   audio.volume = 0.1;
