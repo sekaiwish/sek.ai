@@ -48,7 +48,7 @@
           <b>Now playing: </b><span id="track">N/A</span>
         </div>
         <div class="controls">
-          <audio id="player" preload="auto" controls></audio>
+          <audio id="player" preload="auto" loop controls></audio>
         </div>
       </div>
     </div>
