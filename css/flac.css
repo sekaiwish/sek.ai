@@ -65,6 +65,11 @@ audio {
 width:100%
 }
 
+img {
+max-width:100%;
+border-bottom:1px solid #FFF;
+}
+
 .music {
 position:fixed;
 bottom:2em;

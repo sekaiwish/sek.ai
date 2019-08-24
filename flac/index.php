@@ -44,6 +44,14 @@
         ?>
       </p>
       <div class="music">
+        <div class="cover">
+          <?php
+          $cover = array_values(preg_grep("/^(c|C)over\.(jpg|png)$/", $list))[0];
+          if (!empty($cover)) {
+            echo("<img src='./$cover'>");
+          }
+          ?>
+        </div>
         <div class="visual">
           <b>Now playing: </b><span id="track">N/A</span>
         </div>
