@@ -49,7 +49,7 @@ function draw() {
     ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age - 1, 1, 1);
     var gradient = ctx.createLinearGradient(trails[i].position, window.innerHeight - trails[i].age + trailLength, trails[i].position, window.innerHeight - trails[i].age);
     gradient.addColorStop(0, "#000");
-    gradient.addColorStop(1, "#c06000");
+    gradient.addColorStop(1, "#690099");
     ctx.fillStyle = gradient;
     ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age, 1, trailLength);
     trails[i].age += trails[i].velocity;
