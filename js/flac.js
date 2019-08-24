@@ -63,6 +63,8 @@ function update() {
   if (!played) {
     if (timePlayed) {
       var track = retrieve("track");
+      var title = track.split("/").pop();
+      document.getElementById("track").innerHTML = decodeURI(title.substring(0, title.length - 5));
       audio.volume = 0.1;
       audio.loop = true;
       audio.currentTime = timePlayed;
@@ -81,11 +83,14 @@ function update() {
       play("/home/theme.flac");
     }
   } else {
+    var percentage = audio.currentTime / audio.duration * 100;
+    document.getElementById("progress").innerHTML = ".visual{background:linear-gradient(to right,rgba(100,0,0,0.3) " + percentage + "%,rgba(0,0,0,0.5) " + (percentage + 1) + "%)!important}";
     store("played", audio.currentTime);
     store("track", audio.src);
   }
 }
 function play(track) {
+  document.getElementById("track").innerHTML = track.substring(2, track.length - 5);
   audio.loop = true;
   audio.src = track;
   audio.volume = 0.1;
