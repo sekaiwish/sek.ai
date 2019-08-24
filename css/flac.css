@@ -39,7 +39,7 @@ font-size:1vmax;
 color:#fff
 }
 
-a {
+a, b {
 font-family:"Bitstream Vera Sans Mono",monospace;
 color:#fff;
 text-decoration:none;
