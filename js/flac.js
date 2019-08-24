@@ -4,6 +4,12 @@ var trails = [];
 var dead = [];
 var canvasWidth = window.innerWidth;
 function init() {
+  var trailsExist = retrieve("trails");
+  if (trailsExist !== null && typeof trailsExist !== "undefined") {
+    trails = JSON.parse(trailsExist);
+  } else {
+    trails = [];
+  }
   window.requestAnimationFrame(draw);
 }
 function scale() {
@@ -98,6 +104,11 @@ function play(track) {
   audio.play();
   update();
 }
+window.addEventListener("unload", function(event) {
+  store("played", audio.currentTime);
+  store("track", audio.src);
+  store("trails", JSON.stringify(trails));
+});
 update();
 setInterval(update, 100);
 init();
