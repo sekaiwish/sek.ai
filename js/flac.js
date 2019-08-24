@@ -67,7 +67,7 @@ var played = false;
 var timePlayed = retrieve("played");
 function update() {
   if (!played) {
-    if (timePlayed !== "0") {
+    if (timePlayed !== "0" && timePlayed !== null) {
       var track = retrieve("track");
       var title = track.split("/").pop();
       document.getElementById("track").innerHTML = decodeURI(title.substring(0, title.length - 5));
@@ -88,8 +88,6 @@ function update() {
       played = true;
     }
   } else {
-    var percentage = audio.currentTime / audio.duration * 100;
-    document.getElementById("progress").innerHTML = ".visual{background:linear-gradient(to right,rgba(100,0,0,0.3) " + percentage + "%,rgba(0,0,0,0.5) " + (percentage + 1) + "%)!important}";
     store("played", audio.currentTime);
     store("track", audio.src);
   }

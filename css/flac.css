@@ -33,9 +33,13 @@ white-space:nowrap;
 color:#fff
 }
 
+h1 > span {
+font-size:1vmax;
+}
+
 span {
 font-family:"Bitstream Vera Sans Mono",monospace;
-font-size:1vmax;
+font-size:1em;
 color:#fff
 }
 
@@ -57,17 +61,25 @@ a:hover::before {
 content:"> "
 }
 
+audio {
+width:100%
+}
+
+.music {
+position:fixed;
+bottom:2em;
+right:2em;
+width:30%;
+color:white;
+border:1px solid #FFF;
+background:rgba(0, 0, 0, 0.5);
+box-shadow:0 0 6px #FFF,inset 0 0 6px #FFF;
+text-shadow:0 0 4px #FFF;
+}
+
 .visual {
-  position:fixed;
-  bottom:2em;
-  right:2em;
-  padding:1em;
-  width:30%;
-  color:white;
-  border:1px solid #FFF;
-  background:linear-gradient(to right, rgba(100, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 1%);
-  box-shadow:0 0 6px #FFF,inset 0 0 6px #FFF;
-  text-shadow:0 0 4px #FFF;
+padding:1em;
+border-bottom:1px solid #FFF;
 }
 
 br {
