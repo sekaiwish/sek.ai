@@ -67,7 +67,7 @@ var played = false;
 var timePlayed = retrieve("played");
 function update() {
   if (!played) {
-    if (timePlayed) {
+    if (timePlayed !== "0") {
       var track = retrieve("track");
       var title = track.split("/").pop();
       document.getElementById("track").innerHTML = decodeURI(title.substring(0, title.length - 5));
@@ -86,7 +86,6 @@ function update() {
       played = true;
     } else {
       played = true;
-      play("/home/theme.flac");
     }
   } else {
     var percentage = audio.currentTime / audio.duration * 100;

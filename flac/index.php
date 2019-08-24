@@ -12,11 +12,16 @@
       <h1>/flac/<span><?php echo(urldecode(substr($_SERVER["REQUEST_URI"], 6))); ?></span></h1>
       <p>
         <?php
+        if ($_SERVER["REQUEST_URI"] === "/flac/") {
+          echo("<a href='/home/'>.. - [Home]</a><br>");
+        } else {
+          echo("<a href='../'>.. - [Back]</a><br>");
+        }
         $dir = urldecode("." . substr($_SERVER["REQUEST_URI"], 5));
         $list = scandir($dir);
         foreach ($list as $key => $value) {
           $url = str_replace("'", "%27", $value);
-          if (in_array($value, array(".", "index.php"))) {
+          if (in_array($value, array("..", ".", "index.php"))) {
             continue;
           } else {
             if (is_dir("$dir$value")) {
