@@ -43,12 +43,15 @@
         }
         ?>
       </p>
-      <div class="visual">
-      <b>Now playing: </b><span id="track">N/A</span>
+      <div class="music">
+        <div class="visual">
+          <b>Now playing: </b><span id="track">N/A</span>
+        </div>
+        <div class="controls">
+          <audio id="player" preload="auto" controls></audio>
+        </div>
       </div>
-      <style id="progress"></style>
     </div>
-    <audio id="player" preload="auto"></audio>
     <script src="/js/flac.js" charset="utf-8"></script>
   </body>
 </html>
