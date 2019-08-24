@@ -82,7 +82,7 @@ function play(track) {
 }
 function init() {
   var trailsExist = retrieve("trails");
-  if (trailsExist !== null && typeof trailsExist !== "undefined") {
+  if (trailsExist !== null && trailsExist !== "undefined") {
     trails = JSON.parse(trailsExist);
   } else {
     trails = [];
@@ -92,7 +92,7 @@ function init() {
     var track = retrieve("track");
     var volume = retrieve("volume");
     var artExist = retrieve("art");
-    if (artExist !== null && typeof artExist !== "undefined") {
+    if (artExist !== null && artExist !== "undefined") {
       let node = document.createElement("IMG");
       document.getElementsByClassName("cover")[0].appendChild(node);
       node.src = artExist;
