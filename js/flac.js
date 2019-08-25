@@ -84,7 +84,7 @@ function play(track, all) {
     } catch {}
     store("art");
   }
-  audio.src = track;
+  audio.src = decodeURI(track);
   audio.play();
   audio.volume = retrieve("volume");
 }
@@ -122,7 +122,7 @@ function init() {
     try {
       if (JSON.parse(playlistExist).length > 1) {
         playlist = JSON.parse(playlistExist);
-        audio.src = decodeURI(playlist[retrieve("playIndex")]);
+        audio.src = playlist[retrieve("playIndex")];
         console.log("loaded playlist");
       }
     } catch {} finally {
