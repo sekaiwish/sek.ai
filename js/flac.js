@@ -63,24 +63,27 @@ function createSession() {
   store("playlist", "");
   store("playIndex", 0);
 }
+function loadArt() {
+  if (document.getElementById("data")) {
+    try {
+      document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[3]);
+    } catch {}
+    let node = document.createElement("IMG");
+    document.getElementsByClassName("cover")[0].appendChild(node);
+    node.src = document.getElementById("data").value;
+    store("art", node.src);
+  } else {
+    try {
+      document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[1]);
+    } catch {}
+    store("art");
+  }
+}
 function play(track, all) {
   if (!all) {
     store("playlist", "");
     playlist = [];
-    if (document.getElementById("data")) {
-      try {
-        document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[3]);
-      } catch {}
-      let node = document.createElement("IMG");
-      document.getElementsByClassName("cover")[0].appendChild(node);
-      node.src = document.getElementById("data").value;
-      store("art", node.src);
-    } else {
-      try {
-        document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[1]);
-      } catch {}
-      store("art");
-    }
+    loadArt();
   }
   let file = track.split("/").pop();
   document.getElementById("track").innerHTML = decodeURI(file.substring(0, file.length - 5));
@@ -95,6 +98,7 @@ function playAll() {
     let string = document.querySelectorAll("[onclick]")[i].text;
     playlist.push(window.location + string.substring(0, string.length - 9));
   }
+  loadArt();
   store("playlist", JSON.stringify(playlist));
   play(playlist[0], 1);
 }
