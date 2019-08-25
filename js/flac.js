@@ -92,7 +92,7 @@ function playAll() {
   var tracks = document.querySelectorAll("[onclick]");
   for (var i = 1; i < tracks.length; i++) {
     let string = document.querySelectorAll("[onclick]")[i].text;
-    playlist.push(encodeURI(window.location + string.substring(0, string.length - 9)));
+    playlist.push(window.location + string.substring(0, string.length - 9)));
   }
   store("playlist", JSON.stringify(playlist));
   play(playlist[0], 1);
