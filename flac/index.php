@@ -13,12 +13,15 @@
       <p>
         <?php
         if ($_SERVER["REQUEST_URI"] === "/flac/") {
-          echo("<a href='/home/'>.. - [Home]</a><br>");
+          echo("<a href='/home/'>.. - [Home]</a><br><br>");
         } else {
-          echo("<a href='../'>.. - [Back]</a><br>");
+          echo("<a href='../'>.. - [Back]</a><br><br>");
         }
         $dir = urldecode("." . substr($_SERVER["REQUEST_URI"], 5));
         $list = scandir($dir);
+        if (count(preg_grep("/\S+\.flac$/", $list)) > 1) {
+          echo("<a onclick='playAll()'>[Play folder]</a><br>");
+        }
         foreach ($list as $key => $value) {
           $url = str_replace("'", "%27", $value);
           if (in_array($value, array("..", ".", "index.php"))) {
@@ -56,7 +59,7 @@
           <b>Now playing: </b><span id="track">N/A</span>
         </div>
         <div class="controls">
-          <audio id="player" preload="auto" loop controls></audio>
+          <audio id="player" preload="auto" controls></audio>
         </div>
       </div>
     </div>

@@ -55,13 +55,21 @@ function retrieve(name) {
 }
 var audio = document.getElementById("player");
 var timePlayed = retrieve("played");
+var playlist = [];
 function createSession() {
   store("played", 0.0);
   store("volume", 0.1);
   store("track", "");
+  store("playlist", "");
+  store("playIndex", 0);
 }
-function play(track) {
-  document.getElementById("track").innerHTML = decodeURI(track.substring(2, track.length - 5));
+function play(track, all) {
+  if (!all) {
+    store("playlist", "");
+    playlist = [];
+  }
+  let file = track.split("/").pop();
+  document.getElementById("track").innerHTML = decodeURI(file.substring(0, file.length - 5));
   if (document.getElementById("data")) {
     try {
       document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[3]);
@@ -80,19 +88,29 @@ function play(track) {
   audio.play();
   audio.volume = retrieve("volume");
 }
+function playAll() {
+  var tracks = document.querySelectorAll("[onclick]");
+  for (var i = 1; i < tracks.length; i++) {
+    let string = document.querySelectorAll("[onclick]")[i].text;
+    playlist.push(encodeURI(window.location + string.substring(0, string.length - 9)));
+  }
+  store("playlist", JSON.stringify(playlist));
+  play(playlist[0], 1);
+}
 function init() {
   var trailsExist = retrieve("trails");
-  if (trailsExist !== null && trailsExist !== "undefined") {
-    trails = JSON.parse(trailsExist);
-  } else {
+  if (!trailsExist) {
     trails = [];
     createSession();
+  } else {
+    trails = JSON.parse(trailsExist);
   }
-  if (timePlayed !== "0.0" && timePlayed !== null) {
+  if (timePlayed && timePlayed !== "0.0") {
     var track = retrieve("track");
     var volume = retrieve("volume");
+    var playlistExist = retrieve("playlist");
     var artExist = retrieve("art");
-    if (artExist !== null && artExist !== "undefined") {
+    if (artExist && artExist !== "undefined") {
       let node = document.createElement("IMG");
       document.getElementsByClassName("cover")[0].appendChild(node);
       node.src = artExist;
@@ -101,7 +119,15 @@ function init() {
     document.getElementById("track").innerHTML = decodeURI(title.substring(0, title.length - 5));
     audio.volume = volume;
     audio.currentTime = timePlayed;
-    audio.src = track;
+    try {
+      if (JSON.parse(playlistExist).length > 1) {
+        playlist = JSON.parse(playlistExist);
+        audio.src = playlist[retrieve("playIndex")];
+        console.log("loaded playlist");
+      }
+    } catch {} finally {
+      audio.src = track;
+    }
     var isChromium = window.chrome;
     if (isChromium !== null && typeof isChromium !== "undefined") {
       document.body.addEventListener("mousemove", function() {
@@ -117,9 +143,27 @@ window.addEventListener("unload", function(event) {
   store("played", audio.currentTime);
   store("volume", audio.volume);
   store("track", audio.src);
+  store("playlist", JSON.stringify(playlist));
   store("trails", JSON.stringify(trails));
 });
 audio.onvolumechange = function() {
   store("volume", audio.volume);
 };
+audio.addEventListener("ended", function() {
+  if (playlist.length > 1) {
+    for (var i = 0; i < playlist.length; i++) {
+      if (playlist[i] == audio.src) {
+        if (!playlist[i + 1]) {
+          play(playlist[0], 1);
+        } else {
+          play(playlist[i + 1], 1);
+        }
+        break;
+      }
+    }
+  } else {
+    audio.currentTime = 0;
+    audio.play();
+  }
+});
 init();
