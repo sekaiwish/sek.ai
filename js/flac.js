@@ -152,7 +152,7 @@ audio.onvolumechange = function() {
 audio.addEventListener("ended", function() {
   if (playlist.length > 1) {
     for (var i = 0; i < playlist.length; i++) {
-      if (decodeURI(playlist[i]) == audio.src) {
+      if (playlist[i] == audio.src) {
         if (!playlist[i + 1]) {
           play(playlist[0], 1);
         } else {
