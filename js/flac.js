@@ -122,7 +122,7 @@ function init() {
     try {
       if (JSON.parse(playlistExist).length > 1) {
         playlist = JSON.parse(playlistExist);
-        audio.src = playlist[retrieve("playIndex")];
+        audio.src = decodeURI(playlist[retrieve("playIndex")]);
         console.log("loaded playlist");
       }
     } catch {} finally {
