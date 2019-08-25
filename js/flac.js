@@ -89,6 +89,7 @@ function play(track, all) {
   audio.volume = retrieve("volume");
 }
 function playAll() {
+  playlist = [];
   var tracks = document.querySelectorAll("[onclick]");
   for (var i = 1; i < tracks.length; i++) {
     let string = document.querySelectorAll("[onclick]")[i].text;
