@@ -67,23 +67,23 @@ function play(track, all) {
   if (!all) {
     store("playlist", "");
     playlist = [];
+    if (document.getElementById("data")) {
+      try {
+        document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[3]);
+      } catch {}
+      let node = document.createElement("IMG");
+      document.getElementsByClassName("cover")[0].appendChild(node);
+      node.src = document.getElementById("data").value;
+      store("art", node.src);
+    } else {
+      try {
+        document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[1]);
+      } catch {}
+      store("art");
+    }
   }
   let file = track.split("/").pop();
   document.getElementById("track").innerHTML = decodeURI(file.substring(0, file.length - 5));
-  if (document.getElementById("data")) {
-    try {
-      document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[3]);
-    } catch {}
-    let node = document.createElement("IMG");
-    document.getElementsByClassName("cover")[0].appendChild(node);
-    node.src = document.getElementById("data").value;
-    store("art", node.src);
-  } else {
-    try {
-      document.getElementsByClassName("cover")[0].removeChild(document.getElementsByClassName("cover")[0].childNodes[1]);
-    } catch {}
-    store("art");
-  }
   audio.src = decodeURI(track);
   audio.play();
   audio.volume = retrieve("volume");
