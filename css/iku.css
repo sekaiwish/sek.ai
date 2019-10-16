@@ -1,0 +1,72 @@
+@font-face {
+font-family:"Bitstream Vera Sans Mono";
+src:url(font.woff2) format("woff2");
+font-weight:700;
+font-style:normal
+}
+.jp {
+font-family:"M PLUS 1p", sans-serif;
+font-size:3em;
+margin:0
+}
+.end {
+text-align:right;
+font-size:1em;
+margin:.5em
+}
+body {
+background:#000;
+color:#fff
+}
+#body {
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%, -50%);
+font-family:"Bitstream Vera Sans Mono",monospace;
+opacity:0;
+transition:opacity 1.5s ease-in-out 1s
+}
+button {
+border:1px solid #FFF;
+background:#000;
+color:#fff;
+text-shadow:0 0 4px #FFF;
+box-shadow:0 0 6px #FFF,inset 0 0 6px #FFF;
+padding:1em;
+cursor:pointer;
+transition:background-color .3s,color .3s;
+font-family:"Bitstream Vera Sans Mono",monospace;
+font-size:2em;
+}
+button:hover {
+background-color:#FFF;
+color:#000
+}
+img {
+height:98vh
+}
+.l, .r {
+position:absolute;
+opacity:0
+}
+.l {
+z-index:10;
+left:22%;
+transition:left 1.5s ease-in-out 0s, opacity 1.5s ease-in-out 0s
+}
+.r {
+right:22%;
+transition:right 1.5s ease-in-out 0s, opacity 1.5s ease-in-out 0s
+}
+.l.loaded {
+left:2%;
+opacity:1
+}
+.r.loaded {
+right:2%;
+opacity:1
+}
+#body.loaded {
+opacity:1
+}
