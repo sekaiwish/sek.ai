@@ -19,7 +19,8 @@ color:#fff
 #body {
 position:absolute;
 left:10vw;
-z-index:0
+z-index:0;
+font-family:"Bitstream Vera Sans Mono",monospace
 }
 
 h1 {
