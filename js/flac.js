@@ -97,8 +97,7 @@ function updateArt() {
 }
 function play(index) {
   let data = JSON.parse(retrieve("playlist"))[index];
-  let file = data[0].split("/").pop();
-  document.getElementById("track").innerHTML = decodeURI(file.substring(0, file.length - 5));
+  document.getElementById("track").innerHTML = data[0].split("/").pop().split(".").slice(0,-1).join(".");
   audio.src = decodeURI(data[0]);
   audio.play();
   let track = [data[0], data[1]];
@@ -149,7 +148,7 @@ function init() {
       if (JSON.parse(retrieve("state"))) {
         audio.play();
       }
-      document.getElementById("track").innerHTML = track[0].split("/").pop().split(".").shift();
+      document.getElementById("track").innerHTML = track[0].split("/").pop().split(".").slice(0,-1).join(".");
       updateArt();
     }
   }
