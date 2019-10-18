@@ -105,6 +105,10 @@ function play(index) {
   store("index", index);
   updateArt(index);
 }
+function reset() {
+  createSession();
+  location.reload(true);
+}
 window.addEventListener("unload", function() {
   store("progress", audio.currentTime);
   store("trails", JSON.stringify(trails));
@@ -136,7 +140,6 @@ audio.addEventListener("ended", function() {
 function init() {
   var trailsExist = retrieve("trails");
   if (!trailsExist) {
-    trails = [];
     createSession();
   } else {
     trails = JSON.parse(trailsExist);
@@ -149,6 +152,7 @@ function init() {
         audio.play();
       }
       document.getElementById("track").innerHTML = track[0].split("/").pop().split(".").slice(0,-1).join(".");
+      document.getElementById("reset").hidden = false;
       updateArt();
     }
   }

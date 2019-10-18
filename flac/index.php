@@ -65,6 +65,9 @@
           <audio id="player" preload="auto" controls></audio>
         </div>
       </div>
+      <div id="reset" class="reset" hidden>
+        <a onclick="reset()">Reset</a>
+      </div>
     </div>
     <script src="/js/flac.js" charset="utf-8"></script>
   </body>

@@ -71,6 +71,17 @@ min-width:100%;
 border-bottom:1px solid #FFF
 }
 
+.reset {
+position:fixed;
+top:2em;
+right:2em;
+padding:.2em;
+border:1px solid #FFF;
+background:rgba(0, 0, 0, 0.5);
+box-shadow:0 0 6px #FFF,inset 0 0 6px #FFF;
+text-shadow:0 0 4px #FFF
+}
+
 .music {
 position:fixed;
 bottom:2em;
