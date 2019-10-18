@@ -66,6 +66,6 @@
         </div>
       </div>
     </div>
-    <script src="/js/flac2.js" charset="utf-8"></script>
+    <script src="/js/flac.js" charset="utf-8"></script>
   </body>
 </html>
