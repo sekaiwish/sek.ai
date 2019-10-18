@@ -34,7 +34,7 @@ color:#fff
 }
 
 h1 > span {
-font-size:1vmax;
+font-size:1vmax
 }
 
 span {
@@ -68,7 +68,7 @@ width:100%
 img {
 max-width:100%;
 min-width:100%;
-border-bottom:1px solid #FFF;
+border-bottom:1px solid #FFF
 }
 
 .music {
@@ -80,12 +80,17 @@ color:white;
 border:1px solid #FFF;
 background:rgba(0, 0, 0, 0.5);
 box-shadow:0 0 6px #FFF,inset 0 0 6px #FFF;
-text-shadow:0 0 4px #FFF;
+text-shadow:0 0 4px #FFF
 }
 
 .visual {
 padding:1em;
-border-bottom:1px solid #FFF;
+border-bottom:1px solid #FFF
+}
+
+.next {
+padding:1em;
+border-bottom:1px solid #FFF
 }
 
 br {

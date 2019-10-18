@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>世界 &#183; /flac/</title>
+    <title>世界 &middot; /flac/</title>
     <link rel="stylesheet" href="/css/flac.css" type="text/css">
   </head>
   <body>
@@ -20,27 +20,26 @@
         $dir = urldecode("." . substr($_SERVER["REQUEST_URI"], 5));
         $list = scandir($dir);
         if (count(preg_grep("/\S+\.flac$/", $list)) > 1) {
-          echo("<a onclick='playAll()'>[Play folder]</a><br>");
+          echo("<a onclick='addFolder()'>[Play folder]</a><br>");
         }
         foreach ($list as $key => $value) {
           $url = str_replace("'", "%27", $value);
           if (in_array($value, array("..", ".", "index.php"))) {
             continue;
+          } elseif (is_dir("$dir$value")) {
+            echo("<a href='$url/'>$value</a><br>");
+          } elseif (substr($value, -5) == ".flac") {
+            echo("<a onclick='updatePlaylist(\"" .
+              urldecode($_SERVER["REQUEST_URI"]) .
+              "$url\")'>$value - [Play]</a><br>"
+            );
           } else {
-            if (is_dir("$dir$value")) {
-              echo("<a href='$url/'>$value</a><br>");
+            $size = round(filesize($dir . $value) / 1000);
+            if ($size > 1000) {
+              $size = round($size / 1000);
+              echo("<a href='$url'>$value - {$size}MB</a><br>");
             } else {
-              if (substr($value, -5) == ".flac") {
-                echo("<a onclick='play(\"./$url\")'>$value - [Play]</a><br>");
-              } else {
-                $size = round(filesize($dir . $value) / 1024);
-                if ($size > 1024) {
-                  $size = round($size / 1024);
-                  echo("<a href='$url'>$value - {$size}MB</a><br>");
-                } else {
-                  echo("<a href='$url'>$value - {$size}KB</a><br>");
-                }
-              }
+              echo("<a href='$url'>$value - {$size}KB</a><br>");
             }
           }
         }
@@ -48,13 +47,17 @@
       </p>
       <div class="music">
         <div class="cover">
+          <img id="cover" src="data:null" hidden>
           <?php
-          $cover = array_values(preg_grep("/^.*(c|C|f|F)o(v|ld)er\.(jpg|jpeg|png)$/", $list))[0];
+          $cover = array_values(preg_grep("/^.*(c|C|f|F)((o(v|ld)er)|(ront))\.(jpg|jpeg|png)$/", $list))[0];
           if (!empty($cover)) {
-            echo("<data id='data' value='./$cover'></data>");
+            echo("<data id='data' value='" .
+              urldecode($_SERVER["REQUEST_URI"]) .
+              "$cover'></data>");
           }
           ?>
         </div>
+        <div class="next" hidden></div>
         <div class="visual">
           <b>Now playing: </b><span id="track">N/A</span>
         </div>
@@ -63,6 +66,6 @@
         </div>
       </div>
     </div>
-    <script src="/js/flac.js" charset="utf-8"></script>
+    <script src="/js/flac2.js" charset="utf-8"></script>
   </body>
 </html>
