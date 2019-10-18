@@ -143,11 +143,11 @@ function init() {
     createSession();
   } else {
     trails = JSON.parse(trailsExist);
+    audio.volume = retrieve("volume");
     let track = JSON.parse(retrieve("track"));
     if (!track.length < 1) {
       audio.src = decodeURI(track[0]);
       audio.currentTime = retrieve("progress");
-      audio.volume = retrieve("volume");
       if (JSON.parse(retrieve("state"))) {
         audio.play();
       }
