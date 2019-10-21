@@ -71,15 +71,53 @@ min-width:100%;
 border-bottom:1px solid #FFF
 }
 
-.reset {
+.buttons {
 position:fixed;
-top:2em;
+top:3em;
 right:2em;
-padding:.2em;
+width:20%
+}
+
+#catch {
+height:100vh;
+width:100%;
+visibility:hidden;
+z-index:10;
+position:absolute
+}
+
+#modal {
+position:absolute;
+visibility:hidden;
+opacity:0;
+width:60vw;
+min-height:8em;
+right:20vw;
+top:10vh;
+text-align:center;
 border:1px solid #FFF;
-background:rgba(0, 0, 0, 0.5);
+background:rgba(0,0,0,0.5);
+color:#fff;
 box-shadow:0 0 6px #FFF,inset 0 0 6px #FFF;
-text-shadow:0 0 4px #FFF
+z-index:20;
+transition:opacity 3s
+}
+
+h2 {
+text-shadow:0 0 4px #FFF;
+margin:auto;
+padding:.5em;
+border-bottom:1px solid #FFF
+}
+
+#reset:hover, .delete:hover {
+color:#F00;
+text-shadow:none
+}
+
+.delete {
+float:left;
+margin-left:1em
 }
 
 .music {

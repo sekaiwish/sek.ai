@@ -11,6 +11,11 @@
     <div id="body">
       <h1>/flac/<span><?php echo(urldecode(substr($_SERVER["REQUEST_URI"], 6))); ?></span></h1>
       <p>
+        <div class="buttons">
+          <a id="reset" onclick="reset()" hidden>Reset</a>
+          <br>
+          <a id="playlist" onclick="modalToggle()">View Playlist</a>
+        </div>
         <?php
         if ($_SERVER["REQUEST_URI"] === "/flac/") {
           echo("<a href='/home/'>.. - [Home]</a><br><br>");
@@ -29,7 +34,7 @@
           } elseif (is_dir("$dir$value")) {
             echo("<a href='$url/'>$value</a><br>");
           } elseif (substr($value, -5) == ".flac") {
-            echo("<a onclick='updatePlaylist(\"" .
+            echo("<a id='song' onclick='updatePlaylist(\"" .
               urldecode($_SERVER["REQUEST_URI"]) .
               "$url\")'>$value - [Play]</a><br>"
             );
@@ -65,10 +70,9 @@
           <audio id="player" preload="auto" controls></audio>
         </div>
       </div>
-      <div id="reset" class="reset" hidden>
-        <a onclick="reset()">Reset</a>
-      </div>
     </div>
+    <div id="catch" onclick="catchModal()"></div>
+    <div id="modal"></div>
     <script src="/js/flac.js" charset="utf-8"></script>
   </body>
 </html>
