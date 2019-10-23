@@ -107,7 +107,12 @@ h2 {
 text-shadow:0 0 4px #FFF;
 margin:auto;
 padding:.5em;
-border-bottom:1px solid #FFF
+border-bottom:1px solid #FFF;
+font-family:"Bitstream Vera Sans Mono",monospace;
+}
+
+#contents {
+  padding:.5em
 }
 
 #reset:hover, .delete:hover {

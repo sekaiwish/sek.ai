@@ -40,7 +40,8 @@ function draw() {
   for (var i = 0; i < leng; i++) {
     ctx.fillStyle = "#FFF";
     ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age - 1, 1, 1);
-    var gradient = ctx.createLinearGradient(trails[i].position,
+    var gradient = ctx.createLinearGradient(
+      trails[i].position,
       window.innerHeight - trails[i].age + trailLength,
       trails[i].position,
       window.innerHeight - trails[i].age
@@ -106,7 +107,7 @@ function updateArt() {
 }
 function play(index) {
   let data = JSON.parse(retrieve("playlist"))[index];
-  document.getElementById("track").innerHTML = data[0].split("/").pop().split(".").slice(0,-1).join(".");
+  document.getElementById("track").innerHTML = decodeURI(data[0].split("/").pop().split(".").slice(0,-1).join("."));
   audio.src = decodeURI(data[0]);
   audio.play();
   let track = [data[0], data[1]];
@@ -120,24 +121,21 @@ function reset() {
 }
 function populateModal() {
   let playlist = JSON.parse(retrieve("playlist"));
-  let modal = document.getElementById("modal");
+  let modal = document.getElementById("contents");
   while (modal.firstChild) {
     modal.removeChild(modal.firstChild);
   }
-  let title = document.createElement("h2");
-  title.innerHTML = "Playlist";
-  document.getElementById("modal").appendChild(title);
   for (var i = 0; i < playlist.length; i++) {
-    let item = document.createElement("a");
-    item.innerHTML = playlist[i][0].split("/").pop().split(".").slice(0,-1).join(".");
-    item.setAttribute("onclick", "play(" + i + ")");
     let deleter = document.createElement("a");
     deleter.classList = "delete";
     deleter.innerHTML = "X";
     deleter.setAttribute("onclick", "removeIndex(" + i + ")");
-    document.getElementById("modal").appendChild(deleter);
-    document.getElementById("modal").appendChild(item);
-    document.getElementById("modal").appendChild(document.createElement("br"));
+    modal.appendChild(deleter);
+    let item = document.createElement("a");
+    item.innerHTML = decodeURI(playlist[i][0].split("/").pop().split(".").slice(0,-1).join("."));
+    item.setAttribute("onclick", "play(" + i + ")");
+    modal.appendChild(item);
+    modal.appendChild(document.createElement("br"));
   }
 }
 window.addEventListener("unload", function() {
@@ -182,7 +180,7 @@ function init() {
       if (JSON.parse(retrieve("state"))) {
         audio.play();
       }
-      document.getElementById("track").innerHTML = track[0].split("/").pop().split(".").slice(0,-1).join(".");
+      document.getElementById("track").innerHTML = decodeURI(track[0].split("/").pop().split(".").slice(0,-1).join("."));
       document.getElementById("reset").hidden = false;
       document.getElementById("playlist").hidden = false;
       updateArt();
