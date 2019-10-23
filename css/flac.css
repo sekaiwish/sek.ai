@@ -100,7 +100,7 @@ background:rgba(0,0,0,0.5);
 color:#fff;
 box-shadow:0 0 6px #FFF,inset 0 0 6px #FFF;
 z-index:20;
-transition:opacity 3s
+transition:opacity 1s
 }
 
 h2 {
@@ -152,7 +152,7 @@ margin-bottom:.6em
 }
 
 * {
-transition:opacity 3s
+transition:opacity 1s
 }
 
 button:hover {

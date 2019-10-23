@@ -160,10 +160,16 @@ audio.onpause = function() {
 audio.addEventListener("ended", function() {
   let playlist = JSON.parse(retrieve("playlist"));
   let index = JSON.parse(retrieve("index"));
-  if (!playlist[index + 1]) {
-    play(0);
+  if (!playlist.length < 1) {
+    if (!playlist[index + 1]) {
+      play(0);
+    } else {
+      play(index + 1);
+    }
   } else {
-    play(index + 1);
+    document.getElementById("track").innerHTML = "N/A";
+    document.getElementById("cover").src = "data:null";
+    document.getElementById("cover").hidden = true;
   }
 });
 function init() {
@@ -199,7 +205,7 @@ function modalToggle() {
     modalState = true;
   } else {
     document.getElementById("body").style.opacity = 1;
-    killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"},3000);
+    killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"},1000);
     document.getElementById("catch").style.visibility = "hidden";
     document.getElementById("modal").style.opacity = 0;
     modalState = false;
@@ -207,7 +213,7 @@ function modalToggle() {
 }
 function catchModal() {
   document.getElementById("body").style.opacity = 1;
-  killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"},3000);
+  killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"},1000);
   document.getElementById("catch").style.visibility = "hidden";
   document.getElementById("modal").style.opacity = 0;
   modalState = false;
