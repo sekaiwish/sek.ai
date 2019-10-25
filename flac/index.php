@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>世界 &middot; /flac/</title>
     <link rel="stylesheet" href="/css/flac.css" type="text/css">
+    <link rel="shortcut icon" href="/test.png">
   </head>
   <body>
     <canvas id="canvas"></canvas>
@@ -34,7 +35,8 @@
           } elseif (is_dir("$dir$value")) {
             echo("<a href='$url/'>$value</a><br>");
           } elseif (substr($value, -5) == ".flac") {
-            echo("<a id='song' onclick='updatePlaylist(\"" .
+            echo(
+              "<a id='song' onclick='updatePlaylist(\"" .
               urldecode($_SERVER["REQUEST_URI"]) .
               "$url\")'>$value - [Play]</a><br>"
             );
@@ -56,9 +58,11 @@
           <?php
           $cover = array_values(preg_grep("/^.*(c|C|f|F)((o(v|ld)er)|(ront))\.(jpg|jpeg|png)$/", $list))[0];
           if (!empty($cover)) {
-            echo("<data id='data' value='" .
+            echo(
+              "<data id='data' value='" .
               urldecode($_SERVER["REQUEST_URI"]) .
-              "$cover'></data>");
+              "$cover'></data>"
+            );
           }
           ?>
         </div>

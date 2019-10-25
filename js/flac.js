@@ -205,7 +205,7 @@ function modalToggle() {
     modalState = true;
   } else {
     document.getElementById("body").style.opacity = 1;
-    killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"},1000);
+    killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"}, 1000);
     document.getElementById("catch").style.visibility = "hidden";
     document.getElementById("modal").style.opacity = 0;
     modalState = false;
@@ -213,19 +213,19 @@ function modalToggle() {
 }
 function catchModal() {
   document.getElementById("body").style.opacity = 1;
-  killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"},1000);
+  killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"}, 1000);
   document.getElementById("catch").style.visibility = "hidden";
   document.getElementById("modal").style.opacity = 0;
   modalState = false;
 }
 document.onkeydown = function(evt) {
-    evt = evt || window.event;
-    var isEscape = false;
-    if ("key" in evt) {
-        isEscape = (evt.key == "Escape" || evt.key == "Esc");
-    }
-    if (isEscape) {
-        catchModal();
-    }
+  evt = evt || window.event;
+  var isEscape = false;
+  if ("key" in evt) {
+    isEscape = (evt.key == "Escape" || evt.key == "Esc");
+  }
+  if (isEscape) {
+    catchModal();
+  }
 }
 init();
