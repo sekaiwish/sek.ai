@@ -36,13 +36,13 @@
     </div>
     <div id="catch" onclick="catchModal()"></div>
     <div id="modal">
-      <h2 class="jp">世界にログイン</h2>
-      <form action="/php/login.php" method="post">
+      <h2 class="jp" id="title">世界にログイン</h2>
+      <form>
         <input class="jp" type="text" name="username" maxlength="16" placeholder="ユーザー名" required>
         <br>
         <input class="jp" type="password" name="password" maxlength="16" placeholder="パスワード" required>
         <br>
-        <input class="jp" type="submit" value="ログイン">
+        <input class="jp" type="button" value="ログイン" onclick="login(this.form)">
       </form>
     </div>
     <script src="/js/index.js" charset="utf-8"></script>

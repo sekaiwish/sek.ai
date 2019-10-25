@@ -70,6 +70,27 @@ function blink() {
     document.getElementsByTagName("head")[0].appendChild(link);
   }
 }
+function login(form) {
+  var ajax = new XMLHttpRequest();
+  ajax.open("POST", "/php/login.php", true);
+  ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  ajax.onreadystatechange = function() {
+    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+      let reply = this.responseText;
+      switch (parseInt(reply)) {
+        case 1:
+          window.location.href = "/home";
+          break;
+        case 2:
+          document.getElementById("title").innerHTML = "パスワードが間違";
+          break;
+        default:
+          document.getElementById("title").innerHTML = "ユーザーが見つからない";
+      }
+    }
+  }
+  ajax.send("username=" + form.username.value + "&password=" + form.password.value);
+}
 function modalToggle() {
   if (modalState === false) {
     clearTimeout(killModal);
