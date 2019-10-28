@@ -7,7 +7,7 @@ var trails = [];
 var dead = [];
 var canvasWidth = window.innerWidth;
 function init() {
-  window.requestAnimationFrame(draw);
+  //window.requestAnimationFrame(draw);
 }
 function scale() {
   var scale = window.innerWidth / canvasWidth;
@@ -121,19 +121,22 @@ function catchModal() {
   modalState = false;
 }
 document.onkeydown = function(evt) {
-    evt = evt || window.event;
-    var isEscape = false;
-    if ("key" in evt) {
-        isEscape = (evt.key == "Escape" || evt.key == "Esc");
-    }
-    if (isEscape) {
-        catchModal();
-    }
+  evt = evt || window.event;
+  var isEscape = false;
+  if ("key" in evt) {
+    isEscape = (evt.key == "Escape" || evt.key == "Esc");
+  }
+  if (isEscape) {
+    catchModal();
+  }
 }
-setTimeout(function(){document.getElementById("wish").innerHTML="<span class='halfStyle' data-content='w'>w</span>_"},180);
-setTimeout(function(){document.getElementById("wish").innerHTML="<span class='halfStyle' data-content='w'>w</span><span class='halfStyle' data-content='i'>i</span>_"},360);
-setTimeout(function(){document.getElementById("wish").innerHTML="<span class='halfStyle' data-content='w'>w</span><span class='halfStyle' data-content='i'>i</span><span class='halfStyle' data-content='s'>s</span>_"},540);
-setTimeout(function(){document.getElementById("wish").innerHTML="<span class='halfStyle' data-content='w'>w</span><span class='halfStyle' data-content='i'>i</span><span class='halfStyle' data-content='s'>s</span><span class='halfStyle' data-content='h'>h</span><span id='cursor'>_</span>";setInterval(blink,500);},720);
+setTimeout(function() {document.getElementById("wish").innerHTML = "w_"}, 180);
+setTimeout(function() {document.getElementById("wish").innerHTML = "wi_"}, 360);
+setTimeout(function() {document.getElementById("wish").innerHTML = "wis_"}, 540);
+setTimeout(function() {
+  document.getElementById("wish").innerHTML = "wish<span id='cursor'>_</span>";
+  setInterval(blink, 530);
+}, 720);
 function play() {
   audio = document.getElementById("player");
   audio.volume = 0.1;
