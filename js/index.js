@@ -8,6 +8,7 @@ var dead = [];
 var canvasWidth = window.innerWidth;
 function init() {
   //window.requestAnimationFrame(draw);
+  play();
 }
 function scale() {
   var scale = window.innerWidth / canvasWidth;
@@ -150,5 +151,4 @@ function play() {
     audio.play();
   }
 }
-setTimeout(play, 0);
 init();

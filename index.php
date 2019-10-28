@@ -45,9 +45,9 @@
         <input class="jp" type="button" value="ログイン" onclick="login(this.form)">
       </form>
     </div>
-    <script src="/js/index.js" charset="utf-8"></script>
     <audio id="player">
       <source src="theme.flac" type="audio/flac">
     </audio>
+    <script src="/js/index.js" charset="utf-8"></script>
   </body>
 </html>
