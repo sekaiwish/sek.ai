@@ -70,26 +70,32 @@ function blink() {
     document.getElementsByTagName("head")[0].appendChild(link);
   }
 }
-function login(form) {
-  var ajax = new XMLHttpRequest();
-  ajax.open("POST", "/php/login.php", true);
-  ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  ajax.onreadystatechange = function() {
-    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-      let reply = this.responseText;
-      switch (parseInt(reply)) {
-        case 1:
-          window.location.href = "/home";
-          break;
-        case 2:
-          document.getElementById("title").innerHTML = "パスワードが間違";
-          break;
-        default:
-          document.getElementById("title").innerHTML = "ユーザーが見つからない";
-      }
-    }
+async function login(form) {
+  const data = await postData("/php/login.php", {
+    username: form.username.value,
+    password: form.password.value
+  });
+  switch (data) {
+    case 1:
+      window.location.href = "/home";
+      break;
+    case 2:
+      document.getElementById("title").innerHTML = "パスワードが間違";
+      break;
+    default:
+      document.getElementById("title").innerHTML = "ユーザーが見つからない";
   }
-  ajax.send("username=" + form.username.value + "&password=" + form.password.value);
+}
+async function postData(url = '', data = {}) {
+  const response = await fetch(url, {
+    method: "POST",
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+  return await response.json();
 }
 function modalToggle() {
   if (modalState === false) {
