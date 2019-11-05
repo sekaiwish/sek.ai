@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>世界 &middot; /flac/</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300&display=swap&subset=japanese">
     <link rel="stylesheet" href="/css/flac.css" type="text/css">
-    <link rel="shortcut icon" href="/test.png">
+    <link rel="icon" href="/sekai.ico">
   </head>
   <body>
     <canvas id="canvas"></canvas>

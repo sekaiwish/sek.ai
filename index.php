@@ -10,7 +10,7 @@
     <meta property="og:title" content="&#x4E16;&#x754C;">
     <meta name="theme-color" content="#00a0a0">
     <title>wish</title>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300&amp;subset=japanese">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300,700&display=swap&subset=japanese">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="icon" href="favicon.ico">
   </head>

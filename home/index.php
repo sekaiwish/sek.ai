@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>世界 &middot; Home</title>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300&amp;subset=japanese">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300&display=swap&subset=japanese">
     <link rel="stylesheet" href="/css/home.css">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="/sekai.ico">
   </head>
   <body>
     <canvas id="canvas"></canvas>
