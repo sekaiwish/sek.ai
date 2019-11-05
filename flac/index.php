@@ -38,7 +38,7 @@
           } elseif (substr($value, -5) == ".flac") {
             echo(
               "<a id='song' onclick='updatePlaylist(\"" .
-              urldecode($_SERVER["REQUEST_URI"]) .
+              $_SERVER["REQUEST_URI"] .
               "$url\")'>$value - [Play]</a><br>"
             );
           } else {
@@ -61,7 +61,7 @@
           if (!empty($cover)) {
             echo(
               "<data id='data' value='" .
-              urldecode($_SERVER["REQUEST_URI"]) .
+              $_SERVER["REQUEST_URI"] .
               "$cover'></data>"
             );
           }
