@@ -80,6 +80,7 @@
       <h2>Playlist</h2>
       <div id="contents"></div>
     </div>
+    <script src="/js/main.js" charset="utf-8"></script>
     <script src="/js/flac.js" charset="utf-8"></script>
   </body>
 </html>

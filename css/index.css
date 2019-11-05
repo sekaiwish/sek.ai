@@ -16,6 +16,8 @@ z-index:0
 }
 
 body {
+font-family:"M PLUS 1p";
+font-weight:300;
 background:#000;
 margin:auto
 }
@@ -148,30 +150,4 @@ outline:none
 
 ::-moz-focus-inner {
 border:0
-}
-
-.halfStyle {
-position:relative;
-display:inline-block
-}
-
-.halfStyle:before {
-z-index:2;
-position:absolute;
-height:50%;
-content:attr(data-content);
-overflow:hidden;
-pointer-events:none
-}
-
-.halfStyle:after {
-display:block;
-position:absolute;
-top:0;
-height:62%;
-content:attr(data-content);
-overflow:hidden;
-pointer-events:none;
-color:#000;
-text-shadow:2px 0 #000,-2px 0 #000
 }

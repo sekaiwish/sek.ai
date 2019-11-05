@@ -1,58 +1,12 @@
 var cursorState = false;
 var modalState = false;
 var killModal;
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-var trails = [];
-var dead = [];
-var canvasWidth = window.innerWidth;
+function redraw() {
+  draw(1, "#00a0a0");
+}
 function init() {
-  //window.requestAnimationFrame(draw);
+  window.requestAnimationFrame(redraw);
   play();
-}
-function scale() {
-  var scale = window.innerWidth / canvasWidth;
-  var len = trails.length;
-  for (var i = 0; i < len; i++) {
-    trails[i].position = Math.round(trails[i].position * scale);
-  }
-  canvasWidth = window.innerWidth;
-}
-function draw() {
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-  if (canvasWidth !== window.innerWidth) {
-    scale();
-  }
-  let trailLength = 60;
-  if (trails[0]) {
-    let len = trails.length;
-    for (var i = 0; i < len; i++) {
-      if (trails[i].age < 0) {
-        dead.push(i);
-      }
-    }
-    for (var i = dead.length - 1; i >= 0; i--)
-      trails.splice(dead[i], 1);
-    dead = [];
-  }
-  var newPixel = {};
-  newPixel.age = window.innerHeight + trailLength;
-  newPixel.position = Math.floor((Math.random() * window.innerWidth) + 1);
-  newPixel.velocity = Math.floor((Math.random() * 5) + 2);
-  trails.push(newPixel);
-  let leng = trails.length;
-  for (var i = 0; i < leng; i++) {
-    ctx.fillStyle = "#FFF";
-    ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age + trailLength, 1, 1);
-    var gradient = ctx.createLinearGradient(trails[i].position, window.innerHeight - trails[i].age + trailLength, trails[i].position, window.innerHeight - trails[i].age);
-    gradient.addColorStop(0, "#00a0a0");
-    gradient.addColorStop(1, "#000");
-    ctx.fillStyle = gradient;
-    ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age, 1, trailLength);
-    trails[i].age -= trails[i].velocity;
-  }
-  window.requestAnimationFrame(draw);
 }
 function blink() {
   if (cursorState === true) {
@@ -78,6 +32,7 @@ async function login(form) {
   });
   switch (data) {
     case 1:
+      document.getElementById("title").innerHTML = "ログインに成功";
       window.location.href = "/home";
       break;
     case 2:

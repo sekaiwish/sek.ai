@@ -47,8 +47,7 @@ a, b {
 font-family:"Bitstream Vera Sans Mono",monospace;
 color:#fff;
 text-decoration:none;
-transition:padding-left .5s,text-shadow .5s;
-padding:.3rem
+transition:padding-left .5s,text-shadow .5s
 }
 
 a:hover {

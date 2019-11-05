@@ -34,6 +34,7 @@
         <input class="en" type="submit" value="change!">
       </form>
     </div>
+    <script src="/js/main.js" charset="utf-8"></script>
     <script src="/js/home.js" charset="utf-8"></script>
     <audio id="player">
       <source src="theme.flac" type="audio/flac">

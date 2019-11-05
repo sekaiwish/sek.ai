@@ -48,6 +48,7 @@
     <audio id="player">
       <source src="theme.flac" type="audio/flac">
     </audio>
+    <script src="/js/main.js" charset="utf-8"></script>
     <script src="/js/index.js" charset="utf-8"></script>
   </body>
 </html>
