@@ -10,7 +10,7 @@
     <meta property="og:title" content="&#x4E16;&#x754C;">
     <meta name="theme-color" content="#00a0a0">
     <title>wish</title>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300,700&display=swap&subset=japanese">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=M+PLUS+1p:300,500&display=swap&subset=japanese">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="icon" href="favicon.ico">
   </head>
@@ -36,7 +36,7 @@
     </div>
     <div id="catch" onclick="catchModal()"></div>
     <div id="modal">
-      <h2 class="jp" id="title">世界にログイン</h2>
+      <h2 class="jp" id="title"><b>世界にログイン</b></h2>
       <form>
         <input class="jp" type="text" name="username" maxlength="16" placeholder="ユーザー名" required>
         <br>

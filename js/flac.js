@@ -127,7 +127,6 @@ function init() {
     createSession();
   } else {
     trails = JSON.parse(trailsExist);
-    audio.volume = retrieve("volume");
     let track = JSON.parse(retrieve("track"));
     if (!track.length < 1) {
       audio.src = decodeURI(track[0]);
@@ -135,6 +134,7 @@ function init() {
       if (JSON.parse(retrieve("state"))) {
         audio.play();
       }
+      audio.volume = retrieve("volume");
       document.getElementById("track").innerHTML = decodeURI(track[0].split("/").pop().split(".").slice(0,-1).join("."));
       document.getElementById("reset").hidden = false;
       document.getElementById("playlist").hidden = false;
