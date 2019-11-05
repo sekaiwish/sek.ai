@@ -33,7 +33,7 @@
           if (in_array($value, array("..", ".", "index.php"))) {
             continue;
           } elseif (is_dir("$dir$value")) {
-            echo("<a href='$url/'>$value</a><br>");
+            echo("<a href='$url/'>$value/</a><br>");
           } elseif (substr($value, -5) == ".flac") {
             echo(
               "<a id='song' onclick='updatePlaylist(\"" .
