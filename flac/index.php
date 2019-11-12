@@ -40,13 +40,17 @@
             echo("<a href='$url/'>$value/</a><br>");
           } elseif (substr($value, -5) == ".flac") {
             $info = $getID3->analyze(urldecode($_SERVER['DOCUMENT_ROOT'].$_SERVER["REQUEST_URI"].$value));
-            $title = $info["tags"]["vorbiscomment"]["title"][0];
-            $artist = $info["tags"]["vorbiscomment"]["artist"][0];
-            $display = "$artist &mdash; $title";
+            if ($info["tags"]) {
+              $title = $info["tags"]["vorbiscomment"]["title"][0];
+              $artist = $info["tags"]["vorbiscomment"]["artist"][0];
+              $display = "$artist &mdash; $title";
+            } else {
+              $display = $value;
+            }
             echo(
               "<a id='song' onclick='updatePlaylist(\"" .
               $_SERVER["REQUEST_URI"] .
-              "$url\",\"$display\")'>$value - [Play]</a><br>"
+              "$url\",\"$display\")'>$display - [Play]</a><br>"
             );
           } else {
             $size = round(filesize($dir . $value) / 1000);
