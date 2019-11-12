@@ -1,154 +1,63 @@
-body {
-  background: linear-gradient(-80deg, rgb(70, 0, 127), rgb(119, 50, 50), rgb(70, 0, 127));
-  width: 100%;
-  height: 100vh;
-  background-color: #000;
-  background-size: 600% 600%;
-  animation: gradient 20s ease-in-out infinite normal;
-  display: flex;
-  user-select: none;
-  -webkit-user-select: none;
+@font-face {
+font-family:"Bitstream Vera Sans Mono";
+src:url(font.woff2) format("woff2");
+font-weight:700;
+font-style:normal
 }
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-h1, h2 {
-  color: white;
-  text-align: center;
-  font-size: 700%!important;
-}
-.alert {
-  position: fixed;
-  width: 100%;
-  z-index: 1;
-}
-#unused {
-  display: block!important;
-}
-.jumbotron {
-  width: 60%;
-  display: block;
-  margin: auto;
-}
-.jumbotron .btn {
-  width: 100%;
-}
-.jp img {
-  margin-bottom: 14px;
-}
-.accordion {
-  margin: auto;
-  width: 80%;
-  height: 80%;
-}
-p.card-text {
-  padding: .5em;
-}
-.col-sm-6 {
-  margin-top: 2em;
-}
-.card.bg-outline-dark {
-  height: 100%;
-}
-.links {
-  color: white;
-  margin: auto;
-  display: block;
-  transition: all .5s ease-in-out;
-}
-.links.trigger {
-  display: none;
-}
-#login {
-  display: none;
-  margin: auto;
-  transition: all .5s ease-in-out .5s;
-}
-#login.trigger {
-  display: block;
-}
-.links > .link {
-  border-top: 3px dashed white;
-  padding-top: 1.5rem;
-  text-decoration: none;
-  outline: none;
-}
-img {
-  transition: filter .3s;
-  image-rendering: optimizespeed;
-}
-img:hover {
-  filter: drop-shadow(0 0 5px #000);
-}
-.wish {
-  margin-left: 50%;
-  transform: translate(-50%);
-  margin-bottom: 1.8rem;
-}
-.btn-dark {
-  background-color: rgba(53, 58, 64, 0.5);
-  border-color: rgba(255, 58, 64, 0.5);
-}
-.btn-dark.jp {
-  margin-top: 1rem;
-  transform: translate(-50%);
-  margin-left: 50%;
-}
+
 .jp {
-  font-family: "M PLUS 1p";
-  font-weight: 300;
+font-family:"M PLUS 1p";
+font-weight:300
 }
-.btn-group,
-.btn-primary,
-.btn-success,
-.btn-outline-success {
-  width: 100%;
+
+canvas {
+position:fixed;
+z-index:0
 }
-a > .btn {
-  cursor: pointer;
-  padding: .2rem .7rem;
+
+body {
+font-family:"Bitstream Vera Sans Mono",monospace;
+font-weight:300;
+background:#000;
+margin:auto
 }
-.views {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%);
+
+#body {
+position:absolute;
+left:10vw;
+z-index:0
 }
-.status {
-  position: fixed;
-  top: -.2rem;
-  left: 50%;
-  transform: translateX(-50%);
+
+a {
+color:#fff;
+text-decoration:none;
+transition:text-shadow .5s
 }
-.btn.alert-success,
-.btn.alert-warning {
-  cursor: default!important;
+
+a::before {
+content: "> ";
+color:#000;
+transition:color .5s
 }
-.account {
-  position: fixed;
-  left: 1rem;
-  top: -.2rem;
+
+a:hover {
+text-shadow:0 0 4px #FFF;
+cursor:pointer
 }
-.gitlab {
-  position: fixed;
-  right: 1rem;
-  bottom: -.2rem;
+
+a:hover::before {
+color:#fff
 }
-.copyright {
-  position: fixed;
-  left: 1rem;
-  bottom: -.2rem;
+
+a.ul {
+border-bottom:1px solid #000;
+transition:border-bottom .5s
 }
-.ms {
-  position: fixed;
-  right: 1rem;
-  top: -.2rem;
+
+a.ul::before {
+content:none!important
+}
+
+a.ul:hover {
+border-bottom:1px solid #fff
 }

@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>世界 &middot; /flac/</title>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300&display=swap&subset=japanese">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300&amp;display=swap&amp;subset=japanese">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
     <link rel="stylesheet" href="/css/flac.css" type="text/css">
     <link rel="icon" href="/sekai.ico">
   </head>
@@ -14,17 +15,17 @@
       <h1>/flac/<span><?php echo(urldecode(substr($_SERVER["REQUEST_URI"], 6))); ?></span></h1>
       <p>
         <div class="buttons">
-          <a id="reset" onclick="reset()" hidden>Reset</a>
+          <a class="ul" id="reset" onclick="reset()" hidden>Reset</a>
           <br>
-          <a id="playlist" onclick="modalToggle()">View Playlist</a>
+          <a class="ul" id="playlist" onclick="modalToggle()">View Playlist</a>
         </div>
         <?php
-        require_once '../getid3/getid3.php';
+        require_once $_SERVER["DOCUMENT_ROOT"].'/getid3/getid3.php';
         $getID3 = new getID3;
         if ($_SERVER["REQUEST_URI"] === "/flac/") {
-          echo("<a href='/home/'>.. - [Home]</a><br><br>");
+          echo("<a class='ul' href='/home/'>.. - [Home]</a><br><br>");
         } else {
-          echo("<a href='../'>.. - [Back]</a><br><br>");
+          echo("<a class='ul' href='../'>.. - [Back]</a><br><br>");
         }
         $dir = urldecode("." . substr($_SERVER["REQUEST_URI"], 5));
         $list = scandir($dir);
