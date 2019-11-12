@@ -19,6 +19,8 @@
           <a id="playlist" onclick="modalToggle()">View Playlist</a>
         </div>
         <?php
+        require_once '../getid3/getid3.php';
+        $getID3 = new getID3;
         if ($_SERVER["REQUEST_URI"] === "/flac/") {
           echo("<a href='/home/'>.. - [Home]</a><br><br>");
         } else {
@@ -36,10 +38,14 @@
           } elseif (is_dir("$dir$value")) {
             echo("<a href='$url/'>$value/</a><br>");
           } elseif (substr($value, -5) == ".flac") {
+            $info = $getID3->analyze("../".$_SERVER["REQUEST_URI"].$value);
+            $title = $info["tags"]["vorbiscomment"]["title"][0];
+            $artist = $info["tags"]["vorbiscomment"]["artist"][0];
+            $display = "$artist &mdash; $title";
             echo(
               "<a id='song' onclick='updatePlaylist(\"" .
               $_SERVER["REQUEST_URI"] .
-              "$url\")'>$value - [Play]</a><br>"
+              "$url\",\"$display\")'>$value - [Play]</a><br>"
             );
           } else {
             $size = round(filesize($dir . $value) / 1000);

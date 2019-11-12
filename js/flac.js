@@ -24,13 +24,16 @@ function addFolder() {
     document.querySelectorAll("#song")[i].onclick();
   }
 }
-function updatePlaylist(url) {
+function updatePlaylist(url, title) {
   let playlist = JSON.parse(retrieve("playlist"));
   let art = "";
   if (document.getElementById("data")) {
     art = document.getElementById("data").value;
   }
   let item = [url, art];
+  if (title) {
+    item.push(title);
+  }
   playlist.push(item);
   store("playlist", JSON.stringify(playlist));
   if (playlist.length == 1) {
@@ -56,10 +59,15 @@ function updateArt() {
 }
 function play(index) {
   let data = JSON.parse(retrieve("playlist"))[index];
-  document.getElementById("track").innerHTML = decodeURI(data[0].split("/").pop().split(".").slice(0,-1).join("."));
   audio.src = decodeURI(data[0]);
   audio.play();
   let track = [data[0], data[1]];
+  if (data[2]) {
+    document.getElementById("track").innerHTML = data[2];
+    track.push(data[2]);
+  } else {
+    document.getElementById("track").innerHTML = decodeURI(data[0].split("/").pop().split(".").slice(0,-1).join("."));
+  }
   store("track", JSON.stringify(track));
   store("index", index);
   updateArt(index);
@@ -137,7 +145,11 @@ function init() {
       }
       // Sometimes the element just will not update.
       audio.volume += 0.000001;
-      document.getElementById("track").innerHTML = decodeURI(track[0].split("/").pop().split(".").slice(0,-1).join("."));
+      if (track[2]) {
+        document.getElementById("track").innerHTML = track[2];
+      } else {
+        document.getElementById("track").innerHTML = decodeURI(track[0].split("/").pop().split(".").slice(0,-1).join("."));
+      }
       document.getElementById("reset").hidden = false;
       document.getElementById("playlist").hidden = false;
       updateArt();
