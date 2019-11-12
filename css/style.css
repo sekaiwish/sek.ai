@@ -12,7 +12,7 @@ font-weight:300
 
 canvas {
 position:fixed;
-z-index:0
+z-index:-1
 }
 
 body {
@@ -24,28 +24,32 @@ margin:auto
 
 #body {
 position:absolute;
-left:10vw;
-z-index:0
+left:10vw
 }
 
 a {
 color:#fff;
 text-decoration:none;
-transition:text-shadow .5s
+transition:text-shadow .5s, margin-left .5s;
 }
 
 a::before {
-content: "> ";
+content:"> ";
 color:#000;
-transition:color .5s
+position:absolute;
+z-index:-2;
+margin-left:-1.2em;
+transition:color .5s, margin-left .5s, z-index .5s
 }
 
 a:hover {
+margin-left:1.2em;
 text-shadow:0 0 4px #FFF;
 cursor:pointer
 }
 
 a:hover::before {
+z-index:1;
 color:#fff
 }
 
