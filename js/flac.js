@@ -84,12 +84,17 @@ function populateModal() {
   }
   for (var i = 0; i < playlist.length; i++) {
     let deleter = document.createElement("a");
-    deleter.classList = "delete";
+    deleter.classList = "ul delete";
     deleter.innerHTML = "X";
     deleter.setAttribute("onclick", "removeIndex(" + i + ")");
     modal.appendChild(deleter);
     let item = document.createElement("a");
-    item.innerHTML = decodeURI(playlist[i][0].split("/").pop().split(".").slice(0,-1).join("."));
+    item.classList = "ul";
+    if (playlist[i][2]) {
+      item.innerHTML = playlist[i][2];
+    } else {
+      item.innerHTML = decodeURI(playlist[i][0].split("/").pop().split(".").slice(0,-1).join("."));
+    }
     item.setAttribute("onclick", "play(" + i + ")");
     modal.appendChild(item);
     modal.appendChild(document.createElement("br"));

@@ -45,7 +45,7 @@
               $artist = $info["tags"]["vorbiscomment"]["artist"][0];
               $display = "$artist &mdash; $title";
             } else {
-              $display = $value;
+              $display = substr($value, 0, -5);
             }
             echo(
               "<a id='song' onclick='updatePlaylist(\"" .

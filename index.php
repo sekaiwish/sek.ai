@@ -13,6 +13,7 @@
     <meta name="theme-color" content="#00a0a0">
     <title>wish</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=M+PLUS+1p:300,500&display=swap&subset=japanese">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="icon" href="favicon.ico">
   </head>
