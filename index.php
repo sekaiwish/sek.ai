@@ -12,12 +12,9 @@
     <meta property="og:title" content="&#x4E16;&#x754C;">
     <meta name="theme-color" content="#00a0a0">
     <title>wish</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=M+PLUS+1p:300,500&display=swap&subset=japanese">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/index.css">
     <link rel="icon" href="favicon.ico">
   </head>
-  <body>
+  <body style="background:#000">
     <canvas id="canvas"></canvas>
     <div id="body">
       <h1 id="wish">_</h1>
@@ -51,6 +48,9 @@
     <audio id="player">
       <source src="theme.flac" type="audio/flac">
     </audio>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=M+PLUS+1p:300,500&display=swap&subset=japanese">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/index.css">
     <script src="/js/main.js" charset="utf-8"></script>
     <script src="/js/index.js" charset="utf-8"></script>
   </body>
