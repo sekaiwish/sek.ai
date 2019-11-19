@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="title" content="&#x4E16;&#x754C;">
-    <meta name="description" content="&#x1F4BE;">
+    <meta name="description" content="This ugly son of a bitch is coding super lame websites and basically, you are fucking stupid. How?..Just click here ^">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="/embed.png">
     <meta property="og:url" content="https://sek.ai">
