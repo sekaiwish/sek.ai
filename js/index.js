@@ -8,6 +8,13 @@ function init() {
   document.getElementById("body").hidden = false;
   document.getElementById("modal").hidden = false;
   document.getElementById("loader").hidden = true;
+  setTimeout(function() {document.getElementById("wish").innerHTML = "w_"}, 180);
+  setTimeout(function() {document.getElementById("wish").innerHTML = "wi_"}, 360);
+  setTimeout(function() {document.getElementById("wish").innerHTML = "wis_"}, 540);
+  setTimeout(function() {
+    document.getElementById("wish").innerHTML = "wish<span id='cursor'>_</span>";
+    setInterval(blink, 530);
+  }, 720);
   window.requestAnimationFrame(redraw);
   play();
 }
@@ -89,13 +96,6 @@ document.onkeydown = function(evt) {
     catchModal();
   }
 }
-setTimeout(function() {document.getElementById("wish").innerHTML = "w_"}, 180);
-setTimeout(function() {document.getElementById("wish").innerHTML = "wi_"}, 360);
-setTimeout(function() {document.getElementById("wish").innerHTML = "wis_"}, 540);
-setTimeout(function() {
-  document.getElementById("wish").innerHTML = "wish<span id='cursor'>_</span>";
-  setInterval(blink, 530);
-}, 720);
 function play() {
   audio = document.getElementById("player");
   audio.volume = 0.1;
