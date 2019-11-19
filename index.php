@@ -55,5 +55,12 @@
     <link rel="stylesheet" href="/css/index.css">
     <script src="/js/main.js" charset="utf-8"></script>
     <script src="/js/index.js" charset="utf-8"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152844430-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "UA-152844430-1");
+    </script>
   </body>
 </html>
