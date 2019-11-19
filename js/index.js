@@ -5,6 +5,9 @@ function redraw() {
   draw(1, "#00a0a0");
 }
 function init() {
+  document.getElementById("body").hidden = false;
+  document.getElementById("modal").hidden = false;
+  document.getElementById("loader").hidden = true;
   window.requestAnimationFrame(redraw);
   play();
 }

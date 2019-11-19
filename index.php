@@ -15,8 +15,9 @@
     <link rel="icon" href="favicon.ico">
   </head>
   <body style="background:#000">
+    <p id="loader" style="position:absolute;color:#333;top:48%;text-align:center;width:100vw">Loading...</p>
     <canvas id="canvas"></canvas>
-    <div id="body">
+    <div id="body" hidden>
       <h1 id="wish">_</h1>
       <br><a href="discord://open/users/119094696487288833">discord</a>
       <br><a target="_blank" href="//steamcommunity.com/id/sadwish">steam</a>
@@ -35,7 +36,7 @@
       <?php endif; ?>
     </div>
     <div id="catch" onclick="catchModal()"></div>
-    <div id="modal">
+    <div id="modal" hidden>
       <h2 class="jp" id="title"><b>世界にログイン</b></h2>
       <form>
         <input class="jp" type="text" name="username" maxlength="16" placeholder="ユーザー名" required>
