@@ -7,9 +7,10 @@
     <meta name="title" content="&#x4E16;&#x754C;">
     <meta name="description" content="This ugly son of a bitch is coding super lame websites and basically, you are fucking stupid. How?..Just click here ^">
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:image" content="/embed.png">
+    <meta property="og:image" content="https://sek.ai/embed.png">
     <meta property="og:url" content="https://sek.ai">
     <meta property="og:title" content="&#x4E16;&#x754C;">
+    <meta property="og:type" content="website">
     <meta name="theme-color" content="#00a0a0">
     <title>wish</title>
     <link rel="icon" href="favicon.ico">
