@@ -13,7 +13,7 @@
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#00a0a0">
     <title>wish</title>
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="sekai.ico">
   </head>
   <body style="background:#000">
     <p id="loader" style="position:absolute;color:#333;top:48%;text-align:center;width:100vw">Loading...</p>

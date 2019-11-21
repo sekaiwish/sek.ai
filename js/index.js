@@ -22,17 +22,9 @@ function blink() {
   if (cursorState === true) {
     document.getElementById("cursor").style.visibility = "hidden";
     cursorState = false;
-    var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
-    link.rel = "icon";
-    link.href = "favicoff.ico";
-    document.getElementsByTagName("head")[0].appendChild(link);
   } else {
     document.getElementById("cursor").style.visibility = "visible";
     cursorState = true;
-    var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
-    link.rel = "icon";
-    link.href = "favicon.ico";
-    document.getElementsByTagName("head")[0].appendChild(link);
   }
 }
 async function login(form) {
@@ -63,28 +55,30 @@ async function postData(url = '', data = {}) {
   });
   return await response.json();
 }
-function modalToggle() {
-  if (modalState === false) {
-    clearTimeout(killModal);
-    document.getElementById("body").style.opacity = 0.2;
-    document.getElementById("modal").style.visibility = "visible";
-    document.getElementById("catch").style.visibility = "visible";
-    document.getElementById("modal").style.opacity = 1;
-    modalState = true;
-  } else {
-    document.getElementById("body").style.opacity = 1;
-    killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"},3000);
-    document.getElementById("catch").style.visibility = "hidden";
-    document.getElementById("modal").style.opacity = 0;
-    modalState = false;
-  }
-}
-function catchModal() {
+function hide() {
   document.getElementById("body").style.opacity = 1;
   killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"},3000);
   document.getElementById("catch").style.visibility = "hidden";
   document.getElementById("modal").style.opacity = 0;
   modalState = false;
+}
+function show() {
+  clearTimeout(killModal);
+  document.getElementById("body").style.opacity = 0.2;
+  document.getElementById("modal").style.visibility = "visible";
+  document.getElementById("catch").style.visibility = "visible";
+  document.getElementById("modal").style.opacity = 1;
+  modalState = true;
+}
+function modalToggle() {
+  if (modalState === false) {
+    show()
+  } else {
+    hide();
+  }
+}
+function catchModal() {
+  hide();
 }
 document.onkeydown = function(evt) {
   evt = evt || window.event;
