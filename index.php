@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="title" content="&#x4E16;&#x754C;">
+    <meta name="author" content="wish">
     <meta name="description" content="This ugly son of a bitch is coding super lame websites and basically, you are fucking stupid. How?..Just click here ^">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://sek.ai/embed.png">
@@ -20,16 +21,8 @@
     <canvas id="canvas"></canvas>
     <div id="body" hidden>
       <h1 id="wish">_</h1>
-      <br><a href="discord://open/users/119094696487288833">discord</a>
-      <br><a target="_blank" href="//steamcommunity.com/id/sadwish">steam</a>
-      <br><a target="_blank" href="//gitlab.com/wishu">gitlab</a>
-      <br><a target="_blank" href="//youtube.com/wish495">youtube</a>
-      <br><a target="_blank" href="//twitch.tv/wishdere">twitch</a>
-      <br><a target="_blank" href="//twitter.com/wishdere">twitter</a>
-      <br><a target="_blank" href="//last.fm/user/Wish495">last.fm</a>
-      <br><a target="_blank" href="//myanimelist.net/profile/Ain">myanimelist</a>
-      <br><a target="_blank" href="//osu.ppy.sh/users/Wishu">osu!</a>
-      <h4>&copy; wish 2019</h4>
+      <div id="data"></div>
+      <h4>&copy; wish 2020</h4>
       <?php if (isset($_SESSION["username"])): ?>
         <button class="jp" type="button" name="button" onclick="window.location.href='/home/'">世界に続ける&nbsp;&nbsp;&#10148;</button>
       <?php else: ?>

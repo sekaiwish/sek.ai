@@ -1,6 +1,45 @@
 var cursorState = false;
 var modalState = false;
 var killModal;
+const data = [
+  [
+    {label:"/home/ - login to sekai",fun:function(){modalToggle()}},
+    {label:"/iku/ - pomf-powered file hosting",url:"/iku/"},
+    {label:"contact information",fun:function(){
+      document.getElementById("data").style = "opacity:0";
+      setTimeout(function(){loadData(1)},1000);
+    }}
+  ],[
+    {label:"discord",url:"discord://open/users/119094696487288833"},
+    {label:"gpg",url:"/k.asc"},
+    {label:"email",url:"mailto:wish@sek.ai"},
+    {label:"steam",url:"//steamcommunity.com/id/sadwish"},
+    {label:"gitlab",url:"//gitlab.com/wishu"},
+    {label:"github",url:"//github.com/sekaiwish"},
+    {label:"twitter",url:"//twitter.com/wishdere"},
+    {label:"return",fun:function(){
+      document.getElementById("data").style = "opacity:0";
+      setTimeout(function(){loadData(0)},1000);
+    }}
+  ]
+];
+function loadData(i) {
+  var div = document.getElementById("data");
+  div.style = "opacity:1";
+  div.innerHTML = "";
+  for (var j = 0; j < data[i].length; j++) {
+    let br = document.createElement("BR");
+    let a = document.createElement("A");
+    a.textContent = data[i][j].label;
+    if (data[i][j].url) {
+      a.href = data[i][j].url;
+    } else {
+      a.onclick = data[i][j].fun;
+    }
+    div.appendChild(br);
+    div.appendChild(a);
+  }
+}
 function redraw() {
   draw(1, "#00a0a0");
 }
@@ -15,6 +54,7 @@ function init() {
     document.getElementById("wish").innerHTML = "wish<span id='cursor'>_</span>";
     setInterval(blink, 530);
   }, 720);
+  loadData(0);
   window.requestAnimationFrame(redraw);
   play();
 }

@@ -1,7 +1,9 @@
 h1 {
 font-size:10vmax;
 white-space:nowrap;
-color:#fff
+color:#fff;
+width:80vw;
+overflow-x:hidden
 }
 
 br {
@@ -17,6 +19,10 @@ border-bottom:1px solid #FFF
 
 * {
 transition:opacity 3s
+}
+
+#data {
+transition:opacity 1s
 }
 
 #catch {
