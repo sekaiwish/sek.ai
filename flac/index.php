@@ -88,7 +88,6 @@
           <audio id="player" preload="auto" controls></audio>
         </div>
       </div>
-      <h4>&copy; wish 2020</h4>
     </div>
     <div id="catch" onclick="hide()"></div>
     <div id="modal">

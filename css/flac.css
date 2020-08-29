@@ -68,14 +68,6 @@ border-bottom:1px solid #FFF;
 font-family:"Bitstream Vera Sans Mono",monospace;
 }
 
-h4 {
-color:#fff;
-position:fixed;
-bottom:2em;
-left:2em;
-margin:0
-}
-
 .playlistSetup {
 border-bottom:1px solid #FFF;
 padding: .5em
