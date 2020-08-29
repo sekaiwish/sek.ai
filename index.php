@@ -29,7 +29,7 @@
         <button class="jp" type="button" name="button" onclick="modalToggle()">世界にログイン&nbsp;&nbsp;&#10148;</button>
       <?php endif; ?>
     </div>
-    <div id="catch" onclick="catchModal()"></div>
+    <div id="catch" onclick="hide()"></div>
     <div id="modal" hidden>
       <h2 class="jp" id="title"><b>世界にログイン</b></h2>
       <form>

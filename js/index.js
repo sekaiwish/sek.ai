@@ -13,7 +13,7 @@ const data = [
     {label:"discord",url:"discord://open/users/119094696487288833"},
     {label:"gpg",url:"/k.asc"},
     {label:"email",url:"mailto:wish@sek.ai"},
-    {label:"steam",url:"//steamcommunity.com/id/sadwish"},
+    {label:"steam",url:"//steamcommunity.com/id/wishdere"},
     {label:"gitlab",url:"//gitlab.com/wishu"},
     {label:"github",url:"//github.com/sekaiwish"},
     {label:"twitter",url:"//twitter.com/wishdere"},
@@ -111,14 +111,7 @@ function show() {
   modalState = true;
 }
 function modalToggle() {
-  if (modalState === false) {
-    show()
-  } else {
-    hide();
-  }
-}
-function catchModal() {
-  hide();
+  modalState ? hide() : show();
 }
 document.onkeydown = function(evt) {
   evt = evt || window.event;
@@ -127,7 +120,7 @@ document.onkeydown = function(evt) {
     isEscape = (evt.key == "Escape" || evt.key == "Esc");
   }
   if (isEscape) {
-    catchModal();
+    hide();
   }
 }
 function play() {

@@ -14,15 +14,17 @@
     <canvas id="canvas"></canvas>
     <div id=body>
       <h1>世界へようこそ！</h1>
-      <br><a onclick="modalToggle()">sek.ai account settings</a><span id="s"></span><br>
+      <br><a onclick="modalToggle()">change account password</a>
+      <br><a onclick="trailsToggle()">toggle trails globally</a><br>
       <br><a href="/iku/">/iku/ - pomf-powered file hosting</a>
       <br><a href="/flac/">/flac/ - lossless music collection</a>
       <br><a href="/anime/">/anime/ - bd and webrip collection</a>
       <br><a>/chan/ - unavailable</a>
-      <h4>&copy; wish 2019</h4>
+      <br><a href="/">/index/ - return to index</a>
+      <h4>&copy; wish 2020</h4>
       <button class="jp" id="button" onclick="window.location.href='/php/logout.php'">ログアウト&nbsp;&nbsp;&#10148;</button>
     </div>
-    <div id="catch" onclick="catchModal()"></div>
+    <div id="catch" onclick="hide()"></div>
     <div id="modal">
       <h2 class="en">change password</h2>
       <form action="/php/password.php" method="post">

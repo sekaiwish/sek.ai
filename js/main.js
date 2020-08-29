@@ -11,8 +11,23 @@ function scale() {
   }
   canvasWidth = window.innerWidth;
 }
+if (!localStorage.getItem("trailsEnabled")) {
+  localStorage.setItem("trailsEnabled", true);
+}
+function trailsToggle() {
+  let state = JSON.parse(localStorage.getItem("trailsEnabled"));
+  if (state === false) {
+    localStorage.setItem("trailsEnabled", true);
+  } else {
+    localStorage.setItem("trailsEnabled", false);
+  }
+  location.reload(true);
+}
 // dir 0 is up, 1 is down
 function draw(dir, color) {
+  if (!JSON.parse(localStorage.getItem("trailsEnabled"))) {
+    return;
+  }
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
   if (canvasWidth !== window.innerWidth) {

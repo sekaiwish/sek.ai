@@ -24,6 +24,16 @@ function addFolder() {
     document.querySelectorAll("#song")[i].onclick();
   }
 }
+function exportPlaylist() {
+  let playlist = retrieve("playlist");
+  prompt("Copy the text below", playlist);
+}
+function importPlaylist() {
+  let imported = prompt("Paste a playlist below");
+  store("playlist", imported);
+  populateModal();
+  play(0);
+}
 function updatePlaylist(url, title) {
   let playlist = JSON.parse(retrieve("playlist"));
   let art = "";
@@ -85,7 +95,7 @@ function populateModal() {
   for (var i = 0; i < playlist.length; i++) {
     let deleter = document.createElement("a");
     deleter.classList = "ul delete";
-    deleter.innerHTML = "X";
+    deleter.innerHTML = "&nbsp;X&nbsp;";
     deleter.setAttribute("onclick", "removeIndex(" + i + ")");
     modal.appendChild(deleter);
     let item = document.createElement("a");
@@ -103,12 +113,6 @@ function populateModal() {
 window.addEventListener("unload", function() {
   store("progress", audio.currentTime);
   store("trails", JSON.stringify(trails));
-});
-document.getElementsByClassName("visual")[0].addEventListener("mouseover", function() {
-  document.getElementsByClassName("next")[0].hidden = false;
-});
-document.getElementsByClassName("visual")[0].addEventListener("mouseout", function() {
-  document.getElementsByClassName("next")[0].hidden = true;
 });
 audio.onvolumechange = function() {
   store("volume", audio.volume);
@@ -162,29 +166,24 @@ function init() {
   }
   window.requestAnimationFrame(redraw);
 }
-function modalToggle() {
-  populateModal();
-  if (modalState === false) {
-    clearTimeout(killModal);
-    document.getElementById("body").style.opacity = 0.2;
-    document.getElementById("modal").style.visibility = "visible";
-    document.getElementById("catch").style.visibility = "visible";
-    document.getElementById("modal").style.opacity = 1;
-    modalState = true;
-  } else {
-    document.getElementById("body").style.opacity = 1;
-    killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"}, 1000);
-    document.getElementById("catch").style.visibility = "hidden";
-    document.getElementById("modal").style.opacity = 0;
-    modalState = false;
-  }
-}
-function catchModal() {
+function hide() {
   document.getElementById("body").style.opacity = 1;
-  killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"}, 1000);
+  killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"},1000);
   document.getElementById("catch").style.visibility = "hidden";
   document.getElementById("modal").style.opacity = 0;
   modalState = false;
+}
+function show() {
+  clearTimeout(killModal);
+  document.getElementById("body").style.opacity = 0.2;
+  document.getElementById("modal").style.visibility = "visible";
+  document.getElementById("catch").style.visibility = "visible";
+  document.getElementById("modal").style.opacity = 1;
+  modalState = true;
+}
+function modalToggle() {
+  populateModal();
+  modalState ? hide() : show();
 }
 document.onkeydown = function(evt) {
   evt = evt || window.event;
@@ -193,7 +192,7 @@ document.onkeydown = function(evt) {
     isEscape = (evt.key == "Escape" || evt.key == "Esc");
   }
   if (isEscape) {
-    catchModal();
+    hide();
   }
 }
 init();

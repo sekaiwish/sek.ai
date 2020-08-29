@@ -1,3 +1,7 @@
+body {
+overflow-x: hidden
+}
+
 h1 {
 font-family:"Bitstream Vera Sans Mono",monospace;
 font-size:7vmax;
@@ -40,7 +44,7 @@ position:absolute
 }
 
 #modal {
-position:absolute;
+position:fixed;
 visibility:hidden;
 opacity:0;
 width:60vw;
@@ -64,8 +68,22 @@ border-bottom:1px solid #FFF;
 font-family:"Bitstream Vera Sans Mono",monospace;
 }
 
+h4 {
+color:#fff;
+position:fixed;
+bottom:2em;
+left:2em;
+margin:0
+}
+
+.playlistSetup {
+border-bottom:1px solid #FFF;
+padding: .5em
+}
+
 #contents {
-padding:.5em
+padding:.5em;
+padding-top:1em
 }
 
 #reset:hover, .delete:hover {
@@ -75,8 +93,8 @@ text-shadow:none
 
 .delete {
 float:left;
-margin-left:1em;
-border-bottom:none!important
+border-bottom:none!important;
+cursor:pointer
 }
 
 .music {
@@ -120,4 +138,33 @@ outline:none
 
 ::-moz-focus-inner {
 border:0
+}
+
+@media (max-width:650px) {
+  #body {
+    padding-bottom:6em
+  }
+  .np {
+    display:none
+  }
+  #modal {
+    width:90vw;
+    right:5vw;
+    top:5vw;
+  }
+  .music {
+    bottom:0;
+    width:99.5%;
+    left:0;
+    text-align:center;
+  }
+  .cover {
+    display:none
+  }
+}
+
+@media (max-height:400px) {
+  .cover {
+    display:none
+  }
 }

@@ -17,7 +17,7 @@
         <div class="buttons">
           <a class="ul" id="reset" onclick="reset()" hidden>Reset</a>
           <br>
-          <a class="ul" id="playlist" onclick="modalToggle()">View Playlist</a>
+          <a class="ul" id="playlist" onclick="modalToggle()">Playlist</a>
         </div>
         <?php
         require_once $_SERVER["DOCUMENT_ROOT"].'/getid3/getid3.php';
@@ -32,14 +32,17 @@
         if (count(preg_grep("/\S+\.flac$/", $list)) > 1) {
           echo("<a onclick='addFolder()'>[Play folder]</a><br>");
         }
-        foreach ($list as $key => $value) {
+        foreach ($list as $value) {
           $url = str_replace("'", "%27", $value);
           if (in_array($value, array("..", ".", "index.php"))) {
             continue;
           } elseif (is_dir("$dir$value")) {
             echo("<a href='$url/'>$value/</a><br>");
           } elseif (substr($value, -5) == ".flac") {
-            $info = $getID3->analyze(urldecode($_SERVER['DOCUMENT_ROOT'].$_SERVER["REQUEST_URI"].$value));
+            $info = $getID3->analyze(
+              $_SERVER['DOCUMENT_ROOT'] .
+              urldecode($_SERVER["REQUEST_URI"].$value)
+            );
             if ($info["tags"]) {
               $title = $info["tags"]["vorbiscomment"]["title"][0];
               $artist = $info["tags"]["vorbiscomment"]["artist"][0];
@@ -78,18 +81,23 @@
           }
           ?>
         </div>
-        <div class="next" hidden></div>
         <div class="visual">
-          <b>Now playing: </b><span id="track">N/A</span>
+          <b class="np">Now playing: </b><span id="track">N/A</span>
         </div>
         <div class="controls">
           <audio id="player" preload="auto" controls></audio>
         </div>
       </div>
+      <h4>&copy; wish 2020</h4>
     </div>
-    <div id="catch" onclick="catchModal()"></div>
+    <div id="catch" onclick="hide()"></div>
     <div id="modal">
       <h2>Playlist</h2>
+      <div class="playlistSetup">
+        <a onclick="exportPlaylist()">Export playlist</a>
+        <br>
+        <a onclick="importPlaylist()">Import playlist</a>
+      </div>
       <div id="contents"></div>
     </div>
     <script src="/js/main.js" charset="utf-8"></script>
