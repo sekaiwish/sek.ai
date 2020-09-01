@@ -18,7 +18,7 @@
       <br><a onclick="trailsToggle()">toggle trails globally</a><br>
       <br><a href="/iku/">/iku/ - pomf-powered file hosting</a>
       <br><a href="/flac/">/flac/ - lossless music collection</a>
-      <br><a href="/anime/">/anime/ - bd and webrip collection</a>
+      <br><a>/anime/ - unavailable</a>
       <br><a>/chan/ - unavailable</a>
       <br><a href="/">/index/ - return to index</a>
       <h4>&copy; wish 2020</h4>
