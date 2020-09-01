@@ -1,9 +1,10 @@
-<?php
-if(isset($_GET["t"])) {
-  include("thread.php");
-} elseif (isset($_GET["g"])) {
-  include("post.php");
-} else {
-  include("catalog.php");
-}
-?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>sekaichan</title>
+  </head>
+  <body>
+    <p>probably not coming back</p>
+  </body>
+</html>
