@@ -34,10 +34,40 @@ document.onkeydown = function(evt) {
     hide();
   }
 }
-if (window.location.search.substring(1) === "s=1")
-  document.getElementById("s").innerHTML = "- updated successfully!";
-if (window.location.search.substring(1) === "e=1")
-  document.getElementById("s").innerHTML = "- update failed.";
+async function password(form) {
+  const data = await postData("/php/password.php", {
+    old: form.old.value,
+    new: form.new.value,
+    confirm: form.confirm.value
+  });
+  switch (data) {
+    case 0:
+      document.getElementById("title").innerHTML = "passwords don't match";
+      break;
+    case 1:
+      document.getElementById("title").innerHTML = "user error";
+      break;
+    case 2:
+      document.getElementById("title").innerHTML = "old password doesn't match";
+      break;
+    case 3:
+      document.getElementById("title").innerHTML = "password changed";
+      break;
+    default:
+      document.getElementById("title").innerHTML = "script error";
+  }
+}
+async function postData(url = '', data = {}) {
+  const response = await fetch(url, {
+    method: "POST",
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+  return await response.json();
+}
 function play() {
   audio = document.getElementById("player");
   audio.volume = 0.1;

@@ -26,7 +26,7 @@
     </div>
     <div id="catch" onclick="hide()"></div>
     <div id="modal">
-      <h2 class="en">change password</h2>
+      <h2 class="en" id="title">change password</h2>
       <form action="/php/password.php" method="post">
         <input class="en" type="password" name="old" maxlength="16" placeholder="current password" required>
         <br>
@@ -34,7 +34,7 @@
         <br>
         <input class="en" type="password" name="confirm" maxlength="16" placeholder="confirm new password" required>
         <br>
-        <input class="en" type="submit" value="change!">
+        <input class="en" type="button" value="change!" onclick="password(this.form)">
       </form>
     </div>
     <script src="/js/main.js" charset="utf-8"></script>

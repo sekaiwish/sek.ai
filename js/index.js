@@ -73,6 +73,9 @@ async function login(form) {
     password: form.password.value
   });
   switch (data) {
+    case 0:
+      document.getElementById("title").innerHTML = "ユーザーが見つからない";
+      break;
     case 1:
       document.getElementById("title").innerHTML = "ログインに成功";
       window.location.href = "/home";
@@ -81,7 +84,7 @@ async function login(form) {
       document.getElementById("title").innerHTML = "パスワードが間違";
       break;
     default:
-      document.getElementById("title").innerHTML = "ユーザーが見つからない";
+      document.getElementById("title").innerHTML = "ログインエラー";
   }
 }
 async function postData(url = '', data = {}) {

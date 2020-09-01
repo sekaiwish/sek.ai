@@ -1,18 +1,26 @@
 <?php
+header("Content-Type: application/json");
 session_start();
 include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
-$query = $db->prepare("SELECT password FROM users WHERE username = (:username)");
-$query->bindValue(":username", $_SESSION["username"], PDO::PARAM_STR);
-$query->execute();
-$password = $query->fetchColumn();
-if (password_verify($_POST["old"], $password) && $_POST["new"] == $_POST["confirm"]) {
-  $password = password_hash($_POST["new"], PASSWORD_DEFAULT);
-  $query = $db->prepare("UPDATE users SET password = (:password) WHERE username = (:username)");
-  $query->bindValue(":password", $password, PDO::PARAM_STR);
-  $query->bindValue(":username", $_SESSION["username"], PDO::PARAM_STR);
-  $query->execute();
-  header("Location: /home/?s=1");
-} else {
-  header("Location: /home/?e=1");
+$data = json_decode(file_get_contents("php://input"), true);
+if ($data["new"] !== $data["confirm"]) {
+  echo json_encode(0);
+  exit;
 }
-?>
+$query = $dbi->prepare("SELECT password FROM users WHERE username = ?");
+$query->bind_param("s", $_SESSION["username"]);
+$query->execute();
+$result = $query->get_result()->fetch_all(MYSQLI_ASSOC);
+if (empty($result)) {
+  echo json_encode(1);
+} else {
+  if (password_verify($data["old"], $result[0]["password"])) {
+    $password = password_hash($data["new"], PASSWORD_DEFAULT);
+    $query = $dbi->prepare("UPDATE users SET password = ? WHERE username = ?");
+    $query->bind_param("ss", $password, $_SESSION["username"]);
+    $query->execute();
+    echo json_encode(3);
+  } else {
+    echo json_encode(2);
+  }
+}
