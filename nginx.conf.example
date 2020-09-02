@@ -1,33 +1,33 @@
 events {
-    worker_connections  1024;
+  worker_connections  1024;
 }
 http {
-	include mime.types;
-	default_type application/octet-stream;
-	sendfile on;
-	server {
-		listen 80 default_server;
-		server_name sek.ai;
-		root /usr/share/nginx/sek.ai;
-		location / {
-			index.php index.html;
-		}
-		rewrite ^/flac/.+/$ /flac/index.php break;
+  include mime.types;
+  default_type application/octet-stream;
+  sendfile on;
+  server {
+    listen 80 default_server;
+    server_name sek.ai;
+    root /usr/share/nginx/sek.ai;
+    location / {
+      index.php index.html;
+    }
+    rewrite ^/flac/.+/$ /flac/index.php break;
     location ~* ^\/[a-zA-Z0-9]+\.(mkv|gif|jpg|jpeg|png|mp4|webm|zip|7z|rar)$ {
       root /usr/share/nginx/sek.ai/i;
     }
-		location ~ \.php$ {
-			fastcgi_pass unix:/run/php-fpm/php-fpm.sock;
-			fastcgi_index index.php;
-			fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-			include fastcgi.conf;
-		}
-		error_page 401 /error/401.html;
-		error_page 403 /error/403.html;
-		error_page 404 /error/404.html;
-		error_page 451 /error/451.html;
-		error_page 500 /error/500.html;
-		error_page 503 /error/503.html;
-		error_page 504 /error/504.html;
-	}
+    location ~ \.php$ {
+      fastcgi_pass unix:/run/php-fpm/php-fpm.sock;
+      fastcgi_index index.php;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+      include fastcgi.conf;
+    }
+    error_page 401 /error/401.html;
+    error_page 403 /error/403.html;
+    error_page 404 /error/404.html;
+    error_page 451 /error/451.html;
+    error_page 500 /error/500.html;
+    error_page 503 /error/503.html;
+    error_page 504 /error/504.html;
+  }
 }
