@@ -1,1 +1,1 @@
-Copyright (c) Wish 2016-2018 
+Copyright (c) wish 2016-2020
