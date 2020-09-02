@@ -1,4 +1,6 @@
 <?php
+header("Content-Type: application/json");
 session_start();
+if (!isset($_SESSION["username"])) { echo json_encode(1); exit; }
 session_destroy();
-header("Location: /");
+echo json_encode(0);

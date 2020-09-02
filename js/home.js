@@ -57,6 +57,16 @@ async function password(form) {
       document.getElementById("title").innerHTML = "script error";
   }
 }
+async function logout() {
+  const data = await postData("/php/logout.php", {});
+  switch (data) {
+    case 0:
+      window.location.href = "/";
+      break;
+    default:
+      console.log("Error logging out");
+  }
+}
 async function postData(url = '', data = {}) {
   const response = await fetch(url, {
     method: "POST",
