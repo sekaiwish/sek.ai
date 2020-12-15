@@ -1,0 +1,114 @@
+@font-face {
+font-family:"Bitstream Vera Sans Mono";
+src:url(/css/font.woff2) format("woff2");
+font-weight:700;
+font-style:normal;
+}
+
+.jp {
+font-family:"M PLUS 1p";
+font-weight:300;
+}
+
+canvas {
+position:fixed;
+z-index:-1;
+}
+
+body {
+font-family:"Bitstream Vera Sans Mono",monospace;
+font-weight:300;
+background:#0a0a0a;
+margin:0;
+}
+
+#body {
+display:flex;
+text-align:center;
+}
+
+a {
+color:#fff;
+text-decoration:none;
+transition:text-shadow .5s, margin-left .5s;
+}
+
+a::before {
+content:"> ";
+color:#000;
+position:absolute;
+z-index:-2;
+margin-left:-1.2em;
+transition:color .5s, margin-left .5s, z-index .5s;
+}
+
+a:hover {
+margin-left:1.2em;
+text-shadow:0 0 4px #FFF;
+cursor:pointer;
+}
+
+a:hover::before {
+z-index:1;
+color:#fff;
+}
+
+a.ul {
+border-bottom:1px solid #000;
+transition:border-bottom .5s;
+}
+
+a.ul::before {
+content:none!important;
+}
+
+a.ul:hover {
+margin:0;
+border-bottom:1px solid #fff;
+}
+
+h1 {
+font-size:30vmax;
+margin:0;
+transition:background 10s linear 1s;
+}
+
+#left h1 {
+color:#fff;
+}
+
+#right h1 {
+color:#000;
+}
+
+#left h1.load {
+background:#000!important;
+}
+
+#right h1.load {
+background:#fff!important;
+}
+
+br {
+margin-bottom:.6em;
+}
+
+* {
+transition:opacity 3s;
+}
+
+h4 {
+color:#fff;
+position:fixed;
+bottom:2em;
+left:2em;
+margin:0;
+}
+
+:focus {
+outline:none;
+}
+
+::-moz-focus-inner {
+border:0;
+}
