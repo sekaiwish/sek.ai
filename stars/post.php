@@ -4,6 +4,17 @@ include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
 $data = json_decode(file_get_contents("php://input"), true);
 $new = $data[0];
 
+// basic antispam
+if (time() + 10800 < $new['minTime']) {
+  exit();
+} elseif (time() + 10800 < $new['maxTime']) {
+  exit();
+}
+
+if ($new['loc'] > 13) {
+  exit();
+}
+
 $query = $dbi->prepare('SELECT * FROM stars WHERE world = ?');
 $query->bind_param('i', $new['world']);
 $query->execute();

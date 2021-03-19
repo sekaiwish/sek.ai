@@ -10,6 +10,7 @@
         font-style: normal;
       }
       body {
+        height:93vh;
         background-color:black;
         background-image:url('bg.png');
         background-repeat:no-repeat;
@@ -62,23 +63,33 @@
         13:'Wilderness',
         14:'Unknown'
       };
-      stars = false;
-      fetch('/stars/get.php').then((resp)=>resp.json()).then(function(data){
-        stars = data;
-        for (var i = 0; i < stars.length; i++) {
-          star = document.createElement('p');
-          if (stars[i].minTime < Math.floor(Date.now()/1000)) {
-            star.classList.add('fallen');
+      function init() {
+        parent = document.getElementById('data');
+        if (parent.lastChild) {
+          while (parent.firstChild) {
+            parent.removeChild(parent.lastChild);
           }
-          minTime = new Date(stars[i].minTime*1000).toLocaleTimeString();
-          maxTime = new Date(stars[i].maxTime*1000).toLocaleTimeString();
-          star.innerHTML = 'W'+stars[i].world+' - '+locations[stars[i].location]+' - '+minTime+' ~ '+maxTime
-          document.getElementById('data').appendChild(star);
         }
-      });
+        stars = false;
+        fetch('/stars/get.php').then((resp)=>resp.json()).then(function(data){
+          stars = data;
+          for (var i = 0; i < stars.length; i++) {
+            star = document.createElement('p');
+            if (stars[i].minTime < Math.floor(Date.now()/1000)) {
+              star.classList.add('fallen');
+            }
+            minTime = new Date(stars[i].minTime*1000).toLocaleTimeString();
+            maxTime = new Date(stars[i].maxTime*1000).toLocaleTimeString();
+            star.innerHTML = 'W'+stars[i].world+' - '+locations[stars[i].location]+' - '+minTime+' ~ '+maxTime
+            parent.appendChild(star);
+          }
+        });
+        setTimeout(function(){init();},30000);
+      }
       function help() {
         alert("Stars don't last forever. You can contribute data through a RuneLite plugin called 'Shooting Stars' (cred. Andrew McAdams). Once installed, go to settings and change the 'POST endpoint' to   https://sek.ai/stars/post.php   This will automatically submit what you see in the telescope! You can also set the 'GET endpoint' to   https://sek.ai/stars/get.php   to have an in-game widget with the next star. ");
       }
+      init();
     </script>
   </body>
 </html>
