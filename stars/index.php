@@ -18,6 +18,9 @@
       p {
         text-align:center;
       }
+      .fallen {
+        color:red;
+      }
     </style>
     <title>Shooting Stars</title>
   </head>
@@ -47,6 +50,9 @@
         stars = data;
         for (var i = 0; i < stars.length; i++) {
           star = document.createElement('p');
+          if (stars[i].minTime < Math.floor(Date.now()/1000)) {
+            star.classList.add('fallen');
+          }
           minTime = new Date(stars[i].minTime*1000).toLocaleTimeString();
           maxTime = new Date(stars[i].maxTime*1000).toLocaleTimeString();
           star.innerHTML = 'W'+stars[i].world+' - '+locations[stars[i].location]+' - '+minTime+' ~ '+maxTime
