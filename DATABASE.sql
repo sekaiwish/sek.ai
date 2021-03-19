@@ -9,3 +9,10 @@ CREATE TABLE users (
   email varchar(255) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB;
+
+CREATE TABLE stars (
+  location INT,
+  world INT,
+  minTime INT,
+  maxTime INT
+) ENGINE=InnoDB;
