@@ -3,20 +3,28 @@
   <head>
     <meta charset="utf-8">
     <style>
+      @font-face {
+        font-family:'RuneScape UF';
+        src: url('font.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+      }
       body {
         background-color:black;
         background-image:url('bg.png');
         background-repeat:no-repeat;
         background-position:center;
         color:white;
-        font-family:sans-serif;
+        font-family:'RuneScape UF';
       }
       h1 {
         text-align:center;
-        font-size:3em;
+        font-size:4em;
       }
       p {
         text-align:center;
+        font-size:1.1em;
+        margin:0;
       }
       .fallen {
         color:red;
@@ -25,7 +33,7 @@
     <title>Shooting Stars</title>
   </head>
   <body>
-    <h1>Meet hot stars in YOUR area just waiting to be mined!</h1>
+    <h1>Meet HOT stars in YOUR area just waiting to be mined!</h1>
     <p id='data'></p>
     <script>
       const locations = {
