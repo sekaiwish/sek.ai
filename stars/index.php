@@ -5,6 +5,9 @@
     <style>
       body {
         background-color:black;
+        background-image:url('bg.png');
+        background-repeat:no-repeat;
+        background-position:center;
         color:white;
         font-family:sans-serif;
       }
