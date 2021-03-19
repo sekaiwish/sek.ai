@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang='en'>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <style>
       @font-face {
         font-family:'RuneScape UF';
@@ -29,12 +29,21 @@
       .fallen {
         color:red;
       }
+      a {
+        position:fixed;
+        bottom:1em;
+        right:1em;
+        color:white;
+        text-decoration:none;
+        outline:0;
+      }
     </style>
     <title>Shooting Stars</title>
   </head>
   <body>
     <h1>Meet HOT stars in YOUR area just waiting to be mined!</h1>
     <p id='data'></p>
+    <a href='#' onclick=help()>How to use?</a>
     <script>
       const locations = {
         0:'Asgarnia',
@@ -54,7 +63,7 @@
         14:'Unknown'
       };
       stars = false;
-      fetch("/stars/get.php").then((resp)=>resp.json()).then(function(data){
+      fetch('/stars/get.php').then((resp)=>resp.json()).then(function(data){
         stars = data;
         for (var i = 0; i < stars.length; i++) {
           star = document.createElement('p');
@@ -67,6 +76,9 @@
           document.getElementById('data').appendChild(star);
         }
       });
+      function help() {
+        alert("Stars don't last forever. You can contribute data through a RuneLite plugin called 'Shooting Stars' (cred. Andrew McAdams). Once installed, go to settings and change the 'POST endpoint' to   https://sek.ai/stars/post.php   This will automatically submit what you see in the telescope! You can also set the 'GET endpoint' to   https://sek.ai/stars/get.php   to have an in-game widget with the next star. ");
+      }
     </script>
   </body>
 </html>
