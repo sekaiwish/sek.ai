@@ -13,6 +13,8 @@ if (time() + 10800 < $new['minTime']) {
 
 if ($new['loc'] > 13) {
   exit();
+} elseif ($new['loc'] < 0) {
+  exit();
 }
 
 $query = $dbi->prepare('SELECT * FROM stars WHERE world = ?');
@@ -27,6 +29,10 @@ if (empty($result)) {
   $query->bind_param('iiii', $new['loc'], $new['world'], $new['minTime'], $new['maxTime']);
   $query->execute();
 } elseif ($new['minTime'] > $old['maxTime']) {
+  // archive the outdated star
+  $query = $dbi->prepare('INSERT INTO history VALUES (?, ?, ?, ?)');
+  $query->bind_param('iiii', $old['location'], $old['world'], $old['minTime'], $old['maxTime']);
+  $query->execute();
   // replace outdated star
   // just don't put any fake data in haha -_-
   $query = $dbi->prepare('UPDATE stars SET minTime = ?, maxTime = ?, location = ? WHERE location = ? AND world = ?');
