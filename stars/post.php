@@ -29,18 +29,18 @@ if (empty($result)) {
 } elseif ($new['minTime'] > $old['maxTime']) {
   // replace outdated star
   // just don't put any fake data in haha -_-
-  $query = $dbi->prepare('UPDATE stars SET min_time = ?, max_time = ?, location = ? WHERE location = ? AND world = ?');
+  $query = $dbi->prepare('UPDATE stars SET minTime = ?, maxTime = ?, location = ? WHERE location = ? AND world = ?');
   $query->bind_param('iiiii', $new['minTime'], $new['maxTime'], $new['loc'], $old['location'], $new['world']);
   $query->execute();
 } else {
   // refine timing for old star
-  if ($old['min_time'] < $new['minTime']) {
-    $query = $dbi->prepare('UPDATE stars SET min_time = ? WHERE location = ? AND world = ?');
+  if ($old['minTime'] < $new['minTime']) {
+    $query = $dbi->prepare('UPDATE stars SET minTime = ? WHERE location = ? AND world = ?');
     $query->bind_param('iii', $new['minTime'], $new['loc'], $new['world']);
     $query->execute();
   }
-  if ($old['max_time'] > $new['maxTime']) {
-    $query = $dbi->prepare('UPDATE stars SET max_time = ? WHERE location = ? AND world = ?');
+  if ($old['maxTime'] > $new['maxTime']) {
+    $query = $dbi->prepare('UPDATE stars SET maxTime = ? WHERE location = ? AND world = ?');
     $query->bind_param('iii', $new['maxTime'], $new['loc'], $new['world']);
     $query->execute();
   }
