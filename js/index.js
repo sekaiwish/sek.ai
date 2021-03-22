@@ -4,6 +4,7 @@ var killModal;
 const data = [
   [
     {label:"/home/ - login to sekai",fun:function(){modalToggle()}},
+    {label:"/stars/ - osrs shooting star tracker",url:"/stars/"},
     {label:"/iku/ - pomf-powered file hosting",url:"/iku/"},
     {label:"contact information",fun:function(){
       document.getElementById("data").style = "opacity:0";
