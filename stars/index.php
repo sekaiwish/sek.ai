@@ -38,6 +38,14 @@
         text-decoration:none;
         outline:0;
       }
+      .discord {
+        position:fixed;
+        bottom:1em;
+        left:1em;
+        color:white;
+        text-decoration:none;
+        outline:0;
+      }
     </style>
     <title>Shooting Stars</title>
   </head>
@@ -45,6 +53,7 @@
     <h1>Meet HOT stars in YOUR area just waiting to be mined!</h1>
     <p id='data'></p>
     <a href='#' onclick=help()>How to use?</a>
+    <a class='discord' href='https://discord.gg/kePnzpNXXK'>Star Miners Discord</a>
     <script>
       const locations = {
         0:'Asgarnia',
