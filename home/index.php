@@ -21,7 +21,7 @@
       <br><a>/anime/ - unavailable</a>
       <br><a>/chan/ - unavailable</a>
       <br><a href="/">/index/ - return to index</a>
-      <h4>&copy; wish 2020</h4>
+      <h4>&copy; wish 2021</h4>
       <button class="jp" id="button" onclick="logout()">ログアウト&nbsp;&nbsp;&#10148;</button>
     </div>
     <div id="catch" onclick="hide()"></div>

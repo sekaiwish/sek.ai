@@ -22,7 +22,7 @@
     <div id="body" hidden>
       <h1 id="wish">_</h1>
       <div id="data"></div>
-      <h4>&copy; wish 2020</h4>
+      <h4>&copy; wish 2021</h4>
       <?php if (isset($_SESSION["username"])): ?>
         <button class="jp" type="button" name="button" onclick="window.location.href='/home/'">世界に続ける&nbsp;&nbsp;&#10148;</button>
       <?php else: ?>
