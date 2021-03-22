@@ -1,3 +1,6 @@
+// Temporarily disable trails globally until patched
+localStorage.setItem("trailsEnabled", false);
+
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var trails = [];
