@@ -6,8 +6,12 @@ if ($_GET['p']) {
 } else {
   $period = 180;
 }
-$query = $dbi->prepare('SELECT * FROM stars WHERE maxTime > ? - ? ORDER BY minTime');
-$query->bind_param('ii', time(), $period);
+if ($period == 'all') {
+  $query = $dbi->prepare('SELECT * FROM stars ORDER BY minTime');
+} else {
+  $query = $dbi->prepare('SELECT * FROM stars WHERE maxTime > ? - ? ORDER BY minTime');
+  $query->bind_param('ii', time(), $period);
+}
 $query->execute();
 $results = $query->get_result()->fetch_all(MYSQLI_ASSOC);
 echo(json_encode($results));
