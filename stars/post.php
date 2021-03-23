@@ -17,11 +17,6 @@ if ($new['loc'] > 13) {
   exit();
 }
 
-// for some reason this file will generate a lot of NULL entries
-// this is a workaround
-$query = $dbi->prepare('DELETE FROM stars WHERE world IS NULL');
-$query->execute();
-
 $query = $dbi->prepare('SELECT * FROM stars WHERE world = ?');
 $query->bind_param('i', $new['world']);
 $query->execute();
@@ -56,3 +51,8 @@ if (empty($result)) {
     $query->execute();
   }
 }
+
+// for some reason this file will generate a lot of NULL entries
+// this is a workaround
+$query = $dbi->prepare('DELETE FROM stars WHERE world IS NULL');
+$query->execute();
