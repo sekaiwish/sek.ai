@@ -30,7 +30,7 @@
       .fallen {
         color:red;
       }
-      a {
+      .help {
         position:fixed;
         bottom:1em;
         right:1em;
@@ -52,7 +52,7 @@
   <body>
     <h1>Meet HOT stars in YOUR area just waiting to be mined!</h1>
     <p id='data'></p>
-    <a href='#' onclick=help()>How to use?</a>
+    <a class='help' href='#' onclick=help()>How to use?</a>
     <a class='discord' href='https://discord.gg/kePnzpNXXK'>Star Miners Discord</a>
     <script>
       const locations = {
