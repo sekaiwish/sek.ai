@@ -26,4 +26,9 @@ foreach ($data as &$star) {
   unset($star['sharedKey']);
 }
 
-echo(json_encode(array_merge($results, $data)));
+$stars = array_merge($results, $data);
+usort($stars, function($a, $b) {
+  return $a['minTime'] <=> $b['minTime'];
+});
+
+echo(json_encode($stars));
