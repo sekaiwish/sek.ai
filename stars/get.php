@@ -24,9 +24,15 @@ curl_close($cr);
 $data = json_decode($data, true);
 foreach ($data as &$star) {
   unset($star['sharedKey']);
+  if (!in_array($star['world'], array_column($results, 'world'))) {
+    array_push($results);
+  }
 }
 
-$stars = array_merge($results, $data);
+// merging is an issue and currently prefers local data
+// check is needed to see if remote data is newer than local data
+#$stars = array_merge($results, $data);
+$stars = $results;
 usort($stars, function($a, $b) {
   return $a['minTime'] <=> $b['minTime'];
 });
