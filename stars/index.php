@@ -28,6 +28,9 @@
         margin:0;
       }
       .fallen {
+        color:orange;
+      }
+      .depleted {
         color:red;
       }
       .help {
@@ -73,19 +76,26 @@
         14:'Unknown'
       };
       function init() {
-        parent = document.getElementById('data');
-        if (parent.lastChild) {
-          while (parent.firstChild) {
-            parent.removeChild(parent.lastChild);
-          }
-        }
+        const parent = document.getElementById('data');
         stars = false;
-        fetch('/stars/get.php').then((resp)=>resp.json()).then(function(data){
+        fetch('/stars/get.php').then((resp)=>resp.json()).then(function(data) {
+          // clear existing data
+          if (parent.lastChild) {
+            while (parent.firstChild) {
+              parent.removeChild(parent.lastChild);
+            }
+          }
           stars = data;
           for (var i = 0; i < stars.length; i++) {
+            if (stars[i].maxTime < Math.floor(Date.now() / 1000 + 180)) {
+              continue;
+            }
             star = document.createElement('p');
             if (stars[i].minTime < Math.floor(Date.now()/1000)) {
               star.classList.add('fallen');
+            }
+            if (stars[i].maxTime <= Math.floor(Date.now() / 1000 + 180)) {
+              star.classList.replace('fallen', 'depleted');
             }
             minTime = new Date(stars[i].minTime*1000).toLocaleTimeString();
             maxTime = new Date(stars[i].maxTime*1000).toLocaleTimeString();
