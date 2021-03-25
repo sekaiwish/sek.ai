@@ -87,14 +87,14 @@
           }
           stars = data;
           for (var i = 0; i < stars.length; i++) {
-            if (stars[i].maxTime < Math.floor(Date.now() / 1000 + 180)) {
+            if (stars[i].maxTime < Math.floor(Date.now() / 1000) + 180) {
               continue;
             }
             star = document.createElement('p');
-            if (stars[i].minTime < Math.floor(Date.now()/1000)) {
+            if (stars[i].minTime < Math.floor(Date.now() / 1000)) {
               star.classList.add('fallen');
             }
-            if (stars[i].maxTime <= Math.floor(Date.now() / 1000 + 180)) {
+            if (stars[i].maxTime <= Math.floor(Date.now() / 1000) + 180) {
               star.classList.replace('fallen', 'depleted');
             }
             minTime = new Date(stars[i].minTime*1000).toLocaleTimeString();
