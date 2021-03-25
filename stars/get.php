@@ -1,17 +1,8 @@
 <?php
 header("Content-Type: application/json");
 include("{$_SERVER["DOCUMENT_ROOT"]}/php/sql.php");
-$period = 180;
-if ($_GET['p']) {
-  $period = $_GET['p'];
-}
 
-if ($period == 'all') {
-  $query = $dbi->prepare('SELECT * FROM stars ORDER BY minTime');
-} else {
-  $query = $dbi->prepare('SELECT * FROM stars WHERE maxTime > ? - ? ORDER BY minTime');
-  $query->bind_param('ii', time(), $period);
-}
+$query = $dbi->prepare('SELECT * FROM stars ORDER BY minTime');
 $query->execute();
 $results = $query->get_result()->fetch_all(MYSQLI_ASSOC);
 
