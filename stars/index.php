@@ -2,6 +2,7 @@
 <html lang='en'>
   <head>
     <meta charset='utf-8'>
+    <meta name="keywords" content="osrs, shooting stars, tracker, runescape, cc, star miners">
     <style>
       @font-face {
         font-family:'RuneScape UF';
