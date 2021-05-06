@@ -7,6 +7,7 @@
     <meta name="title" content="&#x4E16;&#x754C;">
     <meta name="author" content="wish">
     <meta name="description" content="This ugly son of a bitch is coding super lame websites and basically, you are fucking stupid. How?..Just click here ^">
+    <meta name="keywords" content="sekai, profile, portfolio, wish, wishdere">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://sek.ai/embed.png">
     <meta property="og:url" content="https://sek.ai">
