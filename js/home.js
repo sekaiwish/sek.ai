@@ -1,7 +1,6 @@
 var modalState = false;
 var killModal;
 function redraw() {
-  draw(0, "#c06000");
 }
 function init() {
   window.requestAnimationFrame(redraw);
@@ -33,36 +32,32 @@ document.onkeydown = function(evt) {
   if (isEscape) {
     hide();
   }
+  draw(0, '#c06000');
 }
 async function password(form) {
-  const data = await postData("/php/password.php", {
+  const data = await postData('/php/password.php', {
     old: form.old.value,
     new: form.new.value,
     confirm: form.confirm.value
   });
   switch (data) {
     case 0:
-      document.getElementById("title").innerHTML = "passwords don't match";
-      break;
+      document.getElementById('title').innerHTML = 'passwords don\'t match'; break;
     case 1:
-      document.getElementById("title").innerHTML = "user error";
-      break;
+      document.getElementById('title').innerHTML = 'user error'; break;
     case 2:
-      document.getElementById("title").innerHTML = "old password doesn't match";
-      break;
+      document.getElementById('title').innerHTML = 'old password doesn\'t match'; break;
     case 3:
-      document.getElementById("title").innerHTML = "password changed";
-      break;
+      document.getElementById('title').innerHTML = 'password changed'; break;
     default:
-      document.getElementById("title").innerHTML = "script error";
+      document.getElementById('title').innerHTML = 'script error';
   }
 }
 async function logout() {
-  const data = await postData("/php/logout.php", {});
+  const data = await postData('/php/logout.php', {});
   switch (data) {
     case 0:
-      window.location.href = "/";
-      break;
+      window.location.href = '/'; break;
     default:
       console.log("Error logging out");
   }
@@ -91,5 +86,4 @@ function play() {
     audio.play();
   }
 }
-setTimeout(play, 0);
 init();

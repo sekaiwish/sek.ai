@@ -3,24 +3,24 @@ var modalState = false;
 var killModal;
 const data = [
   [
-    {label:"/home/ - login to sekai",fun:function(){modalToggle()}},
-    {label:"/stars/ - osrs shooting star tracker",url:"/stars/"},
-    {label:"/iku/ - pomf-powered file hosting",url:"/iku/"},
-    {label:"contact information",fun:function(){
-      document.getElementById("data").style = "opacity:0";
-      setTimeout(function(){loadData(1)},1000);
+    {label:'/home/ - login to sekai', fun:function() {modalToggle()}},
+    {label:'/stars/ - osrs shooting star tracker', url:'/stars/'},
+    {label:'/iku/ - pomf-powered file hosting', url:'/iku/'},
+    {label:'contact information', fun:function() {
+      document.getElementById('data').style = 'opacity:0';
+      setTimeout(function(){loadData(1)}, 1000);
     }}
   ],[
-    {label:"discord",url:"discord://open/users/119094696487288833"},
-    {label:"gpg",url:"/k.asc"},
-    {label:"email",url:"mailto:wish@sek.ai"},
-    {label:"steam",url:"//steamcommunity.com/id/wishdere"},
-    {label:"gitlab",url:"//gitlab.com/wishu"},
-    {label:"github",url:"//github.com/sekaiwish"},
-    {label:"twitter",url:"//twitter.com/wishdere"},
-    {label:"return",fun:function(){
-      document.getElementById("data").style = "opacity:0";
-      setTimeout(function(){loadData(0)},1000);
+    {label:'discord', url:'discord://open/users/119094696487288833'},
+    {label:'gpg', url:'/k.asc'},
+    {label:'email', url:'mailto:wish@sek.ai'},
+    {label:'steam', url:'//steamcommunity.com/id/wishdere'},
+    {label:'gitlab', url:'//gitlab.com/wishu'},
+    {label:'github', url:'//github.com/sekaiwish'},
+    {label:'twitter', url:'//twitter.com/wishdere'},
+    {label:'return', fun:function() {
+      document.getElementById('data').style = 'opacity:0';
+      setTimeout(function(){loadData(0)}, 1000);
     }}
   ]
 ];
@@ -42,7 +42,7 @@ function loadData(i) {
   }
 }
 function redraw() {
-  draw(1, "#00a0a0");
+  draw(1, '#00a0a0');
 }
 function init() {
   document.getElementById("body").hidden = false;
@@ -60,16 +60,13 @@ function init() {
   play();
 }
 function blink() {
-  if (cursorState === true) {
-    document.getElementById("cursor").style.visibility = "hidden";
-    cursorState = false;
-  } else {
-    document.getElementById("cursor").style.visibility = "visible";
-    cursorState = true;
-  }
+  let elem = document.getElementById('cursor').style;
+  cursorState
+    ? (() => {elem.visibility = 'hidden'; cursorState = false})()
+    : (() => {elem.visibility = 'visible'; cursorState = true})();
 }
 async function login(form) {
-  const data = await postData("/php/login.php", {
+  const data = await postData('/php/login.php', {
     username: form.username.value,
     password: form.password.value
   });
