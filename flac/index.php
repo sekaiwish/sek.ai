@@ -3,15 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>世界 &middot; /flac/</title>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300&amp;display=swap&amp;subset=japanese">
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
-    <link rel="stylesheet" href="/css/flac.css" type="text/css">
+    <title>世界 &middot; flac</title>
     <link rel="icon" href="/sekai.ico">
   </head>
-  <body>
+  <body style='background:#000'>
+    <p id='loader' style='position:absolute;color:#333;top:48%;text-align:center;width:100vw'>Loading...</p>
     <canvas id="canvas"></canvas>
-    <div id="body">
+    <div id="body" hidden>
       <h1>/flac/<span><?php echo(urldecode(substr($_SERVER["REQUEST_URI"], 6))); ?></span></h1>
       <p>
         <div class="buttons">
@@ -90,7 +88,7 @@
       </div>
     </div>
     <div id="catch" onclick="hide()"></div>
-    <div id="modal">
+    <div id="modal" hidden>
       <h2>Playlist</h2>
       <div class="playlistSetup">
         <a onclick="exportPlaylist()">Export playlist</a>
@@ -99,6 +97,9 @@
       </div>
       <div id="contents"></div>
     </div>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p:300&amp;display=swap&amp;subset=japanese">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/flac.css" type="text/css">
     <script src="/js/main.js" charset="utf-8"></script>
     <script src="/js/flac.js" charset="utf-8"></script>
   </body>

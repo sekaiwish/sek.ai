@@ -164,6 +164,9 @@ function init() {
       updateArt();
     }
   }
+  document.getElementById('body').hidden = false;
+  document.getElementById('modal').hidden = false;
+  document.getElementById('loader').hidden = true;
   window.requestAnimationFrame(redraw);
 }
 function hide() {
