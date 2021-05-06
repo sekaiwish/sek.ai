@@ -12,6 +12,9 @@ http {
     location / {
       index.php index.html;
     }
+    location ~ ^\/vendor {
+			deny all;
+		}
     rewrite ^/flac/.+/$ /flac/index.php break;
     location ~* ^\/[a-zA-Z0-9]+\.(mkv|gif|jpg|jpeg|png|mp4|webm|zip|7z|rar)$ {
       root /usr/share/nginx/sek.ai/i;
