@@ -1,37 +1,15 @@
-var modalState = false;
-var killModal;
+const data = [
+  [
+    {label:'change account password', fun:function() {modalToggle()}},
+    {label:'toggle trails globally', fun:function() {trailsToggle()}},
+    {label:'/iku/ - pomf-powered file hosting', url:'/iku/'},
+    {label:'/flac/ - lossless music collection', url:'/flac/'},
+    {label:'/anime/ - unavailable', url:'/anime/'},
+    {label:'/chan/ - unavailable', url:'/chan/'},
+    {label:'/index/ - return to index', url:'/'}
+  ]
+];
 function redraw() {
-}
-function init() {
-  window.requestAnimationFrame(redraw);
-}
-function hide() {
-  document.getElementById("body").style.opacity = 1;
-  killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"},3000);
-  document.getElementById("catch").style.visibility = "hidden";
-  document.getElementById("modal").style.opacity = 0;
-  modalState = false;
-}
-function show() {
-  clearTimeout(killModal);
-  document.getElementById("body").style.opacity = 0.2;
-  document.getElementById("modal").style.visibility = "visible";
-  document.getElementById("catch").style.visibility = "visible";
-  document.getElementById("modal").style.opacity = 1;
-  modalState = true;
-}
-function modalToggle() {
-  modalState ? hide() : show();
-}
-document.onkeydown = function(evt) {
-  evt = evt || window.event;
-  var isEscape = false;
-  if ("key" in evt) {
-    isEscape = (evt.key == "Escape" || evt.key == "Esc");
-  }
-  if (isEscape) {
-    hide();
-  }
   draw(0, '#c06000');
 }
 async function password(form) {
@@ -59,31 +37,7 @@ async function logout() {
     case 0:
       window.location.href = '/'; break;
     default:
-      console.log("Error logging out");
-  }
-}
-async function postData(url = '', data = {}) {
-  const response = await fetch(url, {
-    method: "POST",
-    cache: "no-cache",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  });
-  return await response.json();
-}
-function play() {
-  audio = document.getElementById("player");
-  audio.volume = 0.1;
-  audio.loop = true;
-  var isChromium = window.chrome;
-  if (isChromium !== null && typeof isChromium !== "undefined") {
-    document.body.addEventListener("mousemove", function() {
-      audio.play()
-    });
-  } else {
-    audio.play();
+      console.log('Error logging out');
   }
 }
 init();

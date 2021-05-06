@@ -1,6 +1,4 @@
 var cursorState = false;
-var modalState = false;
-var killModal;
 const data = [
   [
     {label:'/home/ - login to sekai', fun:function() {modalToggle()}},
@@ -24,40 +22,18 @@ const data = [
     }}
   ]
 ];
-function loadData(i) {
-  var div = document.getElementById("data");
-  div.style = "opacity:1";
-  div.innerHTML = "";
-  for (var j = 0; j < data[i].length; j++) {
-    let br = document.createElement("BR");
-    let a = document.createElement("A");
-    a.textContent = data[i][j].label;
-    if (data[i][j].url) {
-      a.href = data[i][j].url;
-    } else {
-      a.onclick = data[i][j].fun;
-    }
-    div.appendChild(br);
-    div.appendChild(a);
-  }
-}
 function redraw() {
   draw(1, '#00a0a0');
 }
-function init() {
-  document.getElementById("body").hidden = false;
-  document.getElementById("modal").hidden = false;
-  document.getElementById("loader").hidden = true;
-  setTimeout(function() {document.getElementById("wish").innerHTML = "w_"}, 180);
-  setTimeout(function() {document.getElementById("wish").innerHTML = "wi_"}, 360);
-  setTimeout(function() {document.getElementById("wish").innerHTML = "wis_"}, 540);
+function init_page() {
+  document.getElementById('header').innerHTML = '_';
+  setTimeout(function() {document.getElementById('header').innerHTML = 'w_'}, 180);
+  setTimeout(function() {document.getElementById('header').innerHTML = 'wi_'}, 360);
+  setTimeout(function() {document.getElementById('header').innerHTML = 'wis_'}, 540);
   setTimeout(function() {
-    document.getElementById("wish").innerHTML = "wish<span id='cursor'>_</span>";
+    document.getElementById('header').innerHTML = "wish<span id='cursor'>_</span>";
     setInterval(blink, 530);
   }, 720);
-  loadData(0);
-  window.requestAnimationFrame(redraw);
-  play();
 }
 function blink() {
   let elem = document.getElementById('cursor').style;
@@ -72,69 +48,15 @@ async function login(form) {
   });
   switch (data) {
     case 0:
-      document.getElementById("title").innerHTML = "ユーザーが見つからない";
-      break;
+      document.getElementById('mtitle').innerHTML = 'ユーザーが見つからない'; break;
     case 1:
-      document.getElementById("title").innerHTML = "ログインに成功";
-      window.location.href = "/home";
-      break;
+      document.getElementById('mtitle').innerHTML = 'ログインに成功';
+      window.location.href = '/home'; break;
     case 2:
-      document.getElementById("title").innerHTML = "パスワードが間違";
-      break;
+      document.getElementById('mtitle').innerHTML = 'パスワードが間違'; break;
     default:
-      document.getElementById("title").innerHTML = "ログインエラー";
+      document.getElementById('mtitle').innerHTML = 'ログインエラー';
   }
 }
-async function postData(url = '', data = {}) {
-  const response = await fetch(url, {
-    method: "POST",
-    cache: "no-cache",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  });
-  return await response.json();
-}
-function hide() {
-  document.getElementById("body").style.opacity = 1;
-  killModal = setTimeout(function(){document.getElementById("modal").style.visibility = "hidden"},3000);
-  document.getElementById("catch").style.visibility = "hidden";
-  document.getElementById("modal").style.opacity = 0;
-  modalState = false;
-}
-function show() {
-  clearTimeout(killModal);
-  document.getElementById("body").style.opacity = 0.2;
-  document.getElementById("modal").style.visibility = "visible";
-  document.getElementById("catch").style.visibility = "visible";
-  document.getElementById("modal").style.opacity = 1;
-  modalState = true;
-}
-function modalToggle() {
-  modalState ? hide() : show();
-}
-document.onkeydown = function(evt) {
-  evt = evt || window.event;
-  var isEscape = false;
-  if ("key" in evt) {
-    isEscape = (evt.key == "Escape" || evt.key == "Esc");
-  }
-  if (isEscape) {
-    hide();
-  }
-}
-function play() {
-  audio = document.getElementById("player");
-  audio.volume = 0.1;
-  audio.loop = true;
-  var isChromium = window.chrome;
-  if (isChromium !== null && typeof isChromium !== "undefined") {
-    document.body.addEventListener("mousemove", function() {
-      audio.play()
-    });
-  } else {
-    audio.play();
-  }
-}
+init_page();
 init();
