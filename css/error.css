@@ -23,6 +23,15 @@ z-index:0;
 font-family:"Bitstream Vera Sans Mono",monospace
 }
 
+h4 {
+font-family:"Bitstream Vera Sans Mono",monospace;
+color:#fff;
+position:fixed;
+bottom:2em;
+left:2em;
+margin:0
+}
+
 h1 {
 font-family:"Bitstream Vera Sans Mono",monospace;
 font-size:7vmax;

@@ -4,6 +4,8 @@ var trails = [];
 var dead = [];
 var canvasWidth = window.innerWidth;
 function init() {
+  document.getElementById('body').hidden = false;
+  document.getElementById('loader').hidden = true;
   window.requestAnimationFrame(draw);
 }
 function scale() {
