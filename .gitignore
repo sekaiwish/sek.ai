@@ -1,6 +1,8 @@
 ﻿*Thumbs.db
 *test*
 
+/vendor
+
 php/sql.php
 
 google*.html

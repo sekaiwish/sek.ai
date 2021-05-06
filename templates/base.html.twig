@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    {% block head %}
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='author' content='wish'>
+    <title>世界 &middot; {{ title }}</title>
+    <link rel='icon' href='/sekai.ico'>
+    {% endblock %}
+  </head>
+  <body style='background:#000'>
+    <p id='loader' style='position:absolute;color:#333;top:48%;text-align:center;width:100vw'>Loading...</p>
+    <canvas id='canvas'></canvas>
+    <div id='body' hidden>
+      {% block body %}
+      <h1 id='header'>{{ header }}</h1>
+      <div id='data'></div>
+      {{ body|raw }}
+      {% endblock %}
+      <h4>&copy; wish 2021</h4>
+    </div>
+    {% block extra %}
+    <div id='catch' onclick='hide()'></div>
+    <div id='modal' hidden>
+      {{ modal|raw }}
+    </div>
+    <audio id='player'>
+      <source src='theme.flac'>
+    </audio>
+    {{ extra|raw }}
+    {% endblock %}
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=M+PLUS+1p:300,500&amp;display=swap&amp;subset=japanese'>
+    {% block external %}
+    <link rel='stylesheet' href='/css/style.css'>
+    <link rel='stylesheet' href='/css/{{ page }}.css'>
+    <script src='/js/main.js' charset='utf-8'></script>
+    <script src='/js/{{ page }}.js' charset='utf-8'></script>
+    {% endblock %}
+  </body>
+</html>

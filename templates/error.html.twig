@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+{{ parent() }}
+<meta http-equiv='refresh' content='5;url=/'>
+{% endblock %}
+
+{% block body %}
+<h1 id='header'>世界エラー</h1>
+<b>{{ title }}: {{ shorthand }}</b>
+<br>{{ description }}.
+<br>You will now return to the homepage.
+{% endblock %}
+
+{% block extra %}
+{% endblock %}
+
+{% block external %}
+<link rel='stylesheet' href='../css/error.css' type='text/css'>
+<script src='/js/error.js' charset='utf-8'></script>
+{% endblock %}
