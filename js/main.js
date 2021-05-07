@@ -1,6 +1,3 @@
-// Temporarily disable trails globally until patched
-localStorage.setItem("trailsEnabled", false);
-
 var modalState = false;
 var killModal;
 var canvas = document.getElementById('canvas');
@@ -17,7 +14,7 @@ function scale() {
   canvasWidth = window.innerWidth;
 }
 if (!localStorage.getItem('trailsEnabled')) {
-  localStorage.setItem('trailsEnabled', true);
+  localStorage.setItem('trailsEnabled', false);
 }
 function trailsToggle() {
   let state = JSON.parse(localStorage.getItem('trailsEnabled'));
