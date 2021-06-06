@@ -14,7 +14,7 @@ function scale() {
   canvasWidth = window.innerWidth;
 }
 if (!localStorage.getItem('trailsEnabled')) {
-  localStorage.setItem('trailsEnabled', false);
+  localStorage.setItem('trailsEnabled', true);
 }
 function trailsToggle() {
   let state = JSON.parse(localStorage.getItem('trailsEnabled'));
