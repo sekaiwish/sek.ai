@@ -55,7 +55,7 @@
     <title>Shooting Stars</title>
   </head>
   <body>
-    <h1>Meet HOT stars in YOUR area just waiting to be mined!</h1>
+    <h1>OSRS Shooting Stars</h1>
     <p id='data'></p>
     <a class='help' href='#' onclick=help()>How to use?</a>
     <a class='discord' href='https://discord.gg/kePnzpNXXK'>Star Miners Discord</a>
@@ -74,8 +74,7 @@
         10:'Morytania',
         11:'Piscatoris/Gnome Stronghold',
         12:'Tirannwn',
-        13:'Wilderness',
-        14:'Unknown'
+        13:'Wilderness'
       };
       function init() {
         const parent = document.getElementById('data');
@@ -88,6 +87,7 @@
             }
           }
           stars = data;
+          stars.reverse();
           for (var i = 0; i < stars.length; i++) {
             if (stars[i].maxTime < Math.floor(Date.now() / 1000) + 180) {
               continue;
@@ -101,7 +101,7 @@
             }
             minTime = new Date(stars[i].minTime*1000).toLocaleTimeString();
             maxTime = new Date(stars[i].maxTime*1000).toLocaleTimeString();
-            star.innerHTML = 'W'+stars[i].world+' - '+locations[stars[i].location]+' - '+minTime+' ~ '+maxTime
+            star.innerHTML = 'W' + stars[i].world + ' - ' + locations[stars[i].location] + ' - ' + minTime + ' ~ ' + maxTime;
             parent.appendChild(star);
           }
         });
