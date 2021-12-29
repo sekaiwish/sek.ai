@@ -17,6 +17,7 @@
         background-image:url('bg.png');
         background-repeat:no-repeat;
         background-position:center;
+        background-attachment:fixed;
         color:white;
         font-family:'RuneScape UF';
       }
