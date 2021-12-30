@@ -56,3 +56,6 @@ if (empty($result)) {
 // this is a workaround
 $query = $dbi->prepare('DELETE FROM stars WHERE world IS NULL');
 $query->execute();
+
+$query = $dbi->prepare('DELETE FROM stars WHERE location IS NULL');
+$query->execute();
