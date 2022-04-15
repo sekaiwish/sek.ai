@@ -1,9 +1,8 @@
 var modalState = false;
 var killModal;
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d', { alpha: false });
 var trails = [];
-var dead = [];
 var canvasWidth = window.innerWidth;
 function scale() {
   var scale = window.innerWidth / canvasWidth;
@@ -36,14 +35,13 @@ function draw(dir, color) {
   let trailLength = 60;
   if (trails[0]) {
     let len = trails.length;
+    let newTrails = [];
     for (var i = 0; i < len; i++) {
       dir
-        ? (() => { if (trails[i].age < 0) { dead.push(i) } })()
-        : (() => { if (trails[i].age > window.innerHeight + trailLength) { dead.push(i) } })();
+        ? (() => { if (trails[i].age >= 0) { newTrails.push(trails[i]) } })()
+        : (() => { if (trails[i].age <= window.innerHeight + trailLength) { newTrails.push(trails[i]) } })();
     }
-    for (var i = dead.length - 1; i >= 0; i--)
-      trails.splice(dead[i], 1);
-    dead = [];
+    trails = newTrails;
   }
   var newPixel = {};
   dir
@@ -52,8 +50,8 @@ function draw(dir, color) {
   newPixel.position = Math.floor((Math.random() * window.innerWidth) + 1);
   newPixel.velocity = Math.floor((Math.random() * 5) + 2);
   trails.push(newPixel);
-  let leng = trails.length;
-  for (var i = 0; i < leng; i++) {
+  let len = trails.length;
+  for (var i = 0; i < len; i++) {
     ctx.fillStyle = '#FFF';
     dir
       ? ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age + trailLength, 1, 1)
@@ -65,8 +63,8 @@ function draw(dir, color) {
       window.innerHeight - trails[i].age
     );
     dir
-      ? (() => {gradient.addColorStop(0, color); gradient.addColorStop(1, '#000')})()
-      : (() => {gradient.addColorStop(0, '#000'); gradient.addColorStop(1, color)})();
+      ? (() => { gradient.addColorStop(0, color); gradient.addColorStop(1, '#000') })()
+      : (() => { gradient.addColorStop(0, '#000'); gradient.addColorStop(1, color) })();
     ctx.fillStyle = gradient;
     ctx.fillRect(
       trails[i].position,
