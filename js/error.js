@@ -1,7 +1,6 @@
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d', { alpha: false });
 var trails = [];
-var dead = [];
 var canvasWidth = window.innerWidth;
 function init() {
   document.getElementById('body').hidden = false;
@@ -28,14 +27,13 @@ function draw() {
   let trailLength = 80;
   if (trails[0]) {
     let len = trails.length;
+    let newTrails = [];
     for (var i = 0; i < len; i++) {
       trails[i].direction
-        ? (() => { if (trails[i].age < 0) { dead.push(i) } })()
-        : (() => { if (trails[i].age > window.innerHeight + trailLength) { dead.push(i) } })();
+        ? (() => { if (trails[i].age >= 0) { newTrails.push(trails[i]) } })()
+        : (() => { if (trails[i].age <= window.innerHeight + trailLength) { newTrails.push(trails[i]) } })();
     }
-    for (var i = dead.length - 1; i >= 0; i--)
-      trails.splice(dead[i], 1);
-    dead = [];
+    trails = newTrails;
   }
   var newPixel = {};
   newPixel.direction = Math.floor(Math.random() * 2);
@@ -45,8 +43,8 @@ function draw() {
   newPixel.position = Math.floor((Math.random() * window.innerWidth) + 1);
   newPixel.velocity = Math.floor((Math.random() * 3) + 2);
   trails.push(newPixel);
-  let leng = trails.length;
-  for (var i = 0; i < leng; i++) {
+  let len = trails.length;
+  for (var i = 0; i < len; i++) {
     ctx.fillStyle = "#FFF";
     trails[i].direction
       ? ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age + trailLength, 1, 1)
