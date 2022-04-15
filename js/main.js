@@ -4,6 +4,12 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d', { alpha: false });
 var trails = [];
 var canvasWidth = window.innerWidth;
+function ssSet(name, value) {
+  sessionStorage.setItem(name, value);
+}
+function ssGet(name) {
+  return sessionStorage.getItem(name);
+}
 function scale() {
   var scale = window.innerWidth / canvasWidth;
   var len = trails.length;
@@ -142,6 +148,12 @@ function play() {
   } else { audio.play() };
 }
 function init() {
+  var trailsExist = ssGet("trails");
+  if (!trailsExist) {
+    createSession();
+  } else {
+    trails = JSON.parse(trailsExist);
+  }
   document.getElementById('body').hidden = false;
   document.getElementById('modal').hidden = false;
   document.getElementById('loader').hidden = true;
