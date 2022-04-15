@@ -1,19 +1,13 @@
 function redraw() {
   draw(0, "#690099");
 }
-function store(name, value) {
-  sessionStorage.setItem(name, value);
-}
-function retrieve(name) {
-  return sessionStorage.getItem(name);
-}
 function createSession() {
-  store("played", 0.0);
-  store("volume", 0.1);
-  store("track", JSON.stringify([]));
-  store("playlist", JSON.stringify([]));
-  store("index", 0);
-  store("state", false);
+  ssSet("played", 0.0);
+  ssSet("volume", 0.1);
+  ssSet("track", JSON.stringify([]));
+  ssSet("playlist", JSON.stringify([]));
+  ssSet("index", 0);
+  ssSet("state", false);
 }
 const audio = document.getElementById("player");
 function addFolder() {
@@ -23,17 +17,17 @@ function addFolder() {
   }
 }
 function exportPlaylist() {
-  let playlist = retrieve("playlist");
+  let playlist = ssGet("playlist");
   prompt("Copy the text below", playlist);
 }
 function importPlaylist() {
   let imported = prompt("Paste a playlist below");
-  store("playlist", imported);
+  ssSet("playlist", imported);
   populateModal();
   play(0);
 }
 function updatePlaylist(url, title) {
-  let playlist = JSON.parse(retrieve("playlist"));
+  let playlist = JSON.parse(ssGet("playlist"));
   let art = "";
   if (document.getElementById("data")) {
     art = document.getElementById("data").value;
@@ -43,20 +37,20 @@ function updatePlaylist(url, title) {
     item.push(title);
   }
   playlist.push(item);
-  store("playlist", JSON.stringify(playlist));
+  ssSet("playlist", JSON.stringify(playlist));
   if (playlist.length == 1) {
     play(0);
     document.getElementById("reset").hidden = false;
   }
 }
 function removeIndex(index) {
-  let playlist = JSON.parse(retrieve("playlist"));
+  let playlist = JSON.parse(ssGet("playlist"));
   playlist.splice(index, 1);
-  store("playlist", JSON.stringify(playlist));
+  ssSet("playlist", JSON.stringify(playlist));
   populateModal();
 }
 function updateArt() {
-  let art = JSON.parse(retrieve("track"))[1];
+  let art = JSON.parse(ssGet("track"))[1];
   if (art != "") {
     document.getElementById("cover").src = art;
     document.getElementById("cover").hidden = false;
@@ -66,7 +60,7 @@ function updateArt() {
   }
 }
 function play(index) {
-  let data = JSON.parse(retrieve("playlist"))[index];
+  let data = JSON.parse(ssGet("playlist"))[index];
   audio.src = decodeURI(data[0]);
   audio.play();
   let track = [data[0], data[1]];
@@ -76,16 +70,16 @@ function play(index) {
   } else {
     document.getElementById("track").innerHTML = decodeURI(data[0].split("/").pop().split(".").slice(0,-1).join("."));
   }
-  store("track", JSON.stringify(track));
-  store("index", index);
+  ssSet("track", JSON.stringify(track));
+  ssSet("index", index);
   updateArt(index);
 }
 function reset() {
   createSession();
-  location.reload(true);
+  location.reload();
 }
 function populateModal() {
-  let playlist = JSON.parse(retrieve("playlist"));
+  let playlist = JSON.parse(ssGet("playlist"));
   let modal = document.getElementById("contents");
   while (modal.firstChild) {
     modal.removeChild(modal.firstChild);
@@ -109,21 +103,21 @@ function populateModal() {
   }
 }
 window.addEventListener("unload", function() {
-  store("progress", audio.currentTime);
-  store("trails", JSON.stringify(trails));
+  ssSet("progress", audio.currentTime);
+  ssSet("trails", JSON.stringify(trails));
 });
 audio.onvolumechange = function() {
-  store("volume", audio.volume);
+  ssSet("volume", audio.volume);
 };
 audio.onplay = function() {
-  store("state", true);
+  ssSet("state", true);
 };
 audio.onpause = function() {
-  store("state", false);
+  ssSet("state", false);
 }
 audio.addEventListener("ended", function() {
-  let playlist = JSON.parse(retrieve("playlist"));
-  let index = JSON.parse(retrieve("index"));
+  let playlist = JSON.parse(ssGet("playlist"));
+  let index = JSON.parse(ssGet("index"));
   if (!playlist.length < 1) {
     if (!playlist[index + 1]) {
       play(0);
@@ -137,17 +131,17 @@ audio.addEventListener("ended", function() {
   }
 });
 function init() {
-  var trailsExist = retrieve("trails");
+  var trailsExist = ssGet("trails");
   if (!trailsExist) {
     createSession();
   } else {
     trails = JSON.parse(trailsExist);
-    audio.volume = retrieve("volume");
-    let track = JSON.parse(retrieve("track"));
+    audio.volume = ssGet("volume");
+    let track = JSON.parse(ssGet("track"));
     if (!track.length < 1) {
       audio.src = decodeURI(track[0]);
-      audio.currentTime = retrieve("progress");
-      if (JSON.parse(retrieve("state"))) {
+      audio.currentTime = ssGet("progress");
+      if (JSON.parse(ssGet("state"))) {
         audio.play();
       }
       // Sometimes the element just will not update.

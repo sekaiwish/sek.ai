@@ -9,7 +9,7 @@ const data = [
       setTimeout(function(){loadData(1)}, 1000);
     }}
   ],[
-    {label:'discord', url:'discord://open/users/119094696487288833'},
+    {label:'discord', url:'//discord.com/users/119094696487288833'},
     {label:'gpg', url:'/k.asc'},
     {label:'email', url:'mailto:wish@sek.ai'},
     {label:'steam', url:'//steamcommunity.com/id/wishdere'},
