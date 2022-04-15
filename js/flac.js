@@ -82,7 +82,7 @@ function play(index) {
 }
 function reset() {
   createSession();
-  location.reload(true);
+  location.reload();
 }
 function populateModal() {
   let playlist = JSON.parse(retrieve("playlist"));
