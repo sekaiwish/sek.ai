@@ -136,6 +136,9 @@ document.onkeydown = function(evt) {
   if ('key' in evt) { isEscape = (evt.key == 'Escape' || evt.key == 'Esc') };
   if (isEscape) { hide() };
 }
+window.addEventListener("unload", function() {
+  ssSet("trails", JSON.stringify(trails));
+});
 function play() {
   audio = document.getElementById('player');
   audio.volume = 0.1;
