@@ -131,12 +131,11 @@ audio.addEventListener("ended", function() {
   }
 });
 function init() {
-  var trailsExist = ssGet("trails");
-  if (!trailsExist) {
+  var volumeExist = ssGet("volume");
+  if (!volumeExist) {
     createSession();
   } else {
-    trails = JSON.parse(trailsExist);
-    audio.volume = ssGet("volume");
+    audio.volume = JSON.parse(volumeExist);
     let track = JSON.parse(ssGet("track"));
     if (!track.length < 1) {
       audio.src = decodeURI(track[0]);
