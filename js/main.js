@@ -149,9 +149,7 @@ function play() {
 }
 function init() {
   var trailsExist = ssGet("trails");
-  if (!trailsExist) {
-    createSession();
-  } else {
+  if (!!trailsExist) {
     trails = JSON.parse(trailsExist);
   }
   document.getElementById('body').hidden = false;
