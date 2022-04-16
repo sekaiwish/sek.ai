@@ -135,6 +135,10 @@ function init() {
   if (!volumeExist) {
     createSession();
   } else {
+    var trailsExist = ssGet("trails");
+    if (!!trailsExist) {
+      trails = JSON.parse(trailsExist);
+    }
     audio.volume = JSON.parse(volumeExist);
     let track = JSON.parse(ssGet("track"));
     if (!track.length < 1) {
