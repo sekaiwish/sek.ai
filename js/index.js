@@ -2,6 +2,7 @@ var cursorState = false;
 const data = [
   [
     {label:'/home/ - login to sekai', fun:function() {modalToggle()}},
+    {label:'/erupe/ - mhfz server emulator', url:'https://github.com/ZeruLight/Erupe'},
     {label:'/stars/ - osrs shooting star tracker', url:'/stars/'},
     {label:'/iku/ - pomf-powered file hosting', url:'/iku/'},
     {label:'contact information', fun:function() {
