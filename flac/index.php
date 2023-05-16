@@ -7,7 +7,7 @@
     <link rel="icon" href="/sekai.ico">
   </head>
   <body style='background:#000'>
-    <p id='loader' style='position:absolute;color:#333;top:48%;text-align:center;width:100vw'>Loading...</p>
+    <p id='loader' style='position:absolute;color:#333;top:48%;text-align:center;width:100vw;font-family:sans-serif'>Loading...</p>
     <canvas id="canvas"></canvas>
     <div id="body" hidden>
       <h1>/flac/<span><?php echo(urldecode(substr($_SERVER["REQUEST_URI"], 6))); ?></span></h1>
