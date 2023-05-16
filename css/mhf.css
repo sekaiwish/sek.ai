@@ -1,0 +1,59 @@
+#modal {
+position:absolute;
+opacity:0;
+width:70vw;
+max-width:650px;
+min-height:1em;
+right:10vw;
+top:20vh;
+text-align:center;
+border:1px solid #FFF;
+background:rgba(0,0,0,0.5);
+color:#fff;
+box-shadow:0 0 6px #FFF,inset 0 0 6px #FFF;
+z-index:20;
+transition:opacity 3s
+}
+
+#modal ul, #modal ol {
+  text-align: left;
+}
+
+h2 {
+font-family:"Bitstream Vera Sans Mono";
+font-weight:300;
+text-shadow:0 0 4px #FFF;
+margin:auto;
+padding:.5em;
+border-bottom:1px solid #FFF
+}
+
+video {
+width:100%;
+}
+
+#modal a {
+color:#BBF;
+text-decoration:none;
+transition:text-shadow .5s, margin-left .5s;
+}
+
+h1 {
+font-family:"M PLUS 1p",monospace;
+font-size:7vmax;
+white-space:nowrap;
+color:#fff
+}
+
+h4 {
+font-family:"Bitstream Vera Sans Mono",monospace;
+color:#fff;
+position:fixed;
+bottom:2em;
+left:2em;
+margin:0
+}
+
+br {
+margin-bottom:.6em
+}
