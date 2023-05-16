@@ -4,7 +4,8 @@ const data = [
     {label:'how do i install mhf?', fun:function() {switchBox('mhfInstall')}},
     {label:'where do i download erupe?', fun:function() {switchBox('dlErupe')}},
     {label:'how do i install erupe?', fun:function() {switchBox('erupeInstall')}},
-    {label:'is there a wiki?', fun:function() {switchBox('mhfFerias')}}
+    {label:'is there a wiki?', fun:function() {switchBox('mhfFerias')}},
+    {label:'how do i set up my controller?', fun:function() {switchBox('mhfController')}}
   ]
 ];
 function redraw() {
@@ -37,6 +38,10 @@ function switchBox(box) {
     case 'mhfFerias':
       document.getElementById('mtitle').innerHTML = 'visiting ferias';
       document.getElementById('mbody').innerHTML = '<p>You should see the site known as <a href="https://xl3lackout.github.io/MHFZ-Ferias-English-Project/">Ferias</a> for information and further game data.';
+      break;
+    case 'mhfController':
+      document.getElementById('mtitle').innerHTML = 'controller troubleshooting';
+      document.getElementById('mbody').innerHTML = '<p>You should read this <a href="https://pastebin.com/mTe3KWzf">Pastebin</a> for per-controller setup information.';
       break;
     default:
       document.getElementById('mtitle').innerHTML = 'error';
