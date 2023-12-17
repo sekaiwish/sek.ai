@@ -15,9 +15,8 @@ const data = [
     {label:'gpg', url:'/k.asc'},
     {label:'email', url:'mailto:wish@sek.ai'},
     {label:'steam', url:'//steamcommunity.com/id/wishdere'},
-    {label:'gitlab', url:'//gitlab.com/wishu'},
     {label:'github', url:'//github.com/sekaiwish'},
-    {label:'twitter', url:'//twitter.com/wishdere'},
+    {label:'x', url:'//x.com/wishdere'},
     {label:'return', fun:function() {
       document.getElementById('data').style = 'opacity:0';
       setTimeout(function(){loadData(0)}, 1000);
