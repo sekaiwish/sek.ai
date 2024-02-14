@@ -27,7 +27,7 @@
       }
       p {
         text-align:center;
-        font-size:1.1em;
+        font-size:1.5em;
         margin:0;
       }
     </style>
@@ -36,5 +36,9 @@
   <body>
     <h1>OSRS Shooting Stars</h1>
     <p id='data'>This project has closed.</p>
+    <br>
+    <p>Please consider using alternatives such as <a href="https://07.gg/trackers/shooting-star">07.gg</a>.</p>
+    <br>
+    <p>Please avoid supporting malicious actors<br>such as those behind Star Miners.</p>
   </body>
 </html>
