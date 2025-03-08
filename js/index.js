@@ -3,7 +3,7 @@ const data = [
   [
     {label:'/home/ - login to sekai', fun:function() {modalToggle()}},
     {label:'/mhf/ - mhf information', url:'/mhf/'},
-    {label:'/erupe/ - mhf server emulator', url:'https://github.com/ZeruLight/Erupe'},
+    {label:'/erupe/ - mhf server emulator', url:'//github.com/ZeruLight/Erupe'},
     {label:'/stars/ - osrs shooting star tracker', url:'/stars/'},
     {label:'/iku/ - pomf-powered file hosting', url:'/iku/'},
     {label:'contact information', fun:function() {
@@ -11,7 +11,7 @@ const data = [
       setTimeout(function(){loadData(1)}, 1000);
     }}
   ],[
-    {label:'discord', url:'//discord.com/users/119094696487288833'},
+    {label:'discord', url:'discord://click-me/users/119094696487288833'},
     {label:'gpg', url:'/k.asc'},
     {label:'email', url:'mailto:wish@sek.ai'},
     {label:'steam', url:'//steamcommunity.com/id/wishdere'},
