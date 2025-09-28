@@ -3,6 +3,7 @@ var killModal;
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d', { alpha: false });
 var trails = [];
+let trailLength = 60;
 var canvasWidth = window.innerWidth;
 function ssSet(name, value) {
   sessionStorage.setItem(name, value);
@@ -10,13 +11,22 @@ function ssSet(name, value) {
 function ssGet(name) {
   return sessionStorage.getItem(name);
 }
+
+function resizeCanvas() {
+    canvasWidth = window.innerWidth;
+    canvas.width = canvasWidth;
+    canvas.height = window.innerHeight;
+    scale();
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
 function scale() {
   var scale = window.innerWidth / canvasWidth;
   var len = trails.length;
   for (var i = 0; i < len; i++) {
     trails[i].position = Math.round(trails[i].position * scale);
   }
-  canvasWidth = window.innerWidth;
 }
 if (!localStorage.getItem('trailsEnabled')) {
   localStorage.setItem('trailsEnabled', true);
@@ -28,59 +38,56 @@ function trailsToggle() {
     : localStorage.setItem('trailsEnabled', true);
   location.reload(true);
 }
+
+let trailSprite = null;
+function createTrailSprite(color, dir) {
+    let off = document.createElement('canvas');
+    off.width = 1;          // trail is 1px wide
+    off.height = trailLength;
+    let octx = off.getContext('2d', { alpha: false });
+
+    let g = octx.createLinearGradient(0, 0, 0, trailLength);
+    if (dir) {
+        g.addColorStop(0, '#000');
+        g.addColorStop(1, color);
+    } else {
+        g.addColorStop(0, color);
+        g.addColorStop(1, '#000');
+    }
+
+    octx.fillStyle = g;
+    octx.fillRect(0, 0, 1, trailLength);
+
+    return off;
+}
+
 // dir: 0 = up, 1 = down
 function draw(dir, color) {
   if (!JSON.parse(localStorage.getItem('trailsEnabled'))) {
     return;
   }
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-  if (canvasWidth !== window.innerWidth) {
-    scale();
+
+  if (!trailSprite) {
+    trailSprite = createTrailSprite(color, dir);
   }
-  let trailLength = 60;
-  if (trails[0]) {
-    let len = trails.length;
-    let newTrails = [];
-    for (var i = 0; i < len; i++) {
-      dir
-        ? (() => { if (trails[i].age >= 0) { newTrails.push(trails[i]) } })()
-        : (() => { if (trails[i].age <= window.innerHeight + trailLength) { newTrails.push(trails[i]) } })();
-    }
-    trails = newTrails;
-  }
-  var newPixel = {};
-  dir
-    ? newPixel.age = window.innerHeight + trailLength
-    : newPixel.age = 0;
-  newPixel.position = Math.floor((Math.random() * window.innerWidth) + 1);
-  newPixel.velocity = Math.floor((Math.random() * 5) + 2);
-  trails.push(newPixel);
-  let len = trails.length;
-  for (var i = 0; i < len; i++) {
+  trails = trails.filter(t =>
+    dir ? t.age >= 0 : t.age <= window.innerHeight + trailLength
+  );
+
+  trails.push({
+    age: dir ? window.innerHeight + trailLength : 0,
+    position: (Math.random() * canvasWidth) | 0,
+    velocity: (Math.random() * 4 + 2) | 0
+  });
+
+  ctx.clearRect(0, 0, canvasWidth, window.innerHeight);
+
+  for (let t of trails) {
+    let y = (window.innerHeight - t.age) | 0;
     ctx.fillStyle = '#FFF';
-    dir
-      ? ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age + trailLength, 1, 1)
-      : ctx.fillRect(trails[i].position, window.innerHeight - trails[i].age - 1, 1, 1);
-    var gradient = ctx.createLinearGradient(
-      trails[i].position,
-      window.innerHeight - trails[i].age + trailLength,
-      trails[i].position,
-      window.innerHeight - trails[i].age
-    );
-    dir
-      ? (() => { gradient.addColorStop(0, color); gradient.addColorStop(1, '#000') })()
-      : (() => { gradient.addColorStop(0, '#000'); gradient.addColorStop(1, color) })();
-    ctx.fillStyle = gradient;
-    ctx.fillRect(
-      trails[i].position,
-      window.innerHeight - trails[i].age,
-      1,
-      trailLength
-    );
-    dir
-      ? trails[i].age -= trails[i].velocity
-      : trails[i].age += trails[i].velocity;
+    ctx.fillRect(t.position, dir ? y + trailLength : y - 1, 1, 1);
+    ctx.drawImage(trailSprite, t.position, y);
+    t.age += dir ? -t.velocity : t.velocity;
   }
   window.requestAnimationFrame(redraw);
 }
